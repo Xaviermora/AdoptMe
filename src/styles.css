@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+    --primario-100: #8B2522;
+    --primario-80: #6F1D1B;
+    --blanco: #fff;
+    --neutral-primario: #2E2E2E;
+    --neutral-secundario: #4D4D4D;
+    --hover: #F5F4FB;
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
