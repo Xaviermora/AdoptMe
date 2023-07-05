@@ -5,13 +5,15 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { InputComponent } from './components/input/input.component';
+import { BotonAuthGoogleComponent } from './components/boton-auth-google/boton-auth-google.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
-    InputComponent
+    InputComponent,
+    BotonAuthGoogleComponent
   ],
   imports: [
     CommonModule,
