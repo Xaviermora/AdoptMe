@@ -14,3 +14,11 @@ input:focus{
 input:focus~label{
     color: var(--primario-100);
 }
+
+/* Remover color de fondo al autocompletado de chrome */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}

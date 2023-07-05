@@ -10,3 +10,7 @@
 a{
     color: var(--primario-100);
 }
+
+app-input{
+    width: 100%;
+}
