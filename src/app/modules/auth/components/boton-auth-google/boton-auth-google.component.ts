@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-boton-auth-google',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./boton-auth-google.component.css']
 })
 export class BotonAuthGoogleComponent {
-
+  @Input() contenido!: string
 }
