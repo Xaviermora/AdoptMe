@@ -7,6 +7,7 @@ button{
     background: var(--primario-100);
     color: var(--blanco);
     font-weight: 600;
+    width: inherit;
 }
 
 button:hover{
