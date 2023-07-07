@@ -1,6 +1,5 @@
 button{
     display: inline-flex;
-    height: 45px;
     padding: 0 20px;
     justify-content: center;
     align-items: center;
@@ -12,4 +11,12 @@ button{
 
 button:hover{
     background-color: var(--primario-80);
+}
+
+.normal{
+    height: 45px;
+}
+
+.large{
+    height: 52px;
 }

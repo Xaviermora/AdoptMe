@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class PrimaryButtonComponent {
   @Input() contenido!: string
+  @Input() size: string = 'normal'
 }
