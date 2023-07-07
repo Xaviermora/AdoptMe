@@ -9,7 +9,8 @@ import { PrimaryButtonComponent } from './components/buttons/primary-button/prim
     PrimaryButtonComponent
   ],
   exports: [
-    NavbarComponent
+    NavbarComponent,
+    PrimaryButtonComponent
   ],
   imports: [
     CommonModule

@@ -1,0 +1,15 @@
+button{
+    display: inline-flex;
+    height: 45px;
+    padding: 0 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    background: var(--primario-100);
+    color: var(--blanco);
+    font-weight: 600;
+}
+
+button:hover{
+    background-color: var(--primario-80);
+}
