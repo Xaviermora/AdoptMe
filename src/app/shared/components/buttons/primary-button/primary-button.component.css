@@ -8,6 +8,7 @@ button{
     color: var(--blanco);
     font-weight: 600;
     width: inherit;
+    letter-spacing: 1px;
 }
 
 button:hover{
