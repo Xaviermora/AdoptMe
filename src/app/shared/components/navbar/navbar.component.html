@@ -1,28 +1,31 @@
-<nav class="navbar">
+<nav class="navbar sticky top-0">
     <div class="flex flex-warp items-center mx-auto p-2">
-        <a routerLink="#" class="flex items-center mr-10">
-            <img src="../../../../assets/Logo.svg" alt="AdoptMe Logo" class="h-10 mr-2">
+        <a routerLink="#" class="flex items-center mr-20">
+            <img src="../../../../assets/Logo.svg" alt="AdoptMe Logo" class="h-10 mr-3">
             <span class="font-bold self-center text-3xl">AdoptMe</span>
         </a>
         <div class=" w-full md:flex md:w-auto">
             <ul class="font-medium flex flex-row text-xl">
               
               <li>
-                <a href="#" class="block py-2 pl-5 pr-4 mr-5 typography">Prueba</a>
+                <a href="#" class="block py-2 pl-5 pr-4 mr-5 typography">Inicio</a>
               </li>
               <li>
-                <a href="#" class="block py-2 pl-5 pr-4  mr-5 typography">Prueba</a>
+                <a href="#" class="block py-2 pl-5 pr-4  mr-5 typography">Animales</a>
               </li>
               <li>
-                <a href="#" class="block py-2 pl-5 pr-4  mr-5 typography">Prueba</a>
+                <a href="#" class="block py-2 pl-5 pr-4  mr-5 typography">Cuidados</a>
               </li>
               <li>
-                <a href="#" class="block py-2 pl-5 pr-4  mr-5 typography">Prueba</a>
+                <a href="#" class="block py-2 pl-5 pr-4  mr-5 typography">Contacto</a>
               </li>
             </ul>
           </div>
           
-        
+          <div class="section-button absolute right-0 mr-5">
+            <app-primary-button contenido="Ingresar"></app-primary-button>
+            <app-primary-button contenido="Registrarse"></app-primary-button>
+          </div>
     </div>
 </nav>
 

@@ -1,6 +1,8 @@
 .navbar{
     background: #FFF;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+
 }
 
 .typography{
@@ -11,4 +13,14 @@
     font-style: normal;
    
     
+}
+
+.section-button{
+    display: flex;
+    align-items: center;
+    height: 58px;
+    
+   
+    gap: 15px;
+   
 }
