@@ -24,14 +24,24 @@
     height: 250px;
     text-align: center;
     flex-shrink: 0;
+
+    background: url(../../../../../assets/michi.jpeg), lightgray 50% / cover no-repeat;
 }
 .imagen{
     width: 5cm;
     height: 5cm;
 }
 .boton{
-    text-align: center;
-    margin-bottom: 10px;
+    display: flex;
+    height: 45px;
+    padding: 16px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    align-self: stretch;
+
+    border-radius: 6px;
+    background: var(--primario-100, #8B2522);
 }
 .cards{
     display:flex;
