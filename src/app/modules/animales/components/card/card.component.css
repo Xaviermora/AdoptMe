@@ -4,6 +4,7 @@
     border-radius: 1cm;
     width: 10cm;
     flex: 50%;
+    word-wrap: break-word;
 }
 .usuario{
     margin: 5mm;
