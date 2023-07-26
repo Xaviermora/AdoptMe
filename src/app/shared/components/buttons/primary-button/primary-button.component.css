@@ -1,0 +1,24 @@
+button{
+    display: inline-flex;
+    padding: 0 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    background: var(--primario-100);
+    color: var(--blanco);
+    font-weight: 600;
+    width: inherit;
+    letter-spacing: 1px;
+}
+
+button:hover{
+    background-color: var(--primario-80);
+}
+
+.normal{
+    height: 45px;
+}
+
+.large{
+    height: 52px;
+}
