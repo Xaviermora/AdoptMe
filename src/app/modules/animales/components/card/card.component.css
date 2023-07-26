@@ -12,13 +12,20 @@
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.40);
     word-wrap: break-word;
 }
-.usuario .foto{
-    margin: 5mm;
-    width: 40px;
-    height: 40px;
-    border-radius: 30px;
-    background: url(../../../../../assets/pelon.webp);
+
+.foto-del-usuario{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 1.875rem;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
+
+.nombre-del-usuario{
+    color: var(--neutral-primario);
+    font-weight: 600;
+}
+
 .animal{
     width: 300px;
     height: 250px;
