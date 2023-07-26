@@ -1,0 +1,24 @@
+.card{
+    margin: 1cm;
+    border: 5px solid black;
+    border-radius: 1cm;
+    width: 10cm;
+    flex: 50%;
+}
+.usuario{
+    margin: 5mm;
+}
+.animal{
+    text-align: center;
+}
+.imagen{
+    width: 5cm;
+    height: 5cm;
+}
+.card .boton{
+    margin: 5mm;
+    color: #8b2522;
+}
+.cards{
+    display:flex;
+}
