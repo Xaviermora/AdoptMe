@@ -12,7 +12,7 @@
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.40);
     word-wrap: break-word;
 }
-.usuario .foto{
+.foto{
     margin: 5mm;
     width: 40px;
     height: 40px;
@@ -31,21 +31,26 @@
     width: 5cm;
     height: 5cm;
 }
-.boton{
-    display: flex;
-    height: 45px;
-    padding: 16px 20px;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-    align-self: stretch;
 
-    border-radius: 6px;
-    background: var(--primario-100, #8B2522);
-}
 .cards{
     display:flex;
 }
 .card .informacion{
     text-align: center;
+}
+.nom{
+    color: var(--neutral-primario, #2E2E2E);
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 125% */
+}
+.usuario{
+    display: flex;
+justify-content: center;
+align-items: center;
+gap: 7px;
 }
