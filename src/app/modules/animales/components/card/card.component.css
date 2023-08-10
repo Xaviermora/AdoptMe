@@ -33,6 +33,7 @@
 }
 
 .cards{
+    margin: 20px;
     display:flex;
 }
 .card .informacion{
