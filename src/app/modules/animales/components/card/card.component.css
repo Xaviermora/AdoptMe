@@ -52,7 +52,11 @@
 }
 .usuario{
     display: flex;
-justify-content: center;
-align-items: center;
-gap: 7px;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 10px;
+}
+.boton{
+   margin-left: 100px;
 }
