@@ -20,11 +20,13 @@
     border-radius: 1.875rem;
     background-size: cover;
     background-repeat: no-repeat;
+    margin: 10px;
 }
 
 .nombre-del-usuario{
     color: var(--neutral-primario);
     font-weight: 600;
+    
 }
 
 .animal{
@@ -40,11 +42,9 @@
     height: 5cm;
 }
 
-.cards{
-    margin: 20px;
-    display:flex;
+.informacion{
+    margin: 10px;
 }
-
 .nom{
     color: var(--neutral-primario, #2E2E2E);
     text-align: center;
