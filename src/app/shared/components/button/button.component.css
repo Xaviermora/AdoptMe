@@ -1,0 +1,39 @@
+button{
+    display: inline-flex;
+    padding: 0 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    font-weight: 600;
+    width: inherit;
+    letter-spacing: 1px;
+}
+
+.normal{
+    height: 45px;
+}
+
+.large{
+    height: 52px;
+}
+
+/* Primary Button */
+.primary{
+    background: var(--primario-100);
+    color: var(--blanco);
+}
+
+.primary:hover{
+    background-color: var(--primario-80);
+}
+
+/* Secondary Button*/
+.secondary{
+    border: 1px solid var(--primario-100);
+    color: var(--primario-100)
+}
+
+.secondary:hover{
+    background-color: var(--primario-100);
+    color: var(--blanco)
+}
