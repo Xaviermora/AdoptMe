@@ -5,9 +5,9 @@ button{
     align-items: center;
     gap: 0.3rem;
     border-radius: 6px;
-    border: 1px solid rgba(77, 77, 77, 0.50);
+    border: 1px solid var(--neutral-secundario-50);
     font-weight: 600;
-    color: var(--neutral-secundario);
+    color: var(--neutral-secundario-100);
 }
 
 button:hover{
