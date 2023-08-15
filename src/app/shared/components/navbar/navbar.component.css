@@ -6,7 +6,7 @@
 }
 
 .typography{
-    color: var(--neutral-secundario, #4D4D4D);
+    color: var(--neutral-secundario-100, #4D4D4D);
     text-align: center;
     font-family: Poppins;
     

@@ -1,10 +1,10 @@
 label{
-    color: var(--neutral-secundario)
+    color: var(--neutral-secundario-100)
 }
 
 input{
     color: var(--neutral-primario);
-    border-color: var(--neutral-secundario);
+    border-color: var(--neutral-secundario-100);
 }
 
 input:focus{
