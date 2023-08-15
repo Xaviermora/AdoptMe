@@ -10,23 +10,22 @@
     margin: 20px;
 
     /* cards */
-    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.40);
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.40);
     word-wrap: break-word;
 }
 
+/* Usuario */
 .foto-del-usuario{
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 1.875rem;
     background-size: cover;
     background-repeat: no-repeat;
-    margin: 10px;
 }
 
 .nombre-del-usuario{
     color: var(--neutral-primario);
     font-weight: 600;
-    
 }
 
 .animal{
@@ -54,14 +53,4 @@
     font-style: normal;
     font-weight: 600;
     line-height: 20px; /* 125% */
-}
-.usuario{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 7px;
-    margin-bottom: 10px;
-}
-.boton{
-   margin-left: 100px;
 }
