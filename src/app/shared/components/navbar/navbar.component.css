@@ -11,9 +11,8 @@
     font-family: Poppins;
     
     font-style: normal;
-   
-    
 }
+
 
 .section-button{
     display: flex;
@@ -23,4 +22,10 @@
    
     gap: 15px;
    
+}
+
+.prueba{
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
 }
