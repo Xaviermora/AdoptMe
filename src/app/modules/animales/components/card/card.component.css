@@ -27,8 +27,6 @@
     height: 250px;
     text-align: center;
     flex-shrink: 0;
-
-    background: url(../../../../../assets/michi.jpeg);
 }
 .imagen{
     width: 5cm;
