@@ -14,18 +14,12 @@
     word-wrap: break-word;
 }
 
-/* Usuario */
 .foto-del-usuario{
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 1.875rem;
     background-size: cover;
     background-repeat: no-repeat;
-}
-
-.nombre-del-usuario{
-    color: var(--neutral-primario);
-    font-weight: 600;
 }
 
 .animal{
