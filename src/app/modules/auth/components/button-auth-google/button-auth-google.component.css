@@ -6,7 +6,7 @@ button{
     gap: 0.3rem;
     border: 1px solid var(--neutral-secundario-50);
     font-weight: 600;
-    color: var(--neutral-secundario);
+    color: var(--neutral-secundario-100);
 }
 
 button:hover{
