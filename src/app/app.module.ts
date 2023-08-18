@@ -7,7 +7,7 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { SharedModule } from './shared/shared.module';
 
 //FIREBASE
-import { environment } from 'src/enviroments/enviroment.prod';
+import { environment } from 'src/enviroments/enviroment';
 import {AngularFireModule} from '@angular/fire/compat'
 import {AngularFireAuthModule} from '@angular/fire/compat/auth'
 import {AngularFireStorageModule} from '@angular/fire/compat/storage'
@@ -18,7 +18,11 @@ import {AngularFireStorageModule} from '@angular/fire/compat/storage'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    //Modulos de firebase
+    AngularFireModule.initializeApp(environment.firebaseConfig), // INICIALIZA FIREBASE
+    AngularFireAuthModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
