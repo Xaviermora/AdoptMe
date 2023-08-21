@@ -20,7 +20,7 @@
     <div class="relative w-full">
         <!-- Imagen/es -->
         <div class="relative flex h-64 w-full overflow-hidden">
-            <img *ngFor="let img of imagenesAnimal; index as i" [id]="'img-'+i" class="basis-full shrink-0" [src]="img">
+            <img *ngFor="let img of imagenesAnimal; index as i" [id]="'img-'+i" class="basis-full shrink-0 duration-500 ease-in-out" [src]="img">
         </div>
         
         <!-- Controladores siguiente y anterior -->
