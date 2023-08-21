@@ -22,27 +22,6 @@
     background-repeat: no-repeat;
 }
 
-.animal{
-    width: 300px;
-    height: 250px;
-    text-align: center;
-    flex-shrink: 0;
-}
-.imagen{
-    width: 5cm;
-    height: 5cm;
-}
-
 .informacion{
     margin: 10px;
-}
-.nom{
-    color: var(--neutral-primario, #2E2E2E);
-    text-align: center;
-    font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Poppins;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 20px; /* 125% */
 }
