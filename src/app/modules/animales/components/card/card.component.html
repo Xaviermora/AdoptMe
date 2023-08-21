@@ -1,77 +1,65 @@
-<div class="cards">
-    <div class="card">
-        <!-- Card header -->
-        <div class="flex justify-between items-center px-2.5 w-full">
-            <!-- Foto y nombre del usuario -->
-            <div class="flex justify-center items-center gap-2">
-                <div class="foto-del-usuario" style="background-image: url('../../../../../assets/pelon.webp');">
-                </div>
-                <span class="text-neutral-primario font-semibold">Walter White</span>
-            </div>
-
-            <!-- Menu vertical -->
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+<div class="card">
+    <!-- Card header -->
+    <div class="flex justify-between items-center px-2.5 w-full">
+    <!-- Foto y nombre del usuario -->
+    <div class="flex justify-center items-center gap-2">
+        <div class="foto-del-usuario" style="background-image: url('../../../../../assets/pelon.webp');">
         </div>
-
-        <!-- Carousel Imagen/es del animal -->
-        <div id="default-carousel" class="relative w-full" data-carousel="static">
-            <!-- Imagen/es -->
-            <div class="relative h-64 overflow-hidden">
-                <div *ngFor="let img of imagenesAnimal; index as i" id="carousel-item-{{i+1}}" class="hidden duration-200 ease-linear" data-carousel-item>
-                    <img [src]="img"
-                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-                </div>
-            </div>
-
-            <!-- Slider indicators -->
-            <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
-                <button *ngFor="let img of imagenesAnimal; index as i" type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
-                    data-carousel-slide-to="0"></button>
-            </div>
-
-            <!-- Slider controls -->
-            <button type="button"
-                class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                data-carousel-prev>
-                <div class="bg-blanco p-1 inline-flex justify-center items-center rounded-full">
-                    <svg style="transform: translateX(-1px);" width="24" height="24" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15 15L9 10L15 5" stroke="#4D4D4D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>                        
-                </div>
-            </button>
-            <button type="button"
-                class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                data-carousel-next>
-                <div class="bg-blanco p-1 inline-flex justify-center items-center rounded-full">
-                    <svg style="transform: translateX(1px);" width="24" height="24" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 15L15 10L9 5" stroke="#4D4D4D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>                     
-                </div>
-            </button>
-        </div>
-
-        <div class="informacion">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 20 18" fill="none">
-                <g clip-path="url(#clip0_1120_994)">
-                <path d="M5.5 10.125C5.95963 10.125 6.41475 10.0232 6.83939 9.82528C7.26403 9.6274 7.64987 9.33736 7.97487 8.97173C8.29988 8.6061 8.55769 8.17204 8.73358 7.69432C8.90947 7.2166 9 6.70458 9 6.1875C9 5.67042 8.90947 5.1584 8.73358 4.68068C8.55769 4.20296 8.29988 3.7689 7.97487 3.40327C7.64987 3.03764 7.26403 2.7476 6.83939 2.54972C6.41475 2.35185 5.95963 2.25 5.5 2.25C5.04037 2.25 4.58525 2.35185 4.16061 2.54972C3.73597 2.7476 3.35013 3.03764 3.02513 3.40327C2.70012 3.7689 2.44231 4.20296 2.26642 4.68068C2.09053 5.1584 2 5.67042 2 6.1875C2 6.70458 2.09053 7.2166 2.26642 7.69432C2.44231 8.17204 2.70012 8.6061 3.02513 8.97173C3.35013 9.33736 3.73597 9.6274 4.16061 9.82528C4.58525 10.0232 5.04037 10.125 5.5 10.125ZM11 6.1875C11 9.22148 9.05937 11.7457 6.5 12.273V13.5H7.5C8.05313 13.5 8.5 14.0027 8.5 14.625C8.5 15.2473 8.05313 15.75 7.5 15.75H6.5V16.875C6.5 17.4973 6.05312 18 5.5 18C4.94688 18 4.5 17.4973 4.5 16.875V15.75H3.5C2.94688 15.75 2.5 15.2473 2.5 14.625C2.5 14.0027 2.94688 13.5 3.5 13.5H4.5V12.273C1.94062 11.7457 0 9.22148 0 6.1875C0 2.77031 2.4625 0 5.5 0C8.5375 0 11 2.77031 11 6.1875ZM8.49687 12.6773C9.1 12.3223 9.65 11.8652 10.125 11.3273C10.75 11.9777 11.5844 12.375 12.5031 12.375C14.4375 12.375 16.0031 10.6137 16.0031 8.4375C16.0031 6.26133 14.4375 4.5 12.5031 4.5C12.2781 4.5 12.0562 4.52461 11.8438 4.57031C11.6906 3.81445 11.4375 3.1043 11.0938 2.45391C11.5406 2.32031 12.0125 2.25 12.5 2.25C13.6562 2.25 14.7312 2.65078 15.6187 3.33984L16.2625 2.61563L15.2188 1.44141C15.0031 1.19883 14.9406 0.836719 15.0562 0.520312C15.1719 0.203906 15.4469 0 15.75 0H19.25C19.6656 0 20 0.376172 20 0.84375V4.78125C20 5.12227 19.8188 5.43164 19.5375 5.56172C19.2563 5.6918 18.9344 5.62148 18.7188 5.37891L17.675 4.20469L17.0312 4.92891C17.6406 5.92734 18 7.1332 18 8.4375C18 11.8547 15.5375 14.625 12.5 14.625C10.9219 14.625 9.5 13.8762 8.49687 12.6773Z" fill="#2E2E2E"/>
-                </g>
-                <defs>
-                <clipPath id="clip0_1120_994">
-                <rect width="20" height="18" fill="white"/>
-                </clipPath>
-                </defs>
-            </svg>
-            <br>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M16.6667 8.33334C16.6667 13.3333 10 18.3333 10 18.3333C10 18.3333 3.33337 13.3333 3.33337 8.33334C3.33337 6.56523 4.03575 4.86954 5.286 3.61929C6.53624 2.36905 8.23193 1.66667 10 1.66667C11.7682 1.66667 13.4638 2.36905 14.7141 3.61929C15.9643 4.86954 16.6667 6.56523 16.6667 8.33334Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M10 10.8333C11.3807 10.8333 12.5 9.71404 12.5 8.33333C12.5 6.95262 11.3807 5.83333 10 5.83333C8.61929 5.83333 7.5 6.95262 7.5 8.33333C7.5 9.71404 8.61929 10.8333 10 10.8333Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </div>
-
-        <app-button class="w-full primary px-2.5" contenido="Mas información"></app-button>
+        <span class="text-neutral-primario font-semibold">Walter White</span>
     </div>
+
+    <!-- Menu vertical -->
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    </div>
+
+    <!-- Carousel Imagen/es del animal -->
+    <div class="relative w-full">
+        <!-- Imagen/es -->
+        <div class="relative flex h-64 w-full overflow-hidden">
+            <img *ngFor="let img of imagenesAnimal; index as i" [id]="'img-'+i" class="basis-full shrink-0" [src]="img">
+        </div>
+        
+        <!-- Controladores siguiente y anterior -->
+        <div *ngIf="imgActual > 0" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4">
+            <button (click)="anteriorImg()" class="bg-blanco p-1 inline-flex justify-center items-center rounded-full">
+                <svg style="transform: translateX(-1px);" width="24" height="24" viewBox="0 0 24 20" fill="none"xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 15L9 10L15 5" stroke="#4D4D4D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+        <div *ngIf="imgActual < imagenesAnimal.length-1"
+            class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4">
+            <button (click)="siguienteImg()" class="bg-blanco p-1 inline-flex justify-center items-center rounded-full">
+                <svg style="transform: translateX(1px);" width="24" height="24" viewBox="0 0 24 20" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 15L15 10L9 5" stroke="#4D4D4D" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="informacion">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 20 18" fill="none">
+        <g clip-path="url(#clip0_1120_994)">
+        <path d="M5.5 10.125C5.95963 10.125 6.41475 10.0232 6.83939 9.82528C7.26403 9.6274 7.64987 9.33736 7.97487 8.97173C8.29988 8.6061 8.55769 8.17204 8.73358 7.69432C8.90947 7.2166 9 6.70458 9 6.1875C9 5.67042 8.90947 5.1584 8.73358 4.68068C8.55769 4.20296 8.29988 3.7689 7.97487 3.40327C7.64987 3.03764 7.26403 2.7476 6.83939 2.54972C6.41475 2.35185 5.95963 2.25 5.5 2.25C5.04037 2.25 4.58525 2.35185 4.16061 2.54972C3.73597 2.7476 3.35013 3.03764 3.02513 3.40327C2.70012 3.7689 2.44231 4.20296 2.26642 4.68068C2.09053 5.1584 2 5.67042 2 6.1875C2 6.70458 2.09053 7.2166 2.26642 7.69432C2.44231 8.17204 2.70012 8.6061 3.02513 8.97173C3.35013 9.33736 3.73597 9.6274 4.16061 9.82528C4.58525 10.0232 5.04037 10.125 5.5 10.125ZM11 6.1875C11 9.22148 9.05937 11.7457 6.5 12.273V13.5H7.5C8.05313 13.5 8.5 14.0027 8.5 14.625C8.5 15.2473 8.05313 15.75 7.5 15.75H6.5V16.875C6.5 17.4973 6.05312 18 5.5 18C4.94688 18 4.5 17.4973 4.5 16.875V15.75H3.5C2.94688 15.75 2.5 15.2473 2.5 14.625C2.5 14.0027 2.94688 13.5 3.5 13.5H4.5V12.273C1.94062 11.7457 0 9.22148 0 6.1875C0 2.77031 2.4625 0 5.5 0C8.5375 0 11 2.77031 11 6.1875ZM8.49687 12.6773C9.1 12.3223 9.65 11.8652 10.125 11.3273C10.75 11.9777 11.5844 12.375 12.5031 12.375C14.4375 12.375 16.0031 10.6137 16.0031 8.4375C16.0031 6.26133 14.4375 4.5 12.5031 4.5C12.2781 4.5 12.0562 4.52461 11.8438 4.57031C11.6906 3.81445 11.4375 3.1043 11.0938 2.45391C11.5406 2.32031 12.0125 2.25 12.5 2.25C13.6562 2.25 14.7312 2.65078 15.6187 3.33984L16.2625 2.61563L15.2188 1.44141C15.0031 1.19883 14.9406 0.836719 15.0562 0.520312C15.1719 0.203906 15.4469 0 15.75 0H19.25C19.6656 0 20 0.376172 20 0.84375V4.78125C20 5.12227 19.8188 5.43164 19.5375 5.56172C19.2563 5.6918 18.9344 5.62148 18.7188 5.37891L17.675 4.20469L17.0312 4.92891C17.6406 5.92734 18 7.1332 18 8.4375C18 11.8547 15.5375 14.625 12.5 14.625C10.9219 14.625 9.5 13.8762 8.49687 12.6773Z" fill="#2E2E2E"/>
+        </g>
+        <defs>
+        <clipPath id="clip0_1120_994">
+        <rect width="20" height="18" fill="white"/>
+        </clipPath>
+        </defs>
+    </svg>
+    <br>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M16.6667 8.33334C16.6667 13.3333 10 18.3333 10 18.3333C10 18.3333 3.33337 13.3333 3.33337 8.33334C3.33337 6.56523 4.03575 4.86954 5.286 3.61929C6.53624 2.36905 8.23193 1.66667 10 1.66667C11.7682 1.66667 13.4638 2.36905 14.7141 3.61929C15.9643 4.86954 16.6667 6.56523 16.6667 8.33334Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M10 10.8333C11.3807 10.8333 12.5 9.71404 12.5 8.33333C12.5 6.95262 11.3807 5.83333 10 5.83333C8.61929 5.83333 7.5 6.95262 7.5 8.33333C7.5 9.71404 8.61929 10.8333 10 10.8333Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    </div>
+
+    <app-button class="w-full primary px-2.5" contenido="Mas información"></app-button>
 </div>
