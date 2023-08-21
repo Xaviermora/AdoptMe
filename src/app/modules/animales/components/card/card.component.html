@@ -1,19 +1,19 @@
 <div class="card">
     <!-- Card header -->
     <div class="flex justify-between items-center px-2.5 w-full">
-    <!-- Foto y nombre del usuario -->
-    <div class="flex justify-center items-center gap-2">
-        <div class="foto-del-usuario" style="background-image: url('../../../../../assets/pelon.webp');">
+        <!-- Foto y nombre del usuario -->
+        <div class="flex justify-center items-center gap-2">
+            <div class="foto-del-usuario" style="background-image: url('../../../../../assets/pelon.webp');">
+            </div>
+            <span class="text-neutral-primario font-semibold">Walter White</span>
         </div>
-        <span class="text-neutral-primario font-semibold">Walter White</span>
-    </div>
 
-    <!-- Menu vertical -->
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+        <!-- Menu vertical -->
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
     </div>
 
     <!-- Carousel Imagen/es del animal -->
@@ -25,16 +25,16 @@
         
         <!-- Controladores siguiente y anterior -->
         <div *ngIf="imgActual > 0" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4">
-            <button (click)="anteriorImg()" class="bg-blanco p-1 inline-flex justify-center items-center rounded-full">
-                <svg style="transform: translateX(-1px);" width="24" height="24" viewBox="0 0 24 20" fill="none"xmlns="http://www.w3.org/2000/svg">
+            <button (click)="anteriorImg()" class="bg-blanco opacity-90 p-0.5 inline-flex justify-center items-center rounded-full">
+                <svg style="transform: translateX(-1px);" width="20" height="20" viewBox="0 0 24 20" fill="none"xmlns="http://www.w3.org/2000/svg">
                     <path d="M15 15L9 10L15 5" stroke="#4D4D4D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
             </button>
         </div>
         <div *ngIf="imgActual < imagenesAnimal.length-1"
             class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4">
-            <button (click)="siguienteImg()" class="bg-blanco p-1 inline-flex justify-center items-center rounded-full">
-                <svg style="transform: translateX(1px);" width="24" height="24" viewBox="0 0 24 20" fill="none"
+            <button (click)="siguienteImg()" class="bg-blanco opacity-90 p-0.5 inline-flex justify-center items-center rounded-full">
+                <svg style="transform: translateX(1px);" width="20" height="20" viewBox="0 0 24 20" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path d="M9 15L15 10L9 5" stroke="#4D4D4D" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" />
