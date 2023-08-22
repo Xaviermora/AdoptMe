@@ -22,7 +22,7 @@
         <div class="relative flex h-64 w-full overflow-hidden">
             <img *ngFor="let img of imagenesAnimal; index as i" [id]="'img-'+i" class="basis-full shrink-0 duration-500 ease-in-out" [src]="img">
         </div>
-        
+
         <!-- Controladores siguiente y anterior -->
         <div *ngIf="imgActual > 0" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4">
             <button (click)="anteriorImg()" class="bg-blanco opacity-90 p-0.5 inline-flex justify-center items-center rounded-full">
@@ -54,11 +54,13 @@
         </clipPath>
         </defs>
     </svg>
+    <p>Sexo</p>
     <br>
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
         <path d="M16.6667 8.33334C16.6667 13.3333 10 18.3333 10 18.3333C10 18.3333 3.33337 13.3333 3.33337 8.33334C3.33337 6.56523 4.03575 4.86954 5.286 3.61929C6.53624 2.36905 8.23193 1.66667 10 1.66667C11.7682 1.66667 13.4638 2.36905 14.7141 3.61929C15.9643 4.86954 16.6667 6.56523 16.6667 8.33334Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M10 10.8333C11.3807 10.8333 12.5 9.71404 12.5 8.33333C12.5 6.95262 11.3807 5.83333 10 5.83333C8.61929 5.83333 7.5 6.95262 7.5 8.33333C7.5 9.71404 8.61929 10.8333 10 10.8333Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
+    <p>Si</p>
     </div>
 
     <app-button class="w-full primary px-2.5" contenido="Mas información"></app-button>
