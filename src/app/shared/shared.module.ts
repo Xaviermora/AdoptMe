@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ButtonComponent } from './components/button/button.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   declarations: [
@@ -10,10 +11,12 @@ import { ButtonComponent } from './components/button/button.component';
   ],
   exports: [
     NavbarComponent,
-    ButtonComponent
+    ButtonComponent,
+
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AppRoutingModule
   ]
 })
 export class SharedModule { }
