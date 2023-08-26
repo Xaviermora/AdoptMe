@@ -1,1 +1,22 @@
-<p>login works!</p>
+<form id="login" class="lg:w-6/12 md:w-8/12 w-11/12 mx-auto">
+    <h2 class="titulos-2">Iniciar sesión</h2>
+
+    <app-button-auth-google class="w-full" contenido="Iniciar sesión con Google"></app-button-auth-google>
+
+    <div class="w-full flex flex-row gap-3.5 items-center justify-center">
+        <app-divider class="w-full"></app-divider>
+        <span class="text-neutral-secundario-100">o</span>
+        <app-divider class="w-full"></app-divider>
+    </div>
+
+    <app-input type="email" label="Email" idInput="email"></app-input>
+
+    <div class="w-full">
+        <app-input type="password" label="Contraseña" idInput="password"></app-input>
+        <a class="text-xs" routerLink="">¿Olvidaste tu contraseña?</a>
+    </div>
+
+    <app-button class="w-full primary" size="large" contenido="Ingresar"></app-button>
+    
+    <span class="self-start">¿No tenés cuenta? <a routerLink="">Crea una</a></span>
+</form>
