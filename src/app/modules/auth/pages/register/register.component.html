@@ -1,1 +1,28 @@
-<p>register works!</p>
+<form id="register" class="lg:w-6/12 md:w-8/12 w-11/12 mx-auto">
+    <h2 class="titulos-2">Registrarse</h2>
+
+    <app-button-auth-google class="w-full" contenido="Continuar con Google"></app-button-auth-google>
+
+    <div class="w-full flex flex-row gap-3.5 items-center justify-center">
+        <app-divider class="w-full"></app-divider>
+        <span class="text-neutral-secundario-100">o</span>
+        <app-divider class="w-full"></app-divider>
+    </div>
+
+    <div class="flex sm:flex-row flex-col w-full sm:gap-4 gap-8">
+        <app-input type="text" label="Nombre" idInput="nombre"></app-input>
+        <app-input type="text" label="Apellido" idInput="apellido"></app-input>
+    </div>
+
+    <app-input type="email" label="Email" idInput="email"></app-input>
+    
+    <app-input type="date" label="Fecha de nacimiento" idInput="fecha_de_nacimiento"></app-input>
+
+    <app-input type="password" label="Contraseña" idInput="password"></app-input>
+
+    <app-input type="password" label="Repetir contraseña" idInput="repeatPassword"></app-input>
+
+    <app-button class="w-full primary" size="large" contenido="Siguiente"></app-button>
+    
+    <span class="self-start">¿Ya tenés una cuenta? <a routerLink="/login">Incia sesión</a></span>
+</form>
