@@ -1,15 +1,5 @@
-.frame{
-    display: flex;
-    padding: var(--0, 0px);
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 20px;
-    flex: 1 0 0;
-    align-self: stretch;
-}
 
-.h1{
+h1{
     display: flex;
     width: 526px;
     height: 176px;
@@ -19,21 +9,21 @@
     color: var(--neutral-primario, #2E2E2E);
 }
 
-.img{
+img{
     width: 644px;
     height: 438px;
     flex-shrink: 0;
 }
 
-.p{
+p{
     width: 376.954px;
 }
 
-.button{
+.botonIzq{
     width: 376.954px;
 }
 
-.button{
+button{
     border-radius: 6px;
     border: 1px solid var(--primario-100, #8B2522);
 }
