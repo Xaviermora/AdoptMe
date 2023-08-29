@@ -7,23 +7,78 @@ h1{
     justify-content: center;
 
     color: var(--neutral-primario, #2E2E2E);
-}
 
-img{
-    width: 644px;
-    height: 438px;
-    flex-shrink: 0;
+    /* Titulos/1 */
+    font-family: Poppins;
+    font-size: 72px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 88px; /* 122.222% */
+    letter-spacing: -0.72px;
 }
 
 p{
     width: 376.954px;
+
+    color: var(--neutral-secundario-100, #4D4D4D);
+
+    /* Parrafos */
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px; /* 150% */
+    letter-spacing: 0.1px;
 }
 
-.botonIzq{
-    width: 376.954px;
+img{
+    width: 600px;
+    height: 400px;
+    flex-shrink: 0;
+    right: 100px;
+}
+button.botonIzq{
+    display: flex;
+    height: 54px;
+    padding: 0px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+
+    border-radius: 6px;
+    background: var(--primario-100, #8B2522);
+
+    color: var(--blanco, var(--white, #FFF));
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* Botones */
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 125% */
 }
 
-button{
+button.botonDere{
+    display: flex;
+    height: 54px;
+    padding: 0px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+
     border-radius: 6px;
     border: 1px solid var(--primario-100, #8B2522);
+
+    color: var(--primario-100, #8B2522);
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* Botones */
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 125% */
 }
