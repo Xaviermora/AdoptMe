@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import { Modal } from 'flowbite';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent{  
+export class CardComponent{
   imagenesAnimal: string[] = [
     '../../../../../assets/michi.jpeg',
     'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Cat_on_its_back.jpg/220px-Cat_on_its_back.jpg',
@@ -14,6 +15,8 @@ export class CardComponent{
   imgActual: number = 0 // Posición de la imagen que se esta mostrando en el carousel
 
   constructor(){
+    const $targetEl = document.getElementById('defaultModal');
+    const modal = new Modal($targetEl, undefined);
   }
 
   anteriorImg(){
