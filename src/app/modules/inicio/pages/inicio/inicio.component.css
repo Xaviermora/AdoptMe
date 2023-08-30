@@ -1,3 +1,22 @@
+.contenedor{
+    display: flex;
+    justify-content: center;
+}
+
+
+.columnaIzq{
+
+    padding: 25px;
+    margin: 0 5px;
+
+}
+
+.columnaDere{
+
+    padding: 25px;
+    margin: 0 5px;
+
+}
 
 h1{
     display: flex;
@@ -58,6 +77,9 @@ button.botonIzq{
     font-style: normal;
     font-weight: 600;
     line-height: 20px; /* 125% */
+
+    padding: 25px;
+    margin: 0 5px;
 }
 
 button.botonDere{
@@ -81,4 +103,7 @@ button.botonDere{
     font-style: normal;
     font-weight: 600;
     line-height: 20px; /* 125% */
+
+    padding: 25px;
+    margin: 0 165px;
 }
