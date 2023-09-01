@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-input-password',
@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./input-password.component.css']
 })
 export class InputPasswordComponent {
+  @Input() type: string = 'password'
+  @Input() label!: string
+  @Input() idInput!: string
+  hide: boolean = true
 
+  changeVisibility(type: string){
+    this.hide = !this.hide
+    this.type = type
+  }
 }
