@@ -15,7 +15,8 @@ import { SearchSelectComponent } from './components/search-select/search-select.
   exports: [
     NavbarComponent,
     ButtonComponent,
-    DividerComponent
+    DividerComponent,
+    SearchSelectComponent
   ],
   imports: [
     CommonModule
