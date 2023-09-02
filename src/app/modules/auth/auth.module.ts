@@ -17,7 +17,7 @@ import { SecondRegisterComponent } from './pages/second-register/second-register
     ButtonAuthGoogleComponent,
     InputPasswordComponent,
     FirstRegisterComponent,
-    SecondRegisterComponent,
+    SecondRegisterComponent
   ],
   imports: [
     CommonModule,

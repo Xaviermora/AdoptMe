@@ -9,20 +9,13 @@
         <app-divider class="w-full"></app-divider>
     </div>
 
-    <div class="flex sm:flex-row flex-col w-full sm:gap-4 gap-8">
-        <app-input type="text" label="Nombre" idInput="nombre"></app-input>
-        <app-input type="text" label="Apellido" idInput="apellido"></app-input>
-    </div>
-
     <app-input type="email" label="Email" idInput="email"></app-input>
-    
-    <app-input type="date" label="Fecha de nacimiento" idInput="fecha_de_nacimiento"></app-input>
 
     <app-input-password label="Contraseña" idInput="password"></app-input-password>
 
     <app-input-password label="Repetir contraseña" idInput="repeatPassword"></app-input-password>
 
-    <app-button class="w-full primary" size="large" contenido="Siguiente"></app-button>
+    <app-button routerLink="/second-register" class="w-full primary" size="large" contenido="Siguiente"></app-button>
     
     <span class="self-start">¿Ya tenés una cuenta? <a routerLink="/login">Incia sesión</a></span>
 </form>

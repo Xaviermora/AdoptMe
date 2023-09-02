@@ -1,0 +1,16 @@
+#register{
+    display: flex;
+    padding: 1.25rem 1.875rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+a{
+    color: var(--primario-100);
+}
+
+app-input, app-input-password{
+    width: 100%;
+}
