@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-search-select',
@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./search-select.component.css']
 })
 export class SearchSelectComponent {
-
+  @Input() idInput!: string
+  @Input() idList!: string
+  @Input() label!: string
+  @Input() list!: any[]
 }
