@@ -8,6 +8,7 @@ import { ButtonAuthGoogleComponent } from './components/button-auth-google/butto
 import { SharedModule } from 'src/app/shared/shared.module';
 import { InputPasswordComponent } from './components/input-password/input-password.component';
 import { FirstRegisterComponent } from './pages/first-register/first-register.component';
+import { SecondRegisterComponent } from './pages/second-register/second-register.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FirstRegisterComponent } from './pages/first-register/first-register.co
     InputComponent,
     ButtonAuthGoogleComponent,
     InputPasswordComponent,
-    FirstRegisterComponent
+    FirstRegisterComponent,
+    SecondRegisterComponent,
   ],
   imports: [
     CommonModule,
