@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./second-register.component.css']
 })
 export class SecondRegisterComponent {
-
+  provincias = [
+    'a',
+    'b',
+    'c'
+  ]
 }

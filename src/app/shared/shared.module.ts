@@ -4,13 +4,15 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ButtonComponent } from './components/button/button.component';
 import { DividerComponent } from './components/divider/divider.component';
 import { SearchSelectComponent } from './components/search-select/search-select.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     ButtonComponent,
     DividerComponent,
-    SearchSelectComponent
+    SearchSelectComponent,
+    FilterPipe
   ],
   exports: [
     NavbarComponent,
