@@ -11,6 +11,6 @@ a{
     color: var(--primario-100);
 }
 
-app-input, app-input-password{
+app-input, app-input-password, app-search-select{
     width: 100%;
 }
