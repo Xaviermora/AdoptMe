@@ -5,6 +5,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { DividerComponent } from './components/divider/divider.component';
 import { SearchSelectComponent } from './components/search-select/search-select.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     SearchSelectComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ]
 })
 export class SharedModule { }
