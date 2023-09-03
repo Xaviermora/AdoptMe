@@ -10,4 +10,6 @@ export class SearchSelectComponent {
   @Input() idList!: string
   @Input() label!: string
   @Input() list!: any[]
+
+  searchItem: string = ''
 }
