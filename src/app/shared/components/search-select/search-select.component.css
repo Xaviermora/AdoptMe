@@ -1,7 +1,12 @@
-/* Remover color de fondo al autocompletado de chrome */
+/* Remover color de fondo al autocompletado */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Quita el icono de la flecha por defecto */
+input::-webkit-calendar-picker-indicator {
+    opacity:0;
 }
