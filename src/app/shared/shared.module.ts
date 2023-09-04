@@ -21,7 +21,8 @@ import { InputRadioComponent } from './components/input-radio/input-radio.compon
     NavbarComponent,
     ButtonComponent,
     DividerComponent,
-    SearchSelectComponent
+    SearchSelectComponent,
+    InputRadioComponent
   ],
   imports: [
     CommonModule,
