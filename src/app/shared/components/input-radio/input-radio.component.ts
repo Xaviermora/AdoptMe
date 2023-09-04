@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-input-radio',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./input-radio.component.css']
 })
 export class InputRadioComponent {
-
+  @Input() valueInput!: string
+  @Input() name!: string
 }
