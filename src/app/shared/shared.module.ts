@@ -6,6 +6,7 @@ import { DividerComponent } from './components/divider/divider.component';
 import { SearchSelectComponent } from './components/search-select/search-select.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FormsModule } from '@angular/forms';
+import { InputRadioComponent } from './components/input-radio/input-radio.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
     ButtonComponent,
     DividerComponent,
     SearchSelectComponent,
-    FilterPipe
+    FilterPipe,
+    InputRadioComponent
   ],
   exports: [
     NavbarComponent,
