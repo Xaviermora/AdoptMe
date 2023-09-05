@@ -1,3 +1,4 @@
+/*inicio de la primera parte*/
 .contenedor{
     display: flex;
     justify-content: center;
@@ -56,8 +57,7 @@ img{
     flex-shrink: 0;
     right: 100px;
 }
-button.botonIzq{
-    display: flex;
+.botonIzq{
     height: 54px;
     padding: 0px 20px;
     justify-content: center;
@@ -67,7 +67,7 @@ button.botonIzq{
     border-radius: 6px;
     background: var(--primario-100, #8B2522);
 
-    color: var(--blanco, var(--white, #FFF));
+    color: var(--Blanco, var(--white, #FFF));
     text-align: center;
     font-feature-settings: 'clig' off, 'liga' off;
 
@@ -75,15 +75,11 @@ button.botonIzq{
     font-family: Poppins;
     font-size: 16px;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 600;   
     line-height: 20px; /* 125% */
-
-    padding: 25px;
-    margin: 0 5px;
 }
 
-button.botonDere{
-    display: flex;
+.botonDere{
     height: 54px;
     padding: 0px 20px;
     justify-content: center;
@@ -104,6 +100,97 @@ button.botonDere{
     font-weight: 600;
     line-height: 20px; /* 125% */
 
-    padding: 25px;
-    margin: 0 165px;
+    margin: 10px;
+
 }
+/*Fin de la primera parte*/
+
+
+/*Inicio de la segunda parte*/
+h1{
+    display: flex;
+    width: 526px;
+    height: 183px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+
+    color: var(--neutral-primario, #2E2E2E);
+    font-family: Poppins;
+    font-size: 74px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 88px; /* 118.919% */
+    letter-spacing: -0.74px;
+}
+
+.imgizquierdo{
+    width: 256px;
+    height: 199px;
+    flex-shrink: 0;
+
+    border-radius: 25px;
+    background: url("../../../../../assets/image.1.png"), lightgray 50% / cover no-repeat;
+
+}
+
+.imgderecho{
+    width: 256px;
+    height: 199px;
+    flex-shrink: 0;
+
+    border-radius: 25px;
+    background: url("../../../../../assets/image.1.png"), lightgray 50% / cover no-repeat;
+}
+
+.botoni{
+    display: flex;
+    height: 54px;
+    padding: 0px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+
+    border-radius: 6px;
+    background: var(--primario-100, #8B2522);
+
+    color: var(--Blanco, var(--white, #FFF));
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* Botones */
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 125% */
+}
+
+.botond{
+    display: flex;
+    height: 54px;
+    padding: 0px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+
+    border-radius: 6px;
+    background: var(--primario-100, #8B2522);
+
+    color: var(--Blanco, var(--white, #FFF));
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* Botones */
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 125% */
+}
+
+
+/*Fin de la segunda parte*/
+
+
