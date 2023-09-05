@@ -21,6 +21,8 @@ module.exports = {
       hover: '#F5F4FB'
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms')
+  ],
 }
 
