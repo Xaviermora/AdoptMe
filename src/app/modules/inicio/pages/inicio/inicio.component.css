@@ -107,10 +107,18 @@ img{
 
 
 /*Inicio de la segunda parte*/
-h1{
+.contenedor{
     display: flex;
-    width: 526px;
-    height: 183px;
+    justify-content: center;
+}
+
+.p1{
+
+
+}
+
+h1{
+    text-align: center;
     flex-direction: column;
     justify-content: center;
     flex-shrink: 0;
@@ -143,7 +151,7 @@ h1{
     background: url("../../../../../assets/image.1.png"), lightgray 50% / cover no-repeat;
 }
 
-.botoni{
+.boton1{
     display: flex;
     height: 54px;
     padding: 0px 20px;
@@ -166,7 +174,7 @@ h1{
     line-height: 20px; /* 125% */
 }
 
-.botond{
+.boton2{
     display: flex;
     height: 54px;
     padding: 0px 20px;
@@ -189,6 +197,19 @@ h1{
     font-weight: 600;
     line-height: 20px; /* 125% */
 }
+
+.columnaI{
+
+    padding: 25px;
+    margin: 0 5px;
+}
+
+.columnaD{
+
+    padding: 25px;
+    margin: 0 5px;
+}
+
 
 
 /*Fin de la segunda parte*/
