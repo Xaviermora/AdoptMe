@@ -8,6 +8,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { InputRadioComponent } from './components/input-radio/input-radio.component';
 import { InputComponent } from './components/input/input.component';
+import { InputCheckboxComponent } from './components/input-checkbox/input-checkbox.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { InputComponent } from './components/input/input.component';
     SearchSelectComponent,
     FilterPipe,
     InputRadioComponent,
-    InputComponent
+    InputComponent,
+    InputCheckboxComponent
   ],
   exports: [
     NavbarComponent,
