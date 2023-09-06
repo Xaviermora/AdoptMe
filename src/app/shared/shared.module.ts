@@ -27,7 +27,8 @@ import { InputCheckboxComponent } from './components/input-checkbox/input-checkb
     DividerComponent,
     SearchSelectComponent,
     InputRadioComponent,
-    InputComponent
+    InputComponent,
+    InputCheckboxComponent
   ],
   imports: [
     CommonModule,
