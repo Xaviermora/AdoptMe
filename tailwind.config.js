@@ -6,6 +6,7 @@ module.exports = {
   ],
   theme: {
     colors: {
+      transparent: 'transparent',
       blanco: '#ffffff',
       primario: {
         100: '#8B2522',
@@ -22,7 +23,7 @@ module.exports = {
     },
   },
   plugins: [
-    require('flowbite/plugin')
+    require('@tailwindcss/forms')
   ],
 }
 

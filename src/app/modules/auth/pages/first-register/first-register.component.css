@@ -1,4 +1,4 @@
-#login{
+#register{
     display: flex;
     padding: 1.25rem 1.875rem;
     flex-direction: column;
@@ -11,6 +11,8 @@ a{
     color: var(--primario-100);
 }
 
-app-input{
-    width: 100%;
+app-input, app-search-select, app-input-password{
+  width: 100%;
+  border: 0;
+  padding: 0;
 }
