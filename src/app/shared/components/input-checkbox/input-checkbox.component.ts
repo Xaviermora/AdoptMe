@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class InputCheckboxComponent {
   @Input() idInput!: string
+  @Input() label!: string
 }

@@ -25,7 +25,12 @@
 
   <app-input type="number" idInput="dni" label="DNI"></app-input>
 
-  <app-input-checkbox idInput="terminos-y-condiciones"></app-input-checkbox>
+  <div class="flex gap-1">
+    <app-input-checkbox class="flex mt-0.5" idInput="terminos-y-condiciones"></app-input-checkbox>
+    <span class="text-neutral-secundario-100">
+      Acepto los <a href="">términos y condiciones</a> y permito el uso de mis datos según la <a href="">política de privacidad</a>.
+    </span>
+  </div>
 
   <app-button class="primary w-full" contenido="Registrarse"></app-button>
 </form>
