@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./filtros.component.css']
 })
 export class FiltrosComponent {
-
+  razas=[
+    "Calle",
+    "Vereda",
+    "Asfalto",
+    "PLaza"
+  ]
 }
