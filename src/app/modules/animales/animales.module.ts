@@ -5,12 +5,14 @@ import { AnimalesRoutingModule } from './animales-routing.module';
 import { CardComponent } from './components/card/card.component';
 import { ModalComponent } from './components/card/modal/modal.component';
 import { SharedModule } from "../../shared/shared.module";
+import { AnimalesComponent } from './pages/animales/animales.component';
 
 
 @NgModule({
     declarations: [
         CardComponent,
-        ModalComponent
+        ModalComponent,
+        AnimalesComponent
     ],
     imports: [
         CommonModule,
