@@ -65,7 +65,7 @@
         </div>
     </div>
 
-    <app-button data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="w-full primary px-3" contenido="Mas información"></app-button>
+    <app-button [attr.data-modal-target]="'modal-'+publicacion.id" [attr.data-modal-toggle]="'modal-'+publicacion.id" class="w-full primary px-3" contenido="Mas información"></app-button>
 </div>
 
-<app-modal></app-modal>
+<app-modal [publicacion]="publicacion"></app-modal>

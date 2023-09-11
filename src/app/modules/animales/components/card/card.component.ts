@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, AfterViewInit } from '@angular/core';
 import { Modal } from 'flowbite';
 
 @Component({
@@ -6,13 +6,15 @@ import { Modal } from 'flowbite';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent{
+export class CardComponent implements AfterViewInit{
   @Input() publicacion!: any
   
   imgActual: number = 0 // Posición de la imagen que se esta mostrando en el carousel
 
-  constructor(){
-    const $targetEl = document.getElementById('defaultModal');
+  constructor(){}
+
+  ngAfterViewInit(){
+    const $targetEl = document.getElementById(`modal-${this.publicacion.id}`);
     const modal = new Modal($targetEl, undefined);
   }
 
