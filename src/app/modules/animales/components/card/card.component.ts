@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Modal } from 'flowbite';
 
 @Component({
@@ -7,11 +7,8 @@ import { Modal } from 'flowbite';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent{
-  imagenesAnimal: string[] = [
-    '../../../../../assets/michi.jpeg',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Cat_on_its_back.jpg/220px-Cat_on_its_back.jpg',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Gato_Siam%C3%A9s_ojos_azules.JPG/220px-Gato_Siam%C3%A9s_ojos_azules.JPG'
-  ]
+  @Input() publicacion!: any
+  
   imgActual: number = 0 // Posición de la imagen que se esta mostrando en el carousel
 
   constructor(){
@@ -19,15 +16,23 @@ export class CardComponent{
     const modal = new Modal($targetEl, undefined);
   }
 
+  movimientoImgs(){
+    this.publicacion.imagenesAnimal.forEach((_: any, i: number) => {
+      let img = document.getElementById(`${this.publicacion.id}-img-${i}`) // Se obtiene la imagen
+
+      img!.style.transform = `translateX(-${(this.imgActual)*100}%)` // Se aplica el estilo a la imagen para que se mueva hacia un costado
+    })
+  }
+
   anteriorImg(){
     this.imgActual -= 1
 
-    this.imagenesAnimal.forEach((_,i) => document.getElementById(`img-${i}`)!.style.transform = `translateX(-${(this.imgActual)*100}%)`)
+    this.movimientoImgs()
   }
 
   siguienteImg(){
     this.imgActual += 1
 
-    this.imagenesAnimal.forEach((_,i) => document.getElementById(`img-${i}`)!.style.transform = `translateX(-${(this.imgActual)*100}%)`)
+    this.movimientoImgs()
   }
 }

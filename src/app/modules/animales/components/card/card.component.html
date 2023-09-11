@@ -20,7 +20,7 @@
     <div class="relative w-full">
         <!-- Imagen/es -->
         <div class="relative flex h-64 w-full overflow-hidden">
-            <img *ngFor="let img of imagenesAnimal; index as i" [id]="'img-'+i" class="basis-full shrink-0 duration-500 ease-in-out" [src]="img">
+            <img *ngFor="let img of publicacion.imagenesAnimal; index as i" [id]="publicacion.id+'-img-'+i" class="basis-full shrink-0 duration-500 ease-in-out" [src]="img">
         </div>
 
         <!-- Controladores siguiente y anterior -->
@@ -31,7 +31,7 @@
                 </svg>
             </button>
         </div>
-        <div *ngIf="imgActual < imagenesAnimal.length-1"
+        <div *ngIf="imgActual < publicacion.imagenesAnimal.length-1"
             class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4">
             <button (click)="siguienteImg()" class="bg-blanco opacity-90 p-0.5 inline-flex justify-center items-center rounded-full">
                 <svg style="transform: translateX(1px);" width="20" height="20" viewBox="0 0 24 20" fill="none"
@@ -46,7 +46,9 @@
     <!-- Contenido -->
     <div class="px-3 py-2 flex justify-between w-full">
         <div class="flex flex-col gap-1">
-            <span class="-translate-y-1 font-semibold text-lg text-neutral-primario flex align-top">Figaro</span>
+            <span class="-translate-y-1 font-semibold text-lg text-neutral-primario flex align-top">
+                {{publicacion.nombre}}
+            </span>
             <div class="flex gap-1">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path d="M16.6667 8.33334C16.6667 13.3333 10 18.3333 10 18.3333C10 18.3333 3.33337 13.3333 3.33337 8.33334C3.33337 6.56523 4.03575 4.86954 5.286 3.61929C6.53624 2.36905 8.23193 1.66667 10 1.66667C11.7682 1.66667 13.4638 2.36905 14.7141 3.61929C15.9643 4.86954 16.6667 6.56523 16.6667 8.33334Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
