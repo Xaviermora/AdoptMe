@@ -13,19 +13,8 @@
     font-style: normal;
 }
 
-
-.section-button{
-    display: flex;
-    align-items: center;
-    height: 58px;
-    
+.typography:hover{
+    color: #000000;
    
-    gap: 15px;
    
-}
-
-.prueba{
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
 }
