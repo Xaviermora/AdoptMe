@@ -12,4 +12,8 @@ export class FiltrosComponent {
     "Asfalto",
     "PLaza"
   ]
+  animal=[
+    "Perro",
+    "Gato"
+  ]
 }

@@ -1,6 +1,8 @@
 <div class="flex p-4 flex-col w-full">
   <h3  class="text-xl font-semibold text-gray-900 dark:text-white">FILTROS</h3>
 
+  <app-search-select idInput="raza" idList="razas" label="Animal" [list]="animal"></app-search-select>
+
   <app-input-radio valueInput="macho" name="sexo"></app-input-radio>
   <app-input-radio valueInput="mujer" name="sexo"></app-input-radio>
 
