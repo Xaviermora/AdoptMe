@@ -16,4 +16,11 @@ export class FiltrosComponent {
     "Perro",
     "Gato"
   ]
+  edad=[
+    "Cachorro lactante",
+    "Cachorro",
+    "Cachorro adolecente",
+    "Adulto",
+    "Senior"
+  ]
 }
