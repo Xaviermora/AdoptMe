@@ -8,14 +8,14 @@
             <button type="button" class="botonIzq">ver animales</button>
             <button type="button" class="botonDere">Dar en adopcion</button>
         </div>
-       
-          
-        <div class="columnaDere">     
+
+
+        <div class="columnaDere">
             <img src="../../../../../assets/Img perro y gato.jpg" alt="width: 80;">
         </div>
 
     </div>
-</div>   
+</div>
 
 <!--segundo componente-->
 <!-- <div class="row">
@@ -34,28 +34,28 @@
     </div>
 </div> -->
 
-<div class="row">
-    <h1>Servicios</h1>
-    <div class="contenedor">
-        <div>
-            <div class="card mb-3">
-                <img src="../../../../../assets/image.1.png" class="card" alt="...">
-                <div class="card-body">
-                  <p class="" >Ver los animales que se dan en adopcion en el sitio, con informacion detallada</p>
-                  <button type="button" class="boton1">Ver animales</button>
-                </div>
-            </div>    
-        </div>
-        <div>
-            <div class="card mb-3">
-                <img src="../../../../../assets/image.1.png" class="card" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Ver los animales que se dan en adopcion en el sitio, con informacion detallada</h5>
-                  <button type="button" class="boton2">Dar en adopcion</button>
-                </div>
-            </div>
-    
-
+<div class="contenedor">
+    <div class="row">
+        <h1 class="h2">Servicios</h1>
+        <div class="col" *ngFor="let i of info" id="contenido">
+            <!-- LEE NUESTRO ARRAY INFO -->                
+                <mat-card class="example-card">
+                <mat-card-header>
+                    <mat-card-title class="titulo"></mat-card-title>
+                </mat-card-header>
+                <!-- APLICAMOS INTERPOLACIÓN ej: {{i.imagen}} -->
+                <img mat-card-image class="imagen" src="{{i.imagen}}" alt="{{i.alt}}" width="300%">
+                    
+                <mat-card-content>
+                    <p>
+                        {{i.descripcion}}
+                    </p>
+                </mat-card-content>
+                    
+                <mat-card-actions>
+                    <button mat-button class="boton">{{i.boton}}</button>
+                </mat-card-actions>
+            </mat-card>
         </div>
     </div>
 </div>
