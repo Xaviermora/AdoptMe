@@ -23,4 +23,8 @@ export class FiltrosComponent {
     "Adulto",
     "Senior"
   ]
+  provincia=[
+    "Neuquen",
+    "Rio Negro"
+  ]
 }
