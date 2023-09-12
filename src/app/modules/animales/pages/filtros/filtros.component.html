@@ -1,10 +1,13 @@
-<div class="flex p-4 flex-col w-full">
+<div class="flex p-4 flex-col w-full gap-4">
   <h3  class="text-xl font-semibold text-gray-900 dark:text-white">Filtros</h3>
 
   <app-search-select idInput="raza" idList="razas" label="Animal" [list]="animal"></app-search-select>
 
-  <app-input-radio valueInput="macho" name="sexo"></app-input-radio>
-  <app-input-radio valueInput="mujer" name="sexo"></app-input-radio>
+  <div>
+    <app-input-radio valueInput="macho" name="sexo"></app-input-radio>
+    <app-input-radio valueInput="mujer" name="sexo"></app-input-radio>
+  </div>
+  <app-input-checkbox idInput="castrado" label="Castrado"></app-input-checkbox>
 
   <app-search-select idInput="raza" idList="razas" label="Raza" [list]="razas"></app-search-select>
 
