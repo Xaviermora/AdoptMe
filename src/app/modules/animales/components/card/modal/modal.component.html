@@ -8,7 +8,7 @@
               {{publicacion.nombre}}
             </h3>
             <!-- BOTON PARA CERRAR EL MODAL -->
-            <button type="button" class="text-neutral-secundario-50 bg-transparent focus:bg-gray-200 hover:text-neutral-secundario-100 rounded-full text-sm w-8 h-8 ml-auto inline-flex justify-center items-center" [attr.data-modal-hide]="'modal-'+publicacion.id">
+            <button type="button" class="text-neutral-secundario-50 bg-transparent hover:bg-gray-200 hover:text-neutral-secundario-100 rounded-full text-sm w-8 h-8 ml-auto inline-flex justify-center items-center" data-modal-hide="defaultModal">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
               </svg>
@@ -41,14 +41,14 @@
           </span>
         </div>
         <!--REQUISITOS-->
-        <div class="px-8 pb-5">
+        <div class="px-8">
           <p class="font-semibold text-neutral-primario">Requisitos</p>
           <span>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, pariatur. Sint rem sed temporibus nobis ab laboriosam, cumque incidunt quam? Explicabo velit quasi molestias? Nulla assumenda temporibus voluptatibus possimus vero?
           </span>
         </div>
         <!-- Modal footer -->
-        <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b">
+        <div class="flex items-center px-8 pb-6 pt-8 border-gray-200 rounded-b">
           <app-button class="primary w-full" contenido="Solicitar adopción"></app-button>
         </div>
     </div>
