@@ -1,8 +1,7 @@
-
 <nav class="navbar sticky w-full z-20 top-0 left-0">
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3.5">
+  <div class="max-w-screen-xl flex flex-wrap items-center mx-auto py-3.5 pr-3">
     <!-- Icono menu -->
-    <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center typography md:hidden" aria-controls="navbar-sticky" aria-expanded="true">
+    <button id="menuBtn" data-collapse-toggle="navbar-sticky" type="button" class="flex items-center p-2 w-10 h-10 justify-center" aria-controls="navbar-sticky" aria-expanded="true">
       <span class="sr-only">Menu</span>
       <svg class="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 17 14">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
@@ -10,40 +9,33 @@
     </button>
     
     <!-- Logo -->
-    <a  routerLink="#" class="flex items-center">
+    <a id="logo" routerLink="#" class="flex items-center">
         <img src="../../../../assets/Logo.svg" class="h-12 mr-3" alt="AdoptMe">
-        <span class="self-center text-3xl font-semibold whitespace-nowrap text-neutral-primario">AdoptMe</span>
+        <span id="logoName" class="self-center text-3xl font-semibold whitespace-nowrap text-neutral-primario hidden">AdoptMe</span>
     </a>
 
     <!-- Buttons -->
-    <div class="flex md:order-2 space-x-5">
-      <app-button class="secondary" contenido="Ingresar" routerLink="login"></app-button>
-      <app-button class="primary md:block hidden" contenido="Registrarse" routerLink=""></app-button>
+    <div class="ml-auto flex md:order-2 space-x-3 w-max">
+      <app-button class="secondary w-28" contenido="Ingresar" routerLink="login"></app-button>
+      <app-button class="primary lg:block hidden" contenido="Registrarse" routerLink=""></app-button>
     </div>
 
     <!-- Links -->
-    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-      <ul class="flex flex-col p-4 md:p-0 mt-4 md:flex-row md:gap-4 md:mt-1">
+    <div class="items-center justify-between hidden w-full md:w-auto md:order-1 md:ml-10" id="navbar-sticky">
+      <ul class="flex flex-col p-4 md:p-0 mt-4 md:flex-row md:gap-7 md:mt-1">
         <li>
-          <a href="#" class="block py-2 pl-3 pr-4 typography" aria-current="page">Inicio</a>
+          <a href="#" class="block typography" aria-current="page">Inicio</a>
         </li>
         <li>
-          <a href="#" class="block py-2 pl-3 pr-4 typography">Animales</a>
+          <a href="#" class="block typography">Animales</a>
         </li>
         <li>
-          <a href="#" class="block py-2 pl-3 pr-4 typography">Dar en adopción</a>
+          <a href="#" class="block typography">Dar en adopción</a>
         </li>
         <li>
-          <a href="#" class="block py-2 pl-3 pr-4 typography">Contacto</a>
+          <a href="#" class="block typography">Contacto</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-
-
-
-
-
-
-
