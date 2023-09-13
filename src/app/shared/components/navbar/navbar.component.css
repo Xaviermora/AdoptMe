@@ -8,13 +8,11 @@
 .typography{
     color: var(--neutral-secundario-100, #4D4D4D);
     text-align: center;
-    font-family: Poppins;
-    
+    font-weight: 500;
     font-style: normal;
+    font-size: 1.2rem;
 }
 
 .typography:hover{
-    color: #000000;
-   
-   
+    color: var(--primario-100);
 }
