@@ -1,4 +1,5 @@
 import { Component,Input } from '@angular/core';
+import { Collapse } from 'flowbite';
 
 @Component({
   selector: 'app-navbar',
@@ -6,5 +7,10 @@ import { Component,Input } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
- 
+  constructor(){}
+
+  ngOnInit(){
+    const $targetEl = document.getElementById('menu')
+    new Collapse($targetEl);
+  }
 }
