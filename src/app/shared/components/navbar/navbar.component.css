@@ -21,11 +21,23 @@
     #menuBtn{
         display: none;
     }
-    #navbar-sticky{
+    #menu{
         display: flex;
+        order: 1;
+        width: auto;
+        margin-left: 2.5rem;
+    }
+    #items-menu{
+        flex-direction: row;
+        gap: 1.75rem;
+        margin-top: 0.25rem;
+        padding: 0;
     }
     #logo{
-        padding-left: 1.5rem;
+        padding-left: 1rem;
+    }
+    #buttons{
+        order: 2;
     }
 }
 
