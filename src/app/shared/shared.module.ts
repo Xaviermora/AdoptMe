@@ -30,7 +30,8 @@ import { SelectComponent } from './components/select/select.component';
     SearchSelectComponent,
     InputRadioComponent,
     InputComponent,
-    InputCheckboxComponent
+    InputCheckboxComponent,
+    SelectComponent
   ],
   imports: [
     CommonModule,
