@@ -11,7 +11,7 @@ a{
     color: var(--primario-100);
 }
 
-app-input, app-search-select{
+app-input, app-search-select, app-input-phone{
   width: 100%;
   border: 0;
   padding: 0;
