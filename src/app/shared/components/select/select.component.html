@@ -1,6 +1,6 @@
 <div class="relative z-0">
-    <select [(ngModel)]="valueSelect" [id]="idSelect" [name]="idSelect" class="text-neutral-primario border-neutral-secundario-100 block pb-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-primario-100 bg-none peer" aria-placeholder="">
-        <option *ngFor="let item of list" [value]="item | titlecase">{{item | titlecase}}</option>
+    <select [(ngModel)]="valueSelect" [id]="idSelect" [name]="idSelect" class="text-neutral-primario border-neutral-secundario-100 block pb-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-primario-100 bg-none peer">
+        <option class="text-neutral-secundario-100" *ngFor="let item of list" [value]="item | titlecase">{{item | titlecase}}</option>
     </select>
 
     <label [for]="idSelect" class="text-neutral-secundario-100 absolute text-sm duration-300 transform -z-10 origin-[0] peer-focus:left-0 peer-focus:scale-75 peer-focus:-translate-y-13 peer-focus:text-primario-100" [ngClass]="{'-translate-y-8 scale-100': !valueSelect, 'scale-75 -translate-y-13': valueSelect}">{{label}}</label>
