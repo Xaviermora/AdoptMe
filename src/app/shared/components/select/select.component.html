@@ -1,15 +1,15 @@
 <div class="relative z-0">
-    <select id="underline_select" class="block py-2.5 pr-6 pl-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 bg-none appearance-none peer">
-        <option selected>Elegui</option>
+    <select [(ngModel)]="valueSelect" [id]="idInput" name="fe" class="text-neutral-primario border-neutral-secundario-100 block pb-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-primario-100 bg-none peer" aria-placeholder="">
+        <option value="" hidden></option>
         <option value="US">United States</option>
         <option value="CA">Canada</option>
         <option value="FR">France</option>
         <option value="DE">Germany</option>
     </select>
 
-    <label for="underline_select" class="text-neutral-secundario-100 absolute text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:text-primario-100">Underline select</label>
-
+    <label [for]="idInput" class="text-neutral-secundario-100 absolute text-sm duration-300 transform -z-10 origin-[0] peer-focus:left-0 peer-focus:scale-75 peer-focus:-translate-y-13 peer-focus:text-primario-100" [ngClass]="{'-translate-y-8 scale-100': !valueSelect, 'scale-75 -translate-y-13': valueSelect}">{{label}}</label>
+    
     <svg xmlns="http://www.w3.>org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute right-0 top-1/4">
         <path d="m6 9 6 6 6-6"/>
-    </svg>
+    </svg> 
 </div>
