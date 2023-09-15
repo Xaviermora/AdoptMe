@@ -31,4 +31,10 @@ export class SecondRegisterComponent {
     "Tierra del Fuego",
     "Tucumán"
   ];  
+
+  ciudades = [
+    'a',
+    'b',
+    'c'
+  ]
 }
