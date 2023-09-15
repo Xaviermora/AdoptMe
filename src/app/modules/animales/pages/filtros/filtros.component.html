@@ -1,7 +1,7 @@
 <div class="flex p-4 flex-col w-full gap-4">
   <h3  class="text-xl font-semibold text-gray-900 dark:text-white">Filtros</h3>
 
-  <app-search-select idInput="raza" idList="razas" label="Animal" [list]="animal"></app-search-select>
+  <app-select idSelect="animal" label="Animal" [list]="animal"></app-select>
 
   <div>
     <app-input-radio valueInput="macho" name="sexo"></app-input-radio>
@@ -16,5 +16,4 @@
   <app-search-select idInput="raza" idList="razas" label="Provincia" [list]="razas"></app-search-select>
 
   <app-search-select idInput="raza" idList="razas" label="Ciudad" [list]="razas"></app-search-select>
-
 </div>
