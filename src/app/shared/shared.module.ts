@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { InputRadioComponent } from './components/input-radio/input-radio.component';
 import { InputComponent } from './components/input/input.component';
 import { InputCheckboxComponent } from './components/input-checkbox/input-checkbox.component';
+import { InputPhoneComponent } from './components/input-phone/input-phone.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { InputCheckboxComponent } from './components/input-checkbox/input-checkb
     FilterPipe,
     InputRadioComponent,
     InputComponent,
-    InputCheckboxComponent
+    InputCheckboxComponent,
+    InputPhoneComponent
   ],
   exports: [
     NavbarComponent,
@@ -28,7 +30,8 @@ import { InputCheckboxComponent } from './components/input-checkbox/input-checkb
     SearchSelectComponent,
     InputRadioComponent,
     InputComponent,
-    InputCheckboxComponent
+    InputCheckboxComponent,
+    InputPhoneComponent
   ],
   imports: [
     CommonModule,
