@@ -30,7 +30,8 @@ import { InputPhoneComponent } from './components/input-phone/input-phone.compon
     SearchSelectComponent,
     InputRadioComponent,
     InputComponent,
-    InputCheckboxComponent
+    InputCheckboxComponent,
+    InputPhoneComponent
   ],
   imports: [
     CommonModule,
