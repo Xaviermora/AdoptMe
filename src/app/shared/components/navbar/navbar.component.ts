@@ -7,7 +7,7 @@ import { Collapse } from 'flowbite';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  constructor(){}
+  menuIsActive: boolean = false
 
   ngOnInit(){
     const $targetEl = document.getElementById('menu')

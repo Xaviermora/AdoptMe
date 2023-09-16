@@ -1,15 +1,15 @@
 <nav class="navbar sticky w-full z-20 top-0 left-0">
   <div class="max-w-screen-xl flex flex-wrap items-center mx-auto py-3.5 pr-3">
-    <button id="menuBtn" data-collapse-toggle="menu" type="button" class="flex items-center p-2 w-fit h-fit justify-center" aria-controls="menu" aria-expanded="false">
+    <button id="menuBtn" (click)="menuIsActive = !menuIsActive" data-collapse-toggle="menu" type="button" class="flex items-center p-2 w-fit h-fit justify-center" aria-controls="menu" aria-expanded="false">
       <!-- Icono menu -->
-      <svg class="inline-block" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg [class.hidden]="menuIsActive" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <line x1="4" x2="20" y1="12" y2="12"/>
         <line x1="4" x2="20" y1="6" y2="6"/>
         <line x1="4" x2="20" y1="18" y2="18"/>
       </svg>
 
       <!-- Icono para cerrar el menu -->
-      <svg class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg [class.hidden]="!menuIsActive" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M18 6 6 18"/>
         <path d="m6 6 12 12"/>
       </svg>
