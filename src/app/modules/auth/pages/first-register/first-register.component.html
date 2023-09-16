@@ -1,4 +1,4 @@
-<form id="register" [formGroup]="register1" class="lg:w-6/12 md:w-8/12 w-11/12 mx-auto">
+<form id="register" [formGroup]="register1" (ngSubmit)="onSubmit()" class="lg:w-6/12 md:w-8/12 w-11/12 mx-auto">
     <h2 class="titulos-2">Registrarse</h2>
 
     <app-button-auth-google class="w-full" contenido="Continuar con Google"></app-button-auth-google>
@@ -15,7 +15,7 @@
 
     <app-input-password label="Repetir contraseña" idInput="repeatPassword" [control]="register1.controls.repeatPassword"></app-input-password>
 
-    <app-button routerLink="/second-register" class="w-full primary" size="large" contenido="Siguiente"></app-button>
+    <app-button class="w-full primary" size="large" contenido="Siguiente"></app-button>
 
     <span class="self-start">¿Ya tenés una cuenta? <a routerLink="/login">Inicia sesión</a></span>
 </form>
