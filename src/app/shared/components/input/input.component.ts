@@ -10,5 +10,5 @@ export class InputComponent {
   @Input() type!: string
   @Input() label!: string
   @Input() idInput!: string
-  @Input() control!: FormControl
+  @Input() control: FormControl = new FormControl()
 }
