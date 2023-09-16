@@ -8,6 +8,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { InputPasswordComponent } from './components/input-password/input-password.component';
 import { FirstRegisterComponent } from './pages/first-register/first-register.component';
 import { SecondRegisterComponent } from './pages/second-register/second-register.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SecondRegisterComponent } from './pages/second-register/second-register
   imports: [
     CommonModule,
     AuthRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class AuthModule { }
