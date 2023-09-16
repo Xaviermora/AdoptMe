@@ -1,6 +1,6 @@
 <nav class="navbar sticky w-full z-20 top-0 left-0">
   <div class="max-w-screen-xl flex flex-wrap items-center mx-auto py-3.5 pr-3">
-    <button id="menuBtn" (click)="menuIsActive = !menuIsActive" data-collapse-toggle="menu" type="button" class="flex items-center p-2 w-fit h-fit justify-center" aria-controls="menu" aria-expanded="false">
+    <button id="menuBtn" (click)="menuIsActive = !menuIsActive" data-collapse-toggle="menu" type="button" class="flex items-center p-2 w-fit h-fit justify-center rounded-full mx-2" aria-controls="menu" aria-expanded="false">
       <!-- Icono menu -->
       <svg [class.hidden]="menuIsActive" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <line x1="4" x2="20" y1="12" y2="12"/>
@@ -17,7 +17,7 @@
     
     <!-- Logo -->
     <a id="logo" routerLink="#" class="flex items-center">
-        <img src="../../../../assets/Logo.svg" class="h-12 mr-3" alt="AdoptMe">
+        <img src="../../../../assets/Logo.svg" class="h-10 mr-2" alt="AdoptMe">
         <span id="logoName" class="self-center text-3xl font-semibold whitespace-nowrap text-neutral-primario hidden">AdoptMe</span>
     </a>
 

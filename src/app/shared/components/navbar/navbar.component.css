@@ -36,6 +36,9 @@
     #logo{
         padding-left: 1rem;
     }
+    #logo>img{
+        height: 3rem;
+    }
     #buttons{
         order: 2;
     }
