@@ -15,6 +15,8 @@ export class FirstRegisterComponent {
     repeatPassword: new FormControl('', Validators.required)
   })
 
+  sendedEmailVerification: boolean = false
+
   constructor(private authService: AuthService, private router: Router){}
 
   async onSubmit(){
@@ -23,6 +25,8 @@ export class FirstRegisterComponent {
     if(password === repeatPassword && email && password){ // Se verifica que las contraseñas coincidan y los datos existan
       try {
         const res = await this.authService.register(email, password)
+        this.sendedEmailVerification = true
+        await res.user?.sendEmailVerification({url: 'http://localhost:4200/second-register'}) // Se envia correo de verificación de email
       } catch (error) {
         console.log(error)
       }

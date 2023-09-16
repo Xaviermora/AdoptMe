@@ -1,6 +1,8 @@
 <form id="register" [formGroup]="register1" (ngSubmit)="onSubmit()" class="lg:w-6/12 md:w-8/12 w-11/12 mx-auto">
     <h2 class="titulos-2">Registrarse</h2>
 
+    <span *ngIf="sendedEmailVerification">Te enviamos un correo para verificar tu email</span>
+
     <app-button-auth-google class="w-full" contenido="Continuar con Google"></app-button-auth-google>
 
     <div class="w-full flex flex-row gap-3.5 items-center justify-center">
