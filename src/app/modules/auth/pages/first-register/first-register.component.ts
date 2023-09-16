@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-first-register',
@@ -9,14 +10,22 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class FirstRegisterComponent {
   register1 = new FormGroup({
-    email: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required),
     repeatPassword: new FormControl('', Validators.required)
   })
 
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService, private router: Router){}
 
-  onSubmit(){
-    console.log(this.register1)
+  async onSubmit(){
+    const { email, password, repeatPassword } = this.register1.value
+    
+    if(password === repeatPassword && email && password){ // Se verifica que las contraseñas coincidan y los datos existan
+      try {
+        const res = await this.authService.register(email, password)
+      } catch (error) {
+        console.log(error)
+      }
+    }
   }
 }
