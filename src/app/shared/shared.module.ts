@@ -10,6 +10,7 @@ import { InputRadioComponent } from './components/input-radio/input-radio.compon
 import { InputComponent } from './components/input/input.component';
 import { InputCheckboxComponent } from './components/input-checkbox/input-checkbox.component';
 import { InputPhoneComponent } from './components/input-phone/input-phone.component';
+import { SelectComponent } from './components/select/select.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { InputPhoneComponent } from './components/input-phone/input-phone.compon
     InputRadioComponent,
     InputComponent,
     InputCheckboxComponent,
-    InputPhoneComponent
+    InputPhoneComponent,
+    SelectComponent
   ],
   exports: [
     NavbarComponent,
@@ -31,7 +33,8 @@ import { InputPhoneComponent } from './components/input-phone/input-phone.compon
     InputRadioComponent,
     InputComponent,
     InputCheckboxComponent,
-    InputPhoneComponent
+    InputPhoneComponent,
+    SelectComponent
   ],
   imports: [
     CommonModule,
