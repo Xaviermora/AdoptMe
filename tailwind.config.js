@@ -2,8 +2,14 @@
 module.exports = {
   content: [
     "./src/**/*.{html,ts}",
+    "./node_modules/flowbite/**/*.js"
   ],
   theme: {
+    extend: {
+      translate: {
+        '13': '3.3rem'
+      }
+    },
     colors: {
       transparent: 'transparent',
       blanco: '#ffffff',
