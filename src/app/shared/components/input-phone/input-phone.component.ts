@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-input-phone',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./input-phone.component.css']
 })
 export class InputPhoneComponent {
-
+  @Input() control: FormControl = new FormControl()
 }
