@@ -1,16 +1,16 @@
-<form id="register" class="lg:w-6/12 md:w-8/12 w-11/12 mx-auto">
+<form id="register" (ngSubmit)="onSubmit()" [formGroup]="datosPersonales" class="lg:w-6/12 md:w-8/12 w-11/12 mx-auto">
   <h2 class="titulos-2">Datos personales</h2>
 
   <div class="flex sm:flex-row flex-col w-full sm:gap-4 gap-8">
-    <app-input type="text" label="Nombre" idInput="nombre"></app-input>
-    <app-input type="text" label="Apellido" idInput="apellido"></app-input>
+    <app-input type="text" label="Nombre" idInput="nombre" [control]="datosPersonales.controls.nombre"></app-input>
+    <app-input type="text" label="Apellido" idInput="apellido" [control]="datosPersonales.controls.apellido"></app-input>
   </div>
 
-  <app-input type="date" label="Fecha de nacimiento" idInput="fechaDeNacimiento"></app-input>
+  <app-input type="date" label="Fecha de nacimiento" idInput="fechaDeNacimiento" [control]="datosPersonales.controls.fechaDeNacimiento"></app-input>
 
-  <app-search-select label="Provincia" idInput="provincia" idList="provincias" [list]="provincias"></app-search-select>
+  <app-select idSelect="provincias" label="Provincia" [list]="provincias" [control]="datosPersonales.controls.provincia"></app-select>
 
-  <app-search-select label="Ciudad" idInput="ciudad" idList="ciu9dades" [list]="ciudades"></app-search-select>
+  <app-select idSelect="ciudades" label="Ciudad" [list]="ciudades" [control]="datosPersonales.controls.ciudad"></app-select>
 
   <div class="w-full text-neutral-secundario-100">
     <span>Tipo de vivienda</span>
@@ -23,7 +23,7 @@
     <app-input type="number" label="Número" idInput="numVivienda"></app-input>
   </div>
 
-  <app-input-phone></app-input-phone>
+  <app-input-phone [control]="datosPersonales.controls.telefono"></app-input-phone>
 
   <app-input type="number" idInput="dni" label="DNI"></app-input>
 

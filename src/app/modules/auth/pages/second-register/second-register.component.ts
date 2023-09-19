@@ -6,6 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./second-register.component.css']
 })
 export class SecondRegisterComponent {
+  datosPersonales = new FormGroup({
+    nombre: new FormControl('', Validators.required),
+    apellido: new FormControl('', Validators.required),
+    fechaDeNacimiento: new FormControl('', Validators.required),
+    provincia: new FormControl('', Validators.required),
+    ciudad: new FormControl('', Validators.required),
+    tipoDeVivienda: new FormControl('', Validators.required),
+    calle: new FormControl('', Validators.required),
+    numVivienda: new FormControl('', Validators.required),
+    telefono: new FormControl('', Validators.required),
+    dni: new FormControl('', Validators.required)
+  })
+
   provincias = [
     "Buenos Aires",
     "Catamarca",
