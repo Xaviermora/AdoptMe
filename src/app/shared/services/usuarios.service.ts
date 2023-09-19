@@ -13,7 +13,6 @@ export class UsuariosService {
   }
 
   async addUser(usuario: any){
-    const resultado = await this.usuariosCollection.doc(usuario.uid).set(usuario)
-    console.log(resultado)
+    await this.usuariosCollection.doc(usuario.uid).set(usuario)
   }
 }
