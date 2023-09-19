@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { Usuario } from 'src/app/models/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -10,5 +12,8 @@ export class UsuariosService {
     this.usuariosCollection = this.database.collection<Usuario>('usuarios')
   }
 
-  constructor() { }
+  async addUser(usuario: any){
+    const resultado = await this.usuariosCollection.doc(usuario.uid).set(usuario)
+    console.log(resultado)
+  }
 }
