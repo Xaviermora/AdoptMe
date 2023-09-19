@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UsuariosService } from 'src/app/shared/services/usuarios.service';
 
 @Component({
   selector: 'app-second-register',
@@ -44,10 +47,24 @@ export class SecondRegisterComponent {
     "Tierra del Fuego",
     "Tucumán"
   ];  
-
   ciudades = [
     'a',
     'b',
     'c'
   ]
+
+  constructor(private authService: AuthService, private usuariosService: UsuariosService){}
+
+  onSubmit(){
+    this.authService.currentUser().then(async user => {
+      if(user){
+        let credentialsUser = {
+          uid: user.uid,
+          email: user.email,
+          ...this.datosPersonales.value
+        }
+        await this.usuariosService.addUser(credentialsUser)
+      }
+    })
+  }
 }
