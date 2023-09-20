@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UsuariosService } from 'src/app/shared/services/usuarios.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-second-register',
@@ -51,7 +52,7 @@ export class SecondRegisterComponent {
     'c'
   ]
 
-  constructor(private authService: AuthService, private usuariosService: UsuariosService){}
+  constructor(private authService: AuthService, private usuariosService: UsuariosService, private router: Router){}
 
   onSubmit(){
     this.authService.currentUser().then(async user => {
@@ -62,6 +63,7 @@ export class SecondRegisterComponent {
           ...this.datosPersonales.value
         }
         await this.usuariosService.addUser(credentialsUser)
+        this.router.navigate(['/'])
       }
     })
   }
