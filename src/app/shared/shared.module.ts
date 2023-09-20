@@ -18,7 +18,8 @@ import { TextareaComponent } from './components/textarea/textarea.component';
     NavbarComponent,
     ButtonComponent,
     DividerComponent,
-    FooterComponent
+    FooterComponent,
+    TextareaComponent
   ],
   imports: [
     CommonModule
