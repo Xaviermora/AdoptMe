@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TextoComponent } from './texto.component';
+import { TextareaComponent } from './textarea.component';
 
-describe('TextoComponent', () => {
-  let component: TextoComponent;
-  let fixture: ComponentFixture<TextoComponent>;
+describe('TextareaComponent', () => {
+  let component: TextareaComponent;
+  let fixture: ComponentFixture<TextareaComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TextoComponent]
+      declarations: [TextareaComponent]
     });
-    fixture = TestBed.createComponent(TextoComponent);
+    fixture = TestBed.createComponent(TextareaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

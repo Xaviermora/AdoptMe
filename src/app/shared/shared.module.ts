@@ -4,13 +4,15 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ButtonComponent } from './components/button/button.component';
 import { DividerComponent } from './components/divider/divider.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { TextareaComponent } from './components/textarea/textarea.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     ButtonComponent,
     DividerComponent,
-    FooterComponent
+    FooterComponent,
+    TextareaComponent
   ],
   exports: [
     NavbarComponent,
