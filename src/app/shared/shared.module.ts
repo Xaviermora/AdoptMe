@@ -5,6 +5,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { DividerComponent } from './components/divider/divider.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TextareaComponent } from './components/textarea/textarea.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TextareaComponent } from './components/textarea/textarea.component';
     TextareaComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }
