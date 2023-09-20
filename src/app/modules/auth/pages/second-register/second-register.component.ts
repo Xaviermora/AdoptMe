@@ -55,16 +55,18 @@ export class SecondRegisterComponent {
   constructor(private authService: AuthService, private usuariosService: UsuariosService, private router: Router){}
 
   onSubmit(){
-    this.authService.currentUser().then(async user => {
-      if(user){
-        let credentialsUser = {
-          uid: user.uid,
-          email: user.email,
-          ...this.datosPersonales.value
+    if(this.datosPersonales.status == 'VALID'){
+      this.authService.currentUser().then(async user => {
+        if(user){
+          let credentialsUser = {
+            uid: user.uid,
+            email: user.email,
+            ...this.datosPersonales.value
+          }
+          await this.usuariosService.addUser(credentialsUser)
+          this.router.navigate(['/'])
         }
-        await this.usuariosService.addUser(credentialsUser)
-        this.router.navigate(['/'])
-      }
-    })
+      })
+    }
   }
 }
