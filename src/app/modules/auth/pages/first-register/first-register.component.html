@@ -1,9 +1,10 @@
 <form id="register" [formGroup]="register1" (ngSubmit)="onSubmit()" class="lg:w-6/12 md:w-8/12 w-11/12 mx-auto">
     <h2 class="titulos-2">Registrarse</h2>
-
     <span *ngIf="sendedEmailVerification">Te enviamos un correo para verificar tu email</span>
 
     <app-button-auth-google class="w-full" contenido="Continuar con Google"></app-button-auth-google>
+
+    <div *ngIf="errorMsg">{{errorMsgContent}}</div>
 
     <div class="w-full flex flex-row gap-3.5 items-center justify-center">
         <app-divider class="w-full"></app-divider>
@@ -11,7 +12,11 @@
         <app-divider class="w-full"></app-divider>
     </div>
 
-    <app-input type="email" label="Email" idInput="email" [control]="register1.controls.email"></app-input>
+    <div class="w-full flex flex-col gap-1">
+      <app-input type="email" label="Email" idInput="email" [control]="register1.controls.email"></app-input>
+      <div *ngIf="register1.controls.email.errors?.['required'] && register1.controls.email.touched" class="text-primario-100 text-sm">El email es requerido</div>
+      <div *ngIf="register1.controls.email.errors?.['email'] && register1.controls.email.touched" class="text-primario-100 text-sm">El email es invalido</div>
+    </div>
 
     <app-input-password label="Contraseña" idInput="password" [control]="register1.controls.password"></app-input-password>
 
