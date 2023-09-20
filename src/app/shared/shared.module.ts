@@ -6,6 +6,7 @@ import { DividerComponent } from './components/divider/divider.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TextareaComponent } from './components/textarea/textarea.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { InputComponent } from './components/input/input.component';
 
 @NgModule({
   declarations: [
@@ -13,14 +14,16 @@ import { ReactiveFormsModule } from '@angular/forms';
     ButtonComponent,
     DividerComponent,
     FooterComponent,
-    TextareaComponent
+    TextareaComponent,
+    InputComponent
   ],
   exports: [
     NavbarComponent,
     ButtonComponent,
     DividerComponent,
     FooterComponent,
-    TextareaComponent
+    TextareaComponent,
+    InputComponent
   ],
   imports: [
     CommonModule,
