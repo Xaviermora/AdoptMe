@@ -16,8 +16,6 @@ export class SecondRegisterComponent {
     provincia: new FormControl('', Validators.required),
     ciudad: new FormControl('', Validators.required),
     tipoDeVivienda: new FormControl('', Validators.required),
-    calle: new FormControl('', Validators.required),
-    numVivienda: new FormControl('', Validators.required),
     telefono: new FormControl('', Validators.required),
     dni: new FormControl('', Validators.required)
   })
@@ -46,7 +44,7 @@ export class SecondRegisterComponent {
     "Santiago del Estero",
     "Tierra del Fuego",
     "Tucumán"
-  ];  
+  ];
   ciudades = [
     'a',
     'b',
