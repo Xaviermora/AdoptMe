@@ -5,7 +5,6 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
   providedIn: 'root'
 })
 export class AuthService {
-  user: any
   constructor(private auth: AngularFireAuth) { }
 
   register(email: string, password: string){
@@ -18,5 +17,14 @@ export class AuthService {
 
   currentUser(){
     return this.auth.currentUser
+  }
+
+  firebaseErrors(error: string): string{
+    switch (error) {
+      case 'auth/invalid-email':
+        return 'Email invalido'
+      default:
+        return '';
+    }
   }
 }
