@@ -1,3 +1,8 @@
+.success{
+    background-color: #e4f8f0;
+    color: #1ea97c;
+}
+
 .error{
     background-color: #ffe7e6;
     color: #ff5757;

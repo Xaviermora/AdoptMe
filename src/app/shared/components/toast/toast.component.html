@@ -1,6 +1,11 @@
 <div class="flex px-6 py-5 items-center rounded-md" [ngClass]="severity">
     <!-- Icono -->
     <ng-container [ngSwitch]="severity">
+        <svg *ngSwitchCase="'success'" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+            <path d="m9 12 2 2 4-4"/>
+        </svg>
+
         <svg *ngSwitchCase="'error'" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
             <circle cx="12" cy="12" r="10"/>
             <path d="m15 9-6 6"/>
