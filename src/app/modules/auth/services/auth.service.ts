@@ -23,8 +23,12 @@ export class AuthService {
     switch (error) {
       case 'auth/invalid-email':
         return 'Email invalido'
+      case 'auth/user-not-found':
+        return 'El usuario no existe'
+      case 'auth/wrong-password':
+        return 'Contraseña incorrecta'
       default:
-        return '';
+        return 'Error';
     }
   }
 }
