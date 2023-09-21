@@ -11,6 +11,7 @@ import { InputComponent } from './components/input/input.component';
 import { InputCheckboxComponent } from './components/input-checkbox/input-checkbox.component';
 import { InputPhoneComponent } from './components/input-phone/input-phone.component';
 import { SelectComponent } from './components/select/select.component';
+import { ToastComponent } from './components/toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SelectComponent } from './components/select/select.component';
     InputComponent,
     InputCheckboxComponent,
     InputPhoneComponent,
-    SelectComponent
+    SelectComponent,
+    ToastComponent
   ],
   exports: [
     NavbarComponent,
@@ -34,7 +36,8 @@ import { SelectComponent } from './components/select/select.component';
     InputComponent,
     InputCheckboxComponent,
     InputPhoneComponent,
-    SelectComponent
+    SelectComponent,
+    ToastComponent
   ],
   imports: [
     CommonModule,
