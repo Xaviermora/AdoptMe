@@ -13,6 +13,11 @@
     color: #575aff;
 }
 
+.warning{
+    background-color: #fff2e2;
+    color: #cc8925;
+}
+
 .icon{
     margin-right: 1rem;
 }
