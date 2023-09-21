@@ -1,3 +1,4 @@
+<app-toast style="width: 300px;" severity="error" title="fd" msg="dasdasda"></app-toast>
 <form id="login" [formGroup]="login" (ngSubmit)="onSubmit()" class="lg:w-6/12 md:w-8/12 w-11/12 mx-auto">
     <h2 class="titulos-2">Iniciar sesión</h2>
 
@@ -8,6 +9,8 @@
         <span class="text-neutral-secundario-100">o</span>
         <app-divider class="w-full"></app-divider>
     </div>
+
+    <app-toast (msgEvent)="stopShowingMsg($event)" *ngIf="errorMsg" severity="error" [msg]="errorMsgContent" class="w-full"></app-toast>
 
     <app-input type="email" label="Email" idInput="email" [control]="login.controls.email"></app-input>
 

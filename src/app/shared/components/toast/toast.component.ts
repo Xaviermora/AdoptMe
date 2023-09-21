@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-toast',
@@ -8,4 +8,9 @@ import { Component, Input } from '@angular/core';
 export class ToastComponent {
   @Input() severity!: string
   @Input() msg!: string
+  @Output() msgEvent = new EventEmitter<boolean>()
+
+  closeToast(showMsg: boolean){
+    this.msgEvent.emit(showMsg)
+  }
 }

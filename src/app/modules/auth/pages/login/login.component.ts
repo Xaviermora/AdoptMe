@@ -13,20 +13,29 @@ export class LoginComponent {
     email: new FormControl(''),
     password: new FormControl('')
   })
+  errorMsg: boolean = false
+  errorMsgContent!: string
 
   constructor(private authService: AuthService, private router: Router){}
-
-  async onSubmit(){
+ 
+  onSubmit(){
     const { email, password } = this.login.value
-
+    
     if(email && password){
-      try {
-        const res = await this.authService.login(email, password)
+      this.authService.login(email, password)
+      .then((res) => {
         console.log(res)
         this.router.navigate(['/'])
-      } catch (error) {
-        console.log(error)
-      }
+      })
+      .catch(error => {
+        console.log(error.code)
+        this.errorMsgContent = this.authService.firebaseErrors(error.code)
+        this.errorMsg = true
+      })
     }
+  }
+
+  stopShowingMsg(showMsg: boolean){
+    this.errorMsg = showMsg
   }
 }
