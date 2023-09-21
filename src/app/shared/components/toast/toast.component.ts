@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-toast',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./toast.component.css']
 })
 export class ToastComponent {
-
+  @Input() severity!: string
+  @Input() msg!: string
 }
