@@ -4,7 +4,7 @@
 
     <app-button-auth-google class="w-full" contenido="Continuar con Google"></app-button-auth-google>
 
-    <div *ngIf="errorMsg">{{errorMsgContent}}</div>
+    <app-toast (showMsgEvent)="errorMsg = $event" *ngIf="errorMsg" severity="error" [msg]="errorMsgContent" class="w-full"></app-toast>
 
     <div class="w-full flex flex-row gap-3.5 items-center justify-center">
         <app-divider class="w-full"></app-divider>
@@ -22,7 +22,7 @@
 
     <app-input-password label="Repetir contraseña" idInput="repeatPassword" [control]="register1.controls.repeatPassword"></app-input-password>
 
-    <app-button class="w-full primary" size="large" contenido="Siguiente"></app-button>
+    <app-button type="submit" class="w-full primary" size="large" contenido="Siguiente"></app-button>
 
     <span class="self-start">¿Ya tenés una cuenta? <a routerLink="/login">Inicia sesión</a></span>
 </form>
