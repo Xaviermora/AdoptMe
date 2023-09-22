@@ -22,7 +22,7 @@
         <a class="text-xs" routerLink="">¿Olvidaste tu contraseña?</a>
     </div>
 
-    <app-button class="w-full primary" size="large" [contenido]="!loading ? 'Ingresar' : ''">
+    <app-button type="submit" class="w-full primary" size="large" [contenido]="!loading ? 'Ingresar' : ''">
         <app-spinner-loading *ngIf="loading"></app-spinner-loading>
     </app-button>
 
