@@ -10,31 +10,39 @@ import { Router } from '@angular/router';
 })
 export class FirstRegisterComponent {
   register1 = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
+    email: new FormControl('', Validators.required),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-    repeatPassword: new FormControl('', [Validators.required, Validators.minLength(6)])
+    repeatPassword: new FormControl('', Validators.required)
   })
   errorMsg!: boolean
   errorMsgContent!: string
   sendedEmailVerification: boolean = false
+  register1IsSubmitted: boolean = false
+  inputPasswordFocusOut: boolean = false
 
   constructor(private authService: AuthService, private router: Router){}
-
-  async onSubmit(){
-    console.log(this.register1)
+  
+  onSubmit(){
+    this.register1IsSubmitted = true
     const { email, password, repeatPassword } = this.register1.value
-
-    if(password !== repeatPassword){
-      this.errorMsg = true
-      this.errorMsgContent='Las contraseñas no coinciden'
-    }else if(email && password){ // Se verifica que las contraseñas coincidan y los datos existan
-      try {
-        const res = await this.authService.register(email, password)
-        this.router.navigate(['/second-register'])
-        // this.sendedEmailVerification = true
-        // await res.user?.sendEmailVerification({url: 'http://localhost:4200/second-register'}) // Se envia correo de verificación de email
-      } catch (error) {
-        console.log(error)
+    
+    if(email && password){ // Se verifica que las contraseñas coincidan y los datos existan
+      if(password === repeatPassword){
+        this.authService.register(email, password)
+        .then(() => {
+          this.router.navigate(['/second-register'])
+          // this.sendedEmailVerification = true
+          // await res.user?.sendEmailVerification({url: 'http://localhost:4200/second-register'}) // Se envia correo de verificación de email
+        })
+        .catch(error => {
+          if(error.code !== 'auth/weak-password'){ // La contraseña debil ya se comprueba en los validators del form entonces no se toma
+            this.errorMsg = true
+            this.errorMsgContent = this.authService.firebaseErrors(error.code)
+          }
+        })
+      }else{
+        this.errorMsg = true
+        this.errorMsgContent = 'Las contraseñas no coinciden'
       }
     }
   }

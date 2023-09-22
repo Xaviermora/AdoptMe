@@ -14,14 +14,20 @@
 
     <div class="w-full flex flex-col gap-1">
       <app-input type="email" label="Email" idInput="email" [control]="register1.controls.email"></app-input>
-      <div *ngIf="register1.controls.email.errors?.['required'] && register1.controls.email.touched" class="text-primario-100 text-sm">El email es requerido</div>
-      <div *ngIf="register1.controls.email.errors?.['email'] && register1.controls.email.touched" class="text-primario-100 text-sm">El email es invalido</div>
+      <span *ngIf="register1.controls.email.errors?.['required'] && register1IsSubmitted" class="error-msg-input">El email es requerido</span>
     </div>
 
-    <app-input-password label="Contraseña" idInput="password" [control]="register1.controls.password"></app-input-password>
+    <div class="w-full">
+      <app-input-password (focusout)="inputPasswordFocusOut = true" label="Contraseña" idInput="password" [control]="register1.controls.password"></app-input-password>
+      <span *ngIf="register1.controls.password.errors?.['required'] && register1IsSubmitted" class="error-msg-input">La contraseña es requerida</span>
+      <span *ngIf="register1.controls.password.errors?.['minlength'] && inputPasswordFocusOut" class="error-msg-input">La contraseña debe ser de 6 carácteres minimo</span>
+    </div>
 
-    <app-input-password label="Repetir contraseña" idInput="repeatPassword" [control]="register1.controls.repeatPassword"></app-input-password>
-
+    <div class="w-full">
+      <app-input-password label="Repetir contraseña" idInput="repeatPassword" [control]="register1.controls.repeatPassword"></app-input-password>
+      <span *ngIf="register1.controls.repeatPassword.errors?.['required'] && register1IsSubmitted" class="error-msg-input">Repetir la contraseña es requerido</span>
+    </div>
+    
     <app-button type="submit" class="w-full primary" size="large" contenido="Siguiente"></app-button>
 
     <span class="self-start">¿Ya tenés una cuenta? <a routerLink="/login">Inicia sesión</a></span>
