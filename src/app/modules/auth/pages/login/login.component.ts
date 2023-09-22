@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,18 +10,20 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   login = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl('')
+    email: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required)
   })
   errorMsg: boolean = false
   errorMsgContent!: string
   loading: boolean = false
-  
+  loginIsSubmitted: boolean = false
+
   constructor(private authService: AuthService, private router: Router){}
  
   onSubmit(){
+    this.loginIsSubmitted = true
     const { email, password } = this.login.value
-    console.log(this.login)
+
     if(email && password){
       this.loading = true
       this.authService.login(email, password)

@@ -11,11 +11,14 @@
 
     <app-toast (msgEvent)="stopShowingMsg($event)" *ngIf="errorMsg" severity="error" [msg]="errorMsgContent" class="w-full"></app-toast>
 
-    <app-input type="email" label="Email" idInput="email" [control]="login.controls.email"></app-input>
-    <span *ngIf=""></span>
+    <div class="w-full">
+        <app-input type="email" label="Email" idInput="email" [control]="login.controls.email"></app-input>
+        <span *ngIf="login.controls.email.errors?.['required'] && loginIsSubmitted" class="text-sm text-red-600">El email es requerido</span>
+    </div>
 
     <div class="w-full">
         <app-input-password label="Contraseña" idInput="password" [control]="login.controls.password"></app-input-password>
+        <p *ngIf="login.controls.password.errors?.['required'] && loginIsSubmitted" class="text-sm text-red-600">La contraseña es requerida</p>
         <a class="text-xs" routerLink="">¿Olvidaste tu contraseña?</a>
     </div>
 
