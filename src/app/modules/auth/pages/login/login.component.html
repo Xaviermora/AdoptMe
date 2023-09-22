@@ -12,6 +12,7 @@
     <app-toast (msgEvent)="stopShowingMsg($event)" *ngIf="errorMsg" severity="error" [msg]="errorMsgContent" class="w-full"></app-toast>
 
     <app-input type="email" label="Email" idInput="email" [control]="login.controls.email"></app-input>
+    <span *ngIf=""></span>
 
     <div class="w-full">
         <app-input-password label="Contraseña" idInput="password" [control]="login.controls.password"></app-input-password>

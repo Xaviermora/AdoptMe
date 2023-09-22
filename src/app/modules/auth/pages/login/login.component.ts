@@ -15,14 +15,15 @@ export class LoginComponent {
   })
   errorMsg: boolean = false
   errorMsgContent!: string
-  loading: boolean = true
-
+  loading: boolean = false
+  
   constructor(private authService: AuthService, private router: Router){}
  
   onSubmit(){
     const { email, password } = this.login.value
-    
+    console.log(this.login)
     if(email && password){
+      this.loading = true
       this.authService.login(email, password)
       .then((res) => {
         console.log(res)
@@ -32,6 +33,7 @@ export class LoginComponent {
         console.log(error.code)
         this.errorMsgContent = this.authService.firebaseErrors(error.code)
         this.errorMsg = true
+        this.loading = false
       })
     }
   }
