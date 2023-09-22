@@ -5,7 +5,13 @@ module.exports = {
     "./node_modules/flowbite/**/*.js"
   ],
   theme: {
+    extend: {
+      translate: {
+        '13': '3.3rem'
+      }
+    },
     colors: {
+      transparent: 'transparent',
       blanco: '#ffffff',
       primario: {
         100: '#8B2522',
@@ -22,7 +28,7 @@ module.exports = {
     },
   },
   plugins: [
-    require('flowbite/plugin')
+    require('@tailwindcss/forms')
   ],
 }
 

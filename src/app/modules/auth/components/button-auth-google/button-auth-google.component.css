@@ -4,7 +4,6 @@ button{
     justify-content: center;
     align-items: center;
     gap: 0.3rem;
-    border-radius: 6px;
     border: 1px solid var(--neutral-secundario-50);
     font-weight: 600;
     color: var(--neutral-secundario-100);

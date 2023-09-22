@@ -6,12 +6,13 @@ import { CardComponent } from './components/card/card.component';
 import { ModalComponent } from './components/card/modal/modal.component';
 import { SharedModule } from "../../shared/shared.module";
 import { AnimalesComponent } from './pages/animales/animales.component';
-
+import { FiltrosComponent } from './pages/filtros/filtros.component';
 
 @NgModule({
     declarations: [
         CardComponent,
         ModalComponent,
+        FiltrosComponent,
         AnimalesComponent
     ],
     imports: [
