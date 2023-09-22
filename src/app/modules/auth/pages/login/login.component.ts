@@ -27,20 +27,14 @@ export class LoginComponent {
     if(email && password){
       this.loading = true
       this.authService.login(email, password)
-      .then((res) => {
-        console.log(res)
+      .then(() => {
         this.router.navigate(['/'])
       })
       .catch(error => {
-        console.log(error.code)
         this.errorMsgContent = this.authService.firebaseErrors(error.code)
         this.errorMsg = true
         this.loading = false
       })
     }
-  }
-
-  stopShowingMsg(showMsg: boolean){
-    this.errorMsg = showMsg
   }
 }
