@@ -8,9 +8,9 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class ToastComponent {
   @Input() severity!: string
   @Input() msg!: string
-  @Output() msgEvent = new EventEmitter<boolean>()
+  @Output() showMsgEvent = new EventEmitter<boolean>()
 
   closeToast(showMsg: boolean){
-    this.msgEvent.emit(showMsg)
+    this.showMsgEvent.emit(showMsg)
   }
 }

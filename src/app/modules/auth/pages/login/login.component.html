@@ -9,7 +9,7 @@
         <app-divider class="w-full"></app-divider>
     </div>
 
-    <app-toast (msgEvent)="stopShowingMsg($event)" *ngIf="errorMsg" severity="error" [msg]="errorMsgContent" class="w-full"></app-toast>
+    <app-toast (showMsgEvent)="errorMsg = $event" *ngIf="errorMsg" severity="error" [msg]="errorMsgContent" class="w-full"></app-toast>
 
     <div class="w-full">
         <app-input type="email" label="Email" idInput="email" [control]="login.controls.email"></app-input>
