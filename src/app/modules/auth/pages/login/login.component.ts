@@ -15,6 +15,7 @@ export class LoginComponent {
   })
   errorMsg: boolean = false
   errorMsgContent!: string
+  loading: boolean = true
 
   constructor(private authService: AuthService, private router: Router){}
  
