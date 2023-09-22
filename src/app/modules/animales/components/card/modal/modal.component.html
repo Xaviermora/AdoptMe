@@ -8,7 +8,7 @@
               {{publicacion.nombre}}
             </h3>
             <!-- BOTON PARA CERRAR EL MODAL -->
-            <button type="button" class="text-neutral-secundario-50 bg-transparent hover:bg-gray-200 hover:text-neutral-secundario-100 rounded-full text-sm w-8 h-8 ml-auto inline-flex justify-center items-center" data-modal-hide="defaultModal">
+            <button type="button" class="text-neutral-secundario-50 bg-transparent hover:bg-gray-200 hover:text-neutral-secundario-100 rounded-full text-sm w-8 h-8 ml-auto inline-flex justify-center items-center" [attr.data-modal-hide]="'modal-'+publicacion.id">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
               </svg>
