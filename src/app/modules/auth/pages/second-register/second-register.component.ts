@@ -51,13 +51,15 @@ export class SecondRegisterComponent {
     "Allen"
   ]
   terminosYCondicionesChecked: boolean = false
-  
+  loading: boolean = false
+
   constructor(private authService: AuthService, private usuariosService: UsuariosService, private router: Router){}
 
   onSubmit(){
     this.datosPersonalesIsSubmitted = true
     if(this.datosPersonales.status == 'VALID' && this.terminosYCondicionesChecked){
       this.authService.currentUser().then(async user => {
+        this.loading = true
         if(user){
           let credentialsUser = {
             uid: user.uid,

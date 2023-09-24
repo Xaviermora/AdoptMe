@@ -19,6 +19,7 @@ export class FirstRegisterComponent {
   sendedEmailVerification: boolean = false
   register1IsSubmitted: boolean = false
   inputPasswordFocusOut: boolean = false
+  loading: boolean = false
 
   constructor(private authService: AuthService, private router: Router){}
   
@@ -32,6 +33,7 @@ export class FirstRegisterComponent {
     
     if(email && password && !this.register1.controls.password.errors?.['minlength']){ // Se verifica que los datos existan y la contraseña cumpla con el minimo de caracteres pedidos
       if(password === repeatPassword){
+        this.loading = true
         this.authService.register(email, password)
         .then(() => this.router.navigate(['/datos-personales']))
         .catch(error => {
@@ -39,6 +41,7 @@ export class FirstRegisterComponent {
             this.errorMsg = true
             this.errorMsgContent = this.authService.firebaseErrors(error.code)
           }
+          this.loading = false
         })
       }else{
         this.errorMsg = true

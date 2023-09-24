@@ -28,7 +28,9 @@
       <span *ngIf="register1.controls.repeatPassword.errors?.['required'] && register1IsSubmitted" class="error-msg-input">Repetir la contraseña es requerido</span>
     </div>
     
-    <app-button type="submit" class="w-full primary" size="large" contenido="Siguiente"></app-button>
+    <app-button type="submit" class="w-full primary" size="large" [contenido]="!loading ? 'Siguiente' : ''">
+      <app-spinner-loading *ngIf="loading"></app-spinner-loading>
+    </app-button>
 
     <span class="self-start">¿Ya tenés una cuenta? <a routerLink="/login">Inicia sesión</a></span>
 </form>
