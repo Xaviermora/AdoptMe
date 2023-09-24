@@ -22,6 +22,10 @@ export class FirstRegisterComponent {
 
   constructor(private authService: AuthService, private router: Router){}
   
+  continueWithGoogle(){
+    this.authService.authWithGoogle()
+  }
+
   onSubmit(){
     this.register1IsSubmitted = true
     const { email, password, repeatPassword } = this.register1.value
