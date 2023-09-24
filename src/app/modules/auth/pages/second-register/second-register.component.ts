@@ -65,7 +65,7 @@ export class SecondRegisterComponent {
             uid: user.uid,
             email: user.email,
             ...this.datosPersonales.value,
-            photoUrl: null
+            photoUrl: user.photoURL
           }
           await this.usuariosService.addUser(credentialsUser)
           this.router.navigate(['/'])
