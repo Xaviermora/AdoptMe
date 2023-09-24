@@ -27,8 +27,10 @@ export class AuthService {
         return 'El usuario no existe'
       case 'auth/wrong-password':
         return 'Contraseña incorrecta'
+      case 'auth/email-already-in-use':
+        return 'El usuario ya existe'
       default:
-        return 'Error';
+        return 'Error desconocido';
     }
   }
 }

@@ -15,7 +15,7 @@
   <div class="w-full">
     <app-input type="date" label="Fecha de nacimiento" idInput="fechaDeNacimiento" [control]="datosPersonales.controls.fechaDeNacimiento"></app-input>
     <span *ngIf="datosPersonales.controls.fechaDeNacimiento.errors?.['required'] && datosPersonalesIsSubmitted" class="error-msg-input">La fecha de nacimiento es requerida</span>
-    <span *ngIf="!datosPersonales.controls.fechaDeNacimiento.errors?.['required'] && !datosPersonales.controls.fechaDeNacimiento.errors?.['mayorDeEdad'] && datosPersonalesIsSubmitted" class="error-msg-input">Tenés que ser mayor a 18 años</span>
+    <span *ngIf="!datosPersonales.controls.fechaDeNacimiento.errors?.['required'] && datosPersonales.controls.fechaDeNacimiento.errors?.['noEsMayor'] && datosPersonalesIsSubmitted" class="error-msg-input">Tenés que ser mayor a 18 años</span>
   </div>
 
   <div class="w-full">

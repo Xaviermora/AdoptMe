@@ -13,7 +13,8 @@ function mayorDeEdad(): ValidatorFn{
     if(fechaDeNacimiento){
       year = fechaDeNacimiento.match(/[0-9]{4}/) // Se obtiene el año de la fecha de nacimiento dada por el usuario
     } 
-    return actualYear - year >= 18 ? null : {mayorDeEdad: false} // Se determina si es mayor o no
+    console.log( actualYear- year >= 18)
+    return actualYear - year >= 18 ? null : {noEsMayor: true} // Se determina si es mayor o no
   }
 }
 
