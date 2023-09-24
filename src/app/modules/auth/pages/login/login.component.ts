@@ -19,7 +19,11 @@ export class LoginComponent {
   loginIsSubmitted: boolean = false
 
   constructor(private authService: AuthService, private router: Router){}
- 
+  
+  continueWithGoogle(){
+    this.authService.authWithGoogle()
+  }
+
   onSubmit(){
     this.loginIsSubmitted = true
     const { email, password } = this.login.value

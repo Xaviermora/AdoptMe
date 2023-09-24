@@ -2,7 +2,7 @@
     <h2 class="titulos-2">Registrarse</h2>
     <span *ngIf="sendedEmailVerification">Te enviamos un correo para verificar tu email</span>
 
-    <app-button-auth-google class="w-full" contenido="Continuar con Google"></app-button-auth-google>
+    <app-button-auth-google class="w-full"></app-button-auth-google>
 
     <app-toast (showMsgEvent)="errorMsg = $event" *ngIf="errorMsg" severity="error" [msg]="errorMsgContent" class="w-full"></app-toast>
 

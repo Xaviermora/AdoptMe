@@ -1,7 +1,7 @@
 <form id="login" [formGroup]="login" (ngSubmit)="onSubmit()" class="lg:w-6/12 md:w-8/12 w-11/12 mx-auto">
     <h2 class="titulos-2">Iniciar sesión</h2>
 
-    <app-button-auth-google class="w-full" contenido="Iniciar sesión con Google"></app-button-auth-google>
+    <app-button-auth-google (click)="continueWithGoogle()" class="w-full"></app-button-auth-google>
 
     <div class="w-full flex flex-row gap-3.5 items-center justify-center">
         <app-divider class="w-full"></app-divider>

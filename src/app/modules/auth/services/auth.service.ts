@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
+import { GoogleAuthProvider } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private auth: AngularFireAuth) { }
+  constructor(private auth: AngularFireAuth, private router: Router) { }
 
   register(email: string, password: string){
     return this.auth.createUserWithEmailAndPassword(email, password)
@@ -13,6 +15,19 @@ export class AuthService {
 
   login(email: string, password: string){
     return this.auth.signInWithEmailAndPassword(email, password)
+  }
+
+  authWithGoogle(){
+    this.auth.signInWithPopup(new GoogleAuthProvider())
+    .then((result) => {
+      if(result.additionalUserInfo?.isNewUser){
+        this.router.navigate(['/second-register'])
+      }else{
+        this.router.navigate(['/'])
+      }
+    }).catch((error) => {
+      console.log(error)
+    });
   }
 
   currentUser(){
