@@ -26,13 +26,11 @@ export class FirstRegisterComponent {
     this.register1IsSubmitted = true
     const { email, password, repeatPassword } = this.register1.value
     
-    if(email && password){ // Se verifica que las contraseñas coincidan y los datos existan
+    if(email && password && !this.register1.controls.password.errors?.['minlength']){ // Se verifica que los datos existan y la contraseña cumpla con el minimo de caracteres pedidos
       if(password === repeatPassword){
         this.authService.register(email, password)
         .then(() => {
           this.router.navigate(['/second-register'])
-          // this.sendedEmailVerification = true
-          // await res.user?.sendEmailVerification({url: 'http://localhost:4200/second-register'}) // Se envia correo de verificación de email
         })
         .catch(error => {
           if(error.code !== 'auth/weak-password'){ // La contraseña debil ya se comprueba en los validators del form entonces no se toma
