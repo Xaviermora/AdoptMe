@@ -21,7 +21,7 @@ export class AuthService {
     this.auth.signInWithPopup(new GoogleAuthProvider())
     .then((result) => {
       if(result.additionalUserInfo?.isNewUser){
-        this.router.navigate(['/second-register'])
+        this.router.navigate(['/datos-personales'])
       }else{
         this.router.navigate(['/'])
       }

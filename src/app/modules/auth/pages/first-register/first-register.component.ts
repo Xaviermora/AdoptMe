@@ -33,7 +33,7 @@ export class FirstRegisterComponent {
     if(email && password && !this.register1.controls.password.errors?.['minlength']){ // Se verifica que los datos existan y la contraseña cumpla con el minimo de caracteres pedidos
       if(password === repeatPassword){
         this.authService.register(email, password)
-        .then(() => this.router.navigate(['/second-register']))
+        .then(() => this.router.navigate(['/datos-personales']))
         .catch(error => {
           if(error.code !== 'auth/weak-password'){ // La contraseña debil ya se comprueba en los validators del form entonces no se toma
             this.errorMsg = true

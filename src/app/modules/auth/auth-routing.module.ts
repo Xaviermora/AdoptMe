@@ -14,7 +14,7 @@ const routes: Routes = [
     component: FirstRegisterComponent
   },
   {
-    path: 'second-register',
+    path: 'datos-personales',
     component: SecondRegisterComponent
   }
 ];
