@@ -15,6 +15,7 @@ export class ResetPasswordComponent {
   showMsg: boolean = false
   msgContent!: string
   resetPasswordIsSubmitted: boolean = false
+  loading: boolean = false
 
   constructor(private authService: AuthService){}
 
@@ -23,16 +24,19 @@ export class ResetPasswordComponent {
     this.resetPasswordIsSubmitted = true
 
     if(email){
+      this.loading = true
       this.authService.resetPassword(email)
       .then(() => {
         this.severityToast = 'info'
         this.msgContent = 'Le enviamos un correo para que cambie su contraseña.'
         this.showMsg = true
+        this.loading = false
       })
       .catch(error => {
         this.severityToast = 'error'
         this.msgContent = this.authService.firebaseErrors(error.code)
         this.showMsg = true
+        this.loading = false
       })
     }
   }
