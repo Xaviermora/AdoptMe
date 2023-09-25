@@ -14,11 +14,13 @@ export class ResetPasswordComponent {
   severityToast!: string
   showMsg: boolean = false
   msgContent!: string
+  resetPasswordIsSubmitted: boolean = false
 
   constructor(private authService: AuthService){}
 
   onSubmit(){
     const email = this.resetPassword.value.email
+    this.resetPasswordIsSubmitted = true
 
     if(email){
       this.authService.resetPassword(email)
