@@ -31,16 +31,16 @@
     <div class="items-center justify-between hidden w-full" id="menu">
       <ul id="items-menu" class="flex flex-col p-3 mt-4 gap-4">
         <li>
-          <a routerLink="" class="block typography">Inicio</a>
+          <a routerLink="" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="text-primario-100" class="block typography text-neutral-secundario-100">Inicio</a>
         </li>
         <li>
-          <a routerLink="animales" class="block typography">Animales</a>
+          <a routerLink="animales" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="text-primario-100" class="block typography text-neutral-secundario-100">Animales</a>
         </li>
         <li>
-          <a routerLink="" class="block typography">Dar en adopción</a>
+          <a href="#" class="block typography text-neutral-secundario-100">Dar en adopción</a>
         </li>
         <li>
-          <a routerLink="contacto" class="block typography">Contacto</a>
+          <a routerLink="contacto" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="text-primario-100" class="block typography text-neutral-secundario-100">Contacto</a>
         </li>
       </ul>
     </div>
