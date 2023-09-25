@@ -30,6 +30,10 @@ export class AuthService {
     });
   }
 
+  resetPassword(email: string){
+    return this.auth.sendPasswordResetEmail(email)
+  }
+
   currentUser(){
     return this.auth.currentUser
   }
