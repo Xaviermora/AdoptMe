@@ -14,12 +14,15 @@ import { SelectComponent } from './components/select/select.component';
 import { ToastComponent } from './components/toast/toast.component';
 import { SpinnerLoadingComponent } from './components/spinner-loading/spinner-loading.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { TextareaComponent } from './components/textarea/textarea.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     ButtonComponent,
     DividerComponent,
+    TextareaComponent,
     SearchSelectComponent,
     FilterPipe,
     InputRadioComponent,
@@ -28,21 +31,23 @@ import { FooterComponent } from './components/footer/footer.component';
     InputPhoneComponent,
     SelectComponent,
     ToastComponent,
-    SpinnerLoadingComponent
+    SpinnerLoadingComponent,
     FooterComponent
   ],
   exports: [
     NavbarComponent,
     ButtonComponent,
     DividerComponent,
+    TextareaComponent,
     SearchSelectComponent,
+    FilterPipe,
     InputRadioComponent,
     InputComponent,
     InputCheckboxComponent,
     InputPhoneComponent,
     SelectComponent,
     ToastComponent,
-    SpinnerLoadingComponent
+    SpinnerLoadingComponent,
     FooterComponent
   ],
   imports: [
