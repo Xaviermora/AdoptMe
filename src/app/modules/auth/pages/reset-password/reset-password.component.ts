@@ -11,6 +11,7 @@ export class ResetPasswordComponent {
   resetPassword = new FormGroup({
     email: new FormControl('', Validators.required)
   })
+  severityToast!: string
   showMsg: boolean = false
   msgContent!: string
 
@@ -22,10 +23,12 @@ export class ResetPasswordComponent {
     if(email){
       this.authService.resetPassword(email)
       .then(() => {
+        this.severityToast = 'info'
         this.msgContent = 'Le enviamos un correo para que cambie su contraseña.'
         this.showMsg = true
       })
       .catch(error => {
+        this.severityToast = 'error'
         this.msgContent = this.authService.firebaseErrors(error.code)
         this.showMsg = true
       })
