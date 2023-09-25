@@ -9,6 +9,7 @@ import { InputPasswordComponent } from './components/input-password/input-passwo
 import { FirstRegisterComponent } from './pages/first-register/first-register.component';
 import { SecondRegisterComponent } from './pages/second-register/second-register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ButtonAuthGoogleComponent,
     InputPasswordComponent,
     FirstRegisterComponent,
-    SecondRegisterComponent
+    SecondRegisterComponent,
+    ResetPasswordComponent
   ],
   imports: [
     CommonModule,
