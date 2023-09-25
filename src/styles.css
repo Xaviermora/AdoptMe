@@ -17,19 +17,15 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* Cuando la pantalla sea mayor a 640px */
-@media (min-width: 640px){
-    .titulos-2{
-        color: var(--neutral-primario);
-        font-weight: 600;
-        font-size: 2.25rem;
-    }
-}
-
 .titulos-2{
     color: var(--neutral-primario);
     font-weight: 600;
     font-size: 1.8rem;
 }
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.error-msg-input{
+    color: #dc2626;
+    font-size: 0.875rem;
+    line-height: 1.25rem
+}

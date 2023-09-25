@@ -1,0 +1,63 @@
+<form id="register" (ngSubmit)="onSubmit()" [formGroup]="datosPersonales" class="lg:w-6/12 md:w-8/12 w-11/12 mx-auto">
+  <h2 class="titulos-2">Datos personales</h2>
+
+  <div class="flex sm:flex-row flex-col w-full sm:gap-4 gap-8">
+    <div class="w-full">
+      <app-input type="text" label="Nombre" idInput="nombre" [control]="datosPersonales.controls.nombre"></app-input>
+      <span *ngIf="datosPersonales.controls.nombre.errors?.['required'] && datosPersonalesIsSubmitted" class="error-msg-input">El nombre es requerido</span>
+    </div>
+    <div class="w-full">
+      <app-input type="text" label="Apellido" idInput="apellido" [control]="datosPersonales.controls.apellido"></app-input>
+      <span *ngIf="datosPersonales.controls.apellido.errors?.['required'] && datosPersonalesIsSubmitted" class="error-msg-input">El apellido es requerido</span>
+    </div>
+  </div>
+
+  <div class="w-full">
+    <app-input type="date" label="Fecha de nacimiento" idInput="fechaDeNacimiento" [control]="datosPersonales.controls.fechaDeNacimiento"></app-input>
+    <span *ngIf="datosPersonales.controls.fechaDeNacimiento.errors?.['required'] && datosPersonalesIsSubmitted" class="error-msg-input">La fecha de nacimiento es requerida</span>
+    <span *ngIf="!datosPersonales.controls.fechaDeNacimiento.errors?.['required'] && datosPersonales.controls.fechaDeNacimiento.errors?.['noEsMayor'] && datosPersonalesIsSubmitted" class="error-msg-input">Tenés que ser mayor a 18 años</span>
+  </div>
+
+  <div class="w-full">
+    <app-select idSelect="provincias" label="Provincia" [list]="provincias" [control]="datosPersonales.controls.provincia"></app-select>
+    <span *ngIf="datosPersonales.controls.provincia.errors?.['required'] && datosPersonalesIsSubmitted" class="error-msg-input">La provincia es requerida</span>
+  </div>
+
+  <div class="w-full">
+    <app-select idSelect="ciudades" label="Ciudad" [list]="ciudades" [control]="datosPersonales.controls.ciudad"></app-select>
+    <span *ngIf="datosPersonales.controls.ciudad.errors?.['required'] && datosPersonalesIsSubmitted" class="error-msg-input">La ciudad es requerida</span>
+  </div>
+
+  <div class="w-full text-neutral-secundario-100">
+    <span>Tipo de vivienda</span>
+    <app-input-radio valueInput="Casa" name="tipoDeVivienda" [control]="datosPersonales.controls.tipoDeVivienda
+    "></app-input-radio>
+    <app-input-radio valueInput="Departamento" name="tipoDeVivienda" [control]="datosPersonales.controls.tipoDeVivienda
+    "></app-input-radio>
+    <span *ngIf="datosPersonales.controls.tipoDeVivienda.errors?.['required'] && datosPersonalesIsSubmitted" class="error-msg-input">El tipo de vivienda es requerido</span>
+  </div>
+
+  <div class="w-full">
+    <app-input-phone [control]="datosPersonales.controls.telefono"></app-input-phone>
+    <span *ngIf="datosPersonales.controls.telefono.errors?.['required'] && datosPersonalesIsSubmitted" class="error-msg-input">El teléfono es requerido</span>
+  </div>
+
+  <div class="w-full">
+    <app-input type="number" idInput="dni" label="DNI" [control]="datosPersonales.controls.dni"></app-input>
+    <span *ngIf="datosPersonales.controls.dni.errors?.['required'] && datosPersonalesIsSubmitted" class="error-msg-input">El DNI es requerido</span>
+  </div>
+
+  <div>
+    <div class="flex gap-1">
+      <app-input-checkbox (isChecked)="terminosYCondicionesChecked = $event" class="flex mt-0.5" idInput="terminos-y-condiciones"></app-input-checkbox>
+      <span class="text-neutral-secundario-100">
+        Acepto los <a href="">términos y condiciones</a> y permito el uso de mis datos según la <a href="">política de privacidad</a>.
+      </span>
+    </div>
+    <span *ngIf="!terminosYCondicionesChecked && datosPersonalesIsSubmitted" class="error-msg-input">Debe aceptar los términos y condiciones para continuar</span>
+  </div>
+
+  <app-button type="submit" class="primary w-full" [contenido]="!loading ? 'Registrarse' : ''">
+    <app-spinner-loading *ngIf="loading"></app-spinner-loading>
+  </app-button>
+</form>

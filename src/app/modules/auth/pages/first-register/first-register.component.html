@@ -1,0 +1,36 @@
+<form id="register" [formGroup]="register1" (ngSubmit)="onSubmit()" class="lg:w-6/12 md:w-8/12 w-11/12 mx-auto">
+    <h2 class="titulos-2">Registrarse</h2>
+    <span *ngIf="sendedEmailVerification">Te enviamos un correo para verificar tu email</span>
+
+    <app-button-auth-google class="w-full" (click)="continueWithGoogle()"></app-button-auth-google>
+
+    <app-toast (showMsgEvent)="errorMsg = $event" *ngIf="errorMsg" severity="error" [msg]="errorMsgContent" class="w-full"></app-toast>
+
+    <div class="w-full flex flex-row gap-3.5 items-center justify-center">
+        <app-divider class="w-full"></app-divider>
+        <span class="text-neutral-secundario-100">o</span>
+        <app-divider class="w-full"></app-divider>
+    </div>
+
+    <div class="w-full flex flex-col gap-1">
+      <app-input type="email" label="Email" idInput="email" [control]="register1.controls.email"></app-input>
+      <span *ngIf="register1.controls.email.errors?.['required'] && register1IsSubmitted" class="error-msg-input">El email es requerido</span>
+    </div>
+
+    <div class="w-full">
+      <app-input-password (focusout)="inputPasswordFocusOut = true" label="Contraseña" idInput="password" [control]="register1.controls.password"></app-input-password>
+      <span *ngIf="register1.controls.password.errors?.['required'] && register1IsSubmitted" class="error-msg-input">La contraseña es requerida</span>
+      <span *ngIf="register1.controls.password.errors?.['minlength'] && inputPasswordFocusOut" class="error-msg-input">La contraseña debe ser de 6 carácteres minimo</span>
+    </div>
+
+    <div class="w-full">
+      <app-input-password label="Repetir contraseña" idInput="repeatPassword" [control]="register1.controls.repeatPassword"></app-input-password>
+      <span *ngIf="register1.controls.repeatPassword.errors?.['required'] && register1IsSubmitted" class="error-msg-input">Repetir la contraseña es requerido</span>
+    </div>
+    
+    <app-button type="submit" class="w-full primary" size="large" [contenido]="!loading ? 'Siguiente' : ''">
+      <app-spinner-loading *ngIf="loading"></app-spinner-loading>
+    </app-button>
+
+    <span class="self-start">¿Ya tenés una cuenta? <a routerLink="/login">Inicia sesión</a></span>
+</form>

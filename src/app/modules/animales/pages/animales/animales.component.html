@@ -1,0 +1,11 @@
+<div class="flex gap-12 w-11/12 mx-auto pt-5">
+    <div class="w-4/12">
+        <app-filtros></app-filtros>
+    </div>
+
+    <div class="grid grid-cols-12 w-full gap-6">
+        <div *ngFor="let publicacion of publicaciones" class="col-span-4">
+            <app-card [publicacion]="publicacion"></app-card>
+        </div>
+    </div>
+</div>

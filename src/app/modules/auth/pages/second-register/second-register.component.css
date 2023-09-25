@@ -1,0 +1,18 @@
+#register{
+    display: flex;
+    padding: 1.25rem 1.875rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+a{
+    color: var(--primario-100);
+}
+
+app-input, app-input-phone, app-select{
+  width: 100%;
+  border: 0;
+  padding: 0;
+}
