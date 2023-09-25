@@ -1,0 +1,23 @@
+.success{
+    background-color: #e4f8f0;
+    color: #1ea97c;
+}
+
+.error{
+    background-color: #ffe7e6;
+    color: #ff5757;
+}
+
+.info{
+    background-color: #e6eaff;
+    color: #575aff;
+}
+
+.warning{
+    background-color: #fff2e2;
+    color: #cc8925;
+}
+
+.icon{
+    margin-right: 1rem;
+}

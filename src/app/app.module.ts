@@ -6,6 +6,11 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { SharedModule } from './shared/shared.module';
 
+//FIREBASE
+import { environment } from 'src/enviroments/enviroment';
+import {AngularFireModule} from '@angular/fire/compat'
+import {AngularFireAuthModule} from '@angular/fire/compat/auth'
+import {AngularFireStorageModule} from '@angular/fire/compat/storage'
 @NgModule({
   declarations: [
     AppComponent
@@ -13,7 +18,11 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    //Modulos de firebase
+    AngularFireModule.initializeApp(environment.firebaseConfig), // INICIALIZA FIREBASE
+    AngularFireAuthModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

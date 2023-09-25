@@ -9,4 +9,5 @@ export class ButtonComponent {
   @Input() contenido!: string
   @Input() size: string = 'normal'
   @Input() class!: string
+  @Input() type: string = 'button'
 }
