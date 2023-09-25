@@ -13,6 +13,7 @@ import { InputPhoneComponent } from './components/input-phone/input-phone.compon
 import { SelectComponent } from './components/select/select.component';
 import { ToastComponent } from './components/toast/toast.component';
 import { SpinnerLoadingComponent } from './components/spinner-loading/spinner-loading.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { SpinnerLoadingComponent } from './components/spinner-loading/spinner-lo
     SelectComponent,
     ToastComponent,
     SpinnerLoadingComponent
+    FooterComponent
   ],
   exports: [
     NavbarComponent,
@@ -41,6 +43,7 @@ import { SpinnerLoadingComponent } from './components/spinner-loading/spinner-lo
     SelectComponent,
     ToastComponent,
     SpinnerLoadingComponent
+    FooterComponent
   ],
   imports: [
     CommonModule,

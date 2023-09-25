@@ -1,0 +1,20 @@
+<div class="flex flex-col w-full gap-4">
+  <h3 class="text-xl font-semibold text-neutral-primario">Filtros</h3>
+
+  <app-select idSelect="animal" label="Animal" [list]="animal"></app-select>
+
+  <div>
+    <h6 class="text-neutral-secundario-100">Sexo</h6>
+    <app-input-radio valueInput="Macho" name="sexo"></app-input-radio>
+    <app-input-radio valueInput="Hembra" name="sexo"></app-input-radio>
+  </div>
+  <app-input-checkbox idInput="castrado" label="Castrado"></app-input-checkbox>
+
+  <app-search-select idInput="raza" idList="razas" label="Raza" [list]="razas"></app-search-select>
+
+  <app-select idSelect="edad" label="Edad" [list]="edad"></app-select>
+
+  <app-select idSelect="provincia" label="Provincia" [list]="provincia"></app-select>
+
+  <app-select idSelect="ciudad" label="Ciudad" [list]="ciudad"></app-select>
+</div>
