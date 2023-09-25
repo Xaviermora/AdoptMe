@@ -15,7 +15,6 @@ import { ToastComponent } from './components/toast/toast.component';
 import { SpinnerLoadingComponent } from './components/spinner-loading/spinner-loading.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TextareaComponent } from './components/textarea/textarea.component';
-import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
