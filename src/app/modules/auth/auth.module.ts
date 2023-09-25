@@ -8,6 +8,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { InputPasswordComponent } from './components/input-password/input-password.component';
 import { FirstRegisterComponent } from './pages/first-register/first-register.component';
 import { SecondRegisterComponent } from './pages/second-register/second-register.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { SecondRegisterComponent } from './pages/second-register/second-register
     ButtonAuthGoogleComponent,
     InputPasswordComponent,
     FirstRegisterComponent,
-    SecondRegisterComponent
+    SecondRegisterComponent,
+    ResetPasswordComponent
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class AuthModule { }

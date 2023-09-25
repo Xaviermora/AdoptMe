@@ -1,1 +1,30 @@
-<p>login works!</p>
+<form id="login" [formGroup]="login" (ngSubmit)="onSubmit()" class="lg:w-6/12 md:w-8/12 w-11/12 mx-auto">
+    <h2 class="titulos-2">Iniciar sesión</h2>
+
+    <app-button-auth-google (click)="continueWithGoogle()" class="w-full"></app-button-auth-google>
+
+    <div class="w-full flex flex-row gap-3.5 items-center justify-center">
+        <app-divider class="w-full"></app-divider>
+        <span class="text-neutral-secundario-100">o</span>
+        <app-divider class="w-full"></app-divider>
+    </div>
+
+    <app-toast (showMsgEvent)="errorMsg = $event" *ngIf="errorMsg" severity="error" [msg]="errorMsgContent" class="w-full"></app-toast>
+
+    <div class="w-full">
+        <app-input type="email" label="Email" idInput="email" [control]="login.controls.email"></app-input>
+        <span *ngIf="login.controls.email.errors?.['required'] && loginIsSubmitted" class="error-msg-input">El email es requerido</span>
+    </div>
+
+    <div class="w-full">
+        <app-input-password label="Contraseña" idInput="password" [control]="login.controls.password"></app-input-password>
+        <p *ngIf="login.controls.password.errors?.['required'] && loginIsSubmitted" class="error-msg-input">La contraseña es requerida</p>
+        <a class="text-xs" routerLink="">¿Olvidaste tu contraseña?</a>
+    </div>
+
+    <app-button type="submit" class="w-full primary" size="large" [contenido]="!loading ? 'Ingresar' : ''">
+        <app-spinner-loading *ngIf="loading"></app-spinner-loading>
+    </app-button>
+
+    <span class="self-start">¿No tenés cuenta? <a routerLink="/register">Crea una</a></span>
+</form>

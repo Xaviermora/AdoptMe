@@ -1,9 +1,9 @@
 <div class="relative z-0">
-    <select [(ngModel)]="valueSelect" [id]="idSelect" [name]="idSelect" class="text-neutral-primario border-neutral-secundario-100 block pb-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-primario-100 bg-none peer">
+    <select [id]="idSelect" [name]="idSelect" [formControl]="control" class="text-neutral-primario border-neutral-secundario-100 block pb-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-primario-100 bg-none peer">
         <option class="text-neutral-secundario-100" *ngFor="let item of list" [value]="item | titlecase">{{item | titlecase}}</option>
     </select>
 
-    <label [for]="idSelect" class="text-neutral-secundario-100 absolute text-sm duration-300 transform -z-10 origin-[0] peer-focus:left-0 peer-focus:scale-75 peer-focus:-translate-y-13 peer-focus:text-primario-100" [ngClass]="{'-translate-y-8 scale-100': !valueSelect, 'scale-75 -translate-y-13': valueSelect}">{{label}}</label>
+    <label [for]="idSelect" class="text-neutral-secundario-100 absolute text-sm duration-300 transform -z-10 origin-[0] peer-focus:left-0 peer-focus:scale-75 peer-focus:-translate-y-13 peer-focus:text-primario-100" [ngClass]="{'-translate-y-8 scale-100': !control.value, 'scale-75 -translate-y-13': control.value}">{{label}}</label>
     
     <svg xmlns="http://www.w3.>org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute right-0 top-1/4">
         <path d="m6 9 6 6 6-6"/>

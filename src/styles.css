@@ -22,3 +22,9 @@
     font-weight: 600;
     font-size: 1.8rem;
 }
+
+.error-msg-input{
+    color: #dc2626;
+    font-size: 0.875rem;
+    line-height: 1.25rem
+}
