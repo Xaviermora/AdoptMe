@@ -10,6 +10,7 @@ import { InputRadioComponent } from './components/input-radio/input-radio.compon
 import { InputComponent } from './components/input/input.component';
 import { InputCheckboxComponent } from './components/input-checkbox/input-checkbox.component';
 import { SelectComponent } from './components/select/select.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SelectComponent } from './components/select/select.component';
     InputRadioComponent,
     InputComponent,
     InputCheckboxComponent,
-    SelectComponent
+    SelectComponent,
+    FooterComponent
   ],
   exports: [
     NavbarComponent,
@@ -31,7 +33,8 @@ import { SelectComponent } from './components/select/select.component';
     InputRadioComponent,
     InputComponent,
     InputCheckboxComponent,
-    SelectComponent
+    SelectComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
