@@ -13,18 +13,18 @@ export class InicioComponent {
   public info: Perro[];
   
   //inicializa la propiedad info
-    constructor(){
-      this.info = [
+  constructor(){
+    this.info = [
       {
         id:"",
-        descripcion: "",
+        descripcion: "Ver los animales que se dan en adopcion en el sitio, con informacion detallada",
         imagen: "../../../../../assets/image.1.png",
         alt: "",
         boton: "Ver animales"
       },
       {
         id: "",
-        descripcion: "",
+        descripcion: "Crear una ficha de adopcion para los animales",
         imagen: "../../../../../assets/image.1.png",
         alt: "",
         boton: "Dar en adopcion"

@@ -18,50 +18,55 @@
 </div>
 
 <!--segundo componente-->
-<!-- <div class="row">
-    <h1>Servicios</h1>
-    <div class="contenedor">
-        <div class="columnaI">
-            <img src="../../../../../assets/image.1.png" class="imgizquierdo">
-
-            <button type="button" class="botoni">ver animales</button>
-        </div>
-        <div class="columnaD">
-            <img src="../../../../../assets/image.1.png" class="imgderecho">
-
-            <button type="button" class="botond">Dar en adopcion</button>
-        </div>
-    </div>
-</div> -->
-
 <div class="contenedor">
     <div class="row">
         <h1 class="h2">Servicios</h1>
         <div class="col" *ngFor="let i of info" id="contenido">
-            <!-- LEE NUESTRO ARRAY INFO -->                
+            <!-- LEE NUESTRO ARRAY INFO -->
+               <img class="imagen" src="{{i.imagen}}" alt="{{i.alt}}">                
                 <mat-card class="example-card">
-                <mat-card-header>
-                    <mat-card-title class="titulo"></mat-card-title>
-                </mat-card-header>
-                <!-- APLICAMOS INTERPOLACIÓN ej: {{i.imagen}} -->
-                <img mat-card-image class="imagen" src="{{i.imagen}}" alt="{{i.alt}}" width="300%">
+                    <mat-card-header>
+                        <mat-card-title class="titulo"></mat-card-title>
+                    </mat-card-header>
+                    <!-- APLICAMOS INTERPOLACIÓN ej: {{i.imagen}} -->
                     
-                <mat-card-content>
-                    <p>
-                        {{i.descripcion}}
-                    </p>
-                </mat-card-content>
                     
-                <mat-card-actions>
-                    <button mat-button class="boton">{{i.boton}}</button>
-                </mat-card-actions>
-            </mat-card>
+                    <div class="content">
+                     
+
+                       
+                        <mat-card-content>
+                            <p class="pxp">
+                                {{i.descripcion}}
+                            </p>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <button mat-button class="boton">{{i.boton}}</button>
+                        </mat-card-actions>
+                    </div>    
+                </mat-card>
         </div>
     </div>
 </div>
-<!--tercer componente-->
+
+<!-- Tercer Componente-->
+<div class="row">
+    <div class="contenedor2">
+        <div class="col-i">
+            <h1 class="h1-3">La adopcion es un acto de responsabilidad</h1> 
+        </div>
+        <div class="col-d">
+            <h1 class="h1-2"></h1>
+            <p class="na"></p>
+
+            <h1 class="h1-2"></h1>
+            <p class="na"></p> 
+        </div>
+    </div>
+</div>
 
 
+<!--Cuarto componente-->
 <div class="flex justify-center mt-10">
     <div class="grid grid-cols-2 gap-8">
         <div>
@@ -83,4 +88,6 @@
     </div>
 
 </div>
+
+
 
