@@ -7,6 +7,7 @@ import { InicioComponent } from './pages/inicio/inicio.component';
 // Material
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { SharedModule } from 'src/app/shared/shared.module';
 @NgModule({
   declarations: [
     InicioComponent
@@ -15,8 +16,8 @@ import { MatCardModule } from '@angular/material/card';
     CommonModule,
     InicioRoutingModule,
     MatButtonModule,
-    MatCardModule
-
+    MatCardModule, 
+    SharedModule
   ],
   exports: [
     MatCardModule

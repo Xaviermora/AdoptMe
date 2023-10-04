@@ -1,6 +1,5 @@
 /*inicio de la primera parte*/
-
-.contenedor{/*reutilizando contenedores*/
+.row{/*reutilizando contenedores*/
     display: flex;
     justify-content: center;
 }
@@ -104,6 +103,7 @@ img{
     margin: 10px;
 
 }
+
 /*Fin de la primera parte*/
 
 

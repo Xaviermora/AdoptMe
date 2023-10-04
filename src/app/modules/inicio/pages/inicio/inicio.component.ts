@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Informacion } from 'src/app/models/informacion';
 
 // importamos interfaz 'inicio'
 import { Perro } from 'src/app/models/perro';
@@ -10,11 +11,12 @@ import { Perro } from 'src/app/models/perro';
 })
 export class InicioComponent {
   //propiedad publica (tipo array)
-  public info: Perro[];
+  public infotarjeta: Perro[];
+  public infodivision: Informacion[];
   
   //inicializa la propiedad info
   constructor(){
-    this.info = [
+    this.infotarjeta = [
       {
         id:"",
         descripcion: "Ver los animales que se dan en adopcion en el sitio, con informacion detallada",
@@ -28,6 +30,23 @@ export class InicioComponent {
         imagen: "../../../../../assets/image.1.png",
         alt: "",
         boton: "Dar en adopcion"
+      }
+    ]
+    this.infodivision = [
+      {
+        idInformacion: "",
+        cantidad: 9.999,
+        nombre: "Miembros"
+      },
+      {
+        idInformacion: "",
+        cantidad: 9.999,
+        nombre: "Publicaciones"
+      },
+      {
+        idInformacion: "",
+        cantidad: 9.999,
+        nombre: "Adopciones"
       }
     ]
   }
