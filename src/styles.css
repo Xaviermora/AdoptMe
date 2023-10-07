@@ -17,6 +17,13 @@
     font-family: 'Poppins', sans-serif;
 }
 
+
+.titulos-2{
+    color: var(--neutral-primario);
+    font-weight: 600;
+    font-size: 1.8rem;
+}
+
 /* Cuando la pantalla sea mayor a 640px */
 @media (min-width: 640px){
     .titulos-2{
@@ -26,8 +33,8 @@
     }
 }
 
-.titulos-2{
-    color: var(--neutral-primario);
-    font-weight: 600;
-    font-size: 1.8rem;
+.error-msg-input{
+    color: #dc2626;
+    font-size: 0.875rem;
+    line-height: 1.25rem
 }

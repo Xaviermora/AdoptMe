@@ -1,0 +1,9 @@
+.modal{
+    display: flex;
+    width: 605px;
+    padding: 5px 5px 25px 5px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--25, 10px);
+}
