@@ -34,7 +34,12 @@ export class LoginComponent {
       this.authService.login(email, password)
       .then(res => {
         this.usuariosService.getUser(res.user!.uid).subscribe(user => {
-          user ? this.router.navigate(['/']) : this.router.navigate(['/datos-personales']) // Se comprueba que el usuario este en la colección es decir que haya completado el formulario de datos personales
+          if(user){ // Se comprueba que el usuario este en la colección es decir que haya completado el formulario de datos personales
+            this.authService.setUserInSession(user)
+            this.router.navigate(['/'])
+          }else{
+            this.router.navigate(['/datos-personales'])
+          }
         })
       })
       .catch(error => {
