@@ -14,6 +14,7 @@ import { SelectComponent } from './components/select/select.component';
 import { ToastComponent } from './components/toast/toast.component';
 import { SpinnerLoadingComponent } from './components/spinner-loading/spinner-loading.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { FooterComponent } from './components/footer/footer.component';
   imports: [
     CommonModule,
     FormsModule,
+    RouterModule,
     ReactiveFormsModule
   ]
 })
