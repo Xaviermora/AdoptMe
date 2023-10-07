@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UsuariosService } from 'src/app/shared/services/usuarios.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ export class LoginComponent {
   loading: boolean = false
   loginIsSubmitted: boolean = false
 
-  constructor(private authService: AuthService, private router: Router){}
+  constructor(private authService: AuthService, private router: Router, private usuariosService: UsuariosService){}
   
   continueWithGoogle(){
     this.authService.authWithGoogle()
@@ -27,12 +28,14 @@ export class LoginComponent {
   onSubmit(){
     this.loginIsSubmitted = true
     const { email, password } = this.login.value
-
+    
     if(email && password){
       this.loading = true
       this.authService.login(email, password)
-      .then(() => {
-        this.router.navigate(['/'])
+      .then((res) => {
+        console.log(res.user?.uid)
+        console.log(this.usuariosService.getUser(res.user!.uid))
+        // this.router.navigate(['/'])
       })
       .catch(error => {
         this.errorMsgContent = this.authService.firebaseErrors(error.code)

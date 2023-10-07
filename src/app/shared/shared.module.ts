@@ -28,7 +28,7 @@ import { FooterComponent } from './components/footer/footer.component';
     InputPhoneComponent,
     SelectComponent,
     ToastComponent,
-    SpinnerLoadingComponent
+    SpinnerLoadingComponent,
     FooterComponent
   ],
   exports: [
@@ -42,7 +42,7 @@ import { FooterComponent } from './components/footer/footer.component';
     InputPhoneComponent,
     SelectComponent,
     ToastComponent,
-    SpinnerLoadingComponent
+    SpinnerLoadingComponent,
     FooterComponent
   ],
   imports: [
