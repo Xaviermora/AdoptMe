@@ -32,10 +32,10 @@ export class LoginComponent {
     if(email && password){
       this.loading = true
       this.authService.login(email, password)
-      .then((res) => {
-        console.log(res.user?.uid)
-        console.log(this.usuariosService.getUser(res.user!.uid))
-        // this.router.navigate(['/'])
+      .then(res => {
+        this.usuariosService.getUser(res.user!.uid).subscribe(user => {
+          user ? this.router.navigate(['/']) : this.router.navigate(['/datos-personales']) // Se comprueba que el usuario este en la colección es decir que haya completado el formulario de datos personales
+        })
       })
       .catch(error => {
         this.errorMsgContent = this.authService.firebaseErrors(error.code)
