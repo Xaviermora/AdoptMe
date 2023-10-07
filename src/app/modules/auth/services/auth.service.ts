@@ -2,11 +2,15 @@ import { Injectable } from '@angular/core';
 import { GoogleAuthProvider } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { Usuario } from 'src/app/models/usuario';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  private $userInSession = new BehaviorSubject<any>(null)
+
   constructor(private auth: AngularFireAuth, private router: Router) { }
 
   register(email: string, password: string){
@@ -15,6 +19,14 @@ export class AuthService {
 
   login(email: string, password: string){
     return this.auth.signInWithEmailAndPassword(email, password)
+  }
+
+  setUserInSession(user: Usuario){
+    this.$userInSession.next(user)
+  }
+
+  getUserInSession(){
+    return this.$userInSession.asObservable()
   }
 
   authWithGoogle(){
