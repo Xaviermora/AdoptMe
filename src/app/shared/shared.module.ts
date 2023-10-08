@@ -15,6 +15,7 @@ import { ToastComponent } from './components/toast/toast.component';
 import { SpinnerLoadingComponent } from './components/spinner-loading/spinner-loading.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
+import { DropdownMenuComponent } from './components/dropdown-menu/dropdown-menu.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { RouterModule } from '@angular/router';
     SelectComponent,
     ToastComponent,
     SpinnerLoadingComponent,
-    FooterComponent
+    FooterComponent,
+    DropdownMenuComponent
   ],
   exports: [
     NavbarComponent,
