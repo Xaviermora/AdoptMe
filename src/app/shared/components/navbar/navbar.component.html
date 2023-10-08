@@ -22,9 +22,17 @@
     </a>
 
     <!-- Buttons -->
-    <div id="buttons" class="ml-auto flex space-x-3 w-max">
+    <div *ngIf="!user" class="content-left ml-auto flex space-x-3 w-max">
       <app-button class="secondary w-28" contenido="Ingresar" routerLink="login"></app-button>
       <app-button class="primary lg:block hidden" contenido="Registrarse" routerLink="register"></app-button>
+    </div>
+
+    <!-- Menu usuario -->
+    <div *ngIf="user" class="ml-auto flex space-x-0.5 w-max content-left items-center">
+      <img class="w-9 h-9 rounded-full" src="../../../../assets/default-user-photo.svg" alt="User photo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4D4D4D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m6 9 6 6 6-6"/>
+      </svg>
     </div>
 
     <!-- Links -->
