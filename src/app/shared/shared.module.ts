@@ -46,7 +46,8 @@ import { DropdownMenuComponent } from './components/dropdown-menu/dropdown-menu.
     SelectComponent,
     ToastComponent,
     SpinnerLoadingComponent,
-    FooterComponent
+    FooterComponent,
+    DropdownMenuComponent
   ],
   imports: [
     CommonModule,
