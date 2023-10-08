@@ -35,7 +35,7 @@ export class LoginComponent {
       .then(res => {
         this.usuariosService.getUser(res.user!.uid).subscribe(user => {
           if(user){ // Se comprueba que el usuario este en la colección es decir que haya completado el formulario de datos personales
-            this.authService.setUserInSession(user)
+            this.authService.setUserInSession(user.uid)
             this.router.navigate(['/'])
           }else{
             this.router.navigate(['/datos-personales'])

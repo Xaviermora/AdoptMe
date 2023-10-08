@@ -69,12 +69,8 @@ export class SecondRegisterComponent {
           }
           await this.usuariosService.addUser(credentialsUser)
 
-          this.usuariosService.getUser(user!.uid).subscribe(user => {
-            if(user){
-              this.authService.setUserInSession(user)
-              this.router.navigate(['/'])
-            } 
-          })
+          this.authService.setUserInSession(user.uid)
+          this.router.navigate(['/'])
         }
       })
     }
