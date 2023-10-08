@@ -69,7 +69,7 @@ export class SecondRegisterComponent {
           }
           await this.usuariosService.addUser(credentialsUser)
 
-          this.authService.setUserInSession(user.uid)
+          await this.authService.setUserInSession(user.uid)
           this.router.navigate(['/'])
         }
       })

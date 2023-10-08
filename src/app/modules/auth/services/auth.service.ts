@@ -23,8 +23,10 @@ export class AuthService {
   }
 
   setUserInSession(id: string){
-    this.usuariosService.getUser(id).subscribe(user => {
-      this.$userInSession.next(user)
+    return new Promise((resolve, reject) => {
+      this.usuariosService.getUser(id).subscribe(user => {
+        resolve(this.$userInSession.next(user))
+      })
     })
   }
 
@@ -34,11 +36,11 @@ export class AuthService {
 
   authWithGoogle(){
     this.auth.signInWithPopup(new GoogleAuthProvider())
-    .then(res => {
+    .then(async res => {
       if(res.additionalUserInfo?.isNewUser){
         this.router.navigate(['/datos-personales'])
       }else{
-        this.setUserInSession(res.user!.uid)
+        await this.setUserInSession(res.user!.uid)
         this.router.navigate(['/'])
       }
     }).catch((error) => {
