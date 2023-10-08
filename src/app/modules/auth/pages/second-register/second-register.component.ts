@@ -65,7 +65,7 @@ export class SecondRegisterComponent {
             uid: user.uid,
             email: user.email,
             ...this.datosPersonales.value,
-            photoUrl: user.photoURL
+            photoUrl: user.photoURL ? user.photoURL : '../../../../assets/default-user-photo.svg'
           }
           await this.usuariosService.addUser(credentialsUser)
 
