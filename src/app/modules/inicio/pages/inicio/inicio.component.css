@@ -12,7 +12,7 @@
 
 }
 
-.columnaDere{
+.columnaDerecha{
 
     padding: 25px;
     margin: 0 5px;
@@ -57,6 +57,7 @@ img{
     flex-shrink: 0;
     right: 100px;
 }
+
 .botonIzq{
     height: 54px;
     padding: 0px 20px;
@@ -100,7 +101,7 @@ img{
     font-weight: 600;
     line-height: 20px; /* 125% */
 
-    margin: 10px;
+    margin: 50px;
 
 }
 
@@ -179,7 +180,6 @@ img{
 /*Fin de la segunda parte*/
 
 /*Tercera parte*/
-
 .contenedor2{
     display: flex;
     width: 1130px;
@@ -199,17 +199,18 @@ img{
     gap: 5.569px;
     flex-shrink: 0;
 }
-.h1-3{
+
+.col-d{
     display: flex;
-    width: 306px;
-    height: 87px;
+    height: 122px;
     padding: var(--0, 0px);
     flex-direction: column;
-    align-items: flex-start;
-    gap: 5.569px;
+    align-items: center;
+    gap: 27.843px;
 }
 
 
+/*Fin de la tercera parte*/
 
 
 /*Cuarta parte*/
@@ -230,8 +231,7 @@ img{
 .img-abajo{
     position: relative;
 }
-
-
+/*Fin de la cuarta parte*/
 
 
 
