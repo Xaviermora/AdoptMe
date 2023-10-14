@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Collapse } from 'flowbite';
+import { Collapse, Dropdown } from 'flowbite';
 import { UsuariosService } from '../../services/usuarios.service';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
 
@@ -14,10 +14,26 @@ export class NavbarComponent {
 
   constructor(public authService: AuthService, public usuariosService: UsuariosService){}
 
-  async ngOnInit(){
-    const $targetEl = document.getElementById('menu')
-    new Collapse($targetEl);
+  ngOnInit(){
+    // Funcionalidad para el menu del navbar responsive
+    const $targetMenuNavEl = document.getElementById('menu')
+    new Collapse($targetMenuNavEl);
 
-    this.authService.getUserInSession().subscribe(user => this.user = user)
+    this.authService.getUserInSession().subscribe(user => {
+      this.user = user
+    
+      if(this.user){
+        
+      }
+    })
+    // Funcionalidad para el dropdown
+    const $targetDropdownEl = document.getElementById('dropdown')
+    const $triggerDropdownEl = document.getElementById('dropdownButton')
+    console.log($targetDropdownEl, $triggerDropdownEl)
+    const dropdown = new Dropdown($targetDropdownEl, $triggerDropdownEl)
+  }
+
+  x(){
+    console.log('ds')
   }
 }

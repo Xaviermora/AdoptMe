@@ -3,7 +3,6 @@ import { GoogleAuthProvider } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { Usuario } from 'src/app/models/usuario';
 import { UsuariosService } from 'src/app/shared/services/usuarios.service';
 
 @Injectable({
