@@ -30,7 +30,7 @@
     <!-- Menu del usuario -->
     <div id="dropdownButton" class="ml-auto w-max content-left cursor-pointer" [class.hidden]="!user">
       <div *ngIf="user" class="flex space-x-0.5 items-center">
-        <img class="w-9 h-9 rounded-full" src="../../../../assets/default-user-photo.svg" alt="User photo">
+        <img class="w-9 h-9 rounded-full" [src]="user.photoUrl" alt="User photo">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4D4D4D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="m6 9 6 6 6-6"/>
         </svg>

@@ -17,23 +17,15 @@ export class NavbarComponent {
   ngOnInit(){
     // Funcionalidad para el menu del navbar responsive
     const $targetMenuNavEl = document.getElementById('menu')
+    
     new Collapse($targetMenuNavEl);
 
-    this.authService.getUserInSession().subscribe(user => {
-      this.user = user
-    
-      if(this.user){
-        
-      }
-    })
+    this.authService.getUserInSession().subscribe(user => this.user = user)
+
     // Funcionalidad para el dropdown
     const $targetDropdownEl = document.getElementById('dropdown')
     const $triggerDropdownEl = document.getElementById('dropdownButton')
-    console.log($targetDropdownEl, $triggerDropdownEl)
-    const dropdown = new Dropdown($targetDropdownEl, $triggerDropdownEl)
-  }
 
-  x(){
-    console.log('ds')
+    new Dropdown($targetDropdownEl, $triggerDropdownEl)
   }
 }
