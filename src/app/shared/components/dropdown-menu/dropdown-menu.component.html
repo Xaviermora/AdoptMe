@@ -1,18 +1,7 @@
 
 <!-- Dropdown menu -->
-<div id="dropdown" class="z-50 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownButton">
-      <li>
-        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-      </li>
-      <li>
-        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-      </li>
-      <li>
-        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-      </li>
-      <li>
-        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
-      </li>
+<div id="dropdown" class="z-50 hidden bg-white divide-y divide-gray-100 rounded-lg w-44" style="box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25); transform: translate(785px, 66px);">
+    <ul class="py-2 text-neutral-secundario-100" aria-labelledby="dropdownButton">
+      <ng-content></ng-content>
     </ul>
 </div>
