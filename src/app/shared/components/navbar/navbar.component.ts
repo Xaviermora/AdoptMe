@@ -23,8 +23,8 @@ export class NavbarComponent {
     this.authService.getUserInSession().subscribe(user => this.user = user)
 
     // Funcionalidad para el dropdown
-    const $targetDropdownEl = document.getElementById('dropdown')
-    const $triggerDropdownEl = document.getElementById('dropdownButton')
+    const $targetDropdownEl = document.getElementById('dropdownUserMenu')
+    const $triggerDropdownEl = document.getElementById('dropdownBtnUserMenu')
 
     new Dropdown($targetDropdownEl, $triggerDropdownEl)
   }
