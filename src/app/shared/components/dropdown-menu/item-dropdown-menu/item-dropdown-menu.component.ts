@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./item-dropdown-menu.component.css']
 })
 export class ItemDropdownMenuComponent {
-  @Input() link!: string
+  @Input() link: string | null = null
 }
