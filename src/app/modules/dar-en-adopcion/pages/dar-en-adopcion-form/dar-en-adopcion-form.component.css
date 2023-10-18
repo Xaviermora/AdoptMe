@@ -3,3 +3,12 @@ app-input{
   padding: 0;
   border: 0;
 }
+
+form{
+    display: flex;
+    padding: 1.25rem 1.875rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
