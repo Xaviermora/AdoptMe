@@ -13,4 +13,27 @@ export class DarEnAdopcionFormComponent {
     "Adulto",
     "Senior"
   ]
+  razas=[
+    "Calle",
+    "Vereda",
+    "Asfalto",
+    "PLaza"
+  ]
+  provincia=[
+    "Neuquen",
+    "Rio Negro"
+  ]
+  ciudad=[
+    "Cipolleti",
+    "General Fernandez Oro",
+    "Ciudad de General Roca",
+    "San Carlos de Bariloche",
+    "El Bolson",
+    "Viedma",
+    "Villa Regina",
+    "Catriel",
+    "Las Grutas",
+    "Cinco Saltos",
+    "Allen"
+  ]
 }
