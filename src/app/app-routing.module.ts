@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule)
+  },
+  {
+    path: '',
+    loadChildren: ()=>import('./modules/dar-en-adopcion/dar-en-adopcion.module').then(m => m.DarEnAdopcionModule)
   }
 ];
 
