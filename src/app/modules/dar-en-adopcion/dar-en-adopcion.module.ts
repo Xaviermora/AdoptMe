@@ -3,15 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { DarEnAdopcionRoutingModule } from './dar-en-adopcion-routing.module';
 import { DarEnAdopcionFormComponent } from './pages/dar-en-adopcion-form/dar-en-adopcion-form.component';
+import { SharedModule } from "../../shared/shared.module";
 
 
 @NgModule({
-  declarations: [
-    DarEnAdopcionFormComponent
-  ],
-  imports: [
-    CommonModule,
-    DarEnAdopcionRoutingModule
-  ]
+    declarations: [
+        DarEnAdopcionFormComponent
+    ],
+    imports: [
+        CommonModule,
+        DarEnAdopcionRoutingModule,
+        SharedModule
+    ]
 })
 export class DarEnAdopcionModule { }

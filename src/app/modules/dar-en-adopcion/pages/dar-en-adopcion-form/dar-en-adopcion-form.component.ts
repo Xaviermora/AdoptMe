@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./dar-en-adopcion-form.component.css']
 })
 export class DarEnAdopcionFormComponent {
-
+  edad=[
+    "Cachorro lactante",
+    "Cachorro",
+    "Cachorro adolecente",
+    "Adulto",
+    "Senior"
+  ]
 }
