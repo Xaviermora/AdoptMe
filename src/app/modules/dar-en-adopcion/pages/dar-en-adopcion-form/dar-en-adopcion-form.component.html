@@ -12,6 +12,11 @@
   <div>
     <app-input label="Nombre (opcional)" type="text" idInput="nombre"></app-input>
     <app-select idSelect="edad" label="Edad" [list]="edad"></app-select>
+    <div>
+      <h6 class="text-neutral-secundario-100">Sexo</h6>
+      <app-input-radio valueInput="Macho" name="sexo"></app-input-radio>
+      <app-input-radio valueInput="Hembra" name="sexo"></app-input-radio>
+    </div>
     <app-input-checkbox label="Castrado" idInput="castrado"></app-input-checkbox>
   </div>
 </div>
