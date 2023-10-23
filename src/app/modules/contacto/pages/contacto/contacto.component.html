@@ -1,6 +1,6 @@
 <div class="flex justify-center mt-14 px-20">
     <div class="grid grid-cols-2 gap-12">
-        <div class="flex flex-col gap-4">
+        <div class="md:flex md:flex-col md:gap-4  sm:hidden sm:gap-0">
            <h1 class="title text-6xl font-bold text-primario">Lorem ipsum dolor sit amet</h1>
            <p class="text-neutral-secundario-100">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic mollitia voluptates quae sit provident amet. Qui culpa architecto, velit eos voluptatum molestias sunt nobis cum consequatur dolore, accusamus aliquam non?</p>
         </div>
@@ -10,11 +10,14 @@
           <form>
 
             <div class="flex flex-col gap-6">
-              <div class="grid grid-cols-2 gap-6 w-full">
+              <div class="grid grid-cols-2 gap-6 w-full sm:justify-center">
+
+
                 <app-input idInput="nombre" label="Nombre" type="text"></app-input>
+
                 <app-input idInput="apellido" label="Apellido" type="text"></app-input>
               </div>
-
+              
               <app-input idInput="email" label="Email" type="text"></app-input>
 
               <app-textarea></app-textarea>
@@ -26,3 +29,5 @@
         </div>
       </div>
 </div>
+
+
