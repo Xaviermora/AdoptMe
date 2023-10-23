@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-search-select',
@@ -10,6 +11,5 @@ export class SearchSelectComponent {
   @Input() idList!: string
   @Input() label!: string
   @Input() list!: any[]
-
-  searchItem: string = ''
+  @Input() control: FormControl = new FormControl('')
 }
