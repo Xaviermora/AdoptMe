@@ -61,11 +61,9 @@
     <app-select idSelect="ciudad" label="Ciudad" [list]="ciudad" [control]="darEnAdopcion.controls.ciudad"></app-select>
 
     <!--ingresar los requisitos y la descripcion del animal-->
-    <label for="descripcion" class="block text-sm font-medium text-neutral-secundario-100">Descripcion</label>
-    <app-textarea id="descripcion"></app-textarea>
+    <app-textarea placeholder="Descripcion" [rows]=8 ></app-textarea>
 
-    <label for="requisitos" class="block text-sm font-medium text-neutral-secundario-100">Requisitos</label>
-    <app-textarea id="requisitos"></app-textarea>
+    <app-textarea placeholder="Requisitos" [rows]=8 ></app-textarea>
 
     <!--boton para ´publicar en adopcion al animal-->
     <app-button type="submit" class="primary w-full" contenido="Publicar"></app-button>
