@@ -17,9 +17,12 @@
       Gato
     </button>
   </div>
+
+  <!--ingresa el nombre del animal-->
   <div class="w-full flex flex-col gap-6">
     <app-input label="Nombre (opcional)" type="text" idInput="nombre" [control]="darEnAdopcion.controls.nombre"></app-input>
 
+    <!--se ingresa la edad del animal-->
     <app-select idSelect="edad" label="Edad" [list]="edad" [control]="darEnAdopcion.controls.edad"></app-select>
 
     <!--se especifica el sexo del animal-->
@@ -29,12 +32,16 @@
       <app-input-radio valueInput="Hembra" name="sexo" [control]="darEnAdopcion.controls.sexo"></app-input-radio>
     </div>
 
+    <!--se especifica si el animal esta castrado o no-->
     <app-input-checkbox label="Castrado" idInput="castrado" [control]="darEnAdopcion.controls.castrado"></app-input-checkbox>
 
+    <!--se especifica la raza del animal-->
     <app-search-select idInput="raza" idList="razas" label="Raza" [list]="razas" [control]="darEnAdopcion.controls.raza"></app-search-select>
 
+    <!--se ingresa la provincia-->
     <app-select idSelect="provincia" label="Provincia" [list]="provincia" [control]="darEnAdopcion.controls.provincia"></app-select>
 
+    <!--se ingresa la ciudad-->
     <app-select idSelect="ciudad" label="Ciudad" [list]="ciudad" [control]="darEnAdopcion.controls.ciudad"></app-select>
 
     <!--ingresar los requisitos y la descripcion del animal-->
@@ -44,6 +51,7 @@
     <label for="requisitos" class="block text-sm font-medium text-neutral-secundario-100">Requisitos</label>
     <app-textarea id="requisitos"></app-textarea>
 
+    <!--boton para ´publicar en adopcion al animal-->
     <app-button type="submit" class="primary w-full" contenido="Publicar"></app-button>
   </div>
 </form>
