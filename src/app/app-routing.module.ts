@@ -12,11 +12,11 @@ const routes: Routes = [
   },
   {
     path: '',
-<<<<<<< HEAD
-    loadChildren: ()=>import('./modules/dar-en-adopcion/dar-en-adopcion.module').then(m => m.DarEnAdopcionModule)
-=======
     loadChildren: () => import('./modules/contacto/contacto.module').then(m => m.ContactoModule)
->>>>>>> e1f25223a98ec40dc120a64b1506320fe86298ab
+  },
+  {
+    path: '',
+    loadChildren: () => import('./modules/dar-en-adopcion/dar-en-adopcion.module').then(m => m.DarEnAdopcionModule)
   }
 ];
 
