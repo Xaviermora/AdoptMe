@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-textarea',
@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class TextareaComponent {
 
+  @Input() rows!: number;
+
+  @Input() placeholder!: string;
 }
