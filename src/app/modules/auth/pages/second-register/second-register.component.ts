@@ -50,14 +50,14 @@ export class SecondRegisterComponent {
     "Cinco Saltos",
     "Allen"
   ]
-  terminosYCondicionesChecked: boolean = false
+  terminosYCondicionesChecked = new FormControl(false, Validators.required)
   loading: boolean = false
 
   constructor(private authService: AuthService, private usuariosService: UsuariosService, private router: Router){}
 
   onSubmit(){
     this.datosPersonalesIsSubmitted = true
-    if(this.datosPersonales.status == 'VALID' && this.terminosYCondicionesChecked){
+    if(this.datosPersonales.status == 'VALID' && this.terminosYCondicionesChecked.value){
       this.authService.currentUser().then(async user => {
         this.loading = true
         if(user){
