@@ -1,5 +1,7 @@
 <form [formGroup]="darEnAdopcion" (ngSubmit)="onSubmit()" class="flex flex-col justify-center lg:w-6/12 md:w-8/12 w-11/12 mx-auto">
   <h1 class="titulos-2"> Dar en adopcion</h1>
+
+  <!--se especifica el animal (gato o perro)-->
   <div class="flex gap-2 items-center">
     <button type="button" (click)="darEnAdopcion.controls.animal.setValue('Perro')" class="border border-neutral-secundario-50 text-neutral-primario rounded-md w-20 h-20 flex flex-col justify-center items-center hover:bg-hover" [ngClass]="{'border-primario-80 text-primario-100': darEnAdopcion.controls.animal.value == 'Perro'}">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto">
@@ -20,6 +22,7 @@
 
     <app-select idSelect="edad" label="Edad" [list]="edad" [control]="darEnAdopcion.controls.edad"></app-select>
 
+    <!--se especifica el sexo del animal-->
     <div>
       <h6 class="text-neutral-secundario-100">Sexo</h6>
       <app-input-radio valueInput="Macho" name="sexo" [control]="darEnAdopcion.controls.sexo"></app-input-radio>
@@ -34,9 +37,12 @@
 
     <app-select idSelect="ciudad" label="Ciudad" [list]="ciudad" [control]="darEnAdopcion.controls.ciudad"></app-select>
 
+    <!--ingresar los requisitos y la descripcion del animal-->
+    <label for="message" class="block text-sm font-medium text-neutral-secundario-100">Descripcion</label>
     <app-textarea></app-textarea>
 
-    <app-textarea></app-textarea>
+    <label for="requisitos" class="block text-sm font-medium text-neutral-secundario-100">Requisitos</label>
+    <app-textarea id="requisitos"></app-textarea>
 
     <app-button type="submit" class="primary w-full" contenido="Publicar"></app-button>
   </div>
