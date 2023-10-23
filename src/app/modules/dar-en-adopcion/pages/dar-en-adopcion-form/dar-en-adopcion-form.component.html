@@ -19,7 +19,7 @@
     <app-input label="Nombre (opcional)" type="text" idInput="nombre" [control]="darEnAdopcion.controls.nombre"></app-input>
 
     <app-select idSelect="edad" label="Edad" [list]="edad" [control]="darEnAdopcion.controls.edad"></app-select>
-    
+
     <div>
       <h6 class="text-neutral-secundario-100">Sexo</h6>
       <app-input-radio valueInput="Macho" name="sexo" [control]="darEnAdopcion.controls.sexo"></app-input-radio>
@@ -33,6 +33,10 @@
     <app-select idSelect="provincia" label="Provincia" [list]="provincia" [control]="darEnAdopcion.controls.provincia"></app-select>
 
     <app-select idSelect="ciudad" label="Ciudad" [list]="ciudad" [control]="darEnAdopcion.controls.ciudad"></app-select>
+
+    <app-textarea></app-textarea>
+
+    <app-textarea></app-textarea>
 
     <app-button type="submit" class="primary w-full" contenido="Publicar"></app-button>
   </div>
