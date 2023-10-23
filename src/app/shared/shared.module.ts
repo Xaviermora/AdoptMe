@@ -14,13 +14,18 @@ import { SelectComponent } from './components/select/select.component';
 import { ToastComponent } from './components/toast/toast.component';
 import { SpinnerLoadingComponent } from './components/spinner-loading/spinner-loading.component';
 import { FooterComponent } from './components/footer/footer.component';
+<<<<<<< HEAD
 import { RouterModule } from '@angular/router';
+=======
+import { TextareaComponent } from './components/textarea/textarea.component';
+>>>>>>> e1f25223a98ec40dc120a64b1506320fe86298ab
 
 @NgModule({
   declarations: [
     NavbarComponent,
     ButtonComponent,
     DividerComponent,
+    TextareaComponent,
     SearchSelectComponent,
     FilterPipe,
     InputRadioComponent,
@@ -36,7 +41,9 @@ import { RouterModule } from '@angular/router';
     NavbarComponent,
     ButtonComponent,
     DividerComponent,
+    TextareaComponent,
     SearchSelectComponent,
+    FilterPipe,
     InputRadioComponent,
     InputComponent,
     InputCheckboxComponent,
