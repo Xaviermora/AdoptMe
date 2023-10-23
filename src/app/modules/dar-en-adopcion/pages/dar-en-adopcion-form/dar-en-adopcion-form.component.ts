@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dar-en-adopcion-form',
@@ -36,4 +37,19 @@ export class DarEnAdopcionFormComponent {
     "Cinco Saltos",
     "Allen"
   ]
+
+  darEnAdopcion = new FormGroup({
+    animal: new FormControl('', Validators.required),
+    nombre: new FormControl(''),
+    edad: new FormControl('', Validators.required),
+    sexo: new FormControl('', Validators.required),
+    castrado: new FormControl(false, Validators.required),
+    raza: new FormControl('', Validators.required),
+    provincia: new FormControl('', Validators.required),
+    ciudad: new FormControl('', Validators.required)
+  })
+
+  onSubmit(){
+    console.log(this.darEnAdopcion.value)
+  }
 }
