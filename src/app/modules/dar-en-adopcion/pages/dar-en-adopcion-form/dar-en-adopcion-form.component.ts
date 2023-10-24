@@ -46,10 +46,13 @@ export class DarEnAdopcionFormComponent {
     castrado: new FormControl(false, Validators.required),
     raza: new FormControl('', Validators.required),
     provincia: new FormControl('', Validators.required),
-    ciudad: new FormControl('', Validators.required)
+    ciudad: new FormControl('', Validators.required),
+    imgs: new FormControl(['']),
+    descripcion: new FormControl(''),
+    requisitos: new FormControl('')
   })
 
   onSubmit(){
-    console.log(this.darEnAdopcion.value)
+    console.log()
   }
 }
