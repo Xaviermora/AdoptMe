@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { tap } from 'rxjs';
 import { AnimalesService } from 'src/app/shared/services/animales.service';
 
 @Component({
@@ -45,22 +44,24 @@ export class DarEnAdopcionFormComponent {
     nombre: new FormControl(''),
     edad: new FormControl('', Validators.required),
     sexo: new FormControl('', Validators.required),
-    castrado: new FormControl(false, Validators.required),
+    castrado: new FormControl(false),
     raza: new FormControl('', Validators.required),
     provincia: new FormControl('', Validators.required),
     ciudad: new FormControl('', Validators.required),
-    imgs: new FormControl(['']),
+    imgs: new FormControl([''], Validators.required),
     descripcion: new FormControl(''),
     requisitos: new FormControl('')
   })
+  darEnAdopcionIsSubmitted: boolean = false
 
-  constructor(private animalesService: AnimalesService){
-    this.animalesService.getAnimales().subscribe(v => console.log(v))
-  }
+
+  constructor(private animalesService: AnimalesService){}
 
   async onSubmit(){
+    this.darEnAdopcionIsSubmitted = true
     console.log(this.darEnAdopcion.value)
-
-    await this.animalesService.addAnimal(this.darEnAdopcion.value)
+    if(this.darEnAdopcion.status == 'VALID'){
+      await this.animalesService.addAnimal(this.darEnAdopcion.value)
+    }
   }
 }
