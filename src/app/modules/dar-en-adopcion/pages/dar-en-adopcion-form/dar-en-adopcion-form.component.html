@@ -1,4 +1,3 @@
-
 <form [formGroup]="darEnAdopcion" (ngSubmit)="onSubmit()" class="flex flex-col justify-center lg:w-6/12 md:w-8/12 w-11/12 mx-auto">
   <h1 class="titulos-2"> Dar en adopcion</h1>
 
@@ -38,13 +37,13 @@
 
     <!--se especifica la raza del animal-->
     <app-search-select idInput="raza" idList="razas" label="Raza" [list]="razas" [control]="darEnAdopcion.controls.raza"></app-search-select>
-    
+
     <!--se ingresa la provincia-->
     <app-select idSelect="provincia" label="Provincia" [list]="provincia" [control]="darEnAdopcion.controls.provincia"></app-select>
-    
+
     <!--se ingresa la ciudad-->
     <app-select idSelect="ciudad" label="Ciudad" [list]="ciudad" [control]="darEnAdopcion.controls.ciudad"></app-select>
-    
+
     <!--agregar imagenes del animal-->
     <div>
       <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="default_size">Default size</label>
@@ -64,7 +63,7 @@
           <input id="dropzone-file" type="file" class="hidden" />
       </label>
     </div> -->
-    
+
     <!--ingresar los requisitos y la descripcion del animal-->
     <app-textarea placeholder="Descripcion" [rows]=6 [control]="darEnAdopcion.controls.descripcion"></app-textarea>
 
