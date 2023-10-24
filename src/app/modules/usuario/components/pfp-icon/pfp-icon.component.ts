@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Input } from '@angular/core';
 
 @Component({
   selector: 'app-pfp-icon',
@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./pfp-icon.component.css']
 })
 export class PfpIconComponent {
-
+  @Input() userIcon!: string;
+  @Input() edad!: number;
+  @Input() email!: string;
+  @Input() usuario!: string;
 }
