@@ -12,7 +12,16 @@ export class AnimalesService {
     this.animalesCollection = this.database.collection<any>('animales')
   }
 
+  getAnimales(){
+    return this.animalesCollection.valueChanges()
+  }
+
   async addAnimal(animal: any){
-    await this.animalesCollection.doc(animal.uid).set(animal)
+    const id = this.database.createId()
+
+    await this.animalesCollection.doc(id).set({
+      id,
+      ...animal
+    })
   }
 }

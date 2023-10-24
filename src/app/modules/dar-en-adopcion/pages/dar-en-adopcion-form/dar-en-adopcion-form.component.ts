@@ -54,7 +54,9 @@ export class DarEnAdopcionFormComponent {
     requisitos: new FormControl('')
   })
 
-  constructor(private animalesService: AnimalesService){}
+  constructor(private animalesService: AnimalesService){
+    this.animalesService.getAnimales().subscribe(v => console.log(v))
+  }
 
   async onSubmit(){
     console.log(this.darEnAdopcion.value)
