@@ -1,7 +1,7 @@
 export interface Animal {
   id: string,
   animal: string,
-  nombre: string,
+  nombre: string | null,
   edad: string,
   sexo: string,
   castrado: boolean,
