@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { tap } from 'rxjs';
+import { AnimalesService } from 'src/app/shared/services/animales.service';
 
 @Component({
   selector: 'app-dar-en-adopcion-form',
@@ -52,7 +54,11 @@ export class DarEnAdopcionFormComponent {
     requisitos: new FormControl('')
   })
 
-  onSubmit(){
-    console.log()
+  constructor(private animalesService: AnimalesService){}
+
+  async onSubmit(){
+    console.log(this.darEnAdopcion.value)
+
+    await this.animalesService.addAnimal(this.darEnAdopcion.value)
   }
 }
