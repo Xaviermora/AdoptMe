@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./filtros.component.css']
 })
 export class FiltrosComponent {
+  filtrosOpen: boolean = false
   razas=[
     "Calle",
     "Vereda",

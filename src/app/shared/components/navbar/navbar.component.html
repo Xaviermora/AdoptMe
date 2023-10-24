@@ -1,4 +1,4 @@
-<nav class="navbar sticky w-full z-20 top-0 left-0">
+<nav class="navbar sticky w-full z-40 top-0 left-0 mb-5">
   <div class="max-w-screen-xl flex flex-wrap items-center mx-auto py-3.5 pr-3">
     <button id="menuBtn" (click)="menuIsActive = !menuIsActive" data-collapse-toggle="menu" type="button" class="flex items-center p-2 w-fit h-fit justify-center rounded-full mx-2" aria-controls="menu" aria-expanded="false">
       <!-- Icono menu -->
@@ -24,7 +24,7 @@
     <!-- Buttons -->
     <div id="buttons" class="ml-auto flex space-x-3 w-max">
       <app-button class="secondary w-28" contenido="Ingresar" routerLink="login"></app-button>
-      <app-button class="primary lg:block hidden" contenido="Registrarse" routerLink=""></app-button>
+      <app-button class="primary lg:block hidden" contenido="Registrarse" routerLink="register"></app-button>
     </div>
 
     <!-- Links -->
