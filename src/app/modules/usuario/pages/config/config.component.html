@@ -11,14 +11,14 @@
     <app-divider class="mb-3"></app-divider>
 
     <ng-container [ngSwitch]="configOption">
-        <app-config-perfil-publico *ngSwitchCase="'Perfil publico'"></app-config-perfil-publico>
+        <app-config-perfil-publico *ngSwitchCase="'Perfil público'"></app-config-perfil-publico>
         <app-config-datos-personales *ngSwitchCase="'Datos personales'"></app-config-datos-personales>
         <app-config-seguridad *ngSwitchCase="'Seguridad'"></app-config-seguridad>
     </ng-container>
 </div>
 
 <app-dropdown-menu idDropdown="configOptions">
-    <app-item-dropdown-menu (click)="configOption = 'Perfil publico'">Perfil público</app-item-dropdown-menu>
+    <app-item-dropdown-menu (click)="configOption = 'Perfil público'">Perfil público</app-item-dropdown-menu>
     <app-item-dropdown-menu (click)="configOption = 'Datos personales'">Datos personales</app-item-dropdown-menu>
     <app-item-dropdown-menu (click)="configOption = 'Seguridad'">Seguridad</app-item-dropdown-menu>
 </app-dropdown-menu>
