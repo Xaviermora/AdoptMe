@@ -15,7 +15,7 @@ const routes: Routes = [
     loadChildren: () => import('./modules/contacto/contacto.module').then(m => m.ContactoModule)
   },
   {
-    path:'usuario',
+    path:'',
     loadChildren:()=>import('./modules/usuario/usuario.module').then(m =>m.UsuarioModule)
   }
 ];

@@ -8,8 +8,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { ConfigDatosPersonalesComponent } from './pages/config-datos-personales/config-datos-personales/config-datos-personales.component';
 import { ConfigComponent } from './pages/config/config.component';
 
-
-
 @NgModule({
   declarations: [
     PerfilComponent,
