@@ -6,6 +6,7 @@ import { PerfilComponent } from './pages/perfil/perfil/perfil.component';
 import { PfpIconComponent } from './components/pfp-icon/pfp-icon.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ConfigDatosPersonalesComponent } from './pages/config-datos-personales/config-datos-personales/config-datos-personales.component';
+import { ConfigComponent } from './pages/config/config.component';
 
 
 
@@ -13,7 +14,8 @@ import { ConfigDatosPersonalesComponent } from './pages/config-datos-personales/
   declarations: [
     PerfilComponent,
     PfpIconComponent,
-    ConfigDatosPersonalesComponent
+    ConfigDatosPersonalesComponent,
+    ConfigComponent
   ],
   imports: [
     CommonModule,
