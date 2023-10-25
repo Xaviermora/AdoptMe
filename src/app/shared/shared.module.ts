@@ -18,6 +18,7 @@ import { TextareaComponent } from './components/textarea/textarea.component';
 import { RouterModule } from '@angular/router';
 import { DropdownMenuComponent } from './components/dropdown-menu/dropdown-menu.component';
 import { ItemDropdownMenuComponent } from './components/dropdown-menu/item-dropdown-menu/item-dropdown-menu.component';
+import { InputPasswordComponent } from './components/input-password/input-password.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ItemDropdownMenuComponent } from './components/dropdown-menu/item-dropd
     SpinnerLoadingComponent,
     FooterComponent,
     DropdownMenuComponent,
-    ItemDropdownMenuComponent
+    ItemDropdownMenuComponent,
+    InputPasswordComponent
   ],
   exports: [
     NavbarComponent,
@@ -54,7 +56,8 @@ import { ItemDropdownMenuComponent } from './components/dropdown-menu/item-dropd
     SpinnerLoadingComponent,
     FooterComponent,
     DropdownMenuComponent,
-    ItemDropdownMenuComponent
+    ItemDropdownMenuComponent,
+    InputPasswordComponent
   ],
   imports: [
     CommonModule,
