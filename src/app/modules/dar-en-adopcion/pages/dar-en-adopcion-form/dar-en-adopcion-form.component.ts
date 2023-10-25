@@ -53,14 +53,21 @@ export class DarEnAdopcionFormComponent {
     requisitos: new FormControl('')
   })
   darEnAdopcionIsSubmitted: boolean = false
+  loading: boolean = false
 
   constructor(private animalesService: AnimalesService){}
 
   async onSubmit(){
     this.darEnAdopcionIsSubmitted = true
-    console.log(this.darEnAdopcion.value)
+    
     if(this.darEnAdopcion.status == 'VALID'){
+      this.loading = true
       await this.animalesService.addAnimal(this.darEnAdopcion.value, '')
+      this.loading = false
+      this.darEnAdopcion.reset()
+      this.darEnAdopcionIsSubmitted = false
     }
+
+    window.scrollTo(0, 0)
   }
 }
