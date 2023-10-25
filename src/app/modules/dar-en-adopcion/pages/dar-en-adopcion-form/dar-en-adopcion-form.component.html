@@ -1,7 +1,7 @@
 <form [formGroup]="darEnAdopcion" (ngSubmit)="onSubmit()" class="flex flex-col justify-center lg:w-6/12 md:w-8/12 w-11/12 mx-auto">
   <h1 class="titulos-2">Dar en adopción</h1>
 
-  <app-toast *ngIf="showMsg" (showMsgEvent)="showMsg = $event" severity="success" msg="Se ha publicado al animal en adopción con éxito." class="w-full"></app-toast>
+  <app-toast *ngIf="showMsg" (showMsgEvent)="showMsg = $event" severity="success" msg="Se publicó al animal con éxito." class="w-full"></app-toast>
 
   <!--se especifica el animal (gato o perro)-->
   <div>
@@ -85,7 +85,10 @@
     </div> -->
 
     <!--ingresar los requisitos y la descripcion del animal-->
-    <app-textarea placeholder="Descripcion" [rows]=6 [control]="darEnAdopcion.controls.descripcion"></app-textarea>
+    <div>
+      <app-textarea placeholder="Descripción" [rows]=6 [control]="darEnAdopcion.controls.descripcion"></app-textarea>
+      <span *ngIf="darEnAdopcion.controls.descripcion.errors?.['required'] && darEnAdopcionIsSubmitted" class="error-msg-input">La descripción es requerida</span>
+    </div>
 
     <app-textarea placeholder="Requisitos" [rows]=6 [control]="darEnAdopcion.controls.requisitos"></app-textarea>
 

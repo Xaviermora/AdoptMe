@@ -49,7 +49,7 @@ export class DarEnAdopcionFormComponent {
     provincia: new FormControl('', Validators.required),
     ciudad: new FormControl('', Validators.required),
     imgs: new FormControl([''], Validators.required),
-    descripcion: new FormControl(''),
+    descripcion: new FormControl('', Validators.required),
     requisitos: new FormControl('')
   })
   darEnAdopcionIsSubmitted: boolean = false
