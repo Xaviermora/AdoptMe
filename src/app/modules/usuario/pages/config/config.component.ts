@@ -7,7 +7,7 @@ import { Dropdown } from 'flowbite';
   styleUrls: ['./config.component.css']
 })
 export class ConfigComponent implements AfterViewInit{
-  configOptionsOpen: boolean = false
+  configOption: string = 'Perfil publico'
 
   constructor(){}
   
