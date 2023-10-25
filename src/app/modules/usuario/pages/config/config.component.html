@@ -1,6 +1,6 @@
 <div class="lg:w-6/12 md:w-8/12 w-11/12 mx-auto pt-6 flex flex-col gap-4">
     <div id="configOptionsTrigger" data-dropdown-toggle="configOptions" class="text-xl font-semibold text-neutral-primario flex items-center cursor-pointer">
-        <h1 class="titulos-2">Datos personales</h1>
+        <h1 class="titulos-2">{{configOption}}</h1>
 
         <!-- Icono para abrir las opciones de configuración -->
         <div>
@@ -8,7 +8,7 @@
         </div>
     </div>
 
-    <app-divider></app-divider>
+    <app-divider class="mb-3"></app-divider>
 
     <ng-container [ngSwitch]="configOption">
         <app-config-perfil-publico *ngSwitchCase="'Perfil publico'"></app-config-perfil-publico>
