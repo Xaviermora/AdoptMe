@@ -54,6 +54,7 @@ export class DarEnAdopcionFormComponent {
   })
   darEnAdopcionIsSubmitted: boolean = false
   loading: boolean = false
+  showMsg: boolean = false
 
   constructor(private animalesService: AnimalesService){}
 
@@ -66,6 +67,7 @@ export class DarEnAdopcionFormComponent {
       this.loading = false
       this.darEnAdopcion.reset()
       this.darEnAdopcionIsSubmitted = false
+      this.showMsg = true
     }
 
     window.scrollTo(0, 0)

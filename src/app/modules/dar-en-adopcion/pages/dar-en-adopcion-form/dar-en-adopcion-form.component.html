@@ -1,6 +1,8 @@
 <form [formGroup]="darEnAdopcion" (ngSubmit)="onSubmit()" class="flex flex-col justify-center lg:w-6/12 md:w-8/12 w-11/12 mx-auto">
   <h1 class="titulos-2">Dar en adopción</h1>
 
+  <app-toast *ngIf="showMsg" (showMsgEvent)="showMsg = $event" severity="success" msg="Se ha publicado al animal en adopción con éxito." class="w-full"></app-toast>
+
   <!--se especifica el animal (gato o perro)-->
   <div>
     <div class="flex gap-4 items-center">
