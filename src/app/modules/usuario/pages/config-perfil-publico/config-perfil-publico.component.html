@@ -9,4 +9,24 @@
         </div>
         <span class="text-primario-100 text-center">Quitar</span>
     </div>
+
+    <div class="flex sm:flex-row flex-col w-full sm:gap-4 gap-8">
+        <div class="w-full">
+            <app-input idInput="nombre" label="Nombre" type="text"></app-input>
+        </div>
+
+        <div class="w-full">
+            <app-input idInput="apellido" label="Apellido" type="text"></app-input>
+        </div>
+    </div>
+
+    <div>
+        <app-input idInput="email" label="Email" type="email"></app-input>
+    </div>
+
+    <div>
+        <app-input type="date" label="Fecha de nacimiento" idInput="fechaDeNacimiento"></app-input>
+    </div>
+
+    <app-button type="submit" class="primary" contenido="Guardar cambios"></app-button>
 </form>
