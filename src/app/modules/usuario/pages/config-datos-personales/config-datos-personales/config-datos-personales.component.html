@@ -1,1 +1,23 @@
-<p>config-datos-personales works!</p>
+<form class="flex flex-col gap-8">
+    <div class="w-full">
+        <app-select idSelect="provincias" label="Provincia" [list]="provincias" [control]="datosPersonalesUpdate.controls.provincia"></app-select>
+    </div>
+
+    <div class="w-full">
+        <app-select idSelect="ciudades" label="Ciudad" [list]="ciudades" [control]="datosPersonalesUpdate.controls.ciudad"></app-select>
+    </div>
+
+    <div class="w-full text-neutral-secundario-100">
+        <span>Tipo de vivienda</span>
+        <app-input-radio valueInput="Casa" name="tipoDeVivienda"></app-input-radio>
+        <app-input-radio valueInput="Departamento" name="tipoDeVivienda"></app-input-radio>
+    </div>
+
+    <div class="w-full">
+        <app-input-phone></app-input-phone>
+    </div>
+
+    <div class="w-full">
+        <app-input type="number" idInput="dni" label="DNI" class="w-100 p-0 border-none"></app-input>
+    </div>
+</form>
