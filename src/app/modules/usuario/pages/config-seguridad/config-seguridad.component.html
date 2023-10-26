@@ -1,8 +1,11 @@
 <div class="flex flex-col gap-12">
     <div class="flex flex-col gap-4">
-        <span class="font-bold text-neutral-primario text-lg">Cambiar contraseña</span>
-        <app-input-password idInput="password" label="Contraseña actual"></app-input-password>
-        <app-button type="button" class="primary" contenido="siguiente"></app-button>
+        <div>
+            <span class="font-bold text-neutral-primario text-lg">Cambiar contraseña</span>
+            <p class="text-neutral-secundario-100">Se enviara un correo al email ingresado para que restablezcas tu contraseña.</p>
+        </div>
+        <app-input idInput="email" label="Email"></app-input>
+        <app-button type="button" class="primary" contenido="Enviar correo"></app-button>
     </div>
     
     <div class="flex flex-col gap-2">
