@@ -68,8 +68,6 @@ export class SecondRegisterComponent {
             photoUrl: user.photoURL ? user.photoURL : '../../../../assets/default-user-photo.svg'
           }
           await this.usuariosService.addUser(credentialsUser)
-
-          await this.authService.setUserInSession(user.uid)
           this.router.navigate(['/'])
         }
       })

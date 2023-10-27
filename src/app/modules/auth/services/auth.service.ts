@@ -2,15 +2,12 @@ import { Injectable } from '@angular/core';
 import { GoogleAuthProvider } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
 import { UsuariosService } from 'src/app/shared/services/usuarios.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private $userInSession = new BehaviorSubject<any>(null)
-
   constructor(private auth: AngularFireAuth, private router: Router, private usuariosService: UsuariosService) { }
 
   register(email: string, password: string){
@@ -21,16 +18,12 @@ export class AuthService {
     return this.auth.signInWithEmailAndPassword(email, password)
   }
 
-  setUserInSession(id: string){
-    return new Promise((resolve, reject) => {
-      this.usuariosService.getUser(id).subscribe(user => {
-        resolve(this.$userInSession.next(user))
-      })
-    })
+  getAuthState(){
+    return this.auth.authState
   }
 
-  getUserInSession(){
-    return this.$userInSession.asObservable()
+  signOut(){
+    return this.auth.signOut()
   }
 
   authWithGoogle(){
@@ -39,7 +32,6 @@ export class AuthService {
       if(res.additionalUserInfo?.isNewUser){
         this.router.navigate(['/datos-personales'])
       }else{
-        await this.setUserInSession(res.user!.uid)
         this.router.navigate(['/'])
       }
     }).catch((error) => {

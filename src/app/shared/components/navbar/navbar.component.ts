@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Collapse, Dropdown } from 'flowbite';
 import { UsuariosService } from '../../services/usuarios.service';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +13,7 @@ export class NavbarComponent {
   menuIsActive: boolean = false
   user!: any
 
-  constructor(public authService: AuthService, public usuariosService: UsuariosService){}
+  constructor(public authService: AuthService, public usuariosService: UsuariosService, private router: Router){}
 
   ngOnInit(){
     // Funcionalidad para el menu del navbar responsive
@@ -20,12 +21,18 @@ export class NavbarComponent {
     
     new Collapse($targetMenuNavEl);
 
-    this.authService.getUserInSession().subscribe(user => this.user = user)
+    this.authService.getAuthState().subscribe(user => {
+      user ? this.usuariosService.getUser(user.uid).subscribe(user => this.user = user) : this.user = null // Se obtiene al usuario que esta en la sesión
+      
+      // Funcionalidad para el dropdown
+      const $targetDropdownEl = document.getElementById('dropdownUserMenu')
+      const $triggerDropdownEl = document.getElementById('dropdownBtnUserMenu')
+  
+      new Dropdown($targetDropdownEl, $triggerDropdownEl)
+    })
+  }
 
-    // Funcionalidad para el dropdown
-    const $targetDropdownEl = document.getElementById('dropdownUserMenu')
-    const $triggerDropdownEl = document.getElementById('dropdownBtnUserMenu')
-
-    new Dropdown($targetDropdownEl, $triggerDropdownEl)
+  logout(){
+    this.authService.signOut().then(() => this.router.navigate(['/login']))
   }
 }

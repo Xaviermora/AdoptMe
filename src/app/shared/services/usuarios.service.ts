@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { map } from 'rxjs';
+import { map, take } from 'rxjs';
 import { Usuario } from 'src/app/models/usuario';
 
 @Injectable({
@@ -14,7 +14,10 @@ export class UsuariosService {
   }
 
   getUser(id: string){
-    return this.usuariosCollection.doc(id).snapshotChanges().pipe(map(d => d.payload.data()))
+    return this.usuariosCollection.doc(id).snapshotChanges().pipe(
+      take(1), // Se toma solamente el primer valor
+      map(d => d.payload.data())
+    )
   }
 
   async addUser(usuario: any){
