@@ -10,6 +10,39 @@
     
     <div class="flex flex-col gap-2">
         <span class="font-bold text-neutral-primario text-lg">Eliminar tu cuenta</span>
-        <app-button type="button" class="primary" contenido="Eliminar cuenta"></app-button>
+        <app-button (click)="modal.toggle()" data-modal-target="modalEliminarCuenta" data-modal-toggle="modalEliminarCuenta" type="button" class="primary" contenido="Eliminar cuenta" ></app-button>
     </div>
 </div>
+
+<!-- Modal eliminar cuenta -->
+<div id="modalEliminarCuenta" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative w-full max-w-2xl max-h-full">
+        <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg mx-auto">
+            <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+              <div class="sm:flex sm:items-start">
+                <!--  Icono -->
+                <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                  <svg class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                  </svg>
+                </div>
+
+                <!-- Contenido -->
+                <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                  <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Eliminar cuenta</h3>
+                  <div class="mt-2">
+                    <p class="text-sm text-gray-500">¿Estás seguro de eliminar tu cuenta? Todos tus datos seran eliminados permanentemente y no podrás recuperarlos.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botones -->
+            <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+              <button type="button" class="inline-flex w-full justify-center rounded-md bg-red-600 px-4 py-2.5 font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto text-sm">Eliminar</button>
+              <button type="button" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-4 py-2.5 font-semibold text-sm text-neutral-primario shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto" (click)="modal.hide()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+  
