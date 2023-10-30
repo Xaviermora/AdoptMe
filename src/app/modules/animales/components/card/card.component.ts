@@ -1,5 +1,5 @@
 import { Component, Input, AfterViewInit } from '@angular/core';
-import { Modal } from 'flowbite';
+import { Dropdown, Modal } from 'flowbite';
 
 @Component({
   selector: 'app-card',
@@ -8,14 +8,18 @@ import { Modal } from 'flowbite';
 })
 export class CardComponent implements AfterViewInit{
   @Input() publicacion!: any
-  
+
   imgActual: number = 0 // Posición de la imagen que se esta mostrando en el carousel
 
   constructor(){}
 
   ngAfterViewInit(){
     const $targetEl = document.getElementById(`modal-${this.publicacion.id}`);
-    const modal = new Modal($targetEl, undefined);
+    new Modal($targetEl);
+
+    const $targetDropdownEl = document.getElementById(`dropwdownCard-${this.publicacion.id}`)
+    const $triggerDropdownEl = document.getElementById(`dropdownBtnCard-${this.publicacion.id}`)
+    new Dropdown($targetDropdownEl, $triggerDropdownEl)
   }
 
   movimientoImgs(){
