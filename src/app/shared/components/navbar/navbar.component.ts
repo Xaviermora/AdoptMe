@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent {
   menuIsActive: boolean = false
   user!: any
+  dropdownUser!: Dropdown
 
   constructor(public authService: AuthService, public usuariosService: UsuariosService, private router: Router){}
 
@@ -28,11 +29,14 @@ export class NavbarComponent {
       const $targetDropdownEl = document.getElementById('dropdownUserMenu')
       const $triggerDropdownEl = document.getElementById('dropdownBtnUserMenu')
 
-      new Dropdown($targetDropdownEl, $triggerDropdownEl)
+      this.dropdownUser = new Dropdown($targetDropdownEl, $triggerDropdownEl)
     })
   }
 
   logout(){
-    this.authService.signOut().then(() => this.router.navigate(['/login']))
+    this.authService.signOut().then(() => {
+      this.dropdownUser.hide()
+      this.router.navigate(['/login'])
+    })
   }
 }
