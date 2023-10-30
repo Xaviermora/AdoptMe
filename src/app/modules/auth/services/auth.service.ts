@@ -18,6 +18,10 @@ export class AuthService {
     return this.auth.signInWithEmailAndPassword(email, password)
   }
 
+  get user(){
+    return this.auth.authState
+  }
+
   getAuthState(){
     return this.auth.authState
   }
@@ -29,11 +33,7 @@ export class AuthService {
   authWithGoogle(){
     this.auth.signInWithPopup(new GoogleAuthProvider())
     .then(async res => {
-      if(res.additionalUserInfo?.isNewUser){
-        this.router.navigate(['/datos-personales'])
-      }else{
-        this.router.navigate(['/'])
-      }
+      res.additionalUserInfo?.isNewUser ? this.router.navigate(['/datos-personales']) : this.router.navigate(['/'])
     }).catch((error) => {
       console.log(error)
     });
@@ -41,10 +41,6 @@ export class AuthService {
 
   resetPassword(email: string){
     return this.auth.sendPasswordResetEmail(email)
-  }
-
-  currentUser(){
-    return this.auth.currentUser
   }
 
   firebaseErrors(error: string): string{

@@ -18,16 +18,16 @@ export class NavbarComponent {
   ngOnInit(){
     // Funcionalidad para el menu del navbar responsive
     const $targetMenuNavEl = document.getElementById('menu')
-    
+
     new Collapse($targetMenuNavEl);
 
-    this.authService.getAuthState().subscribe(user => {
-      user ? this.usuariosService.getUser(user.uid).subscribe(user => this.user = user) : this.user = null // Se obtiene al usuario que esta en la sesión
-      
+    this.authService.user.subscribe(user => {
+      this.user = user // Se obtiene al usuario que esta en la sesión
+
       // Funcionalidad para el dropdown
       const $targetDropdownEl = document.getElementById('dropdownUserMenu')
       const $triggerDropdownEl = document.getElementById('dropdownBtnUserMenu')
-  
+
       new Dropdown($targetDropdownEl, $triggerDropdownEl)
     })
   }

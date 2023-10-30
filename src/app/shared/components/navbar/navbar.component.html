@@ -14,7 +14,7 @@
         <path d="m6 6 12 12"/>
       </svg>
     </button>
-    
+
     <!-- Logo -->
     <a id="logo" routerLink="#" class="flex items-center">
         <img src="../../../../assets/Logo.svg" class="h-10 mr-2" alt="AdoptMe">
@@ -30,13 +30,13 @@
     <!-- Menu del usuario -->
     <div id="dropdownBtnUserMenu" data-dropdown-toggle="dropdownUserMenu" data-dropdown-offset-distance="-50" data-dropdown-offset-skidding="100" data-dropdown-placement="left" class="ml-auto w-max content-left cursor-pointer" [class.hidden]="!user">
       <div *ngIf="user" class="flex space-x-0.5 items-center">
-        <img class="w-9 h-9 rounded-full" [src]="user.photoUrl" alt="User photo">
+        <img class="w-9 h-9 rounded-full" [src]="user.photoURL" alt="User photo">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4D4D4D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="m6 9 6 6 6-6"/>
         </svg>
       </div>
     </div>
-         
+
     <!-- Links -->
     <div class="items-center justify-between hidden w-full" id="menu">
       <ul id="items-menu" class="flex flex-col p-3 mt-4 gap-4">
@@ -76,3 +76,7 @@
     Cerrar sesión
   </app-item-dropdown-menu>
 </app-dropdown-menu>
+
+<div *ngIf="authService.user | async as user">
+  <p>{{user | json}}</p>
+</div>
