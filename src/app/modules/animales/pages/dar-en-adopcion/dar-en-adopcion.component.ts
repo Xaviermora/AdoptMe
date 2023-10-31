@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AnimalesService } from 'src/app/shared/services/animales.service';
+import { AnimalesService } from '../../services/animales.service';
 
 @Component({
-  selector: 'app-dar-en-adopcion-form',
-  templateUrl: './dar-en-adopcion-form.component.html',
-  styleUrls: ['./dar-en-adopcion-form.component.css']
+  selector: 'app-dar-en-adopcion',
+  templateUrl: './dar-en-adopcion.component.html',
+  styleUrls: ['./dar-en-adopcion.component.css']
 })
-export class DarEnAdopcionFormComponent {
+export class DarEnAdopcionComponent {
   edad=[
     "Cachorro lactante",
     "Cachorro",
@@ -60,7 +60,7 @@ export class DarEnAdopcionFormComponent {
 
   async onSubmit(){
     this.darEnAdopcionIsSubmitted = true
-    
+
     if(this.darEnAdopcion.status == 'VALID'){
       this.loading = true
       await this.animalesService.addAnimal(this.darEnAdopcion.value, '')

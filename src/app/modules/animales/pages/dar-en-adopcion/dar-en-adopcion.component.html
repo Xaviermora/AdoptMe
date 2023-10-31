@@ -90,7 +90,7 @@
       <span *ngIf="darEnAdopcion.controls.descripcion.errors?.['required'] && darEnAdopcionIsSubmitted" class="error-msg-input">La descripción es requerida</span>
     </div>
 
-    <app-textarea placeholder="Requisitos" [rows]=6 [control]="darEnAdopcion.controls.requisitos"></app-textarea>
+    <app-textarea placeholder="Requisitos (opcional)" [rows]=6 [control]="darEnAdopcion.controls.requisitos"></app-textarea>
 
     <!--boton para ´publicar en adopcion al animal-->
     <app-button type="submit" class="primary w-full" [contenido]="!loading ? 'Publicar' : ''">
