@@ -48,7 +48,7 @@ export class DarEnAdopcionComponent {
     raza: new FormControl('', Validators.required),
     provincia: new FormControl('', Validators.required),
     ciudad: new FormControl('', Validators.required),
-    imgs: new FormControl([''], Validators.required),
+    imgs: new FormControl<File[]>([], Validators.required),
     descripcion: new FormControl('', Validators.required),
     requisitos: new FormControl('')
   })
@@ -61,6 +61,7 @@ export class DarEnAdopcionComponent {
   async onSubmit(){
     this.darEnAdopcionIsSubmitted = true
 
+    console.log(await this.animalesService.uploadImg(this.darEnAdopcion.controls.imgs.value!, '12'))
     if(this.darEnAdopcion.status == 'VALID'){
       this.loading = true
       await this.animalesService.addAnimal(this.darEnAdopcion.value, '')
@@ -71,5 +72,12 @@ export class DarEnAdopcionComponent {
     }
 
     window.scrollTo(0, 0)
+  }
+
+  onChange(e: any){
+    let imgs = []
+    for (const img of e.target.files) imgs.push(img)
+
+    this.darEnAdopcion.controls.imgs.setValue(imgs)
   }
 }
