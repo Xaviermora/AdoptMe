@@ -11,7 +11,14 @@ export class AnimalesService {
 
   constructor(private database: AngularFirestore, private storage: AngularFireStorage) {
     this.animalesCollection = this.database.collection<Animal>('animales')
-    console.log(this.storage)
+  }
+  
+  async uploadImg(imgs: File[], userId: string): Promise<string[]>{
+    return await Promise.all(imgs.map(async img => {
+      let path = `animales/${userId}/${this.database.createId()}/${img.name}`
+      let upload = await this.storage.upload(path, img)
+      return await upload.ref.getDownloadURL()
+    }))
   }
 
   getAnimales(){
