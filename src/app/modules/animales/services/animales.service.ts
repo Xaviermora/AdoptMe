@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { Animal } from 'src/app/models/animal';
 
 @Injectable({
@@ -8,8 +9,9 @@ import { Animal } from 'src/app/models/animal';
 export class AnimalesService {
   private animalesCollection: AngularFirestoreCollection<any>
 
-  constructor(private database: AngularFirestore) {
+  constructor(private database: AngularFirestore, private storage: AngularFireStorage) {
     this.animalesCollection = this.database.collection<Animal>('animales')
+    console.log(this.storage)
   }
 
   getAnimales(){
