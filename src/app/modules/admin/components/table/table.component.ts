@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { CrudService } from '../../services/crud.service';
 
 @Component({
   selector: 'app-table',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class TableComponent {
 
+  usuario: any[];
+  constructor(private crudService: CrudService){
+    this.usuario = this.crudService.getDatos();
+  }
+
+
+  
 }
