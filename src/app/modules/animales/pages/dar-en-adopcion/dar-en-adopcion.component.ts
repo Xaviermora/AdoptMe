@@ -48,36 +48,40 @@ export class DarEnAdopcionComponent {
     raza: new FormControl('', Validators.required),
     provincia: new FormControl('', Validators.required),
     ciudad: new FormControl('', Validators.required),
-    imgs: new FormControl<File[]>([], Validators.required),
+    imgs: new FormControl<string[]>([]),
     descripcion: new FormControl('', Validators.required),
     requisitos: new FormControl('')
   })
+
   darEnAdopcionIsSubmitted: boolean = false
   loading: boolean = false
   showMsg: boolean = false
+  filesControl = new FormControl([])
+  files: File[] = []
 
   constructor(private animalesService: AnimalesService){}
-
+    
   async onSubmit(){
     this.darEnAdopcionIsSubmitted = true
 
-    console.log(await this.animalesService.uploadImg(this.darEnAdopcion.controls.imgs.value!, '12'))
-    if(this.darEnAdopcion.status == 'VALID'){
+    if(this.darEnAdopcion.status == 'VALID' && this.files.length !== 0){
       this.loading = true
-      await this.animalesService.addAnimal(this.darEnAdopcion.value, '')
+      this.darEnAdopcion.controls.imgs.setValue(await this.animalesService.uploadImg(this.files, '12'))
+      await this.animalesService.addAnimal(this.darEnAdopcion.value, '12')
       this.loading = false
+      this.files = []
+      this.filesControl.reset()
       this.darEnAdopcion.reset()
       this.darEnAdopcionIsSubmitted = false
       this.showMsg = true
+      
+      setTimeout(() => this.showMsg = false, 4000) // Deja de mostrar el toast despues de 4 segundos
     }
 
     window.scrollTo(0, 0)
   }
 
   onChange(e: any){
-    let imgs = []
-    for (const img of e.target.files) imgs.push(img)
-
-    this.darEnAdopcion.controls.imgs.setValue(imgs)
+    for (const img of e.target.files) this.files.push(img)
   }
 }

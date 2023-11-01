@@ -15,7 +15,7 @@ export class AnimalesService {
   
   async uploadImg(imgs: File[], userId: string): Promise<string[]>{
     return await Promise.all(imgs.map(async img => {
-      let path = `animales/${userId}/${this.database.createId()}/${img.name}`
+      let path = `animales/${userId}/${this.database.createId()}-${img.name}`
       let upload = await this.storage.upload(path, img)
       return await upload.ref.getDownloadURL()
     }))

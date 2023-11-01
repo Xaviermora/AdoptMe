@@ -67,8 +67,8 @@
     <!--agregar imagenes del animal-->
     <div>
       <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="default_size">Default size</label>
-      <input (change)="onChange($event)" class="block w-full mb-5 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="default_size" type="file" multiple value="">
-      <span *ngIf="darEnAdopcion.controls.imgs.value?.length == 0 && darEnAdopcionIsSubmitted" class="error-msg-input">Se requiere mínimo una imagen del animal</span>
+      <input (change)="onChange($event)" class="block w-full mb-5 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="imgs" type="file" multiple [formControl]="filesControl">
+      <span *ngIf="files.length == 0 && darEnAdopcionIsSubmitted" class="error-msg-input">Se requiere mínimo una imagen del animal</span>
     </div>
 
     <!-- <label for="imagen" class="block text-sm font-medium text-neutral-secundario-100">Imagenes</label>
