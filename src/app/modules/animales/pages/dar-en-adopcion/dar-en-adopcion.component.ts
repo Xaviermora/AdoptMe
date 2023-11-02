@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {  FormControl, FormGroup, Validators } from '@angular/forms';
 import { AnimalesService } from '../../services/animales.service';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
+import { wrongOptionSearchSelect } from 'src/app/shared/validators/custom-validators';
 
 @Component({
   selector: 'app-dar-en-adopcion',
@@ -46,7 +47,7 @@ export class DarEnAdopcionComponent {
     edad: new FormControl('', Validators.required),
     sexo: new FormControl('', Validators.required),
     castrado: new FormControl(false),
-    raza: new FormControl('', Validators.required),
+    raza: new FormControl('', [Validators.required, wrongOptionSearchSelect(this.razas)]),
     provincia: new FormControl('', Validators.required),
     ciudad: new FormControl('', Validators.required),
     imgs: new FormControl<string[]>([]),
@@ -63,7 +64,7 @@ export class DarEnAdopcionComponent {
 
   async onSubmit(){
     this.darEnAdopcionIsSubmitted = true
-    
+
     if(this.darEnAdopcion.valid && this.files.length > 0 && this.files.length <= 3){
       let inputImgs = document.getElementById('imgs') as HTMLInputElement
       this.loading = true

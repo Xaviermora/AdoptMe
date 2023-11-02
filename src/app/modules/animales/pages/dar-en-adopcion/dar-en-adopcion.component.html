@@ -50,6 +50,7 @@
     <div>
       <app-search-select idInput="raza" idList="razas" label="Raza" [list]="razas" [control]="darEnAdopcion.controls.raza"></app-search-select>
       <span *ngIf="darEnAdopcion.controls.raza.errors?.['required'] && darEnAdopcionIsSubmitted" class="error-msg-input">La raza es requerida</span>
+      <span *ngIf="!darEnAdopcion.controls.raza.errors?.['required'] && darEnAdopcion.controls.raza.errors?.['wrongOption'] && darEnAdopcionIsSubmitted" class="error-msg-input">Opción incorrecta</span>
     </div>
 
     <!--se ingresa la provincia-->
