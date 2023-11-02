@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AnimalesService } from '../../services/animales.service';
+import { Animal } from 'src/app/models/animal';
 
 @Component({
   selector: 'app-animales',
@@ -34,4 +36,15 @@ export class AnimalesComponent {
       ]
     }
   ]
+  animales: Animal[] = []
+
+  constructor(private animalesService: AnimalesService){}
+
+  ngOnInit(){
+    this.animalesService.getAnimales().subscribe(animales => {
+      console.log(animales)
+
+      this.animales = animales
+    })
+  }
 }

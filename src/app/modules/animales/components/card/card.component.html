@@ -20,7 +20,7 @@
     <div class="relative w-full">
         <!-- Imagen/es -->
         <div class="relative flex h-64 w-full overflow-hidden">
-            <img *ngFor="let img of publicacion.imagenesAnimal; index as i" [id]="publicacion.id+'-img-'+i" class="basis-full shrink-0 duration-500 ease-in-out" [src]="img">
+            <img *ngFor="let img of animal.imgs; index as i" [id]="animal.id+'-img-'+i" class="basis-full shrink-0 duration-500 ease-in-out" [src]="img">
         </div>
 
         <!-- Controladores siguiente y anterior -->
@@ -31,7 +31,7 @@
                 </svg>
             </button>
         </div>
-        <div *ngIf="imgActual < publicacion.imagenesAnimal.length-1"
+        <div *ngIf="imgActual < animal.imgs.length-1"
             class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4">
             <button (click)="siguienteImg()" class="bg-blanco opacity-90 p-0.5 inline-flex justify-center items-center rounded-full">
                 <svg style="transform: translateX(1px);" width="20" height="20" viewBox="0 0 24 20" fill="none"
@@ -47,7 +47,7 @@
     <div class="px-3 py-2 flex justify-between w-full">
         <div class="flex flex-col gap-1">
             <span class="-translate-y-1 font-semibold text-lg text-neutral-primario flex align-top">
-                {{publicacion.nombre}}
+                {{animal.nombre}}
             </span>
             <div class="flex gap-1">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -65,7 +65,7 @@
         </div>
     </div>
 
-    <app-button [attr.data-modal-target]="'modal-'+publicacion.id" [attr.data-modal-toggle]="'modal-'+publicacion.id" class="w-full primary px-3" contenido="Mas información"></app-button>
+    <app-button (click)="modal.show()" [attr.data-modal-target]="'modal-'+animal.id" [attr.data-modal-toggle]="'modal-'+animal.id" class="w-full primary px-3" contenido="Mas información"></app-button>
 </div>
 
-<app-modal [publicacion]="publicacion"></app-modal>
+<app-modal [animal]="animal" [modal]="modal"></app-modal>

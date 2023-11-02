@@ -1,5 +1,6 @@
 import { Component, Input, AfterViewInit } from '@angular/core';
 import { Modal } from 'flowbite';
+import { Animal } from 'src/app/models/animal';
 
 @Component({
   selector: 'app-card',
@@ -7,20 +8,22 @@ import { Modal } from 'flowbite';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements AfterViewInit{
-  @Input() publicacion!: any
-  
+  @Input() animal!: Animal
+  modal!: Modal
   imgActual: number = 0 // Posición de la imagen que se esta mostrando en el carousel
 
   constructor(){}
 
   ngAfterViewInit(){
-    const $targetEl = document.getElementById(`modal-${this.publicacion.id}`);
-    const modal = new Modal($targetEl, undefined);
+    setTimeout(() => {
+      const $targetEl = document.getElementById(`modal-${this.animal.id}`);
+      this.modal = new Modal($targetEl);
+    }, 0)
   }
 
   movimientoImgs(){
-    this.publicacion.imagenesAnimal.forEach((_: any, i: number) => {
-      let img = document.getElementById(`${this.publicacion.id}-img-${i}`) // Se obtiene la imagen
+    this.animal.imgs.forEach((_: any, i: number) => {
+      let img = document.getElementById(`${this.animal.id}-img-${i}`) // Se obtiene la imagen
 
       img!.style.transform = `translateX(-${(this.imgActual)*100}%)` // Se aplica el estilo a la imagen para que se mueva hacia un costado
     })
