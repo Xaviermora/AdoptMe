@@ -58,7 +58,7 @@ export class SecondRegisterComponent {
   onSubmit(){
     this.datosPersonalesIsSubmitted = true
     if(this.datosPersonales.status == 'VALID' && this.terminosYCondicionesChecked.value){
-      this.authService.currentUser().then(async user => {
+      this.authService.user.subscribe(async user => {
         this.loading = true
         if(user){
           let credentialsUser = {
