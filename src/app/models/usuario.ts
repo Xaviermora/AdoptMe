@@ -8,5 +8,5 @@ export interface Usuario{
   tipoDeVivienda: string | null;
   telefono: number | null;
   dni: number | null;
-  photoUrl: string | null
+  photoURL: string | null
 }
