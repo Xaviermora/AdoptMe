@@ -1,6 +1,9 @@
 import { Component, Input, AfterViewInit } from '@angular/core';
 import { Modal } from 'flowbite';
 import { Animal } from 'src/app/models/animal';
+import { Usuario } from 'src/app/models/usuario';
+import { AuthService } from 'src/app/modules/auth/services/auth.service';
+import { UsuariosService } from 'src/app/shared/services/usuarios.service';
 
 @Component({
   selector: 'app-card',
@@ -11,11 +14,17 @@ export class CardComponent implements AfterViewInit{
   @Input() animal!: Animal
   modal!: Modal
   imgActual: number = 0 // Posición de la imagen que se esta mostrando en el carousel
+  dueno!: Usuario 
 
-  constructor(){}
+  constructor(private usuariosService: UsuariosService){}
+
+  async ngOnInit(){
+    this.usuariosService.getUser(this.animal.userId).subscribe(user => this.dueno = user!)
+  }
 
   ngAfterViewInit(){
-    setTimeout(() => {
+    // Se hace uso del setTimeot para evitar el error "Expression has changed after it was checked"
+    setTimeout(() => { 
       const $targetEl = document.getElementById(`modal-${this.animal.id}`);
       this.modal = new Modal($targetEl);
     }, 0)
