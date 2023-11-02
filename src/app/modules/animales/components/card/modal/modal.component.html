@@ -19,33 +19,29 @@
         <div class="pt-5 w-full px-8 flex justify-between">
           <div class="grid justify-items-center">
             <span class="font-bold text-neutral-primario">Edad</span>
-            <span>Cachorro</span>
+            <span>{{animal.edad}}</span>
           </div>
           <div class="grid justify-items-center">
             <span class="font-bold text-neutral-primario">Castrado</span>
-            <span>Si</span>
+            <span>{{animal.castrado ? 'Si': 'No'}}</span>
           </div>
           <div class="grid justify-items-center">
             <span class="font-bold text-neutral-primario">Sexo</span>
-            <span>Por favor</span>
+            <span>{{animal.sexo}}</span>
           </div>
           <div class="grid justify-items-center">
             <span class="font-bold text-neutral-primario">Raza</span>
-            <span>Calle</span>
+            <span>{{animal.raza}}</span>
           </div>
         </div>
         <div class="p-8">
           <p class="font-semibold text-neutral-primario">Descripcion del animal</p>
-          <span>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, pariatur. Sint rem sed temporibus nobis ab laboriosam, cumque incidunt quam? Explicabo velit quasi molestias? Nulla assumenda temporibus voluptatibus possimus vero?
-          </span>
+          <span>{{animal.descripcion}}</span>
         </div>
         <!--REQUISITOS-->
-        <div class="px-8">
+        <div class="px-8" *ngIf="animal.requisitos">
           <p class="font-semibold text-neutral-primario">Requisitos</p>
-          <span>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, pariatur. Sint rem sed temporibus nobis ab laboriosam, cumque incidunt quam? Explicabo velit quasi molestias? Nulla assumenda temporibus voluptatibus possimus vero?
-          </span>
+          <span>{{animal.requisitos}}</span>
         </div>
         <!-- Modal footer -->
         <div class="flex items-center px-8 pb-6 pt-8 border-gray-200 rounded-b">
