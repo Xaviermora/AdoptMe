@@ -41,10 +41,10 @@ export class AnimalesComponent {
   constructor(private animalesService: AnimalesService){}
 
   ngOnInit(){
-    this.animalesService.getAnimales().subscribe(animales => {
-      console.log(animales)
+    this.animalesService.getAnimales().subscribe(animales => this.animales = animales)
+  }
 
-      this.animales = animales
-    })
+  filtersChange(filters: any){
+    this.animalesService.getAnimales(filters).subscribe(animales => this.animales = animales)
   }
 }
