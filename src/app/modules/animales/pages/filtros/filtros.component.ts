@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-filtros',
@@ -40,4 +41,15 @@ export class FiltrosComponent {
     "Cinco Saltos",
     "Allen"
   ]
+
+  filtros = new FormGroup({
+    animal: new FormControl(''),
+    sexo: new FormControl(''),
+    castrado: new FormControl(''),
+    raza: new FormControl(''),
+    edad: new FormControl(''),
+    provincia: new FormControl(''),
+    ciudad: new FormControl('')
+  })
+
 }
