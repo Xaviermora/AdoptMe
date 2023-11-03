@@ -37,7 +37,7 @@ export class AnimalesComponent {
     }
   ]
   animales: Animal[] = []
-
+  filtros!: any
   constructor(private animalesService: AnimalesService){}
 
   ngOnInit(){
@@ -46,5 +46,9 @@ export class AnimalesComponent {
 
   filtersChange(filters: any){
     this.animalesService.getAnimales(filters).subscribe(animales => this.animales = animales)
+  }
+
+  hasValue(){
+    return Object.values(this.filtros.value).some(value => value !== null && value !== undefined && value !== '');
   }
 }
