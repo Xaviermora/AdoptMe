@@ -51,5 +51,10 @@ export class FiltrosComponent {
     provincia: new FormControl(''),
     ciudad: new FormControl('')
   })
+    
+  @Output() newFilter = new EventEmitter<any>()
 
+  addNewFilter(value: any){
+    this.newFilter.emit(value)
+  }
 }
