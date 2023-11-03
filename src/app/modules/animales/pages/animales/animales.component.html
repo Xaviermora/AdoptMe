@@ -1,20 +1,19 @@
 <div class="flex lg:flex-row flex-col gap-12 w-11/12 mx-auto">
-    <div class="w-4/12">
+    <div class="lg:w-4/12">
         <app-filtros (filterForm)="filtros = $event" (newFilter)="filtersChange($event)"></app-filtros>
     </div>
 
-    <div class="flex flex-col gap-4">
+    <div class="flex flex-col gap-4 w-full">
         <div class="flex flex-wrap gap-2 w-full">
             <div class="flex flex-wrap gap-2">
+                <!-- Se recorren los valores que cambiaron en los filtros para mostrarlos como chips -->
                 <ng-container *ngFor="let filtro of filtros.valueChanges | async | keyvalue">
                     <div 
                     *ngIf="filtro.value !== '' && filtro.value !== null" 
                     [class.hidden]="!filtros.value || (filtro.key === 'raza' && filtros.controls.raza.errors?.['wrongOption'])" 
                     class="text-sm py-1.5 px-3 rounded-full border border-neutral-secundario-50 w-fit h-fit text-neutral-secundario-100 hover:border-neutral-secundario-100 hover:text-neutral-secundario-100 flex items-center gap-0.5 cursor-pointer" 
                     (click)="filtros.get(filtro.key)?.reset()">
-                        <span *ngIf="filtro.key === 'castrado'; else elseBlock">
-                            {{filtro.value ? 'Castrado' : 'Sin castrar'}}
-                        </span>
+                        <span *ngIf="filtro.key === 'castrado'; else elseBlock">{{filtro.value ? 'Castrado' : 'Sin castrar'}}</span>
 
                         <ng-template #elseBlock>{{filtro.value}}</ng-template>
 
@@ -26,10 +25,14 @@
             </div>
         </div>
           
-        <div class="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 w-full gap-6">
-            <div *ngFor="let animal of animales" class="col-span-4">
+        <div *ngIf="!loadingAnimales; else elseBlock" class="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 w-full gap-6">
+            <div *ngFor="let animal of animales">
                 <app-card [animal]="animal"></app-card>
             </div>
         </div>
+
+        <ng-template #elseBlock>
+            <app-spinner-loading></app-spinner-loading>
+        </ng-template>
     </div>
 </div>

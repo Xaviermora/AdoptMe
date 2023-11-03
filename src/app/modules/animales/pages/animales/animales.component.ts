@@ -38,14 +38,23 @@ export class AnimalesComponent {
   ]
   animales: Animal[] = []
   filtros!: any
+  loadingAnimales: boolean = true
+
   constructor(private animalesService: AnimalesService){}
 
   ngOnInit(){
-    this.animalesService.getAnimales().subscribe(animales => this.animales = animales)
+    this.animalesService.getAnimales().subscribe(animales => {
+      this.animales = animales
+      this.loadingAnimales = false
+    })
   }
 
   filtersChange(filters: any){
-    this.animalesService.getAnimales(filters).subscribe(animales => this.animales = animales)
+    this.animalesService.getAnimales(filters).subscribe(animales => {
+      this.loadingAnimales = true
+      this.animales = animales
+      this.loadingAnimales = false
+    })
   }
 
   hasValue(){

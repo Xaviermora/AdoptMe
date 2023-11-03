@@ -1,8 +1,7 @@
-import { Component, Input, AfterViewInit } from '@angular/core';
+import { Component, Input, AfterViewInit, OnDestroy } from '@angular/core';
 import { Modal } from 'flowbite';
 import { Animal } from 'src/app/models/animal';
 import { Usuario } from 'src/app/models/usuario';
-import { AuthService } from 'src/app/modules/auth/services/auth.service';
 import { UsuariosService } from 'src/app/shared/services/usuarios.service';
 
 @Component({
@@ -10,7 +9,7 @@ import { UsuariosService } from 'src/app/shared/services/usuarios.service';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent implements AfterViewInit{
+export class CardComponent implements AfterViewInit, OnDestroy{
   @Input() animal!: Animal
   modal!: Modal
   imgActual: number = 0 // Posición de la imagen que se esta mostrando en el carousel
@@ -28,6 +27,11 @@ export class CardComponent implements AfterViewInit{
       const $targetEl = document.getElementById(`modal-${this.animal.id}`);
       this.modal = new Modal($targetEl);
     }, 0)
+  }
+
+  ngOnDestroy(){
+    // Se soluciona bug de que un modal quede abierto y despues no se pueda sacar cuando los animales cambian por los filtros
+    if(this.modal.isVisible()) this.modal.hide()
   }
 
   movimientoImgs(){
