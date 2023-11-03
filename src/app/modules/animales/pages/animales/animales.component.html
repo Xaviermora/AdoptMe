@@ -9,18 +9,20 @@
                 <ng-container *ngFor="let filtro of filtros.valueChanges | async | keyvalue">
                     <div 
                     *ngIf="filtro.value !== '' && filtro.value !== null" 
-                    [class.hidden]="!filtros.value" 
-                    class="text-sm py-1.5 px-3 rounded-full border border-neutral-secundario-50 w-fit h-fit" 
+                    [class.hidden]="!filtros.value || (filtro.key === 'raza' && filtros.controls.raza.errors?.['wrongOption'])" 
+                    class="text-sm py-1.5 px-3 rounded-full border border-neutral-secundario-50 w-fit h-fit text-neutral-secundario-100 hover:border-neutral-secundario-100 hover:text-neutral-secundario-100 flex items-center gap-0.5 cursor-pointer" 
                     (click)="filtros.get(filtro.key)?.reset()">
                         <span *ngIf="filtro.key === 'castrado'; else elseBlock">
                             {{filtro.value ? 'Castrado' : 'Sin castrar'}}
                         </span>
 
                         <ng-template #elseBlock>{{filtro.value}}</ng-template>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
                     </div>
                 </ng-container>
             
-                <div *ngIf="hasValue()" class="text-sm py-1.5 px-3 rounded-full border border-neutral-secundario-50 w-fit" (click)="filtros.reset()">Limpiar filtros</div>
+                <div *ngIf="hasValue()" class="text-sm py-1.5 px-3 rounded-full border border-primario-100 text-primario-100 hover:bg-primario-100 hover:text-blanco w-fit cursor-pointer" (click)="filtros.reset()">Limpiar filtros</div>
             </div>
         </div>
           

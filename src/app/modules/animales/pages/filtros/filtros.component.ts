@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { wrongOptionSearchSelect } from 'src/app/shared/validators/custom-validators';
 
 @Component({
   selector: 'app-filtros',
@@ -46,7 +47,7 @@ export class FiltrosComponent {
     animal: new FormControl(''),
     sexo: new FormControl(''),
     castrado: new FormControl(''),
-    raza: new FormControl(''),
+    raza: new FormControl('', wrongOptionSearchSelect(this.razas)),
     edad: new FormControl(''),
     provincia: new FormControl(''),
     ciudad: new FormControl('')
