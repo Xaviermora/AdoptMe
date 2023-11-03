@@ -2,7 +2,7 @@
     <!-- Card header -->
     <div class="flex justify-between items-center px-2.5 w-full">
         <!-- Foto y nombre del usuario -->
-        <div class="flex justify-center items-center gap-2">
+        <div class="flex justify-center items-center gap-2" *ngIf="dueno">
             <img class="h-9 w-9 rounded-full" [src]="dueno.photoURL">
             <span class="text-neutral-primario font-semibold">{{dueno.nombre +' '+ dueno.apellido}}</span>
         </div>
