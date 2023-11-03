@@ -51,10 +51,13 @@ export class FiltrosComponent {
     provincia: new FormControl(''),
     ciudad: new FormControl('')
   })
-    
+  filtrosOpen!: boolean
+  @Output() filterForm = new EventEmitter<any>()
   @Output() newFilter = new EventEmitter<any>()
 
-  addNewFilter(value: any){
-    this.newFilter.emit(value)
+  ngOnInit(){
+    this.filterForm.emit(this.filtros)
+
+    this.filtros.valueChanges.subscribe(value => this.newFilter.emit(value))
   }
 }
