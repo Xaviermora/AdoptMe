@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UsuariosService } from 'src/app/shared/services/usuarios.service';
 import { Router } from '@angular/router';
 import { mayorDeEdad } from 'src/app/shared/validators/custom-validators';
+import { CiudadesService } from 'src/app/shared/services/ciudades.service';
 
 @Component({
   selector: 'app-second-register',
@@ -15,33 +16,16 @@ export class SecondRegisterComponent {
     nombre: new FormControl('', Validators.required),
     apellido: new FormControl('', Validators.required),
     fechaDeNacimiento: new FormControl('', [Validators.required, mayorDeEdad()]),
-    provincia: new FormControl('', Validators.required),
     ciudad: new FormControl('', Validators.required),
     tipoDeVivienda: new FormControl('', Validators.required),
     telefono: new FormControl('', Validators.required),
     dni: new FormControl('', Validators.required)
   })
   datosPersonalesIsSubmitted: boolean = false
-  provincias = [
-    "Río Negro",
-  ];
-  ciudades = [
-    "Cipolleti",
-    "General Fernandez Oro",
-    "Ciudad de General Roca",
-    "San Carlos de Bariloche",
-    "El Bolson",
-    "Viedma",
-    "Villa Regina",
-    "Catriel",
-    "Las Grutas",
-    "Cinco Saltos",
-    "Allen"
-  ]
   terminosYCondicionesChecked = new FormControl(false, Validators.required)
   loading: boolean = false
 
-  constructor(private authService: AuthService, private usuariosService: UsuariosService, private router: Router){}
+  constructor(private authService: AuthService, private usuariosService: UsuariosService, private router: Router, public ciudadesService: CiudadesService){}
 
   onSubmit(){
     this.datosPersonalesIsSubmitted = true
