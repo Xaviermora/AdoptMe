@@ -9,6 +9,24 @@ import { Animal } from 'src/app/models/animal';
 })
 export class AnimalesService {
   private animalesCollection: AngularFirestoreCollection<any>
+  
+  razas: string[] = [
+    "Calle",
+    "Vereda",
+    "Asfalto",
+    "PLaza"
+  ]
+  animal: string[] = [
+    'Perro',
+    'Gato'
+  ]
+  edad: string[] = [
+    "Cachorro lactante",
+    "Cachorro",
+    "Cachorro adolecente",
+    "Adulto",
+    "Senior"
+  ]
 
   constructor(private database: AngularFirestore, private storage: AngularFireStorage) {
     this.animalesCollection = this.database.collection<Animal>('animales')
