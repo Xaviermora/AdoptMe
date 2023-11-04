@@ -13,18 +13,20 @@
     </div>
   </h3>
 
-  <app-select idSelect="animal" label="Animal" [list]="animalesService.animal" [control]="filtros.controls.animal"></app-select>
-
-  <div>
-    <h6 class="text-neutral-secundario-100">Sexo</h6>
-    <app-input-radio valueInput="Macho" name="sexo" [control]="filtros.controls.sexo"></app-input-radio>
-    <app-input-radio valueInput="Hembra" name="sexo" [control]="filtros.controls.sexo"></app-input-radio>
+  <div class="w-full lg:flex lg:flex-col gap-4" [ngClass]="{'flex flex-col': filtrosOpen, 'hidden': !filtrosOpen}">
+    <app-select idSelect="animal" label="Animal" [list]="animalesService.animal" [control]="filtros.controls.animal"></app-select>
+  
+    <div>
+      <h6 class="text-neutral-secundario-100">Sexo</h6>
+      <app-input-radio valueInput="Macho" name="sexo" [control]="filtros.controls.sexo"></app-input-radio>
+      <app-input-radio valueInput="Hembra" name="sexo" [control]="filtros.controls.sexo"></app-input-radio>
+    </div>
+    <app-input-checkbox idInput="castrado" label="Castrado" [control]="filtros.controls.castrado"></app-input-checkbox>
+  
+    <app-search-select idInput="raza" idList="razas" label="Raza" [list]="animalesService.razas" [control]="filtros.controls.raza"></app-search-select>
+  
+    <app-select idSelect="edad" label="Edad" [list]="animalesService.edad" [control]="filtros.controls.edad"></app-select>
+  
+    <app-select idSelect="ciudad" label="Ciudad" [list]="ciudadesService.ciudades" [control]="filtros.controls.ciudad"></app-select>
   </div>
-  <app-input-checkbox idInput="castrado" label="Castrado" [control]="filtros.controls.castrado"></app-input-checkbox>
-
-  <app-search-select idInput="raza" idList="razas" label="Raza" [list]="animalesService.razas" [control]="filtros.controls.raza"></app-search-select>
-
-  <app-select idSelect="edad" label="Edad" [list]="animalesService.edad" [control]="filtros.controls.edad"></app-select>
-
-  <app-select idSelect="ciudad" label="Ciudad" [list]="ciudadesService.ciudades" [control]="filtros.controls.ciudad"></app-select>
 </form>

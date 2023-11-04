@@ -14,7 +14,7 @@ export class AnimalesService {
     "Calle",
     "Vereda",
     "Asfalto",
-    "PLaza"
+    "Plaza"
   ]
   animal: string[] = [
     'Perro',
