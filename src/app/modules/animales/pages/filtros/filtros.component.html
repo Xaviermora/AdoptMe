@@ -13,7 +13,7 @@
     </div>
   </h3>
 
-  <app-select idSelect="animal" label="Animal" [list]="animal" [control]="filtros.controls.animal"></app-select>
+  <app-select idSelect="animal" label="Animal" [list]="animalesService.animal" [control]="filtros.controls.animal"></app-select>
 
   <div>
     <h6 class="text-neutral-secundario-100">Sexo</h6>
@@ -22,11 +22,9 @@
   </div>
   <app-input-checkbox idInput="castrado" label="Castrado" [control]="filtros.controls.castrado"></app-input-checkbox>
 
-  <app-search-select idInput="raza" idList="razas" label="Raza" [list]="razas" [control]="filtros.controls.raza"></app-search-select>
+  <app-search-select idInput="raza" idList="razas" label="Raza" [list]="animalesService.razas" [control]="filtros.controls.raza"></app-search-select>
 
-  <app-select idSelect="edad" label="Edad" [list]="edad" [control]="filtros.controls.edad"></app-select>
+  <app-select idSelect="edad" label="Edad" [list]="animalesService.edad" [control]="filtros.controls.edad"></app-select>
 
-  <app-select idSelect="provincia" label="Provincia" [list]="provincia" [control]="filtros.controls.provincia"></app-select>
-
-  <app-select idSelect="ciudad" label="Ciudad" [list]="ciudad" [control]="filtros.controls.ciudad"></app-select>
+  <app-select idSelect="ciudad" label="Ciudad" [list]="ciudadesService.ciudades" [control]="filtros.controls.ciudad"></app-select>
 </form>
