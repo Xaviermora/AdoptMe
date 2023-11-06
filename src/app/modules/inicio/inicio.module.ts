@@ -8,9 +8,11 @@ import { InicioComponent } from './pages/inicio/inicio.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { HerosectionComponent } from './pages/herosection/herosection.component';
 @NgModule({
   declarations: [
-    InicioComponent
+    InicioComponent,
+    HerosectionComponent
   ],
   imports: [
     CommonModule,

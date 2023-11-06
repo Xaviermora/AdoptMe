@@ -1,4 +1,8 @@
 /*inicio de la primera parte*/
+
+*{
+    overflow: hidden;
+}
 .row{/*reutilizando contenedores*/
     display: flex;
     justify-content: center;
