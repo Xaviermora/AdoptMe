@@ -7,4 +7,12 @@ import { Component, Input } from '@angular/core';
 })
 export class ModalReportarUsuarioComponent {
   @Input() usuarioId!: string
+
+  motivosReporte: string[] = [
+    'Nombre ofensivo',
+    'Información falsa',
+    'Desnudos o actividad sexual',
+    'Violencia',
+    'Estafa o fraude'
+  ]
 }
