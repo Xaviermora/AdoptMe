@@ -7,13 +7,17 @@ import { ModalComponent } from './components/card/modal/modal.component';
 import { SharedModule } from "../../shared/shared.module";
 import { AnimalesComponent } from './pages/animales/animales.component';
 import { FiltrosComponent } from './pages/filtros/filtros.component';
+import { ModalReportarUsuarioComponent } from './components/card/modal-reportar-usuario/modal-reportar-usuario.component';
+import { ModalReportarPublicacionComponent } from './components/card/modal-reportar-publicacion/modal-reportar-publicacion.component';
 
 @NgModule({
     declarations: [
         CardComponent,
         ModalComponent,
         FiltrosComponent,
-        AnimalesComponent
+        AnimalesComponent,
+        ModalReportarUsuarioComponent,
+        ModalReportarPublicacionComponent
     ],
     imports: [
         CommonModule,
