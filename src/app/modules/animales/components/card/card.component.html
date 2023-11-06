@@ -74,7 +74,8 @@
 
 <app-dropdown-menu [idDropdown]="'dropdownCard-'+publicacion.id">
   <app-item-dropdown-menu [attr.data-modal-target]="'modal-reportar-publicacion-'+publicacion.id" [attr.data-modal-toggle]="'modal-reportar-publicacion-'+publicacion.id">Reportar publicación</app-item-dropdown-menu>
-  <app-item-dropdown-menu>Reportar usuario</app-item-dropdown-menu>
+  <app-item-dropdown-menu [attr.data-modal-target]="'modal-reportar-usuario-'+publicacion.id" [attr.data-modal-toggle]="'modal-reportar-usuario-'+publicacion.id">Reportar usuario</app-item-dropdown-menu>
 </app-dropdown-menu>
 
 <app-modal-reportar-publicacion [animalId]="publicacion.id"></app-modal-reportar-publicacion>
+<app-modal-reportar-usuario [usuarioId]="publicacion.id"></app-modal-reportar-usuario>
