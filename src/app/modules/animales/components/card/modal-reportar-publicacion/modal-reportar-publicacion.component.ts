@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-modal-reportar-publicacion',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./modal-reportar-publicacion.component.css']
 })
 export class ModalReportarPublicacionComponent {
-
+  @Input() animalId!: string
 }
