@@ -48,7 +48,8 @@ import { RouterModule } from '@angular/router';
     SelectComponent,
     ToastComponent,
     SpinnerLoadingComponent,
-    FooterComponent
+    FooterComponent,
+    TextareaComponent
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-input-checkbox',
@@ -8,10 +9,5 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class InputCheckboxComponent {
   @Input() idInput!: string
   @Input() label!: string
-  check: boolean = false
-  @Output() isChecked = new EventEmitter<boolean>() 
-
-  getChecked(){
-    this.isChecked.emit(this.check)
-  }
+  @Input() control: FormControl = new FormControl(false)
 }

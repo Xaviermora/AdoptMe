@@ -1,7 +1,4 @@
-
-
-<div class="mb-6">
-
+<div>
   <label for="message" class="block mb-2 text-sm font-medium text-neutral-secundario-100"> 
     {{placeholder}}
   </label>
@@ -9,7 +6,7 @@
   <textarea 
     id="message"
     [rows]="rows" 
+    [formControl]="control"
     class="block p-2.5 w-full text-sm text-neutral-secundario-100 rounded-lg border border-neutral-secundario-50 focus:ring-primario-80 focus:border-primario-80">
   </textarea>
-
 </div>

@@ -1,26 +1,42 @@
-import { Component, Input, AfterViewInit } from '@angular/core';
+import { Component, Input, AfterViewInit, OnDestroy } from '@angular/core';
 import { Modal } from 'flowbite';
+import { Animal } from 'src/app/models/animal';
+import { Usuario } from 'src/app/models/usuario';
+import { UsuariosService } from 'src/app/shared/services/usuarios.service';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent implements AfterViewInit{
-  @Input() publicacion!: any
-  
+export class CardComponent implements AfterViewInit, OnDestroy{
+  @Input() animal!: Animal
+  modal!: Modal
   imgActual: number = 0 // Posición de la imagen que se esta mostrando en el carousel
+  dueno!: Usuario 
 
-  constructor(){}
+  constructor(private usuariosService: UsuariosService){}
+
+  async ngOnInit(){
+    this.usuariosService.getUser(this.animal.userId).subscribe(user => this.dueno = user!)
+  }
 
   ngAfterViewInit(){
-    const $targetEl = document.getElementById(`modal-${this.publicacion.id}`);
-    const modal = new Modal($targetEl, undefined);
+    // Se hace uso del setTimeot para evitar el error "Expression has changed after it was checked"
+    setTimeout(() => { 
+      const $targetEl = document.getElementById(`modal-${this.animal.id}`);
+      this.modal = new Modal($targetEl);
+    }, 0)
+  }
+
+  ngOnDestroy(){
+    // Se soluciona bug de que un modal quede abierto y despues no se pueda sacar cuando los animales cambian por los filtros
+    if(this.modal.isVisible()) this.modal.hide()
   }
 
   movimientoImgs(){
-    this.publicacion.imagenesAnimal.forEach((_: any, i: number) => {
-      let img = document.getElementById(`${this.publicacion.id}-img-${i}`) // Se obtiene la imagen
+    this.animal.imgs.forEach((_: any, i: number) => {
+      let img = document.getElementById(`${this.animal.id}-img-${i}`) // Se obtiene la imagen
 
       img!.style.transform = `translateX(-${(this.imgActual)*100}%)` // Se aplica el estilo a la imagen para que se mueva hacia un costado
     })
