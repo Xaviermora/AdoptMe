@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-modal-reportar-usuario',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./modal-reportar-usuario.component.css']
 })
 export class ModalReportarUsuarioComponent {
-
+  @Input() usuarioId!: string
 }
