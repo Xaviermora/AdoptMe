@@ -57,7 +57,7 @@
     <span *ngIf="!terminosYCondicionesChecked.value && datosPersonalesIsSubmitted" class="error-msg-input">Debe aceptar los términos y condiciones para continuar</span>
   </div>
 
-  <app-button type="submit" class="primary w-full" [contenido]="!loading ? 'Registrarse' : ''">
+  <app-button type="submit" class="primary w-full" [contenido]="!loading ? 'Registrarse' : ''" [disabled]="loading">
     <app-spinner-loading *ngIf="loading"></app-spinner-loading>
   </app-button>
 </form>

@@ -82,7 +82,7 @@
     <app-textarea placeholder="Requisitos (opcional)" [rows]=6 [control]="darEnAdopcion.controls.requisitos"></app-textarea>
 
     <!--boton para ´publicar en adopcion al animal-->
-    <app-button type="submit" class="primary w-full" [contenido]="!loading ? 'Publicar' : ''">
+    <app-button type="submit" class="primary w-full" [contenido]="!loading ? 'Publicar' : ''" [disabled]="loading">
       <app-spinner-loading *ngIf="loading"></app-spinner-loading>
     </app-button>
   </div>
