@@ -8,7 +8,7 @@ import { Dropdown, Modal } from 'flowbite';
 })
 export class CardComponent implements AfterViewInit{
   @Input() publicacion!: any
-
+  modalReportarPublicacion!: Modal
   imgActual: number = 0 // Posición de la imagen que se esta mostrando en el carousel
 
   constructor(){}
@@ -16,6 +16,9 @@ export class CardComponent implements AfterViewInit{
   ngAfterViewInit(){
     const $targetEl = document.getElementById(`modal-${this.publicacion.id}`);
     new Modal($targetEl);
+
+    const $targetModalReportarPublicacion = document.getElementById(`modal-reportar-publicacion-${this.publicacion.id}`)
+    this.modalReportarPublicacion = new Modal($targetModalReportarPublicacion)
 
     const $targetDropdownEl = document.getElementById(`dropwdownCard-${this.publicacion.id}`)
     const $triggerDropdownEl = document.getElementById(`dropdownBtnCard-${this.publicacion.id}`)
