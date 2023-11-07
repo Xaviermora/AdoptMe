@@ -5,16 +5,16 @@
 
     <div class="w-full text-neutral-secundario-100">
         <span>Tipo de vivienda</span>
-        <app-input-radio valueInput="Casa" name="tipoDeVivienda"></app-input-radio>
-        <app-input-radio valueInput="Departamento" name="tipoDeVivienda"></app-input-radio>
+        <app-input-radio valueInput="Casa" name="tipoDeVivienda" [control]="datosPersonalesUpdate.controls.tipoDeVivienda"></app-input-radio>
+        <app-input-radio valueInput="Departamento" name="tipoDeVivienda" [control]="datosPersonalesUpdate.controls.tipoDeVivienda"></app-input-radio>
     </div>
 
     <div class="w-full">
-        <app-input-phone></app-input-phone>
+        <app-input-phone [control]="datosPersonalesUpdate.controls.telefono"></app-input-phone>
     </div>
 
     <div class="w-full">
-        <app-input type="number" idInput="dni" label="DNI" class="w-100 p-0 border-none"></app-input>
+        <app-input type="number" idInput="dni" label="DNI" class="w-100 p-0 border-none" [control]="datosPersonalesUpdate.controls.dni"></app-input>
     </div>
 
     <app-button type="submit" class="primary" contenido="Guardar cambios"></app-button>

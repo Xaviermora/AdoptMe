@@ -13,7 +13,7 @@
     <ng-container *ngIf="usuario">
       <ng-container [ngSwitch]="configOption">
           <app-config-perfil-publico [usuario]="usuario" *ngSwitchCase="'Perfil público'"></app-config-perfil-publico>
-          <app-config-datos-personales *ngSwitchCase="'Datos personales'"></app-config-datos-personales>
+          <app-config-datos-personales [usuario]="usuario" *ngSwitchCase="'Datos personales'"></app-config-datos-personales>
           <app-config-seguridad *ngSwitchCase="'Seguridad'"></app-config-seguridad>
       </ng-container>
     </ng-container>
