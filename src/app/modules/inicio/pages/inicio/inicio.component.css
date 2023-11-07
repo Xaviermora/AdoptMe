@@ -55,12 +55,7 @@ p{
     letter-spacing: 0.1px;
 }
 
-img{
-    width: 600px;
-    height: 400px;
-    flex-shrink: 0;
-    right: 100px;
-}
+
 
 .botonIzq{
     height: 54px;

@@ -15,7 +15,7 @@ export class ServiciosComponent {
     this.infotarjeta = [
       {
         id:"",
-        descripcion: "Ver los animales que se dan en adopcion en el sitio, con informacion detallada",
+        descripcion: "Ver los animales que se dan en adopcion",
         imagen: "../../../../../assets/image.1.png",
         alt: "",
         boton: "Ver animales"
@@ -26,7 +26,14 @@ export class ServiciosComponent {
         imagen: "../../../../../assets/image.1.png",
         alt: "",
         boton: "Dar en adopcion"
-      }
+      },
+      {
+        id:"",
+        descripcion: "Ver los animales que se dan en adopcion",
+        imagen: "../../../../../assets/image.1.png",
+        alt: "",
+        boton: "Ver animales"
+      },
     ]
   }
   
