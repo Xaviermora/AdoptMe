@@ -17,10 +17,10 @@ export class AuthService {
     return this.auth.signInWithEmailAndPassword(email, password)
   }
 
-  async getUid(){
+  async getCurrentUid(){
     let user = await this.auth.currentUser
 
-    return user ? user.uid : null 
+    return user ? user.uid : null
   }
 
   get user(){
