@@ -4,7 +4,7 @@ export interface Usuario{
   nombre: string,
   apellido: string,
   fechaDeNacimiento: Date,
-  provincia: string,
+  ciudad: string,
   tipoDeVivienda: string,
   telefono: number,
   dni: number,
