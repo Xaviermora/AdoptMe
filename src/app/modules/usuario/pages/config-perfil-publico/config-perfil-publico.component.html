@@ -16,16 +16,16 @@
         </div>
 
         <div class="w-full">
-            <app-input idInput="apellido" label="Apellido" type="text"></app-input>
+            <app-input idInput="apellido" label="Apellido" type="text" [control]="perfilPublicoUpdate.controls.apellido"></app-input>
         </div>
     </div>
 
     <div>
-        <app-input idInput="email" label="Email" type="email"></app-input>
+        <app-input idInput="email" label="Email" type="email" [control]="perfilPublicoUpdate.controls.email"></app-input>
     </div>
 
     <div>
-        <app-input type="date" label="Fecha de nacimiento" idInput="fechaDeNacimiento"></app-input>
+        <app-input type="date" label="Fecha de nacimiento" idInput="fechaDeNacimiento" [control]="perfilPublicoUpdate.controls.fechaDeNacimiento"></app-input>
     </div>
 
     <app-button type="submit" class="primary" contenido="Guardar cambios"></app-button>
