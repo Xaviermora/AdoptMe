@@ -12,7 +12,7 @@ function mayorDeEdad(): ValidatorFn{
     let year: any
     if(fechaDeNacimiento){
       year = fechaDeNacimiento.match(/[0-9]{4}/) // Se obtiene el año de la fecha de nacimiento dada por el usuario
-    } 
+    }
     return actualYear - year >= 18 ? null : {noEsMayor: true} // Se determina si es mayor o no
   }
 }
@@ -58,7 +58,7 @@ export class SecondRegisterComponent {
   onSubmit(){
     this.datosPersonalesIsSubmitted = true
     if(this.datosPersonales.status == 'VALID' && this.terminosYCondicionesChecked){
-      this.authService.currentUser().then(async user => {
+      this.authService.user.subscribe(async user => {
         this.loading = true
         if(user){
           let credentialsUser = {

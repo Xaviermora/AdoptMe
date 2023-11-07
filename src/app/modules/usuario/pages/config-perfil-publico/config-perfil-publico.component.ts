@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-config-perfil-publico',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./config-perfil-publico.component.css']
 })
 export class ConfigPerfilPublicoComponent {
+  @Input() usuario!: any
 
 }
