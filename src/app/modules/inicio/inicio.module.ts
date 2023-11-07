@@ -9,10 +9,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { HerosectionComponent } from './pages/herosection/herosection.component';
+import { ServiciosComponent } from './pages/servicios/servicios.component';
+
+
 @NgModule({
   declarations: [
     InicioComponent,
-    HerosectionComponent
+    HerosectionComponent,
+    ServiciosComponent
   ],
   imports: [
     CommonModule,
