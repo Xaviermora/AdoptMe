@@ -9,6 +9,7 @@ import { ConfigDatosPersonalesComponent } from './pages/config-datos-personales/
 import { ConfigComponent } from './pages/config/config.component';
 import { ConfigPerfilPublicoComponent } from './pages/config-perfil-publico/config-perfil-publico.component';
 import { ConfigSeguridadComponent } from './pages/config-seguridad/config-seguridad.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ConfigSeguridadComponent } from './pages/config-seguridad/config-seguri
   imports: [
     CommonModule,
     UsuarioRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class UsuarioModule { }
