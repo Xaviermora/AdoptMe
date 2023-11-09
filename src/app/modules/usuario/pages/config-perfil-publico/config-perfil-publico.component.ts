@@ -49,4 +49,20 @@ export class ConfigPerfilPublicoComponent {
 
     this.showToast = true
   }
+
+  onChangeImg(e: any){
+    const imagePreview = document.getElementById('userImgPreview');
+    const file = e.target.files[0]
+
+    if (file) {
+      // Creación de un FileReader para leer el archivo seleccionado
+      const reader = new FileReader();
+
+      // Función que se ejecuta cuando el FileReader termina de leer el archivo como url
+      reader.onload = (e) => imagePreview?.setAttribute('src', e.target!.result!.toString())
+
+      // Lee el archivo como url
+      reader.readAsDataURL(file);
+    }
+  }
 }
