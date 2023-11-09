@@ -3,3 +3,9 @@ app-input{
     border: 0;
     padding: 0;
 }  
+
+/* Estilos para que se vea el cursor pointer en el icono de editar foto */
+input[type='file']{ 
+    cursor: pointer;
+    font-size: 0;
+}

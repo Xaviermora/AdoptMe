@@ -5,11 +5,12 @@
         <div class="relative">
             <img [src]="usuario.photoURL" alt="" class="rounded-full w-40 h-40">
             <div class="absolute bottom-0 right-3 p-2 bg-neutral-50 rounded-full border border-neutral-secundario-100">
+                <input type="file" class="absolute left-0 top-0 opacity-0 w-10 h-10">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4D4D4D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/>
                 </svg>
             </div>
         </div>
-        <span class="text-primario-100 text-center">Quitar</span>
+        <span class="text-primario-100 text-center" *ngIf="!usuario.photoURL.includes('37073846-dc65-4429-93c3-ac69ca63edab')">Quitar</span>
     </div>
 
     <div class="flex sm:flex-row flex-col w-full sm:gap-4 gap-8">
