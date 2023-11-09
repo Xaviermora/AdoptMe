@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from 'src/app/models/usuario';
+import { UsuariosService } from 'src/app/shared/services/usuarios.service';
 
 @Component({
   selector: 'app-config-perfil-publico',
@@ -18,6 +19,8 @@ export class ConfigPerfilPublicoComponent {
     fechaDeNacimiento: new FormControl<any>('', Validators.required)
   })
 
+  constructor(private usuariosService: UsuariosService){}
+
   ngOnInit(){
     if (this.usuario){
       this.perfilPublicoUpdate.setValue({
@@ -28,5 +31,11 @@ export class ConfigPerfilPublicoComponent {
         fechaDeNacimiento: this.usuario.fechaDeNacimiento
       })
     }
+  }
+
+  onSubmit(){
+    this.usuariosService.updateUser(this.usuario.uid, this.perfilPublicoUpdate.value)
+    .then(console.log)
+    .catch(console.log)
   }
 }
