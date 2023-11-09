@@ -23,4 +23,8 @@ export class UsuariosService {
   async addUser(usuario: any){
     await this.usuariosCollection.doc(usuario.uid).set(usuario)
   }
+
+  updateUser(userId: string, data: any){
+    return this.usuariosCollection.doc(userId).update(data)
+  }
 }
