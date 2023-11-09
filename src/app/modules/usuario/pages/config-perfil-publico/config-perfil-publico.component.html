@@ -1,4 +1,6 @@
 <form class="flex flex-col gap-8" [formGroup]="perfilPublicoUpdate" (ngSubmit)="onSubmit()">
+    <app-toast *ngIf="showToast" [msg]="msgToast" [severity]="severity" (showMsgEvent)="showToast = $event"></app-toast>
+
     <div class="flex flex-col gap-3 w-fit sm:mx-0 mx-auto">
         <div class="relative">
             <img [src]="usuario.photoURL" alt="" class="rounded-full w-40 h-40">

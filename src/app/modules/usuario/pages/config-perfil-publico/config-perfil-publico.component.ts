@@ -18,6 +18,9 @@ export class ConfigPerfilPublicoComponent {
     email: new FormControl('', Validators.required),
     fechaDeNacimiento: new FormControl<any>('', Validators.required)
   })
+  showToast: boolean = false
+  msgToast!: string
+  severity!: string
 
   constructor(private usuariosService: UsuariosService){}
 
@@ -35,7 +38,15 @@ export class ConfigPerfilPublicoComponent {
 
   onSubmit(){
     this.usuariosService.updateUser(this.usuario.uid, this.perfilPublicoUpdate.value)
-    .then(console.log)
-    .catch(console.log)
+    .then(() => {
+      this.msgToast = 'Se actualizó al usuario con éxito'
+      this.severity = 'success'
+    })
+    .catch(() => {
+      this.msgToast = 'Hubo un error al actualizar al usuario'
+      this.severity = 'danger'
+    })
+
+    this.showToast = true
   }
 }
