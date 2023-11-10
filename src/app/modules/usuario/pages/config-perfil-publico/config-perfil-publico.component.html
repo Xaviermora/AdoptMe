@@ -1,4 +1,4 @@
-<form class="flex flex-col gap-8" [formGroup]="perfilPublicoUpdate" (ngSubmit)="onSubmit()">
+<form class="flex flex-col gap-8" [formGroup]="perfilPublicoUpdate" (ngSubmit)="onSubmit()" (change)="formValuesChanged = true">
     <app-toast *ngIf="showToast" [msg]="msgToast" [severity]="severity" (showMsgEvent)="showToast = $event"></app-toast>
 
     <div class="flex flex-col gap-3 w-fit sm:mx-0 mx-auto">
@@ -29,6 +29,8 @@
 
     <div>
         <app-input type="date" label="Fecha de nacimiento" idInput="fechaDeNacimiento" [control]="perfilPublicoUpdate.controls.fechaDeNacimiento"></app-input>
+        <span *ngIf="perfilPublicoUpdate.controls.fechaDeNacimiento.errors?.['required'] && perfilPublicoUpdateIsSubmitted" class="error-msg-input">La fecha de nacimiento es requerida</span>
+        <span *ngIf="!perfilPublicoUpdate.controls.fechaDeNacimiento.errors?.['required'] && perfilPublicoUpdate.controls.fechaDeNacimiento.errors?.['noEsMayor'] && perfilPublicoUpdateIsSubmitted" class="error-msg-input">Tenés que ser mayor a 18 años</span>
     </div>
 
     <app-button type="submit" class="primary" contenido="Guardar cambios"></app-button>

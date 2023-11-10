@@ -17,12 +17,15 @@ export class ConfigPerfilPublicoComponent {
     nombre: new FormControl('', Validators.required),
     apellido: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
-    fechaDeNacimiento: new FormControl<any>('', [Validators.required, mayorDeEdad()])
+    fechaDeNacimiento: new FormControl('', [Validators.required, mayorDeEdad()])
   })
   showToast: boolean = false
   msgToast!: string
   severity!: string
   file!: File | string
+  perfilPublicoUpdateIsSubmitted: boolean = false
+  formValuesChanged: boolean = false
+
   constructor(private usuariosService: UsuariosService){}
 
   ngOnInit(){
@@ -32,30 +35,34 @@ export class ConfigPerfilPublicoComponent {
         nombre: this.usuario.nombre,
         apellido: this.usuario.apellido,
         email: this.usuario.email,
-        fechaDeNacimiento: this.usuario.fechaDeNacimiento
+        fechaDeNacimiento: this.usuario.fechaDeNacimiento.toString()
       })
     }
   }
 
   async onSubmit(){
-    if(typeof(this.file) == 'string'){
-      this.perfilPublicoUpdate.controls.photoURL.setValue(this.file)
-    }else{
-      const photoUrl = await this.usuariosService.updateUserImg(this.usuario.uid, this.file)
-      this.perfilPublicoUpdate.controls.photoURL.setValue(photoUrl)
+    this.perfilPublicoUpdateIsSubmitted = true
+  
+    if(this.perfilPublicoUpdate.valid && this.formValuesChanged){
+      if(typeof(this.file) == 'string'){
+        this.perfilPublicoUpdate.controls.photoURL.setValue(this.file)
+      }else{
+        const photoUrl = await this.usuariosService.updateUserImg(this.usuario.uid, this.file)
+        this.perfilPublicoUpdate.controls.photoURL.setValue(photoUrl)
+      }
+  
+      this.usuariosService.updateUser(this.usuario.uid, this.perfilPublicoUpdate.value)
+      .then(() => {
+        this.msgToast = 'Se actualizaron los datos con éxito'
+        this.severity = 'success'
+        this.showToast = true
+      })
+      .catch(() => {
+        this.msgToast = 'Hubo un error al actualizar los datos'
+        this.severity = 'danger'
+        this.showToast = true
+      })
     }
-
-    this.usuariosService.updateUser(this.usuario.uid, this.perfilPublicoUpdate.value)
-    .then(() => {
-      this.msgToast = 'Se actualizó al usuario con éxito'
-      this.severity = 'success'
-      this.showToast = true
-    })
-    .catch(() => {
-      this.msgToast = 'Hubo un error al actualizar al usuario'
-      this.severity = 'danger'
-      this.showToast = true
-    })
 
     window.scrollTo(0, 0)
   }
