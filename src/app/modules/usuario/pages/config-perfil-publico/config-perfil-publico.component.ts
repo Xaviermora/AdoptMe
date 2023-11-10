@@ -21,7 +21,7 @@ export class ConfigPerfilPublicoComponent {
   showToast: boolean = false
   msgToast!: string
   severity!: string
-  file: any
+  file!: File | string
   constructor(private usuariosService: UsuariosService){}
 
   ngOnInit(){
@@ -37,8 +37,12 @@ export class ConfigPerfilPublicoComponent {
   }
 
   async onSubmit(){
-    const photoUrl = await this.usuariosService.updateUserImg(this.usuario.uid, this.file)
-    this.perfilPublicoUpdate.controls.photoURL.setValue(photoUrl)
+    if(typeof(this.file) == 'string'){
+      this.perfilPublicoUpdate.controls.photoURL.setValue(this.file)
+    }else{
+      const photoUrl = await this.usuariosService.updateUserImg(this.usuario.uid, this.file)
+      this.perfilPublicoUpdate.controls.photoURL.setValue(photoUrl)
+    }
 
     this.usuariosService.updateUser(this.usuario.uid, this.perfilPublicoUpdate.value)
     .then(() => {
@@ -52,13 +56,14 @@ export class ConfigPerfilPublicoComponent {
       this.showToast = true
     })
 
+    window.scrollTo(0, 0)
   }
 
   onChangeImg(e: any){
     const imagePreview = document.getElementById('userImgPreview');
     this.file = e.target.files[0]
 
-    if (this.file) {
+    if (this.file && typeof(this.file) !== 'string') {
       // Creación de un FileReader para leer el archivo seleccionado
       const reader = new FileReader();
 
@@ -68,5 +73,12 @@ export class ConfigPerfilPublicoComponent {
       // Lee el archivo como url
       reader.readAsDataURL(this.file);
     }
+  }
+
+  quitarFoto(){
+    const imagePreview = document.getElementById('userImgPreview');
+    const defaultUserPhotoUrl = 'https://firebasestorage.googleapis.com/v0/b/adoptme-4080b.appspot.com/o/default-user-photo.svg?alt=media&token=37073846-dc65-4429-93c3-ac69ca63edab' 
+    imagePreview?.setAttribute('src', defaultUserPhotoUrl)
+    this.file = defaultUserPhotoUrl
   }
 }

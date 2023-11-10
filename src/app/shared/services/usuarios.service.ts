@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
-import { map, take, tap } from 'rxjs';
+import { map, take } from 'rxjs';
 import { Usuario } from 'src/app/models/usuario';
 
 @Injectable({

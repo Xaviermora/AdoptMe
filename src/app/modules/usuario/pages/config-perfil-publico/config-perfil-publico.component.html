@@ -10,7 +10,7 @@
                 </svg>
             </div>
         </div>
-        <span class="text-primario-100 text-center" *ngIf="!usuario.photoURL.includes('37073846-dc65-4429-93c3-ac69ca63edab')">Quitar</span>
+        <span class="text-primario-100 text-center cursor-pointer" *ngIf="!usuario.photoURL.includes('37073846-dc65-4429-93c3-ac69ca63edab')" (click)="quitarFoto()">Quitar</span>
     </div>
 
     <div class="flex sm:flex-row flex-col w-full sm:gap-4 gap-8">
