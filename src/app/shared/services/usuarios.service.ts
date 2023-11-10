@@ -29,7 +29,7 @@ export class UsuariosService {
     return this.usuariosCollection.doc(userId).update(data)
   }
 
-  async updateImg(userId: string, img: File){
+  async updateUserImg(userId: string, img: File){
     const path = `user-photos/${userId}`
     const put = await this.storage.ref(path).put(img)
     return put.ref.getDownloadURL()
