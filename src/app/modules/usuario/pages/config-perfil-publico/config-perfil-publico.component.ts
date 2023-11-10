@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from 'src/app/models/usuario';
 import { UsuariosService } from 'src/app/shared/services/usuarios.service';
+import { mayorDeEdad } from 'src/app/shared/validators/custom-validators';
 
 @Component({
   selector: 'app-config-perfil-publico',
@@ -16,7 +17,7 @@ export class ConfigPerfilPublicoComponent {
     nombre: new FormControl('', Validators.required),
     apellido: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
-    fechaDeNacimiento: new FormControl<any>('', Validators.required)
+    fechaDeNacimiento: new FormControl<any>('', [Validators.required, mayorDeEdad()])
   })
   showToast: boolean = false
   msgToast!: string
