@@ -14,7 +14,8 @@ export class ModalReportarUsuarioComponent {
     'Información falsa',
     'Desnudos o actividad sexual',
     'Violencia',
-    'Estafa o fraude'
+    'Estafa o fraude',
+    'Otro motivo'
   ]
 
   reportarUsuario!: FormGroup
