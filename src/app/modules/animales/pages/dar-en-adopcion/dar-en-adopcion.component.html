@@ -53,15 +53,9 @@
       <span *ngIf="!darEnAdopcion.controls.raza.errors?.['required'] && darEnAdopcion.controls.raza.errors?.['wrongOption'] && darEnAdopcionIsSubmitted" class="error-msg-input">Opción incorrecta</span>
     </div>
 
-    <!--se ingresa la provincia-->
-    <div>
-      <app-select idSelect="provincia" label="Provincia" [list]="provincia" [control]="darEnAdopcion.controls.provincia"></app-select>
-      <span *ngIf="darEnAdopcion.controls.provincia.errors?.['required'] && darEnAdopcionIsSubmitted" class="error-msg-input">La provincia es requerida</span>
-    </div>
-
     <!--se ingresa la ciudad-->
     <div>
-      <app-select idSelect="ciudad" label="Ciudad" [list]="ciudad" [control]="darEnAdopcion.controls.ciudad"></app-select>
+      <app-select idSelect="ciudad" label="Ciudad" [list]="ciudadesService.ciudades" [control]="darEnAdopcion.controls.ciudad"></app-select>
       <span *ngIf="darEnAdopcion.controls.ciudad.errors?.['required'] && darEnAdopcionIsSubmitted" class="error-msg-input">La ciudad es requeridad</span>
     </div>
 

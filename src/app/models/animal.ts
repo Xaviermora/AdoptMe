@@ -6,7 +6,6 @@ export interface Animal {
   sexo: string,
   castrado: boolean,
   raza: string,
-  provincia: string,
   ciudad: string,
   imgs: string[],
   descripcion: string,
