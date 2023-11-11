@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { Observable } from 'rxjs';
 import { Animal } from 'src/app/models/animal';
 
 @Injectable({
@@ -8,6 +9,24 @@ import { Animal } from 'src/app/models/animal';
 })
 export class AnimalesService {
   private animalesCollection: AngularFirestoreCollection<any>
+  
+  razas: string[] = [
+    "Calle",
+    "Vereda",
+    "Asfalto",
+    "Plaza"
+  ]
+  animal: string[] = [
+    'Perro',
+    'Gato'
+  ]
+  edad: string[] = [
+    "Cachorro lactante",
+    "Cachorro",
+    "Cachorro adolecente",
+    "Adulto",
+    "Senior"
+  ]
 
   constructor(private database: AngularFirestore, private storage: AngularFireStorage) {
     this.animalesCollection = this.database.collection<Animal>('animales')
@@ -21,8 +40,26 @@ export class AnimalesService {
     }))
   }
 
-  getAnimales(){
-    return this.animalesCollection.valueChanges()
+  getAnimales(filters?: any){
+    return new Observable<Animal[]>(observer => {
+      this.animalesCollection.ref.onSnapshot({ // Se escuchan a los cambios
+        next: (snapshot) => {
+          let query: firebase.default.firestore.Query = snapshot.query // Se prepara la petición
+    
+          for(const filter in filters){
+            // Si hay filtros agregarlos a la petición
+            if(filters[filter]){
+              query = query.where(filter, '==', filters[filter])
+            }
+          }
+          
+          // Se ejecuta la petición
+          query.get().then((query: { docs: any[]; }) => {
+            observer.next(query.docs.map(doc => {return doc.data()})) // Se agrega al observable los animales devueltos por la petición
+          })
+        }
+      })
+    })
   }
 
   async addAnimal(datosAnimal: any, userId: string){
