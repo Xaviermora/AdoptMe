@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-modal-reportar-usuario',
@@ -15,4 +16,8 @@ export class ModalReportarUsuarioComponent {
     'Violencia',
     'Estafa o fraude'
   ]
+
+  reportarUsuario = new FormGroup({
+    
+  })
 }
