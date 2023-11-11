@@ -59,6 +59,7 @@ export class DarEnAdopcionComponent {
   loading: boolean = false
   showMsg: boolean = false
   files: File[] = []
+  wrongImageType!: boolean
 
   constructor(private animalesService: AnimalesService, private authService: AuthService){}
 
@@ -91,9 +92,23 @@ export class DarEnAdopcionComponent {
 
   onChange(e: any){
     let newFiles = []
+    this.wrongImageType = false
 
-    for (const img of e.target.files) newFiles.push(img)
+    for (const img of e.target.files) {
+      if(this.isImage(img)) newFiles.push(img)
+      else {
+        let inputImgs = document.getElementById('imgs') as HTMLInputElement
+        inputImgs.value = ''
+        this.wrongImageType = true
+      }
+    }
 
     this.files = newFiles
+  }
+
+  isImage(file: File): boolean {
+    const allowedImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/bmp', 'image/webp'];
+  
+    return allowedImageTypes.includes(file.type);
   }
 }
