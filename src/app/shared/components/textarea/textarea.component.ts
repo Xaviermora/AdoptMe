@@ -6,8 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./textarea.component.css']
 })
 export class TextareaComponent {
-
   @Input() rows!: number;
-
+  @Input() label!: string
   @Input() placeholder!: string;
 }
