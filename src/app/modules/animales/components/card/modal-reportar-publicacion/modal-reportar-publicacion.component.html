@@ -15,7 +15,7 @@
       </div>
 
       <!-- Modal content -->
-      <div class="pt-5 w-full px-8">
+      <div class="pt-5 w-full px-8 flex flex-col gap-4">
         <ul>
           <li *ngFor="let motivo of motivosReporte" class="hover:bg-gray-100 p-2 flex justify-between items-center" (click)="toggleCheckbox(motivo)">
             <span>{{motivo}}</span>
