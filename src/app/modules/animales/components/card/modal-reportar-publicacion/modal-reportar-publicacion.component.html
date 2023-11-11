@@ -2,10 +2,19 @@
   <div class="relative w-full max-w-2xl max-h-full">
     <!-- Modal content -->
     <div class="relative bg-white rounded-lg shadow">
+      
+      <div>
+        <ul>
+          <li *ngFor="let motivo of motivosReporte" class="hover:bg-gray-100 p-2 flex justify-between items-center" (click)="toggleCheckbox(motivo)">
+            <span>{{motivo}}</span>
+            <app-input-checkbox [idInput]="motivo+'-checkbox'" [control]="getControl(motivo)"></app-input-checkbox>
+          </li>
+        </ul>
+      </div>
 
-        <div class="flex items-center px-8 pb-6 pt-8 border-gray-200 rounded-b">
-          <app-button class="primary w-full" contenido="Solicitar adopción"></app-button>
-        </div>
+      <div class="flex items-center px-8 pb-6 pt-8 border-gray-200 rounded-b">
+        <app-button class="primary w-full" contenido="Solicitar adopción"></app-button>
+      </div>
     </div>
   </div>
 </div>
