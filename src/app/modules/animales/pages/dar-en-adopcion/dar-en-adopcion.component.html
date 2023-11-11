@@ -29,7 +29,7 @@
 
     <!--se ingresa la edad del animal-->
     <div>
-      <app-select idSelect="edad" label="Edad" [list]="edad" [control]="darEnAdopcion.controls.edad"></app-select>
+      <app-select idSelect="edad" label="Edad" [list]="animalesService.edad" [control]="darEnAdopcion.controls.edad"></app-select>
       <span *ngIf="darEnAdopcion.controls.edad.errors?.['required'] && darEnAdopcionIsSubmitted" class="error-msg-input">La edad es requerida</span>
     </div>
 
@@ -48,7 +48,7 @@
 
     <!--se especifica la raza del animal-->
     <div>
-      <app-search-select idInput="raza" idList="razas" label="Raza" [list]="razas" [control]="darEnAdopcion.controls.raza"></app-search-select>
+      <app-search-select idInput="raza" idList="razas" label="Raza" [list]="animalesService.razas" [control]="darEnAdopcion.controls.raza"></app-search-select>
       <span *ngIf="darEnAdopcion.controls.raza.errors?.['required'] && darEnAdopcionIsSubmitted" class="error-msg-input">La raza es requerida</span>
       <span *ngIf="!darEnAdopcion.controls.raza.errors?.['required'] && darEnAdopcion.controls.raza.errors?.['wrongOption'] && darEnAdopcionIsSubmitted" class="error-msg-input">Opción incorrecta</span>
     </div>

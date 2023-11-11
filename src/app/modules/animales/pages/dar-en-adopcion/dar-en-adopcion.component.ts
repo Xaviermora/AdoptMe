@@ -11,44 +11,13 @@ import { CiudadesService } from 'src/app/shared/services/ciudades.service';
   styleUrls: ['./dar-en-adopcion.component.css']
 })
 export class DarEnAdopcionComponent {
-  edad=[
-    "Cachorro lactante",
-    "Cachorro",
-    "Cachorro adolecente",
-    "Adulto",
-    "Senior"
-  ]
-  razas=[
-    "Calle",
-    "Vereda",
-    "Asfalto",
-    "PLaza"
-  ]
-  provincia=[
-    "Neuquen",
-    "Rio Negro"
-  ]
-  ciudad=[
-    "Cipolleti",
-    "General Fernandez Oro",
-    "Ciudad de General Roca",
-    "San Carlos de Bariloche",
-    "El Bolson",
-    "Viedma",
-    "Villa Regina",
-    "Catriel",
-    "Las Grutas",
-    "Cinco Saltos",
-    "Allen"
-  ]
-
   darEnAdopcion = new FormGroup({
     animal: new FormControl('', Validators.required),
     nombre: new FormControl(''),
     edad: new FormControl('', Validators.required),
     sexo: new FormControl('', Validators.required),
     castrado: new FormControl(false),
-    raza: new FormControl('', [Validators.required, wrongOptionSearchSelect(this.razas)]),
+    raza: new FormControl('', [Validators.required, wrongOptionSearchSelect(this.animalesService.razas)]),
     ciudad: new FormControl('', Validators.required),
     imgs: new FormControl<string[]>([]),
     descripcion: new FormControl('', Validators.required),
@@ -61,7 +30,7 @@ export class DarEnAdopcionComponent {
   files: File[] = []
   wrongImageType!: boolean
 
-  constructor(private animalesService: AnimalesService, private authService: AuthService, public ciudadesService: CiudadesService){}
+  constructor(public animalesService: AnimalesService, private authService: AuthService, public ciudadesService: CiudadesService){}
 
   async onSubmit(){
     this.darEnAdopcionIsSubmitted = true
