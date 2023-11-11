@@ -9,6 +9,7 @@ import { AnimalesComponent } from './pages/animales/animales.component';
 import { FiltrosComponent } from './pages/filtros/filtros.component';
 import { ModalReportarUsuarioComponent } from './components/card/modal-reportar-usuario/modal-reportar-usuario.component';
 import { ModalReportarPublicacionComponent } from './components/card/modal-reportar-publicacion/modal-reportar-publicacion.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import { ModalReportarPublicacionComponent } from './components/card/modal-repor
     imports: [
         CommonModule,
         AnimalesRoutingModule,
-        SharedModule
+        SharedModule,
+        ReactiveFormsModule
     ]
 })
 export class AnimalesModule { }

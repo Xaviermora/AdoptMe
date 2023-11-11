@@ -50,7 +50,7 @@ export class SecondRegisterComponent {
     "Cinco Saltos",
     "Allen"
   ]
-  terminosYCondicionesChecked: boolean = false
+  terminosYCondicionesChecked = new FormControl(false, Validators.required)
   loading: boolean = false
 
   constructor(private authService: AuthService, private usuariosService: UsuariosService, private router: Router){}

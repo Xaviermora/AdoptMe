@@ -49,12 +49,12 @@
 
   <div>
     <div class="flex gap-1">
-      <app-input-checkbox (isChecked)="terminosYCondicionesChecked = $event" class="flex mt-0.5" idInput="terminos-y-condiciones"></app-input-checkbox>
+      <app-input-checkbox [control]="terminosYCondicionesChecked" class="flex mt-0.5" idInput="terminos-y-condiciones"></app-input-checkbox>
       <span class="text-neutral-secundario-100">
         Acepto los <a href="">términos y condiciones</a> y permito el uso de mis datos según la <a href="">política de privacidad</a>.
       </span>
     </div>
-    <span *ngIf="!terminosYCondicionesChecked && datosPersonalesIsSubmitted" class="error-msg-input">Debe aceptar los términos y condiciones para continuar</span>
+    <span *ngIf="!terminosYCondicionesChecked.value && datosPersonalesIsSubmitted" class="error-msg-input">Debe aceptar los términos y condiciones para continuar</span>
   </div>
 
   <app-button type="submit" class="primary w-full" [contenido]="!loading ? 'Registrarse' : ''">
