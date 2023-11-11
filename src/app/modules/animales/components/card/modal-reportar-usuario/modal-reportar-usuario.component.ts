@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-modal-reportar-usuario',
@@ -17,7 +17,22 @@ export class ModalReportarUsuarioComponent {
     'Estafa o fraude'
   ]
 
-  reportarUsuario = new FormGroup({
-    
-  })
+  reportarUsuario!: FormGroup
+
+  ngOnInit(){
+    this.reportarUsuario = new FormGroup({})
+
+    this.motivosReporte.forEach(motivo => {
+      this.reportarUsuario.addControl(motivo, new FormControl(false))
+    })
+  }
+
+  getControl(control: string){
+    return this.reportarUsuario.get(control) as FormControl
+  }
+
+  toggleCheckbox(control: string){
+    let checkoxControl = this.getControl(control) as FormControl
+    checkoxControl.setValue(!checkoxControl.value)
+  }
 }
