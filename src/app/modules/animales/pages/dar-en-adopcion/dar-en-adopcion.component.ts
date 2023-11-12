@@ -34,7 +34,8 @@ export class DarEnAdopcionComponent {
 
   async onSubmit(){
     this.darEnAdopcionIsSubmitted = true
-
+    this.wrongImageType = false
+    
     if(this.darEnAdopcion.valid && this.files.length > 0 && this.files.length <= 3){
       let inputImgs = document.getElementById('imgs') as HTMLInputElement
       this.loading = true
