@@ -16,23 +16,23 @@ export class ServiciosComponent {
       {
         id:"",
         descripcion: "Ver los animales que se dan en adopcion",
-        imagen: "../../../../../assets/image.1.png",
+        imagen: "../../../../../assets/Grupo perros.jpg",
         alt: "",
-        boton: "Ver animales"
+        boton: "Adopcion"
       },
       {
         id: "",
-        descripcion: "Crear una ficha de adopcion para los animales",
-        imagen: "../../../../../assets/image.1.png",
+        descripcion: "Contactanos ante cualquier duda o necesidad",
+        imagen: "../../../../../assets/Img perro y gato negro.jpg",
         alt: "",
-        boton: "Dar en adopcion"
+        boton: "Contactanos"
       },
       {
         id:"",
         descripcion: "Ver los animales que se dan en adopcion",
-        imagen: "../../../../../assets/image.1.png",
+        imagen: "../../../../../assets/Grupo cachorro.jpg",
         alt: "",
-        boton: "Ver animales"
+        boton: "Adoptar"
       },
     ]
   }
