@@ -19,7 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
         FiltrosComponent,
         AnimalesComponent,
         ModalReportarUsuarioComponent,
-        ModalReportarPublicacionComponent
+        ModalReportarPublicacionComponent,
         DarEnAdopcionComponent
     ],
     imports: [

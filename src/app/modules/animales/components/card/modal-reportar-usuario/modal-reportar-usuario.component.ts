@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Modal } from 'flowbite';
 
 @Component({
   selector: 'app-modal-reportar-usuario',
@@ -8,7 +9,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class ModalReportarUsuarioComponent {
   @Input() usuarioId!: string
-
+  @Input() modal!: Modal
+  
   motivosReporte: string[] = [
     'Nombre ofensivo',
     'Información falsa',
