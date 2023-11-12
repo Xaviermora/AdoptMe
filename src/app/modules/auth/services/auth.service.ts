@@ -18,6 +18,12 @@ export class AuthService {
     return this.auth.signInWithEmailAndPassword(email, password)
   }
 
+  async getUid(){
+    let user = await this.auth.currentUser
+
+    return user ? user.uid : null 
+  }
+
   get user(){
     return this.auth.authState
   }
