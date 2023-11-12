@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { GoogleAuthProvider } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { UsuariosService } from 'src/app/shared/services/usuarios.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private auth: AngularFireAuth, private router: Router) { }
+  constructor(private auth: AngularFireAuth, private router: Router, private usuariosService: UsuariosService) { }
 
   register(email: string, password: string){
     return this.auth.createUserWithEmailAndPassword(email, password)

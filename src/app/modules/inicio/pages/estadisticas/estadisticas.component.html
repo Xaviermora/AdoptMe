@@ -1,0 +1,28 @@
+
+<div class="flex flex-row md:flex-col max-w-screen-lg mx-auto">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-14">
+        <div class="w-1/2 md:w-full">
+            <div class="text-center">
+              <p class="text-3xl text-[#4D4D4D] font-bold ">La adopcion es un acto</p> 
+              
+              <p class="text-3xl text-[#8B2522] font-bold ">de responsabilidad</p>
+            </div>
+          </div>
+        
+          <div class="w-full md:w-1/2 flex flex-wrap justify-center">
+        
+            <!-- Loop -->
+            <div class="w-1/2 md:w-1/3 px-8 m-5 text-center" *ngFor="let i of infodivision">
+              <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                  <path d=""/>
+              </svg>
+              <p class="text-2xl">{{i.cantidad}}</p>
+              <p class="text-gray-600 font-bold">{{i.nombre}}</p> 
+            </div>
+        
+          </div>
+    </div>
+  
+  </div>
+

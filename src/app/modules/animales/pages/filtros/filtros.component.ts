@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { wrongOptionSearchSelect } from 'src/app/shared/validators/custom-validators';
+import { AnimalesService } from '../../services/animales.service';
+import { CiudadesService } from 'src/app/shared/services/ciudades.service';
 
 @Component({
   selector: 'app-filtros',
@@ -6,39 +10,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./filtros.component.css']
 })
 export class FiltrosComponent {
-  filtrosOpen: boolean = false
-  razas=[
-    "Calle",
-    "Vereda",
-    "Asfalto",
-    "PLaza"
-  ]
-  animal=[
-    "Perro",
-    "Gato"
-  ]
-  edad=[
-    "Cachorro lactante",
-    "Cachorro",
-    "Cachorro adolecente",
-    "Adulto",
-    "Senior"
-  ]
-  provincia=[
-    "Neuquen",
-    "Rio Negro"
-  ]
-  ciudad=[
-    "Cipolleti",
-    "General Fernandez Oro",
-    "Ciudad de General Roca",
-    "San Carlos de Bariloche",
-    "El Bolson",
-    "Viedma",
-    "Villa Regina",
-    "Catriel",
-    "Las Grutas",
-    "Cinco Saltos",
-    "Allen"
-  ]
+  filtros = new FormGroup({
+    animal: new FormControl(''),
+    sexo: new FormControl(''),
+    castrado: new FormControl(''),
+    raza: new FormControl('', wrongOptionSearchSelect(this.animalesService.razas)),
+    edad: new FormControl(''),
+    ciudad: new FormControl('')
+  })
+  filtrosOpen!: boolean
+  @Output() filterForm = new EventEmitter<any>()
+  @Output() newFilter = new EventEmitter<any>()
+
+  constructor(public animalesService: AnimalesService, public ciudadesService: CiudadesService){}
+
+  ngOnInit(){
+    this.filterForm.emit(this.filtros)
+
+    this.filtros.valueChanges.subscribe(value => this.newFilter.emit(value))
+  }
 }

@@ -20,7 +20,7 @@ export class LoginComponent {
   loginIsSubmitted: boolean = false
 
   constructor(private authService: AuthService, private router: Router, private usuariosService: UsuariosService){}
-  
+
   continueWithGoogle(){
     this.authService.authWithGoogle()
   }
@@ -28,13 +28,14 @@ export class LoginComponent {
   onSubmit(){
     this.loginIsSubmitted = true
     const { email, password } = this.login.value
-    
+
     if(email && password){
       this.loading = true
       this.authService.login(email, password)
       .then(res => {
-        this.usuariosService.getUser(res.user!.uid).subscribe(user => {
-          user ? this.router.navigate(['/']) : this.router.navigate(['/datos-personales']) // Se comprueba que el usuario este en la colección es decir que haya completado el formulario de datos personales
+        this.usuariosService.getUser(res.user!.uid).subscribe(async user => {
+           // Se comprueba que el usuario este en la colección es decir que haya completado el formulario de datos personales
+          user ? this.router.navigate(['/']) : this.router.navigate(['/datos-personales'])
         })
       })
       .catch(error => {
