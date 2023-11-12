@@ -29,7 +29,8 @@ export class AnimalesComponent {
     })
   }
 
-  hasValue(){
+  hasFilter(){
+    // Se comprueba que exista algún filtro
     return Object.values(this.filtros.value).some(value => value !== null && value !== undefined && value !== '');
   }
 }
