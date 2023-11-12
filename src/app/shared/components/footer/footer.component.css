@@ -1,0 +1,18 @@
+.title-list{
+    color: var(--neutral-primario, #2E2E2E);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Poppins;
+
+}
+
+.tipografia{
+    color: var(--neutral-secundario-100, #4D4D4D);
+    font-feature-settings: 'clig' off, 'liga' off;
+
+/* Normal/Regular */
+font-family: Poppins;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+
+}

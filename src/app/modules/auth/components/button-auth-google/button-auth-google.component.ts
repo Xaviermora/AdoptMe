@@ -6,5 +6,4 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./button-auth-google.component.css']
 })
 export class ButtonAuthGoogleComponent {
-  @Input() contenido!: string
 }

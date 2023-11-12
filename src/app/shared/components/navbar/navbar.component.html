@@ -1,1 +1,87 @@
-<p>navbar works!</p>
+<nav class="navbar sticky w-full z-40 top-0 left-0 mb-5">
+  <div class="max-w-screen-xl flex flex-wrap items-center mx-auto py-3.5 pr-3">
+    <button id="menuBtn" (click)="menuIsActive = !menuIsActive" data-collapse-toggle="menu" type="button" class="flex items-center p-2 w-fit h-fit justify-center rounded-full mx-2" aria-controls="menu" aria-expanded="false">
+      <!-- Icono menu -->
+      <svg [class.hidden]="menuIsActive" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="4" x2="20" y1="12" y2="12"/>
+        <line x1="4" x2="20" y1="6" y2="6"/>
+        <line x1="4" x2="20" y1="18" y2="18"/>
+      </svg>
+
+      <!-- Icono para cerrar el menu -->
+      <svg [class.hidden]="!menuIsActive" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 6 6 18"/>
+        <path d="m6 6 12 12"/>
+      </svg>
+    </button>
+
+    <!-- Logo -->
+    <a id="logo" routerLink="" class="flex items-center">
+        <img src="../../../../assets/Logo.svg" class="h-10 mr-2" alt="AdoptMe">
+        <span id="logoName" class="self-center text-3xl font-semibold whitespace-nowrap text-neutral-primario hidden">AdoptMe</span>
+    </a>
+
+    <!-- Buttons -->
+    <div *ngIf="!user" class="content-left ml-auto flex space-x-3 w-max">
+      <app-button class="secondary w-28" contenido="Ingresar" routerLink="login"></app-button>
+      <app-button class="primary lg:block hidden" contenido="Registrarse" routerLink="register"></app-button>
+    </div>
+
+    <!-- Usuario -->
+    <div class="flex ml-auto w-max content-left items-center gap-5" [class.hidden]="!user">
+      <!-- Notificaciones -->
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+      </div>
+
+      <!-- Menu del usuario -->
+      <div id="dropdownBtnUserMenu" data-dropdown-toggle="dropdownUserMenu" data-dropdown-offset-distance="-50" data-dropdown-offset-skidding="100" data-dropdown-placement="bottom" class="cursor-pointer" >
+        <div *ngIf="user" class="flex space-x-0.5 items-center">
+          <img class="w-9 h-9 rounded-full" [src]="user.photoURL" alt="User photo">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4D4D4D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m6 9 6 6 6-6"/>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Links -->
+    <div class="items-center justify-between hidden w-full" id="menu">
+      <ul id="items-menu" class="flex flex-col p-3 mt-4 gap-4">
+        <li>
+          <a routerLink="" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="text-primario-100" class="block typography text-neutral-secundario-100">Inicio</a>
+        </li>
+        <li>
+          <a routerLink="animales" routerLinkActive="text-primario-100" class="block typography text-neutral-secundario-100">Animales</a>
+        </li>
+        <li>
+          <a routerLink="dar-en-adopcion" routerLinkActive="text-primario-100" class="block typography text-neutral-secundario-100">Dar en adopción</a>
+        </li>
+        <li>
+          <a routerLink="contacto" routerLinkActive="text-primario-100" class="block typography text-neutral-secundario-100">Contacto</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Dropdown menu del usuario -->
+<app-dropdown-menu idDropdown="dropdownUserMenu">
+  <app-item-dropdown-menu link="perfil">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="8" r="5"/>
+      <path d="M20 21a8 8 0 1 0-16 0"/>
+    </svg>
+    Perfil
+  </app-item-dropdown-menu>
+  <app-item-dropdown-menu link="configuracion">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+    Configuración
+  </app-item-dropdown-menu>
+  <div class="my-1.5"><app-divider></app-divider></div>
+  <app-item-dropdown-menu (click)="logout()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+    Cerrar sesión
+  </app-item-dropdown-menu>
+</app-dropdown-menu>
