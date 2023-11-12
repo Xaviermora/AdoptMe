@@ -4,7 +4,7 @@ import { PerfilComponent } from './pages/perfil/perfil/perfil.component';
 
 const routes: Routes = [
   {
-    path: '' ,
+    path: 'perfil' ,
     component: PerfilComponent
   }
 ];
