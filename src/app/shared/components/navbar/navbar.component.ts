@@ -13,14 +13,14 @@ export class NavbarComponent {
   menuIsActive: boolean = false
   user!: any
   dropdownUser!: Dropdown
+  menu!: Collapse
 
   constructor(public authService: AuthService, public usuariosService: UsuariosService, private router: Router){}
 
   ngOnInit(){
     // Funcionalidad para el menu del navbar responsive
     const $targetMenuNavEl = document.getElementById('menu')
-
-    new Collapse($targetMenuNavEl);
+    this.menu = new Collapse($targetMenuNavEl);
 
     this.authService.user.subscribe(user => {
       this.user = user // Se obtiene al usuario que esta en la sesión
