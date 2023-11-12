@@ -62,9 +62,10 @@
     <!--agregar imagenes del animal-->
     <div>
       <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="default_size">Default size</label>
-      <input (change)="onChange($event)" class="block w-full mb-5 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="imgs" type="file" multiple>
+      <input (change)="onChange($event)" class="block w-full mb-5 text-sm text-gray-900 border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:outline-none" id="imgs" type="file" multiple>
       <span *ngIf="files.length == 0 && darEnAdopcionIsSubmitted" class="error-msg-input">Se requiere mínimo una imagen del animal</span>
       <span *ngIf="files.length > 3 && darEnAdopcionIsSubmitted" class="error-msg-input">Se pueden subir 3 imagenes máximo</span>
+      <span *ngIf="wrongImageType" class="error-msg-input">Tipo de imagen incorrecto. Seleccione uno válido (jpeg, png, gif, webp, bmp).</span>
     </div>
 
     <!--ingresar los requisitos y la descripcion del animal-->
@@ -76,7 +77,7 @@
     <app-textarea placeholder="Requisitos (opcional)" [rows]=6 [control]="darEnAdopcion.controls.requisitos"></app-textarea>
 
     <!--boton para ´publicar en adopcion al animal-->
-    <app-button type="submit" class="primary w-full" [contenido]="!loading ? 'Publicar' : ''">
+    <app-button type="submit" class="primary w-full" [contenido]="!loading ? 'Publicar' : ''" [disabled]="loading">
       <app-spinner-loading *ngIf="loading"></app-spinner-loading>
     </app-button>
   </div>

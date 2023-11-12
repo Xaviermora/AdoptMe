@@ -1,4 +1,4 @@
-<button [ngClass]="[size, class]" [type]="type">
+<button [ngClass]="[size, class]" class="disabled:opacity-75 disabled:hover:bg-primario-100" [type]="type" [disabled]="disabled">
     <ng-content></ng-content>
     {{contenido}}
 </button>
