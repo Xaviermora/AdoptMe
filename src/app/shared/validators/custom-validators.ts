@@ -1,6 +1,6 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms"
 
-// Validadción de para la uan selección incorrecta en el select con buscador
+// Validadción para la selección incorrecta en el select con buscador
 export function wrongOptionSearchSelect(list: string[]): ValidatorFn{
     return (control: AbstractControl): ValidationErrors | null => {
       return list.includes(control.value) ? null : {wrongOption: true} // Se determina si existe la opción en la lista del select
