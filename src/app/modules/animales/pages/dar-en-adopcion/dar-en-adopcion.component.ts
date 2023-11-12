@@ -40,7 +40,7 @@ export class DarEnAdopcionComponent {
       let inputImgs = document.getElementById('imgs') as HTMLInputElement
       this.loading = true
 
-      let userId = await this.authService.getUid()
+      let userId = await this.authService.getCurrentUid()
       this.darEnAdopcion.controls.imgs.setValue(await this.animalesService.uploadImgs(this.files, userId!)) // Se guardan las urls de las imagenes a subir en el formulario darEnAdopcion
 
       await this.animalesService.addAnimal(this.darEnAdopcion.value, userId!)
