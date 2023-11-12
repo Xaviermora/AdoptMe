@@ -6,9 +6,11 @@ import { InicioComponent } from './pages/inicio/inicio.component';
 
 
 import { SharedModule } from 'src/app/shared/shared.module';
+
 import { HerosectionComponent } from './pages/herosection/herosection.component';
 import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
+import { EstadisticasComponent } from './pages/estadisticas/estadisticas.component';
 
 
 @NgModule({
@@ -16,7 +18,8 @@ import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.compo
     InicioComponent,
     HerosectionComponent,
     ServiciosComponent,
-    QuienesSomosComponent
+    QuienesSomosComponent,
+    EstadisticasComponent
   ],
   imports: [
     CommonModule,
