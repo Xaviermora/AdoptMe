@@ -18,7 +18,7 @@ export class ServiciosComponent {
         descripcion: "Ver los animales que se dan en adopcion",
         imagen: "../../../../../assets/Grupo perros.jpg",
         alt: "",
-        boton: "Adopcion"
+        boton: "Adoptar"
       },
       {
         id: "",
@@ -29,10 +29,10 @@ export class ServiciosComponent {
       },
       {
         id:"",
-        descripcion: "Ver los animales que se dan en adopcion",
+        descripcion: "Dar en adopción a un animal",
         imagen: "../../../../../assets/Grupo cachorro.jpg",
         alt: "",
-        boton: "Adoptar"
+        boton: "Dar en adopción"
       },
     ]
   }
