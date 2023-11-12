@@ -16,6 +16,8 @@ import { SpinnerLoadingComponent } from './components/spinner-loading/spinner-lo
 import { FooterComponent } from './components/footer/footer.component';
 import { TextareaComponent } from './components/textarea/textarea.component';
 import { RouterModule } from '@angular/router';
+import { DropdownMenuComponent } from './components/dropdown-menu/dropdown-menu.component';
+import { ItemDropdownMenuComponent } from './components/dropdown-menu/item-dropdown-menu/item-dropdown-menu.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { RouterModule } from '@angular/router';
     SelectComponent,
     ToastComponent,
     SpinnerLoadingComponent,
-    FooterComponent
+    FooterComponent,
+    DropdownMenuComponent,
+    ItemDropdownMenuComponent
   ],
   exports: [
     NavbarComponent,
@@ -49,7 +53,8 @@ import { RouterModule } from '@angular/router';
     ToastComponent,
     SpinnerLoadingComponent,
     FooterComponent,
-    TextareaComponent
+    DropdownMenuComponent,
+    ItemDropdownMenuComponent
   ],
   imports: [
     CommonModule,

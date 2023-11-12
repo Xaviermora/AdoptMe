@@ -29,16 +29,20 @@ export class SecondRegisterComponent {
 
   onSubmit(){
     this.datosPersonalesIsSubmitted = true
-    if(this.datosPersonales.status == 'VALID' && this.terminosYCondicionesChecked.value){
+
+    if(this.datosPersonales.valid && this.terminosYCondicionesChecked.value){
       this.authService.user.subscribe(async user => {
         this.loading = true
         if(user){
+          if(!user.photoURL) user.updateProfile({photoURL: 'https://firebasestorage.googleapis.com/v0/b/adoptme-4080b.appspot.com/o/default-user-photo.svg?alt=media&token=37073846-dc65-4429-93c3-ac69ca63edab'})
+
           let credentialsUser = {
             uid: user.uid,
             email: user.email,
             ...this.datosPersonales.value,
-            photoUrl: user.photoURL
+            photoURL: user.photoURL
           }
+
           await this.usuariosService.addUser(credentialsUser)
           this.router.navigate(['/'])
         }

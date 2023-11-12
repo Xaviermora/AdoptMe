@@ -38,7 +38,7 @@
     #logo>img{
         height: 3rem;
     }
-    #buttons{
+    .content-left{
         order: 2;
     }
 }
