@@ -19,12 +19,7 @@
   </div>
 
   <div class="w-full">
-    <app-select idSelect="provincias" label="Provincia" [list]="provincias" [control]="datosPersonales.controls.provincia"></app-select>
-    <span *ngIf="datosPersonales.controls.provincia.errors?.['required'] && datosPersonalesIsSubmitted" class="error-msg-input">La provincia es requerida</span>
-  </div>
-
-  <div class="w-full">
-    <app-select idSelect="ciudades" label="Ciudad" [list]="ciudades" [control]="datosPersonales.controls.ciudad"></app-select>
+    <app-select idSelect="ciudades" label="Ciudad" [list]="ciudadesService.ciudades" [control]="datosPersonales.controls.ciudad"></app-select>
     <span *ngIf="datosPersonales.controls.ciudad.errors?.['required'] && datosPersonalesIsSubmitted" class="error-msg-input">La ciudad es requerida</span>
   </div>
 
@@ -57,7 +52,7 @@
     <span *ngIf="!terminosYCondicionesChecked.value && datosPersonalesIsSubmitted" class="error-msg-input">Debe aceptar los términos y condiciones para continuar</span>
   </div>
 
-  <app-button type="submit" class="primary w-full" [contenido]="!loading ? 'Registrarse' : ''">
+  <app-button type="submit" class="primary w-full" [contenido]="!loading ? 'Registrarse' : ''" [disabled]="loading">
     <app-spinner-loading *ngIf="loading"></app-spinner-loading>
   </app-button>
 </form>

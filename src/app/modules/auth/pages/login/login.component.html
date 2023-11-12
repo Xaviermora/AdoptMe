@@ -19,10 +19,10 @@
     <div class="w-full">
         <app-input-password label="Contraseña" idInput="password" [control]="login.controls.password"></app-input-password>
         <p *ngIf="login.controls.password.errors?.['required'] && loginIsSubmitted" class="error-msg-input">La contraseña es requerida</p>
-        <a class="text-xs" routerLink="">¿Olvidaste tu contraseña?</a>
+        <a class="text-xs" routerLink="/reset-password">¿Olvidaste tu contraseña?</a>
     </div>
 
-    <app-button type="submit" class="w-full primary" size="large" [contenido]="!loading ? 'Ingresar' : ''">
+    <app-button type="submit" class="w-full primary" size="large" [contenido]="!loading ? 'Ingresar' : ''" [disabled]="loading">
         <app-spinner-loading *ngIf="loading"></app-spinner-loading>
     </app-button>
 
