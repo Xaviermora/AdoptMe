@@ -1,0 +1,27 @@
+
+
+<div class="max-w-screen-lg mx-auto px-8 m-14">
+    <p class="text-6xl font-bold text-[#2E2E2E] text-center">Servicios</p>
+    <div class="grid place-items-center gap-2 md:grid-cols-1 lg:grid-cols-3">
+  
+      <div *ngFor="let i of infotarjeta" class="text-center w-full md:w-1/2 ">
+      
+        <img class="mx-auto w-full md:w-1/2 lg:w-4/5 rounded-lg shadow-lg backdrop-blur-sm backdrop-filter" src="{{i.imagen}}" alt="">
+        
+        <div class=" p-1 text-center">
+  
+          
+  
+          <p class="text-gray-700 mb-4 mx-auto">
+            {{i.descripcion}}
+          </p>
+  
+    
+          <app-button contenido="{{i.boton}}" size="large" class="primary  w-full mb-4 md:mr-1"></app-button>
+        </div>
+  
+      </div>
+  
+    </div>
+  
+  </div>
