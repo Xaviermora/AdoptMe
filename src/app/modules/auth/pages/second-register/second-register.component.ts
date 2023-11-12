@@ -61,7 +61,7 @@ export class SecondRegisterComponent {
       this.authService.user.subscribe(async user => {
         this.loading = true
         if(user){
-          if(!user.photoURL) user.updateProfile({photoURL: '../../../../assets/default-user-photo.svg'})
+          if(!user.photoURL) user.updateProfile({photoURL: 'https://firebasestorage.googleapis.com/v0/b/adoptme-4080b.appspot.com/o/default-user-photo.svg?alt=media&token=37073846-dc65-4429-93c3-ac69ca63edab'})
 
           let credentialsUser = {
             uid: user.uid,
