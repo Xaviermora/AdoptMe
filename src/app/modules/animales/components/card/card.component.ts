@@ -1,3 +1,4 @@
+import { Dropdown, Modal } from 'flowbite';
 import { Component, Input, AfterViewInit, OnDestroy } from '@angular/core';
 import { Modal } from 'flowbite';
 import { Animal } from 'src/app/models/animal';
@@ -9,6 +10,7 @@ import { UsuariosService } from 'src/app/shared/services/usuarios.service';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
+
 export class CardComponent implements AfterViewInit, OnDestroy{
   @Input() animal!: Animal
   modal!: Modal
@@ -22,6 +24,16 @@ export class CardComponent implements AfterViewInit, OnDestroy{
   }
 
   ngAfterViewInit(){
+    const $modalReportarPublicacion = document.getElementById(`modal-reportar-publicacion-${this.publicacion.id}`)
+    new Modal($modalReportarPublicacion)
+
+    const $modalReportarUsuario = document.getElementById(`modal-reportar-usuario-${this.publicacion.id}`)
+    new Modal($modalReportarUsuario)
+
+    const $targetDropdownEl = document.getElementById(`dropwdownCard-${this.publicacion.id}`)
+    const $triggerDropdownEl = document.getElementById(`dropdownBtnCard-${this.publicacion.id}`)
+    new Dropdown($targetDropdownEl, $triggerDropdownEl)
+
     // Se hace uso del setTimeot para evitar el error "Expression has changed after it was checked"
     setTimeout(() => { 
       const $targetEl = document.getElementById(`modal-${this.animal.id}`);
