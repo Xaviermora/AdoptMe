@@ -2,6 +2,7 @@ export interface Usuario{
   uid: string;
   email: string | null;
   nombre: string | null;
+  ciudad: string | null;
   apellido: string | null;
   fechaDeNacimiento: Date | null;
   provincia: string | null;
