@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Usuario } from 'src/app/models/usuario';
 import { CrudService } from '../../services/crud.service';
 
 @Component({
@@ -9,11 +9,22 @@ import { CrudService } from '../../services/crud.service';
 })
 export class TableComponent {
 
-  usuario: any[];
-  constructor(private crudService: CrudService){
-    this.usuario = this.crudService.getDatos();
+  usuarioCollection: Usuario [] = [];
+
+  usuarioSelect!: Usuario;
+
+  usuario: any;
+
+  constructor(public servicioCrud:CrudService){
+    
   }
 
+  ngOnInit(): void{
+    /*this.servicioCrud.getUser().subscribe( usuario => {
+      this.usuarioCollection = usuario;
+    }) */
 
-  
+    this.servicioCrud.getUserCollection().subscribe(data => {this.usuario = data;
+    })
+  }
 }

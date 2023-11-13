@@ -12,14 +12,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of usuario">
-        <td class="border px-4 py-2">{{usuario.nombre}}</td>
-        <td class="border px-4 py-2">{{usuario.email}}</td> 
-        <td class="border px-4 py-2">{{usuario.localidad}}</td>
-        <td class="border px-4 py-2">{{usuario.dni}}</td>
-        <td class="border px-4 py-2">{{usuario.nacimiento}}</td>
-        <td class="border px-4 py-2">{{usuario.vivienda}}</td>
-        <td class="border px-4 py-2">{{usuario.telefono}}</td>
+      <tr *ngFor="let user of usuario">
+        <td class="border px-4 py-2">{{user.nombre}}</td>
+        <td class="border px-4 py-2">{{user.email}}</td> 
+        <td class="border px-4 py-2">{{user.provincia}}</td>
+        <td class="border px-4 py-2">{{user.dni}}</td>
+        <td class="border px-4 py-2">{{user.fechaDeNacimiento}}</td>
+        <td class="border px-4 py-2">{{user.tipoDeVivienda}}</td>
+        <td class="border px-4 py-2">{{user.telefono}}</td>
         <div>
             <!--Botones-->
         </div>
