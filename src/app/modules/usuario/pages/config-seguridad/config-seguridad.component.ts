@@ -1,5 +1,7 @@
 import { AfterViewInit, Component } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { Modal } from 'flowbite';
+import { AuthService } from 'src/app/modules/auth/services/auth.service';
 
 @Component({
   selector: 'app-config-seguridad',
@@ -8,10 +10,21 @@ import { Modal } from 'flowbite';
 })
 export class ConfigSeguridadComponent implements AfterViewInit{
   modal!: Modal
-  constructor(){}
+  email = new FormControl('', Validators.required)
+  emailSended: boolean = false
+
+  constructor(private authService: AuthService){}
 
   ngAfterViewInit(){
     const $targetEl = document.getElementById('modalEliminarCuenta')
     this.modal = new Modal($targetEl)
+  }
+
+  async resetPassword(){
+    if (this.email.value) {
+      await this.authService.resetPassword(this.email.value!)
+    }
+
+    this.emailSended = true
   }
 }

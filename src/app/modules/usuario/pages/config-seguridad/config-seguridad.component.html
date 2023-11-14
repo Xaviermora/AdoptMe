@@ -4,8 +4,12 @@
             <span class="font-bold text-neutral-primario text-lg">Cambiar contraseña</span>
             <p class="text-neutral-secundario-100">Se enviara un correo al email ingresado para que restablezcas tu contraseña.</p>
         </div>
-        <app-input idInput="email" label="Email"></app-input>
-        <app-button type="button" class="primary" contenido="Enviar correo"></app-button>
+
+        <div class="w-full">
+          <app-input idInput="email" label="Email" [control]="email"></app-input>
+          <span *ngIf="email.errors?.['required'] && emailSended" class="error-msg-input">El email es requerido</span>
+        </div>
+        <app-button (click)="resetPassword()" type="button" class="primary" contenido="Enviar correo"></app-button>
     </div>
     
     <div class="flex flex-col gap-2">
