@@ -9,7 +9,9 @@
           <app-input idInput="email" label="Email" [control]="email"></app-input>
           <span *ngIf="email.errors?.['required'] && emailSended" class="error-msg-input">El email es requerido</span>
         </div>
-        <app-button (click)="resetPassword()" type="button" class="primary" contenido="Enviar correo"></app-button>
+        <app-button (click)="resetPassword()" type="button" class="primary" [contenido]="!loading ? 'Enviar correo' : ''" [disabled]="loading" [class.w-48]="loading">
+          <app-spinner-loading *ngIf="loading"></app-spinner-loading>
+        </app-button>
     </div>
     
     <div class="flex flex-col gap-2">

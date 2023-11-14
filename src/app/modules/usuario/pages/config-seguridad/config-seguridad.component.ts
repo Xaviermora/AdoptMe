@@ -12,6 +12,7 @@ export class ConfigSeguridadComponent implements AfterViewInit{
   modal!: Modal
   email = new FormControl('', Validators.required)
   emailSended: boolean = false
+  loading: boolean = false
 
   constructor(private authService: AuthService){}
 
@@ -22,7 +23,9 @@ export class ConfigSeguridadComponent implements AfterViewInit{
 
   async resetPassword(){
     if (this.email.value) {
+      this.loading = true
       await this.authService.resetPassword(this.email.value!)
+      this.loading = false
     }
 
     this.emailSended = true
