@@ -1,6 +1,6 @@
-<form [formGroup]="datosPersonalesUpdate" (ngSubmit)="onSubmit()" (change)="formChange()" class="flex flex-col gap-8">
+<form [formGroup]="datosPersonalesUpdate" (ngSubmit)="onSubmit()" (change)="formValuesChanged = true" class="flex flex-col gap-8">
     <app-toast *ngIf="showToast" [msg]="msgToast" [severity]="severity" (showMsgEvent)="showToast = $event"></app-toast>
-    
+
     <div class="w-full">
         <app-select idSelect="ciudades" label="Ciudad" [list]="ciudades" [control]="datosPersonalesUpdate.controls.ciudad"></app-select>
         <span *ngIf="datosPersonalesUpdate.controls.ciudad.errors?.['required'] && datosPersonalesUpdateIsSubmitted" class="error-msg-input">La ciudad es requerida</span>
@@ -23,5 +23,11 @@
         <span *ngIf="datosPersonalesUpdate.controls.dni.errors?.['required'] && datosPersonalesUpdateIsSubmitted" class="error-msg-input">El DNI es requerido</span>
     </div>
 
-    <app-button type="submit" class="primary" contenido="Guardar cambios"></app-button>
+    <div class="flex flex-col gap-2">
+        <app-button type="submit" class="primary" [contenido]="!loading ? 'Guardar cambios' : ''" [disabled]="loading" [class.w-48]="loading">
+            <app-spinner-loading *ngIf="loading"></app-spinner-loading>
+        </app-button>
+
+        <span *ngIf="!formValuesChanged && datosPersonalesUpdateIsSubmitted">No hay cambios para guardar.</span>
+    </div>
 </form>

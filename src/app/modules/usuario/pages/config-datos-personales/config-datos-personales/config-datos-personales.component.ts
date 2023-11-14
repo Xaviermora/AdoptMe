@@ -26,6 +26,8 @@ export class ConfigDatosPersonalesComponent {
   severity!: string
   msgToast!: string
 
+  loading: boolean = false
+
   constructor(private usuariosService: UsuariosService, private ciudadesService: CiudadesService){}
 
   ngOnInit(){
@@ -43,21 +45,21 @@ export class ConfigDatosPersonalesComponent {
     this.datosPersonalesUpdateIsSubmitted = true
 
     if(this.datosPersonalesUpdate.valid && this.formValuesChanged){
+      this.loading = true
+
       this.usuariosService.updateUser(this.usuario.uid, this.datosPersonalesUpdate.value)
       .then(() => {
         this.msgToast = 'Se actualizaron los datos con éxito'
         this.severity = 'success'
         this.showToast = true
+        this.loading = false
       })
       .catch(() => {
         this.msgToast = 'Hubo un error al actualizar los datos'
         this.severity = 'danger'
         this.showToast = true
+        this.loading = false
       })
     }
-  }
-
-  formChange(){
-    this.formValuesChanged = true
   }
 }
