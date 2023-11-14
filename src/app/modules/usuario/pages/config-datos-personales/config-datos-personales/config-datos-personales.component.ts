@@ -18,6 +18,7 @@ export class ConfigDatosPersonalesComponent {
     telefono: new FormControl(0, Validators.required),
     dni: new FormControl(0, Validators.required)
   })
+  datosPersonalesUpdateIsSubmitted: boolean = false
 
   constructor(private ciudadesService: CiudadesService){}
 
@@ -30,5 +31,9 @@ export class ConfigDatosPersonalesComponent {
       telefono: this.usuario.telefono,
       dni: this.usuario.dni
     })
+  }
+
+  onSubmit(){
+    this.datosPersonalesUpdateIsSubmitted = true
   }
 }
