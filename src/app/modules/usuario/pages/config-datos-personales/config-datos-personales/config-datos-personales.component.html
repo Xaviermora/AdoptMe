@@ -1,4 +1,6 @@
-<form [formGroup]="datosPersonalesUpdate" (ngSubmit)="onSubmit()" class="flex flex-col gap-8">
+<form [formGroup]="datosPersonalesUpdate" (ngSubmit)="onSubmit()" (change)="formChange()" class="flex flex-col gap-8">
+    <app-toast *ngIf="showToast" [msg]="msgToast" [severity]="severity" (showMsgEvent)="showToast = $event"></app-toast>
+    
     <div class="w-full">
         <app-select idSelect="ciudades" label="Ciudad" [list]="ciudades" [control]="datosPersonalesUpdate.controls.ciudad"></app-select>
         <span *ngIf="datosPersonalesUpdate.controls.ciudad.errors?.['required'] && datosPersonalesUpdateIsSubmitted" class="error-msg-input">La ciudad es requerida</span>

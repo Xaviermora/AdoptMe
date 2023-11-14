@@ -1,3 +1,4 @@
+import { UsuariosService } from 'src/app/shared/services/usuarios.service';
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from 'src/app/models/usuario';
@@ -19,8 +20,13 @@ export class ConfigDatosPersonalesComponent {
     dni: new FormControl(0, Validators.required)
   })
   datosPersonalesUpdateIsSubmitted: boolean = false
+  formValuesChanged: boolean = false
 
-  constructor(private ciudadesService: CiudadesService){}
+  showToast: boolean = false
+  severity!: string
+  msgToast!: string
+
+  constructor(private usuariosService: UsuariosService, private ciudadesService: CiudadesService){}
 
   ngOnInit(){
     this.ciudades = this.ciudadesService.ciudades
@@ -35,5 +41,23 @@ export class ConfigDatosPersonalesComponent {
 
   onSubmit(){
     this.datosPersonalesUpdateIsSubmitted = true
+
+    if(this.datosPersonalesUpdate.valid && this.formValuesChanged){
+      this.usuariosService.updateUser(this.usuario.uid, this.datosPersonalesUpdate.value)
+      .then(() => {
+        this.msgToast = 'Se actualizaron los datos con éxito'
+        this.severity = 'success'
+        this.showToast = true
+      })
+      .catch(() => {
+        this.msgToast = 'Hubo un error al actualizar los datos'
+        this.severity = 'danger'
+        this.showToast = true
+      })
+    }
+  }
+
+  formChange(){
+    this.formValuesChanged = true
   }
 }
