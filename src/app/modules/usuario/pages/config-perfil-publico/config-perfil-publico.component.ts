@@ -31,6 +31,8 @@ export class ConfigPerfilPublicoComponent {
 
   loading: boolean = false
 
+  invalidEmail: boolean = false
+
   constructor(private usuariosService: UsuariosService, private authService: AuthService){}
 
   ngOnInit(){
@@ -45,35 +47,50 @@ export class ConfigPerfilPublicoComponent {
     }
   }
 
-  async onSubmit(){
+  onSubmit(){
     this.perfilPublicoUpdateIsSubmitted = true
   
     if(this.perfilPublicoUpdate.valid && this.formValuesChanged){
       this.loading = true
       let photoURL: string = ''
 
-      if(typeof(this.file) === 'string'){
-        photoURL = this.file
-        this.perfilPublicoUpdate.controls.photoURL.setValue(photoURL)
-      }else{
-        photoURL = await this.usuariosService.updateUserImg(this.usuario.uid, this.file)
-        this.perfilPublicoUpdate.controls.photoURL.setValue(photoURL)
-      }
-  
-      this.usuariosService.updateUser(this.usuario.uid, this.perfilPublicoUpdate.value)
-      .then(() => {
-        this.authService.user.subscribe(user => user?.updateProfile({photoURL}))
-        this.msgToast = 'Se actualizaron los datos con éxito'
-        this.severity = 'success'
-        this.showToast = true
-        this.loading = false
+      this.authService.user.subscribe(userFirebase => userFirebase?.updateEmail(this.perfilPublicoUpdate.controls.email.value!)
+      .then(async () => {
+        this.invalidEmail = false 
+
+        if(typeof(this.file) === 'string'){
+          if(this.file){
+            photoURL = this.file
+            this.perfilPublicoUpdate.controls.photoURL.setValue(photoURL)
+          }
+        }else{
+          if(this.file){
+            photoURL = await this.usuariosService.updateUserImg(this.usuario.uid, this.file)
+            this.perfilPublicoUpdate.controls.photoURL.setValue(photoURL)
+          }
+        }
+    
+        this.usuariosService.updateUser(this.usuario.uid, this.perfilPublicoUpdate.value)
+        .then(() => {
+          userFirebase.updateProfile({photoURL}) // Se actualiza la photoURL
+          this.msgToast = 'Se actualizaron los datos con éxito'
+          this.severity = 'success'
+          this.showToast = true
+          this.loading = false
+          this.formValuesChanged = false
+          this.perfilPublicoUpdateIsSubmitted = false
+        })
+        .catch(() => {
+          this.msgToast = 'Hubo un error al actualizar los datos'
+          this.severity = 'danger'
+          this.showToast = true
+          this.loading = false
+        })
       })
-      .catch(() => {
-        this.msgToast = 'Hubo un error al actualizar los datos'
-        this.severity = 'danger'
-        this.showToast = true
+      .catch(() => { // Se maneja error si es que hay al querer actualizar email desde el perfil de firebase del usuario 
+        this.invalidEmail = true
         this.loading = false
-      })
+      })) 
     }
 
     window.scrollTo(0, 0)
