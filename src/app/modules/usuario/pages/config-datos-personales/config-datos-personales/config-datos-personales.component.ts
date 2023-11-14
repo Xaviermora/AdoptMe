@@ -53,6 +53,8 @@ export class ConfigDatosPersonalesComponent {
         this.severity = 'success'
         this.showToast = true
         this.loading = false
+        this.formValuesChanged = false
+        this.datosPersonalesUpdateIsSubmitted = false
       })
       .catch(() => {
         this.msgToast = 'Hubo un error al actualizar los datos'
