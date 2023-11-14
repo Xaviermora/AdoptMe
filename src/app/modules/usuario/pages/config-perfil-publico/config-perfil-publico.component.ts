@@ -19,12 +19,16 @@ export class ConfigPerfilPublicoComponent {
     email: new FormControl('', Validators.required),
     fechaDeNacimiento: new FormControl('', [Validators.required, mayorDeEdad()])
   })
+  perfilPublicoUpdateIsSubmitted: boolean = false
+  formValuesChanged: boolean = false
+
   showToast: boolean = false
   msgToast!: string
   severity!: string
+
   file!: File | string
-  perfilPublicoUpdateIsSubmitted: boolean = false
-  formValuesChanged: boolean = false
+
+  loading: boolean = false
 
   constructor(private usuariosService: UsuariosService){}
 
@@ -44,6 +48,8 @@ export class ConfigPerfilPublicoComponent {
     this.perfilPublicoUpdateIsSubmitted = true
   
     if(this.perfilPublicoUpdate.valid && this.formValuesChanged){
+      this.loading = true
+
       if(typeof(this.file) == 'string'){
         this.perfilPublicoUpdate.controls.photoURL.setValue(this.file)
       }else{
@@ -56,11 +62,13 @@ export class ConfigPerfilPublicoComponent {
         this.msgToast = 'Se actualizaron los datos con éxito'
         this.severity = 'success'
         this.showToast = true
+        this.loading = false
       })
       .catch(() => {
         this.msgToast = 'Hubo un error al actualizar los datos'
         this.severity = 'danger'
         this.showToast = true
+        this.loading = false
       })
     }
 
