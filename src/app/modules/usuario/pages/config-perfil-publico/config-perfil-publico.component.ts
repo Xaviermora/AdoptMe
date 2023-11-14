@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from 'src/app/models/usuario';
+import { AuthService } from 'src/app/modules/auth/services/auth.service';
 import { UsuariosService } from 'src/app/shared/services/usuarios.service';
 import { mayorDeEdad } from 'src/app/shared/validators/custom-validators';
 
@@ -30,7 +31,7 @@ export class ConfigPerfilPublicoComponent {
 
   loading: boolean = false
 
-  constructor(private usuariosService: UsuariosService){}
+  constructor(private usuariosService: UsuariosService, private authService: AuthService){}
 
   ngOnInit(){
     if (this.usuario){
@@ -49,16 +50,19 @@ export class ConfigPerfilPublicoComponent {
   
     if(this.perfilPublicoUpdate.valid && this.formValuesChanged){
       this.loading = true
+      let photoURL: string = ''
 
-      if(typeof(this.file) == 'string'){
-        this.perfilPublicoUpdate.controls.photoURL.setValue(this.file)
+      if(typeof(this.file) === 'string'){
+        photoURL = this.file
+        this.perfilPublicoUpdate.controls.photoURL.setValue(photoURL)
       }else{
-        const photoUrl = await this.usuariosService.updateUserImg(this.usuario.uid, this.file)
-        this.perfilPublicoUpdate.controls.photoURL.setValue(photoUrl)
+        photoURL = await this.usuariosService.updateUserImg(this.usuario.uid, this.file)
+        this.perfilPublicoUpdate.controls.photoURL.setValue(photoURL)
       }
   
       this.usuariosService.updateUser(this.usuario.uid, this.perfilPublicoUpdate.value)
       .then(() => {
+        this.authService.user.subscribe(user => user?.updateProfile({photoURL}))
         this.msgToast = 'Se actualizaron los datos con éxito'
         this.severity = 'success'
         this.showToast = true
@@ -96,5 +100,6 @@ export class ConfigPerfilPublicoComponent {
     const defaultUserPhotoUrl = 'https://firebasestorage.googleapis.com/v0/b/adoptme-4080b.appspot.com/o/default-user-photo.svg?alt=media&token=37073846-dc65-4429-93c3-ac69ca63edab' 
     imagePreview?.setAttribute('src', defaultUserPhotoUrl)
     this.file = defaultUserPhotoUrl
+    this.formValuesChanged = true
   }
 }
