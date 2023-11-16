@@ -1,5 +1,5 @@
+import { Dropdown, Modal } from 'flowbite';
 import { Component, Input, AfterViewInit, OnDestroy } from '@angular/core';
-import { Modal } from 'flowbite';
 import { Animal } from 'src/app/models/animal';
 import { Usuario } from 'src/app/models/usuario';
 import { UsuariosService } from 'src/app/shared/services/usuarios.service';
@@ -9,11 +9,14 @@ import { UsuariosService } from 'src/app/shared/services/usuarios.service';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent implements AfterViewInit, OnDestroy{
+
+export class CardComponent implements OnDestroy{
   @Input() animal!: Animal
   modal!: Modal
   imgActual: number = 0 // Posición de la imagen que se esta mostrando en el carousel
   dueno!: Usuario 
+  modalReportarPublicacion!: Modal
+  modalReportarUsuario!: Modal
 
   constructor(private usuariosService: UsuariosService){}
 
@@ -24,6 +27,16 @@ export class CardComponent implements AfterViewInit, OnDestroy{
   ngAfterViewInit(){
     // Se hace uso del setTimeot para evitar el error "Expression has changed after it was checked"
     setTimeout(() => { 
+      const $modalReportarPublicacion = document.getElementById(`modal-reportar-publicacion-${this.animal.id}`)
+      this.modalReportarPublicacion = new Modal($modalReportarPublicacion)
+  
+      const $modalReportarUsuario = document.getElementById(`modal-reportar-usuario-${this.animal.id}`)
+      this.modalReportarUsuario = new Modal($modalReportarUsuario)
+  
+      const $targetDropdownEl = document.getElementById(`dropdownCard-${this.animal.id}`)
+      const $triggerDropdownEl = document.getElementById(`dropdownBtnCard-${this.animal.id}`)
+      new Dropdown($targetDropdownEl, $triggerDropdownEl)
+
       const $targetEl = document.getElementById(`modal-${this.animal.id}`);
       this.modal = new Modal($targetEl);
     }, 0)

@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { SharedModule } from './shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //FIREBASE
 import { environment } from 'src/enviroments/enviroment';
@@ -20,6 +20,7 @@ import { AuthService } from './modules/auth/services/auth.service';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
+    BrowserAnimationsModule,
     //Modulos de firebase
     AngularFireModule.initializeApp(environment.firebaseConfig), // INICIALIZA FIREBASE
     AngularFireAuthModule,

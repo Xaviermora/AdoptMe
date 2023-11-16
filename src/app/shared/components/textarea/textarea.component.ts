@@ -8,6 +8,6 @@ import { FormControl } from '@angular/forms';
 })
 export class TextareaComponent {
   @Input() rows!: number;
-  @Input() placeholder!: string;
+  @Input() label!: string
   @Input() control: FormControl = new FormControl()
 }
