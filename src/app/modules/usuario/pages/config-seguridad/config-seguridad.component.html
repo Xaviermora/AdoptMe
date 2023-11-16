@@ -8,8 +8,9 @@
         <div class="w-full">
           <app-input idInput="email" label="Email" [control]="email"></app-input>
           <span *ngIf="email.errors?.['required'] && emailSended" class="error-msg-input">El email es requerido</span>
+          <span *ngIf="invalidEmail && emailSended" class="error-msg-input">El email es inválido</span>
         </div>
-        <app-button (click)="resetPassword()" type="button" class="primary" [contenido]="!loading ? 'Enviar correo' : ''" [disabled]="loading" [class.w-48]="loading">
+        <app-button (click)="resetPassword()" type="button" class="primary w-fit" [contenido]="!loading ? 'Enviar correo' : ''" [disabled]="loading" [class.w-48]="loading">
           <app-spinner-loading *ngIf="loading"></app-spinner-loading>
         </app-button>
     </div>
