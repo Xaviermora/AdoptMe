@@ -6,16 +6,12 @@ export const userInSession = () => {
   const authService = inject(AuthService)
   const router = inject(Router)
 
-  return authService.user.subscribe(user => {
-    user ? true : router.navigate(['/login'])
-  })
+  return authService.user.subscribe(user => user ? true : router.navigate(['/login']))
 };
 
 export const userNotInSession = () => {
   const authService = inject(AuthService)
   const router = inject(Router)
 
-  return authService.user.subscribe(user => {
-    !user ? true : router.navigate(['/'])
-  })
+  return authService.user.subscribe(user => !user ? true : router.navigate(['/']))
 };

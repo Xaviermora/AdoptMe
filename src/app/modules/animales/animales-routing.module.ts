@@ -2,15 +2,17 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AnimalesComponent } from './pages/animales/animales.component';
 import { DarEnAdopcionComponent } from './pages/dar-en-adopcion/dar-en-adopcion.component';
+import { userInSession } from 'src/app/shared/guards/auth.guard';
 
 const routes: Routes = [
   {
     path: 'animales' ,
-    component: AnimalesComponent
+    component: AnimalesComponent,
   },
   {
     path: 'dar-en-adopcion',
-    component: DarEnAdopcionComponent
+    component: DarEnAdopcionComponent,
+    canActivate: [userInSession]
   }
 ];
 
