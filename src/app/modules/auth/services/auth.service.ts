@@ -3,12 +3,13 @@ import { GoogleAuthProvider } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { UsuariosService } from 'src/app/shared/services/usuarios.service';
+import { AnimalesService } from '../../animales/services/animales.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private auth: AngularFireAuth, private router: Router, private usuariosService: UsuariosService) { }
+  constructor(private auth: AngularFireAuth, private router: Router, private usuariosService: UsuariosService, private animalesService: AnimalesService) { }
 
   register(email: string, password: string){
     return this.auth.createUserWithEmailAndPassword(email, password)
@@ -30,6 +31,15 @@ export class AuthService {
 
   signOut(){
     return this.auth.signOut()
+  }
+
+  deleteAccount(){
+    this.auth.currentUser.then(user => {
+      user?.delete().then(async () => {
+        await this.usuariosService.deleteUser(user.uid)
+        this.animalesService.deleteAnimalByUserId(user.uid)
+      }).catch(console.log)
+    })
   }
 
   authWithGoogle(){

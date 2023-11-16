@@ -1,5 +1,6 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Modal } from 'flowbite';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
 
@@ -15,7 +16,7 @@ export class ConfigSeguridadComponent implements AfterViewInit{
   loading: boolean = false
   invalidEmail: boolean = false
 
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService, private router: Router){}
 
   ngAfterViewInit(){
     const $targetEl = document.getElementById('modalEliminarCuenta')
@@ -29,12 +30,18 @@ export class ConfigSeguridadComponent implements AfterViewInit{
       
       this.authService.resetPassword(this.email.value!)
       .then(() => this.loading = false)
-      .catch((e) => {
-        if(e.code == 'auth/invalid-email') this.invalidEmail = true
+      .catch((err) => {
+        if(err.code == 'auth/invalid-email') this.invalidEmail = true
         this.loading = false
       })     
     }
 
     this.emailSended = true
+  }
+
+  async eliminarCuenta(){
+    await this.authService.deleteAccount()
+    this.modal.hide()
+    this.router.navigate(['/login'])
   }
 }
