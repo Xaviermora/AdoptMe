@@ -61,7 +61,6 @@
 
     <!--agregar imagenes del animal-->
     <div>
-      <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="default_size">Default size</label>
       <input (change)="onChange($event)" class="block w-full mb-5 text-sm text-gray-900 border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:outline-none" id="imgs" type="file" multiple>
       <span *ngIf="files.length == 0 && darEnAdopcionIsSubmitted" class="error-msg-input">Se requiere mínimo una imagen del animal</span>
       <span *ngIf="files.length > 3 && darEnAdopcionIsSubmitted" class="error-msg-input">Se pueden subir 3 imagenes máximo</span>
