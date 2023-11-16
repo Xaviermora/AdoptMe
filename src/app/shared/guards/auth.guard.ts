@@ -24,7 +24,7 @@ export const userNotExistsInCollection = () => {
 
   return new Promise(resolve => {
     authService.user.subscribe(user => {
-      usuariosService.getUser(user!.uid).subscribe(user => user ? router.navigate(['/']) : resolve(true))
+      if(user) usuariosService.userExists(user.uid).subscribe(userExists => userExists ? router.navigate(['/']) : resolve(true))
     })
   })
 }
@@ -36,7 +36,7 @@ export const userExistsInCollection = () => {
 
   return new Promise((resolve) => {
     authService.user.subscribe(user => {
-      usuariosService.getUser(user!.uid).subscribe(user => user ? resolve(true) : router.navigate(['/datos-personales']))
+      if(user) usuariosService.userExists(user.uid).subscribe(userExists => userExists ? resolve(true) : router.navigate(['/datos-personales']))
     })
   })
 }
