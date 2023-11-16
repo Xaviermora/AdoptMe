@@ -71,4 +71,10 @@ export class AnimalesService {
 
     await this.animalesCollection.doc(animal.id).set(animal)
   }
+
+  deleteAnimalByUserId(userId: string){
+    this.animalesCollection.ref.where('userId', '==', userId).get().then(snapshot => {
+      snapshot.docs.forEach(async doc => await doc.ref.delete());
+    })
+  }
 }

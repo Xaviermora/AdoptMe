@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { user } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { map, take } from 'rxjs';
@@ -33,5 +34,9 @@ export class UsuariosService {
     const path = `user-photos/${userId}`
     const put = await this.storage.ref(path).put(img)
     return put.ref.getDownloadURL()
+  }
+
+  async deleteUser(userId: string){
+    await this.usuariosCollection.doc(userId).delete()
   }
 }

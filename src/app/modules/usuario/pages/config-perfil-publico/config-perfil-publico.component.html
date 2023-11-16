@@ -16,15 +16,19 @@
     <div class="flex sm:flex-row flex-col w-full sm:gap-4 gap-8">
         <div class="w-full">
             <app-input idInput="nombre" label="Nombre" type="text" [control]="perfilPublicoUpdate.controls.nombre"></app-input>
+            <span *ngIf="perfilPublicoUpdate.controls.nombre.errors?.['required'] && perfilPublicoUpdateIsSubmitted" class="error-msg-input">El nombre es requerido</span>
         </div>
 
         <div class="w-full">
             <app-input idInput="apellido" label="Apellido" type="text" [control]="perfilPublicoUpdate.controls.apellido"></app-input>
+            <span *ngIf="perfilPublicoUpdate.controls.apellido.errors?.['required'] && perfilPublicoUpdateIsSubmitted" class="error-msg-input">El apellido es requerido</span>
         </div>
     </div>
 
     <div>
         <app-input idInput="email" label="Email" type="email" [control]="perfilPublicoUpdate.controls.email"></app-input>
+        <span *ngIf="perfilPublicoUpdate.controls.email.errors?.['required'] && perfilPublicoUpdateIsSubmitted" class="error-msg-input">El email es requerido</span>
+        <span *ngIf="invalidEmail" class="error-msg-input">El email es invalido</span>
     </div>
 
     <div>
@@ -33,5 +37,11 @@
         <span *ngIf="!perfilPublicoUpdate.controls.fechaDeNacimiento.errors?.['required'] && perfilPublicoUpdate.controls.fechaDeNacimiento.errors?.['noEsMayor'] && perfilPublicoUpdateIsSubmitted" class="error-msg-input">Tenés que ser mayor a 18 años</span>
     </div>
 
-    <app-button type="submit" class="primary" contenido="Guardar cambios"></app-button>
+    <div class="flex flex-col gap-2">   
+        <app-button type="submit" class="primary" [contenido]="!loading ? 'Guardar cambios' : ''" [disabled]="loading" [class.w-48]="loading">
+            <app-spinner-loading *ngIf="loading"></app-spinner-loading>
+        </app-button>
+    
+        <span *ngIf="!formValuesChanged && perfilPublicoUpdateIsSubmitted" class="error-msg-input">No hay cambios para guardar.</span>
+    </div>
 </form>

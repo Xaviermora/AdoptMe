@@ -4,13 +4,20 @@
             <span class="font-bold text-neutral-primario text-lg">Cambiar contraseña</span>
             <p class="text-neutral-secundario-100">Se enviara un correo al email ingresado para que restablezcas tu contraseña.</p>
         </div>
-        <app-input idInput="email" label="Email"></app-input>
-        <app-button type="button" class="primary" contenido="Enviar correo"></app-button>
+
+        <div class="w-full">
+          <app-input idInput="email" label="Email" [control]="email"></app-input>
+          <span *ngIf="email.errors?.['required'] && emailSended" class="error-msg-input">El email es requerido</span>
+          <span *ngIf="invalidEmail && emailSended" class="error-msg-input">El email es inválido</span>
+        </div>
+        <app-button (click)="resetPassword()" type="button" class="primary w-fit" [contenido]="!loading ? 'Enviar correo' : ''" [disabled]="loading" [class.w-48]="loading">
+          <app-spinner-loading *ngIf="loading"></app-spinner-loading>
+        </app-button>
     </div>
     
     <div class="flex flex-col gap-2">
         <span class="font-bold text-neutral-primario text-lg">Eliminar tu cuenta</span>
-        <app-button (click)="modal.toggle()" data-modal-target="modalEliminarCuenta" data-modal-toggle="modalEliminarCuenta" type="button" class="primary" contenido="Eliminar cuenta" ></app-button>
+        <app-button (click)="modal.toggle()" data-modal-target="modalEliminarCuenta" data-modal-toggle="modalEliminarCuenta" type="button" class="primary w-fit" contenido="Eliminar cuenta"></app-button>
     </div>
 </div>
 
@@ -39,7 +46,7 @@
 
             <!-- Botones -->
             <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-              <button type="button" class="inline-flex w-full justify-center rounded-md bg-red-600 px-4 py-2.5 font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto text-sm">Eliminar</button>
+              <button type="button" class="inline-flex w-full justify-center rounded-md bg-red-600 px-4 py-2.5 font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto text-sm" (click)="eliminarCuenta()">Eliminar</button>
               <button type="button" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-4 py-2.5 font-semibold text-sm text-neutral-primario shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto" (click)="modal.hide()">Cancelar</button>
             </div>
         </div>

@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from 'src/app/models/usuario';
+import { AuthService } from 'src/app/modules/auth/services/auth.service';
 import { UsuariosService } from 'src/app/shared/services/usuarios.service';
 import { mayorDeEdad } from 'src/app/shared/validators/custom-validators';
 
@@ -19,14 +20,20 @@ export class ConfigPerfilPublicoComponent {
     email: new FormControl('', Validators.required),
     fechaDeNacimiento: new FormControl('', [Validators.required, mayorDeEdad()])
   })
-  showToast: boolean = false
-  msgToast!: string
-  severity!: string
-  file!: File | string
   perfilPublicoUpdateIsSubmitted: boolean = false
   formValuesChanged: boolean = false
 
-  constructor(private usuariosService: UsuariosService){}
+  showToast: boolean = false
+  msgToast!: string
+  severity!: string
+
+  file!: File | string
+
+  loading: boolean = false
+
+  invalidEmail: boolean = false
+
+  constructor(private usuariosService: UsuariosService, private authService: AuthService){}
 
   ngOnInit(){
     if (this.usuario){
@@ -40,28 +47,50 @@ export class ConfigPerfilPublicoComponent {
     }
   }
 
-  async onSubmit(){
+  onSubmit(){
     this.perfilPublicoUpdateIsSubmitted = true
   
     if(this.perfilPublicoUpdate.valid && this.formValuesChanged){
-      if(typeof(this.file) == 'string'){
-        this.perfilPublicoUpdate.controls.photoURL.setValue(this.file)
-      }else{
-        const photoUrl = await this.usuariosService.updateUserImg(this.usuario.uid, this.file)
-        this.perfilPublicoUpdate.controls.photoURL.setValue(photoUrl)
-      }
-  
-      this.usuariosService.updateUser(this.usuario.uid, this.perfilPublicoUpdate.value)
-      .then(() => {
-        this.msgToast = 'Se actualizaron los datos con éxito'
-        this.severity = 'success'
-        this.showToast = true
+      this.loading = true
+      let photoURL: string = ''
+
+      this.authService.user.subscribe(userFirebase => userFirebase?.updateEmail(this.perfilPublicoUpdate.controls.email.value!)
+      .then(async () => {
+        this.invalidEmail = false 
+
+        if(typeof(this.file) === 'string'){
+          if(this.file){
+            photoURL = this.file
+            this.perfilPublicoUpdate.controls.photoURL.setValue(photoURL)
+          }
+        }else{
+          if(this.file){
+            photoURL = await this.usuariosService.updateUserImg(this.usuario.uid, this.file)
+            this.perfilPublicoUpdate.controls.photoURL.setValue(photoURL)
+          }
+        }
+    
+        this.usuariosService.updateUser(this.usuario.uid, this.perfilPublicoUpdate.value)
+        .then(() => {
+          userFirebase.updateProfile({photoURL}) // Se actualiza la photoURL
+          this.msgToast = 'Se actualizaron los datos con éxito'
+          this.severity = 'success'
+          this.showToast = true
+          this.loading = false
+          this.formValuesChanged = false
+          this.perfilPublicoUpdateIsSubmitted = false
+        })
+        .catch(() => {
+          this.msgToast = 'Hubo un error al actualizar los datos'
+          this.severity = 'danger'
+          this.showToast = true
+          this.loading = false
+        })
       })
-      .catch(() => {
-        this.msgToast = 'Hubo un error al actualizar los datos'
-        this.severity = 'danger'
-        this.showToast = true
-      })
+      .catch(() => { // Se maneja error si es que hay al querer actualizar email desde el perfil de firebase del usuario 
+        this.invalidEmail = true
+        this.loading = false
+      })) 
     }
 
     window.scrollTo(0, 0)
@@ -88,5 +117,6 @@ export class ConfigPerfilPublicoComponent {
     const defaultUserPhotoUrl = 'https://firebasestorage.googleapis.com/v0/b/adoptme-4080b.appspot.com/o/default-user-photo.svg?alt=media&token=37073846-dc65-4429-93c3-ac69ca63edab' 
     imagePreview?.setAttribute('src', defaultUserPhotoUrl)
     this.file = defaultUserPhotoUrl
+    this.formValuesChanged = true
   }
 }
