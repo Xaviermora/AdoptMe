@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { map } from 'rxjs';
 import { Usuario } from 'src/app/models/usuario';
 
 @Injectable({
@@ -8,9 +7,11 @@ import { Usuario } from 'src/app/models/usuario';
 })
 export class CrudService {
   private usuariosCollection: AngularFirestoreCollection<Usuario>
+  private reportesCollection: AngularFirestoreCollection<any>
 
   constructor(private database: AngularFirestore) {
     this.usuariosCollection = database.collection('usuarios')
+    this.reportesCollection = database.collection('reportes')
   }
 
   createTable(usuario: Usuario){
@@ -31,5 +32,13 @@ export class CrudService {
     return this.database.collection('usuarios').valueChanges();
     /*  return this.usuariosCollection.snapshotChanges().pipe(map(action => action.map(a => a.payload.doc.data()))) */
   }
-  ngOnInit(): void{}
+  
+  async createReporte(datosReporte: any){
+    const reporte = {
+      id: this.database.createId(),
+      datosReporte,
+    }
+
+    await this.reportesCollection.doc(reporte.id).set(reporte)
+  }
 }
