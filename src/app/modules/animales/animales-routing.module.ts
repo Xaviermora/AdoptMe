@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AnimalesComponent } from './pages/animales/animales.component';
 import { DarEnAdopcionComponent } from './pages/dar-en-adopcion/dar-en-adopcion.component';
-import { userInSession } from 'src/app/shared/guards/auth.guard';
+import { userExistsInCollection, userInSession } from 'src/app/shared/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: 'dar-en-adopcion',
     component: DarEnAdopcionComponent,
-    canActivate: [userInSession]
+    canActivate: [userInSession, userExistsInCollection]
   }
 ];
 

@@ -4,7 +4,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { FirstRegisterComponent } from './pages/first-register/first-register.component';
 import { SecondRegisterComponent } from './pages/second-register/second-register.component';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
-import { userNotInSession } from 'src/app/shared/guards/auth.guard';
+import { userNotExistsInCollection, userNotInSession } from 'src/app/shared/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -20,7 +20,7 @@ const routes: Routes = [
   {
     path: 'datos-personales',
     component: SecondRegisterComponent,
-    canActivate: [userNotInSession]
+    canActivate: [userNotExistsInCollection]
   },
   {
     path: 'reset-password',

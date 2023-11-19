@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { userInSession, userNotInSession } from './shared/guards/auth.guard';
+import { userExistsInCollection, userInSession, userNotInSession } from './shared/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -21,7 +21,7 @@ const routes: Routes = [
   {
     path:'',
     loadChildren:()=>import('./modules/usuario/usuario.module').then(m =>m.UsuarioModule),
-    canActivate: [userInSession]
+    canActivate: [userInSession, userExistsInCollection]
   }
 ];
 

@@ -45,7 +45,12 @@ export class AuthService {
   authWithGoogle(){
     this.auth.signInWithPopup(new GoogleAuthProvider())
     .then(async res => {
-      res.additionalUserInfo?.isNewUser ? this.router.navigate(['/datos-personales']) : this.router.navigate(['/'])
+      if(res.user){
+        this.usuariosService.userExists(res.user.uid).subscribe(async userExists => {
+          // Se comprueba que el usuario este en la colección es decir que haya completado el formulario de datos personales
+         userExists ? this.router.navigate(['/']) : this.router.navigate(['/datos-personales'])
+        })
+      }
     }).catch((error) => {
       console.log(error)
     });

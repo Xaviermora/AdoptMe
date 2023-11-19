@@ -33,10 +33,12 @@ export class LoginComponent {
       this.loading = true
       this.authService.login(email, password)
       .then(res => {
-        this.usuariosService.getUser(res.user!.uid).subscribe(async user => {
-           // Se comprueba que el usuario este en la colección es decir que haya completado el formulario de datos personales
-          user ? this.router.navigate(['/']) : this.router.navigate(['/datos-personales'])
-        })
+        if(res.user){
+          this.usuariosService.userExists(res.user.uid).subscribe(async userExists => {
+             // Se comprueba que el usuario este en la colección es decir que haya completado el formulario de datos personales
+            userExists ? this.router.navigate(['/']) : this.router.navigate(['/datos-personales'])
+          })
+        }
       })
       .catch(error => {
         this.errorMsgContent = this.authService.firebaseErrors(error.code)

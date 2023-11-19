@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { user } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { map, take } from 'rxjs';
@@ -13,6 +12,13 @@ export class UsuariosService {
 
   constructor(private database: AngularFirestore, private storage: AngularFireStorage) {
     this.usuariosCollection = this.database.collection<Usuario>('usuarios')
+  }
+
+  userExists(id: string){
+    return this.usuariosCollection.doc(id).get().pipe(
+      take(1),
+      map(userDoc => userDoc.exists)
+    )
   }
 
   getUser(id: string){
