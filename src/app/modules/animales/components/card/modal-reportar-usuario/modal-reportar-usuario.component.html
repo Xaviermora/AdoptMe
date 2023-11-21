@@ -1,4 +1,4 @@
-<form [formGroup]="reportarUsuario" [id]="'modal-reportar-usuario-'+usuarioId" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+<div [id]="'modal-reportar-usuario-'+usuarioId" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
   <div class="relative w-full max-w-2xl max-h-full">
     <!-- Modal content -->
     <div class="relative bg-white rounded-lg shadow">
@@ -15,20 +15,22 @@
       </div>
 
       <!-- Modal content -->
-      <div class="pt-5 w-full px-8 flex flex-col gap-4">
-        <ul>
-          <li *ngFor="let motivo of motivosReporte" class="hover:bg-gray-100 p-2 flex justify-between items-center" (click)="toggleCheckbox(motivo)">
-            <span>{{motivo}}</span>
-            <app-input-checkbox [idInput]="motivo+'-checkbox'" [control]="getControl(motivo)"></app-input-checkbox>
-          </li>
-        </ul>
+      <form [formGroup]="reportarUsuario" (ngSubmit)="onSubmit()">
+        <div class="pt-5 w-full px-8 flex flex-col gap-4">
+          <ul>
+            <li *ngFor="let motivo of motivosReporte" class="hover:bg-gray-100 p-2 flex justify-between items-center" (click)="toggleCheckbox(motivo)">
+              <span>{{motivo}}</span>
+              <app-input-checkbox [idInput]="motivo+'-checkbox'" [control]="getControl(motivo)"></app-input-checkbox>
+            </li>
+          </ul>
 
-        <app-textarea label="Descripción del reporte" [rows]="5"></app-textarea>
-      </div>
+          <app-textarea label="Descripción del reporte" [rows]="5" [control]="descripcionReporte"></app-textarea>
+        </div>
 
-      <app-button class="primary w-full" type="" [contenido]="!loading ? 'Enviar reporte' : ''" [disabled]="loading">
-        <app-spinner-loading *ngIf="loading"></app-spinner-loading>
-      </app-button>
+        <app-button class="primary w-full" type="submit" [contenido]="!loading ? 'Enviar reporte' : ''" [disabled]="loading">
+          <app-spinner-loading *ngIf="loading"></app-spinner-loading>
+        </app-button>
+      </form>
     </div>
   </div>
-</form>
+</div>
