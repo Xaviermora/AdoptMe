@@ -26,9 +26,9 @@
         <app-textarea label="Descripción del reporte" [rows]="5"></app-textarea>
       </div>
 
-      <div class="flex items-center px-8 pb-6 pt-8 border-gray-200 rounded-b">
-        <app-button class="primary w-full" contenido="Enviar reporte"></app-button>
-      </div>
+      <app-button class="primary w-full" type="" [contenido]="!loading ? 'Enviar reporte' : ''" [disabled]="loading">
+        <app-spinner-loading *ngIf="loading"></app-spinner-loading>
+      </app-button>
     </div>
   </div>
 </form>
