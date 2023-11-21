@@ -27,6 +27,7 @@ export class ModalReportarPublicacionComponent {
   showToast: boolean = false
   msgToast: string = ''
   severity!: string
+  loading: boolean = false
 
   constructor(private adminService: CrudService){}
 
@@ -54,19 +55,25 @@ export class ModalReportarPublicacionComponent {
       if(this.reportarPublicacion.value[motivo] === true) motivos.push(motivo)
     }
 
-    const reporte = {
-      reporte: 'Publicación',
-      idContenido: this.animalId,
-      motivos,
-      descripcion: this.descripcionReporte.value
-    }
+    if(motivos.length != 0){
+      const reporte = {
+        reporte: 'Publicación',
+        idContenido: this.animalId,
+        motivos,
+        descripcion: this.descripcionReporte.value
+      }
 
-    this.adminService.createReporte(reporte)
-    .then(() => {
-      this.severity = 'success'
-      this.msgToast = 'Se envio el reporte'
+      this.adminService.createReporte(reporte)
+      .then(() => {
+        this.severity = 'success'
+        this.msgToast = 'Se envió el reporte'
+        this.showToast = true
+      })
+      .catch((err) => console.log(err))
+    }else{
+      this.severity = 'error'
+      this.msgToast = 'No se seleccionó ningún motivo'
       this.showToast = true
-    })
-    .catch((err) => console.log(err))
+    }
   }
 }
