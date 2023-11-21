@@ -15,16 +15,31 @@ export class TableComponent {
 
   usuario: any;
 
+  modalVisibleUser: boolean = false;
+
   constructor(public servicioCrud:CrudService){
     
   }
 
   ngOnInit(): void{
-    /*this.servicioCrud.getUser().subscribe( usuario => {
-      this.usuarioCollection = usuario;
-    }) */
+  
 
     this.servicioCrud.getUserCollection().subscribe(data => {this.usuario = data;
+    })
+  }
+
+  // Eliminar usuario
+  ShowDelete(UsuarioSelect: Usuario){
+    this.modalVisibleUser = true
+    this.usuarioSelect = this.usuarioSelect;
+  }
+
+  deleteUser(){
+    this.servicioCrud.borrarUser(this.usuarioSelect.uid).then(respuesta =>{
+      alert("Se elimino el usuario correctamente")
+    })
+    .catch(error =>{
+      alert("No se pudo borrar el usuario "+ error)
     })
   }
 }
