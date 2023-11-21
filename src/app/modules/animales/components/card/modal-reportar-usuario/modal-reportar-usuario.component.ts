@@ -56,7 +56,7 @@ export class ModalReportarUsuarioComponent {
 
     if(motivos.length != 0){
       const reporte = {
-        reporte: 'Publicación',
+        reporte: 'Usuario',
         idContenido: this.usuarioId,
         motivos,
         descripcion: this.descripcionReporte.value
