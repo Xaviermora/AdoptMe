@@ -32,13 +32,13 @@ export class CrudService {
     return this.database.collection('usuarios').valueChanges();
     /*  return this.usuariosCollection.snapshotChanges().pipe(map(action => action.map(a => a.payload.doc.data()))) */
   }
-  
+
   async createReporte(datosReporte: any){
     const reporte = {
       id: this.database.createId(),
       datosReporte,
     }
 
-    await this.reportesCollection.doc(reporte.id).set(reporte)
+    return await this.reportesCollection.doc(reporte.id).set(reporte)
   }
 }

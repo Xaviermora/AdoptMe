@@ -17,16 +17,18 @@
       <!-- Modal content -->
       <form [formGroup]="reportarPublicacion" (ngSubmit)="onSubmit()">
         <div class="pt-5 w-full px-8 flex flex-col gap-4">
+          <app-toast *ngIf="showToast" [severity]="severity" [msg]="msgToast" (showMsgEvent)="showToast = $event"></app-toast>
+
           <ul>
             <li *ngFor="let motivo of motivosReporte" class="hover:bg-gray-100 p-2 flex justify-between items-center" (click)="toggleCheckbox(motivo)">
               <span>{{motivo}}</span>
               <app-input-checkbox [idInput]="motivo+'-checkbox'" [control]="getControl(motivo)"></app-input-checkbox>
             </li>
           </ul>
-  
+
           <app-textarea label="Descripción del reporte" [rows]="5" [control]="descripcionReporte"></app-textarea>
         </div>
-  
+
         <div class="flex items-center px-8 pb-6 pt-8 border-gray-200 rounded-b">
           <app-button class="primary w-full" type="" contenido="Enviar reporte"></app-button>
         </div>

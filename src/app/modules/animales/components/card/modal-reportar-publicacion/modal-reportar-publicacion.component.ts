@@ -11,7 +11,7 @@ import { CrudService } from 'src/app/modules/admin/services/crud.service';
 export class ModalReportarPublicacionComponent {
   @Input() animalId!: string
   @Input() modal!: Modal
-  
+
   motivosReporte: string[] = [
     'Información falsa',
     'Desnudos o actividad sexual',
@@ -24,6 +24,9 @@ export class ModalReportarPublicacionComponent {
 
   reportarPublicacion!: FormGroup
   descripcionReporte = new FormControl('')
+  showToast: boolean = false
+  msgToast: string = ''
+  severity!: string
 
   constructor(private adminService: CrudService){}
 
@@ -56,8 +59,14 @@ export class ModalReportarPublicacionComponent {
       idContenido: this.animalId,
       motivos,
       descripcion: this.descripcionReporte.value
-    } 
+    }
 
     this.adminService.createReporte(reporte)
+    .then(() => {
+      this.severity = 'success'
+      this.msgToast = 'Se envio el reporte'
+      this.showToast = true
+    })
+    .catch((err) => console.log(err))
   }
 }
