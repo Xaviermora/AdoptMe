@@ -24,4 +24,8 @@ export class NotificacionesService {
 
     await this.notificacionesCollection.doc(notificacion.id).set(notificacion)
   }
+
+  async deleteNotificacion(id: string){
+    await this.notificacionesCollection.doc(id).delete()
+  }
 }
