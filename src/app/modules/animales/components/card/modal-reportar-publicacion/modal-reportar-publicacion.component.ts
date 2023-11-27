@@ -50,6 +50,7 @@ export class ModalReportarPublicacionComponent {
 
   onSubmit(){
     let motivos: string[] = []
+    this.loading = true
 
     for (const motivo in this.reportarPublicacion.value) {
       if(this.reportarPublicacion.value[motivo] === true) motivos.push(motivo)
@@ -68,12 +69,17 @@ export class ModalReportarPublicacionComponent {
         this.severity = 'success'
         this.msgToast = 'Se envió el reporte'
         this.showToast = true
+        this.loading = false
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        console.log(err)
+        this.loading = false
+      })
     }else{
       this.severity = 'error'
       this.msgToast = 'No se seleccionó ningún motivo'
       this.showToast = true
+      this.loading = false
     }
   }
 }
