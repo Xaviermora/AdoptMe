@@ -9,6 +9,10 @@ button{
     letter-spacing: 1px;
 }
 
+.small{
+    height: 42px;
+}
+
 .normal{
     height: 45px;
 }
