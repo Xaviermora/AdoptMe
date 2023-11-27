@@ -14,15 +14,22 @@ export class ModalComponent {
   @Input() animal!: Animal
   @Input() modal!: Modal
 
+  showToast: boolean = false
+  msgToast!: string
+  severity: string = 'success'
+
   constructor(private notificacionesService: NotificacionesService, private authService: AuthService, private router: Router){}
 
   solicitarAdopcion(){
-    this.authService.user.subscribe(user => {
+    this.authService.user.subscribe(async user => {
       if(user){
-        this.notificacionesService.createNotificacion({
+        await this.notificacionesService.createNotificacion({
           idAnimal: this.animal.id,
           idUsuarioAdoptante: user.uid
         })
+
+        this.msgToast = 'Se mandó la solicitud'
+        this.showToast = true
       }else{this.router.navigate(['/login'])}
     })
   }
