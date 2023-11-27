@@ -17,12 +17,15 @@ export class ModalComponent {
   showToast: boolean = false
   msgToast!: string
   severity: string = 'success'
+  loading: boolean = false
 
   constructor(private notificacionesService: NotificacionesService, private authService: AuthService, private router: Router){}
 
   solicitarAdopcion(){
     this.authService.user.subscribe(async user => {
       if(user){
+        this.loading = true
+
         await this.notificacionesService.createNotificacion({
           idAnimal: this.animal.id,
           idUsuarioAdoptante: user.uid
@@ -30,6 +33,7 @@ export class ModalComponent {
 
         this.msgToast = 'Se mandó la solicitud'
         this.showToast = true
+        this.loading = false
       }else{this.router.navigate(['/login'])}
     })
   }

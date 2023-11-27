@@ -16,8 +16,8 @@
             </button>
         </div>
         <!-- Toast -->
-        <div class="p-8">
-          <app-toast *ngIf="showToast" [msg]="msgToast" [severity]="severity" (showMsgEvent)="showToast = $event"></app-toast>
+        <div *ngIf="msgToast" class="px-8 pt-5">
+          <app-toast [msg]="msgToast" [severity]="severity" (showMsgEvent)="showToast = $event"></app-toast>
         </div>
         <!-- INFORMACION DEL ANIMAL -->
         <div class="pt-5 w-full px-8 flex justify-between">
@@ -49,7 +49,9 @@
         </div>
         <!-- Modal footer -->
         <div class="flex items-center px-8 pb-6 pt-8 border-gray-200 rounded-b">
-          <app-button class="primary w-full" contenido="Solicitar adopción" (click)="solicitarAdopcion()"></app-button>
+          <app-button class="primary w-full" [contenido]="!loading ? 'Solicitar adopción' : ''" [disabled]="loading" (click)="solicitarAdopcion()">
+            <app-spinner-loading *ngIf="loading"></app-spinner-loading>
+          </app-button>
         </div>
     </div>
   </div>
