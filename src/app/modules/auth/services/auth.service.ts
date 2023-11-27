@@ -70,6 +70,8 @@ export class AuthService {
         return 'Contraseña incorrecta'
       case 'auth/email-already-in-use':
         return 'El usuario ya existe'
+      case 'auth/network-request-failed':
+        return 'Error de conexión a internet'
       default:
         return 'Error desconocido';
     }

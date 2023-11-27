@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Modal } from 'flowbite';
+import { CrudService } from 'src/app/modules/admin/services/crud.service';
 
 @Component({
   selector: 'app-modal-reportar-usuario',
@@ -10,7 +11,7 @@ import { Modal } from 'flowbite';
 export class ModalReportarUsuarioComponent {
   @Input() usuarioId!: string
   @Input() modal!: Modal
-  
+
   motivosReporte: string[] = [
     'Nombre ofensivo',
     'Información falsa',
@@ -21,6 +22,13 @@ export class ModalReportarUsuarioComponent {
   ]
 
   reportarUsuario!: FormGroup
+  descripcionReporte = new FormControl('')
+  showToast: boolean = false
+  msgToast: string = ''
+  severity!: string
+  loading: boolean = false
+
+  constructor(private adminService: CrudService){}
 
   ngOnInit(){
     this.reportarUsuario = new FormGroup({})
@@ -37,5 +45,40 @@ export class ModalReportarUsuarioComponent {
   toggleCheckbox(control: string){
     let checkoxControl = this.getControl(control) as FormControl
     checkoxControl.setValue(!checkoxControl.value)
+  }
+
+  onSubmit(){
+    let motivos: string[] = []
+    this.loading = true
+
+    for (const motivo in this.reportarUsuario.value) {
+      if(this.reportarUsuario.value[motivo] === true) motivos.push(motivo)
+    }
+
+    if(motivos.length != 0){
+      const reporte = {
+        reporte: 'Usuario',
+        idContenido: this.usuarioId,
+        motivos,
+        descripcion: this.descripcionReporte.value
+      }
+
+      this.adminService.createReporte(reporte)
+      .then(() => {
+        this.severity = 'success'
+        this.msgToast = 'Se envió el reporte'
+        this.showToast = true
+        this.loading = false
+      })
+      .catch((err) => {
+        console.log(err)
+        this.loading = false
+      })
+    }else{
+      this.severity = 'error'
+      this.msgToast = 'No se seleccionó ningún motivo'
+      this.showToast = true
+      this.loading = false
+    }
   }
 }

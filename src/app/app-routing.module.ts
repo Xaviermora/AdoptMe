@@ -22,6 +22,10 @@ const routes: Routes = [
     path:'',
     loadChildren:()=>import('./modules/usuario/usuario.module').then(m =>m.UsuarioModule),
     canActivate: [userInSession, userExistsInCollection]
+  },
+  {
+    path: '',
+    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)
   }
 ];
 
