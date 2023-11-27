@@ -37,8 +37,3 @@
     font-size: 0.875rem;
     line-height: 1.25rem
 }
-
-/* Estilo para eliminar la flecha por default de los select*/
-select:not([size]){
-    background-image: none;
-}
