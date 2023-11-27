@@ -12,6 +12,10 @@ export class NotificacionesService {
     this.notificacionesCollection = this.database.collection<Notificacion>('notificaciones')
   }
 
+  getNotificaciones(){
+    return this.notificacionesCollection.valueChanges();
+  }
+
   async createNotificacion(data: any){
     const notificacion = {
       id: this.database.createId(),
