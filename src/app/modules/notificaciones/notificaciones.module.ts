@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { NotificacionesRoutingModule } from './notificaciones-routing.module';
 import { NotificacionItemComponent } from './components/notificacion-item/notificacion-item.component';
 import { NotificacionesComponent } from './pages/notificaciones/notificaciones.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { NotificacionesComponent } from './pages/notificaciones/notificaciones.c
   ],
   imports: [
     CommonModule,
-    NotificacionesRoutingModule
+    NotificacionesRoutingModule,
+    SharedModule
   ]
 })
 export class NotificacionesModule { }
