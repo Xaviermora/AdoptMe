@@ -11,10 +11,12 @@ export class TableComponent {
 
   usuarioCollection: Usuario [] = [];
 
-  usuarioSelect!: Usuario;
+  
 
   usuario: any;
 
+
+  usuarioSelect!: Usuario;
   modalVisibleUser: boolean = false;
 
   constructor(public servicioCrud:CrudService){
@@ -31,15 +33,22 @@ export class TableComponent {
   // Eliminar usuario
   ShowDelete(UsuarioSelect: Usuario){
     this.modalVisibleUser = true
-    this.usuarioSelect = this.usuarioSelect;
+    this.usuarioSelect = UsuarioSelect
   }
 
-  deleteUser(){
+  closeDelete(){
+    this.modalVisibleUser = false
+  }
+
+  deleteUser(uid: string){
     this.servicioCrud.borrarUser(this.usuarioSelect.uid).then(respuesta =>{
       alert("Se elimino el usuario correctamente")
     })
     .catch(error =>{
       alert("No se pudo borrar el usuario "+ error)
     })
+    this.modalVisibleUser = false
+    
   }
+  
 }
