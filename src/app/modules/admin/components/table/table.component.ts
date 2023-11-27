@@ -18,7 +18,7 @@ export class TableComponent {
 
   usuarioSelect!: Usuario;
   modalVisibleUser: boolean = false;
-
+  showEditModal: boolean = false;
   constructor(public servicioCrud:CrudService){
     
   }
@@ -28,6 +28,19 @@ export class TableComponent {
 
     this.servicioCrud.getUserCollection().subscribe(data => {this.usuario = data;
     })
+  }
+  //Editar usuario
+  openEditModal(usuarioSelect: Usuario) {
+    this.usuarioSelect = usuarioSelect;
+    
+    // Llenar el formulario con los datos del usuario
+   
+    
+    this.showEditModal = true;  
+  }
+
+  closeEditModal() {
+    this.showEditModal = false;
   }
 
   // Eliminar usuario
