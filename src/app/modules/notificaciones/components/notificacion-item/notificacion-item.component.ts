@@ -1,4 +1,8 @@
 import { Component, Input } from '@angular/core';
+import { Animal } from 'src/app/models/animal';
+import { Notificacion } from 'src/app/models/notificacion';
+import { Usuario } from 'src/app/models/usuario';
+import { AnimalesService } from 'src/app/modules/animales/services/animales.service';
 import { UsuariosService } from 'src/app/shared/services/usuarios.service';
 
 @Component({
@@ -7,7 +11,15 @@ import { UsuariosService } from 'src/app/shared/services/usuarios.service';
   styleUrls: ['./notificacion-item.component.css']
 })
 export class NotificacionItemComponent {
-  @Input() idUsuarioAdoptante!: string
+  @Input() notificacion!: Notificacion
+  usuario!: Usuario
+  animal!: Animal
 
-  constructor(public usuariosService: UsuariosService){}
+  constructor(public usuariosService: UsuariosService, private animalesService: AnimalesService){}
+  
+  ngOnChanges(){
+    this.usuariosService.getUser(this.notificacion.idUsuarioAdoptante).subscribe(user => this.usuario = user!)
+
+    this.animalesService.getAnimal(this.notificacion.idAnimal).subscribe(animal => this.animal = animal)
+  }
 }

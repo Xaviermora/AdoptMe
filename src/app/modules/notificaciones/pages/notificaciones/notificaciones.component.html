@@ -1,5 +1,3 @@
-<div *ngFor="let notificacion of notificacionesService.getNotificaciones() | async">
-  <app-notificacion-item [idUsuarioAdoptante]="notificacion.idUsuarioAdoptante"></app-notificacion-item>
+<div *ngFor="let notificacion of notificaciones" class="container mx-auto mb-4">
+  <app-notificacion-item [notificacion]="notificacion"></app-notificacion-item>
 </div>
-
-mklm

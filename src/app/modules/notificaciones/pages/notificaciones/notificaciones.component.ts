@@ -7,5 +7,9 @@ import { NotificacionesService } from '../../services/notificaciones.service';
   styleUrls: ['./notificaciones.component.css']
 })
 export class NotificacionesComponent {
-  constructor(public notificacionesService: NotificacionesService){}
+  notificaciones: any
+
+  constructor(public notificacionesService: NotificacionesService){
+    this.notificacionesService.getNotificaciones().subscribe(notificaciones => this.notificaciones = notificaciones)
+  }
 }
