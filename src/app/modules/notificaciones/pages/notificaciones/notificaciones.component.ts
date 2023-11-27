@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NotificacionesService } from '../../services/notificaciones.service';
 
 @Component({
   selector: 'app-notificaciones',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./notificaciones.component.css']
 })
 export class NotificacionesComponent {
-
+  constructor(public notificacionesService: NotificacionesService){}
 }

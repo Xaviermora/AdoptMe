@@ -1,1 +1,5 @@
-<p>notificaciones works!</p>
+<div *ngFor="let notificacion of notificacionesService.getNotificaciones() | async">
+  <app-notificacion-item [idUsuarioAdoptante]="notificacion.idUsuarioAdoptante"></app-notificacion-item>
+</div>
+
+mklm
