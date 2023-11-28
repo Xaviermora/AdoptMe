@@ -3,7 +3,7 @@
   <input type="text" class="border rounded p-2 w-64" placeholder="Buscar">
 </div>
 
-<table class="table-auto w-full justify-center">
+<table class="table-auto w-full justify-items-center text-center">
     <thead>
       <tr>
         <th class="px-4 py-2">Usuarios</th> 
@@ -17,7 +17,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of usuario" class="items-center">
+      <tr *ngFor="let user of usuario" >
         <td class="border px-4 py-2 flex items-center">
           <img class="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full object-cover object-center icon-pfp" src="{{user.photoUrl}}" alt="">
           <span class="m-5">{{user.nombre}}</span>
