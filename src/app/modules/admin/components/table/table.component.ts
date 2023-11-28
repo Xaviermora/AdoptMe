@@ -8,6 +8,9 @@ import { CrudService } from '../../services/crud.service';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent {
+clearSearch() {
+throw new Error('Method not implemented.');
+}
 
   usuarioCollection: Usuario [] = [];
 
