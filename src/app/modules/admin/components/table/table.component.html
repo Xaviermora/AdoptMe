@@ -1,9 +1,9 @@
-
-<div class="flex items-center">
+<!--buscador-->
+<div class="flex items-center flex justify-end max-w-7xl">
   <input type="text" class="border rounded p-2 w-64" placeholder="Buscar">
 </div>
 
-<table class="table-auto w-full">
+<table class="table-auto w-full justify-center">
     <thead>
       <tr>
         <th class="px-4 py-2">Usuarios</th> 
@@ -17,7 +17,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of usuario" class="">
+      <tr *ngFor="let user of usuario" class="items-center">
         <td class="border px-4 py-2 flex items-center">
           <img class="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full object-cover object-center icon-pfp" src="{{user.photoUrl}}" alt="">
           <span class="m-5">{{user.nombre}}</span>
@@ -126,6 +126,7 @@
 
   </div>
 </div>
+<!--Pagina y salto de pagina-->
 <div class="flex flex-row flex justify-end mx-auto">
   <p class="px-4">Pagina 1 de 1</p>
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
