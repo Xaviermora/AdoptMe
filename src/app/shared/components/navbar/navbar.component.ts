@@ -3,6 +3,8 @@ import { Collapse, Dropdown } from 'flowbite';
 import { UsuariosService } from '../../services/usuarios.service';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
 import { Router } from '@angular/router';
+import { NotificacionesService } from 'src/app/modules/notificaciones/services/notificaciones.service';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -14,8 +16,9 @@ export class NavbarComponent {
   user!: any
   dropdownUser!: Dropdown
   menu!: Collapse
+  cantidadNotificaciones: number = 0
 
-  constructor(public authService: AuthService, public usuariosService: UsuariosService, private router: Router){}
+  constructor(public authService: AuthService, public usuariosService: UsuariosService, private router: Router, public notificacionesService: NotificacionesService){}
 
   ngOnInit(){
     // Funcionalidad para el menu del navbar responsive
@@ -31,6 +34,8 @@ export class NavbarComponent {
 
       this.dropdownUser = new Dropdown($targetDropdownEl, $triggerDropdownEl)
     })
+
+    this.notificacionesService.getNotificaciones().subscribe(notificaciones => this.cantidadNotificaciones = notificaciones.length)
   }
 
   logout(){
