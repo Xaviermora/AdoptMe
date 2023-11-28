@@ -28,7 +28,8 @@ export class ModalComponent {
 
         await this.notificacionesService.createNotificacion({
           idAnimal: this.animal.id,
-          idUsuarioAdoptante: user.uid
+          idUsuarioAdoptante: user.uid,
+          idUsuario: this.animal.userId
         })
 
         this.msgToast = 'Se mandó la solicitud'
