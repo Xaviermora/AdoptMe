@@ -28,7 +28,7 @@
     </div>
 
     <!-- Usuario -->
-    <div *ngIf="user" class="flex ml-auto w-max content-left items-center gap-5" [class.hidden]="!user">
+    <div class="flex ml-auto w-max content-left items-center gap-5" [class.hidden]="!user">
       <!-- Notificaciones -->
       <div class="relative inline-flex items-center">
         <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
@@ -38,7 +38,7 @@
       </div>
 
       <!-- Menu del usuario -->
-      <div id="dropdownBtnUserMenu" data-dropdown-toggle="dropdownUserMenu" data-dropdown-offset-distance="-50" data-dropdown-offset-skidding="100" data-dropdown-placement="bottom" class="cursor-pointer" >
+      <div id="dropdownBtnUserMenu" data-dropdown-toggle="dropdownUserMenu" data-dropdown-offset-distance="-50" data-dropdown-offset-skidding="100" data-dropdown-placement="bottom" class="cursor-pointer">
         <div *ngIf="user" class="flex space-x-0.5 items-center">
           <img class="w-9 h-9 rounded-full" [src]="user.photoURL" alt="User photo">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4D4D4D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

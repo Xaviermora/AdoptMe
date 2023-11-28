@@ -20,7 +20,7 @@ export class NavbarComponent {
 
   constructor(public authService: AuthService, public usuariosService: UsuariosService, private router: Router, public notificacionesService: NotificacionesService){}
 
-  ngOnInit(){
+  ngAfterViewInit(){
     // Funcionalidad para el menu del navbar responsive
     const $targetMenuNavEl = document.getElementById('menu')
     this.menu = new Collapse($targetMenuNavEl);
@@ -28,6 +28,8 @@ export class NavbarComponent {
     this.authService.user.subscribe(user => {
       this.user = user // Se obtiene al usuario que esta en la sesión
 
+      this.notificacionesService.getNotificaciones(user!.uid).subscribe(notificaciones => this.cantidadNotificaciones = notificaciones.length) // Se obtienen las notificaciones y se obtiene la cantidad
+      
       // Funcionalidad para el dropdown
       const $targetDropdownEl = document.getElementById('dropdownUserMenu')
       const $triggerDropdownEl = document.getElementById('dropdownBtnUserMenu')
@@ -35,7 +37,6 @@ export class NavbarComponent {
       this.dropdownUser = new Dropdown($targetDropdownEl, $triggerDropdownEl)
     })
 
-    this.notificacionesService.getNotificaciones().subscribe(notificaciones => this.cantidadNotificaciones = notificaciones.length)
   }
 
   logout(){
