@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class CiudadesService {
   ciudades: string[] = [
-    "Cipolleti",
+    "Cipolletti",
     "General Fernandez Oro",
     "Ciudad de General Roca",
     "San Carlos de Bariloche",
