@@ -15,7 +15,8 @@ export class NotificacionItemComponent {
   @Input() notificacion!: Notificacion | null
   usuario!: Usuario
   animal!: Animal
-
+  mostrarDatosAdoptante: boolean = false
+  
   constructor(public usuariosService: UsuariosService, private animalesService: AnimalesService, public notificacionesService: NotificacionesService){}
   
   ngOnChanges(){

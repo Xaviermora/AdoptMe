@@ -16,5 +16,13 @@
         </div>
     </div>
 
-    <app-button class="primary" size="small" contenido="Ver datos del adoptante"></app-button>
+    <div *ngIf="mostrarDatosAdoptante" class="flex flex-col gap-1">
+        <p><strong>Teléfono: </strong>{{usuario.telefono}}</p>
+        <p><strong>Email: </strong>{{usuario.email}}</p>
+        <p><strong>Ciudad: </strong>{{usuario.ciudad}}</p>
+        <p><strong>Tipo de vivienda: </strong>{{usuario.tipoDeVivienda}}</p>
+        <p><strong>DNI: </strong>{{usuario.dni}}</p>
+    </div>
+
+    <app-button (click)="mostrarDatosAdoptante = !mostrarDatosAdoptante" class="primary" size="small" [contenido]="!mostrarDatosAdoptante ? 'Ver datos del adoptante' : 'Dejar de mostrar'"></app-button>
 </div>
