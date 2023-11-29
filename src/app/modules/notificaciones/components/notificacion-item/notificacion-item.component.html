@@ -1,17 +1,19 @@
-<div *ngIf="usuario && animal" class="flex flex-col gap-2 bg-white shadow-lg rounded-md p-4">
+<div *ngIf="usuario && animal" class="flex flex-col gap-2 bg-white rounded-md p-4" style="box-shadow: 0 0 7px #c4c4c4;">
     <div class="flex justify-between text-neutral-primario items-center">
-        <div class="flex items-center gap-2">
-            <img [src]="usuario.photoURL" alt="" class="rounded-full">
+        <div class="flex md:flex-row flex-col items-center gap-2">
+            <img [src]="usuario.photoURL" alt="" class="rounded-full h-9 w-9 self-start">
             <span>
                 {{usuario.nombre + ' ' + usuario.apellido}} 
                 <span *ngIf="animal.nombre; else elseBlock">quiere adoptar a {{animal.nombre}}.</span>
                 <ng-template #elseBlock>quiere adoptar a un animal.</ng-template>
             </span>
 
-            <img *ngFor="let img of animal.imgs" [src]="img" class="w-10 h-10" alt="">
+            <div class="flex gap-2">
+                <img *ngFor="let img of animal.imgs" [src]="img" class="w-10 h-10" alt="">
+            </div>
         </div>
 
-        <div (click)="notificacionesService.deleteNotificacion(notificacion!.id)" class="cursor-pointer">
+        <div (click)="notificacionesService.deleteNotificacion(notificacion!.id)" class="cursor-pointer mb-auto mt-1 md:m-0">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.4 12c.8 3.8 2.6 5 2.6 5H3s3-2 3-9c0-3.3 2.7-6 6-6 1.8 0 3.4.8 4.5 2"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/><path d="M15 8h6"/></svg>
         </div>
     </div>

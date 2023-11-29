@@ -1,5 +1,5 @@
 <ng-container *ngIf="notificaciones; else elseBlock">
-  <div *ngFor="let notificacion of notificaciones" class="container mx-auto mb-4">
+  <div *ngFor="let notificacion of notificaciones" class="container mx-auto mb-5">
     <app-notificacion-item [notificacion]="notificacion"></app-notificacion-item>
   </div>
 </ng-container>
