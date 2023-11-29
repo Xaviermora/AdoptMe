@@ -30,7 +30,7 @@
     <!-- Usuario -->
     <div class="flex ml-auto w-max content-left items-center gap-5" [class.hidden]="!user">
       <!-- Notificaciones -->
-      <div class="relative inline-flex items-center">
+      <div class="relative inline-flex items-center cursor-pointer" routerLink="/notificaciones">
         <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
         <div *ngIf="cantidadNotificaciones != 0" class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-3.5 -end-3.5 dark:border-gray-900">
           {{cantidadNotificaciones}}
