@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { Collapse, Dropdown } from 'flowbite';
 import { UsuariosService } from '../../services/usuarios.service';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { NotificacionesService } from 'src/app/modules/notificaciones/services/notificaciones.service';
-import { tap } from 'rxjs';
+import { filter, tap } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -37,6 +37,13 @@ export class NavbarComponent {
       this.dropdownUser = new Dropdown($targetDropdownEl, $triggerDropdownEl)
     })
 
+    // Se escucha a los eventos del router y se cierra el menu del navbar responsive cuando ocurre alguno.
+    this.router.events.subscribe(() => {
+      if(this.menuIsActive){
+        this.menu.collapse()
+        this.menuIsActive = false
+      }
+    })
   }
 
   logout(){
