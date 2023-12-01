@@ -7,14 +7,18 @@ export const userInSession = () => {
   const authService = inject(AuthService)
   const router = inject(Router)
 
-  return authService.user.subscribe(user => user ? true : router.navigate(['/login']))
+  return new Promise(resolve => {
+    authService.user.subscribe(user => user ? resolve(true) : router.createUrlTree(['/login']))
+  })
 };
 
 export const userNotInSession = () => {
   const authService = inject(AuthService)
   const router = inject(Router)
 
-  return authService.user.subscribe(user => !user ? true : router.navigate(['/']))
+  return new Promise<boolean>(resolve => {
+    authService.user.subscribe(user => !user ? resolve(true) : router.createUrlTree(['/']))
+  })
 };
 
 export const userNotExistsInCollection = () => {
