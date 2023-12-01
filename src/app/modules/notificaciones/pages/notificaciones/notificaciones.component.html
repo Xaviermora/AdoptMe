@@ -1,0 +1,9 @@
+<div *ngIf="notificaciones; else elseBlock" class="container mx-auto flex flex-col gap-5 mt-8">
+  <div *ngFor="let notificacion of notificaciones">
+    <app-notificacion-item [notificacion]="notificacion"></app-notificacion-item>
+  </div>
+</div>
+
+<ng-template #elseBlock>
+  <h2 class="titulos-2 text-center">No hay notificaciones por ahora.</h2>
+</ng-template>

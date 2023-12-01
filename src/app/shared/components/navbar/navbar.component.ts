@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { Collapse, Dropdown } from 'flowbite';
 import { UsuariosService } from '../../services/usuarios.service';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
+import { NotificacionesService } from 'src/app/modules/notificaciones/services/notificaciones.service';
+import { filter, tap } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -14,10 +16,11 @@ export class NavbarComponent {
   user!: any
   dropdownUser!: Dropdown
   menu!: Collapse
+  cantidadNotificaciones: number = 0
 
-  constructor(public authService: AuthService, public usuariosService: UsuariosService, private router: Router){}
+  constructor(public authService: AuthService, public usuariosService: UsuariosService, private router: Router, public notificacionesService: NotificacionesService){}
 
-  ngOnInit(){
+  ngAfterViewInit(){
     // Funcionalidad para el menu del navbar responsive
     const $targetMenuNavEl = document.getElementById('menu')
     this.menu = new Collapse($targetMenuNavEl);
@@ -25,11 +28,21 @@ export class NavbarComponent {
     this.authService.user.subscribe(user => {
       this.user = user // Se obtiene al usuario que esta en la sesión
 
+      this.notificacionesService.getNotificaciones(user!.uid).subscribe(notificaciones => this.cantidadNotificaciones = notificaciones.length) // Se obtienen las notificaciones y se obtiene la cantidad
+      
       // Funcionalidad para el dropdown
       const $targetDropdownEl = document.getElementById('dropdownUserMenu')
       const $triggerDropdownEl = document.getElementById('dropdownBtnUserMenu')
 
       this.dropdownUser = new Dropdown($targetDropdownEl, $triggerDropdownEl)
+    })
+
+    // Se escucha a los eventos del router y se cierra el menu del navbar responsive cuando ocurre alguno.
+    this.router.events.subscribe(() => {
+      if(this.menuIsActive){
+        this.menu.collapse()
+        this.menuIsActive = false
+      }
     })
   }
 

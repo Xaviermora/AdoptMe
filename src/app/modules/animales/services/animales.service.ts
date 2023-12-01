@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
-import { Observable } from 'rxjs';
+import { Observable, map, take } from 'rxjs';
 import { Animal } from 'src/app/models/animal';
 
 @Injectable({
@@ -38,6 +38,13 @@ export class AnimalesService {
       let upload = await this.storage.upload(path, img)
       return await upload.ref.getDownloadURL()
     }))
+  }
+
+  getAnimal(id: string){
+    return this.animalesCollection.doc(id).snapshotChanges().pipe(
+      take(1), // Se toma solamente el primer valor
+      map(d => d.payload.data())
+    )
   }
 
   getAnimales(filters?: any){
