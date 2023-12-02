@@ -23,6 +23,7 @@ function mayorDeEdad(): ValidatorFn{
   styleUrls: ['./second-register.component.css']
 })
 export class SecondRegisterComponent {
+  //FormGroup con datos personales y validacion de la entrada de datos
   datosPersonales = new FormGroup({
     nombre: new FormControl('', Validators.required),
     apellido: new FormControl('', Validators.required),
@@ -57,16 +58,20 @@ export class SecondRegisterComponent {
 
   onSubmit(){
     this.datosPersonalesIsSubmitted = true
+    //Valida que el formulario fue enviado y que el checkbox este marmcado
     if(this.datosPersonales.status == 'VALID' && this.terminosYCondicionesChecked){
+      //Obtiene datos del usuario actual
       this.authService.currentUser().then(async user => {
         this.loading = true
         if(user){
+          //Crea un objeto con los datos que tiene que guardar del usuario y sus datos personales
           let credentialsUser = {
             uid: user.uid,
             email: user.email,
             ...this.datosPersonales.value,
             photoUrl: user.photoURL
           }
+          //Guarda en la base de datos y redirecciona al inicio
           await this.usuariosService.addUser(credentialsUser)
           this.router.navigate(['/'])
         }

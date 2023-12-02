@@ -10,25 +10,36 @@ import { UsuariosService } from 'src/app/shared/services/usuarios.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  //formulario para el login
   login = new FormGroup({
     email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required)
   })
+  //bandera para un mensaje de error
   errorMsg: boolean = false
+
+  //Contenido del mensaje de error
   errorMsgContent!: string
+
+  //Bandera de carga durante el pedido
   loading: boolean = false
+  //bandera para envio de formulario
   loginIsSubmitted: boolean = false
 
   constructor(private authService: AuthService, private router: Router, private usuariosService: UsuariosService){}
   
   continueWithGoogle(){
+    //Auth con google mediante el servicio auth
     this.authService.authWithGoogle()
   }
 
   onSubmit(){
+    //Marca el formulario como enviado
     this.loginIsSubmitted = true
+    //Toma los valores de email y password
     const { email, password } = this.login.value
     
+    //Llama al servicio para el login con los datos
     if(email && password){
       this.loading = true
       this.authService.login(email, password)
