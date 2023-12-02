@@ -1,40 +1,190 @@
-<table class="table-auto w-full">
-    <thead>
-      <tr>
-        <th class="px-4 py-2">Usuarios</th> 
-        <th class="px-4 py-2">Email</th>
-        <th class="px-4 py-2">Localidad</th>
-        <th class="px-4 py-2">DNI</th>
-        <th class="px-4 py-2">Fecha de nacimiento</th>
-        <th class="px-4 py-2">Tipo de vivienda</th>
-        <th class="px-4 py-2">Teléfono</th>
-        <th class="px-4 py-2"> Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of usuario" class="">
-        <td class="border px-4 py-2 flex items-center">
-          <img class="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full object-cover object-center icon-pfp" src="{{user.photoUrl}}" alt="">
-          <span class="m-5">{{user.nombre}}</span>
-        </td>
-        
-        <td class="border px-4 py-2 ">{{user.email}}</td> 
-        <td class="border px-4 py-2 ">{{user.ciudad}}</td>
-        <td class="border px-4 py-2 ">{{user.dni}}</td>
-        <td class="border px-4 py-2 ">{{user.fechaDeNacimiento}}</td>
-        <td class="border px-4 py-2 ">{{user.tipoDeVivienda}}</td>
-        <td class="border px-4 py-2 ">{{user.telefono}}</td>
-        
-            <!--Botones-->
-            <td class="border px-4 py-2">
-              <button type="button" title="Editar">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-edit"><path d="M4 13.5V4a2 2 0 0 1 2-2h8.5L20 7.5V20a2 2 0 0 1-2 2h-5.5"/><polyline points="14 2 14 8 20 8"/><path d="M10.42 12.61a2.1 2.1 0 1 1 2.97 2.97L7.95 21 4 22l.99-3.95 5.43-5.44Z"/></svg>
-              </button>
-              <button type="button" title="Eliminar">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash-2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
-              </button>
+<!-- Tabla de usuarios en el panel admin-->
+
+
+  <div class="overflow-x-auto">
+
+    <table class="table-auto w-full">
+  
+      <thead>
+        <tr>
+          <th class="px-4 py-2 text-left">Usuario</th>
+          <th class="px-4 py-2">Email</th>
+          <th class="px-4 py-2">Localidad</th>
+          <th class="px-4 py-2">D.N.I</th>
+          <th class="px-4 py-2">Fecha de nacimiento</th>
+          <th class="px-4 py-2">Tipo de vivienda</th>
+          <th class="px-4 py-2">Teléfono</th>
+          <th class="px-4 py-2">Acciones</th>  
+        </tr>
+      </thead>
+  
+      <tbody>
+        <tr *ngFor="let user of usuario">
+  
+          <td class="border px-4 py-2 flex items-center gap-4">
+            <img class="w-10 rounded-full" src="{{user.photoUrl}}">
+            <span>{{user.nombre}}</span>  
           </td>
+  
+          <td class="border px-4 py-2">{{user.email}}</td>
+          <td class="border px-4 py-2 ">{{user.ciudad}}</td>
+          <td class="border px-4 py-2 ">{{user.dni}}</td>
+          <td class="border px-4 py-2 ">{{user.fechaDeNacimiento}}</td>
+          <td class="border px-4 py-2 ">{{user.tipoDeVivienda}}</td>
+          <td class="border px-4 py-2 ">{{user.telefono}}</td>
+  
+          <td class="border px-4 py-2">
+          
+            <button class="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded" (click)="ShowDelete(user)">
+              Eliminar  
+            </button>
+  
+            <button class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded ml-2" (click)="openEditModal(user)">
+              Editar
+            </button>
+  
+          </td>
+  
+        </tr>
+      </tbody>
+  
+    </table>
+  
+  </div>
+ 
+  
+  
+
+
+<!-- Modal para editar-->
+<div *ngIf="showEditModal" class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+  <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true" (click)="closeEditModal()"></div>
+
+    <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+    
+    <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+      <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+        <div class="sm:flex sm:items-start">
+          
+          <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+              Editar usuario
+            </h3>
+            <div class="mt-2">
+
+              <!-- Formulario para los nuevos valores-->
+              <form [formGroup]="editForm" class="bg-white p-6 rounded-lg max-w-3xl mx-auto">
+
+                <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+              
+                  <div>
+                    <label class="block text-gray-700">Nombre:</label>  
+                    <input formControlName="nombre" class="block w-full mt-1 border-gray-400 rounded-md shadow-sm focus:ring focus:border-blue-300">
+                  </div>
+              
+                  <div>
+                   <label class="block text-gray-700">Email:</label>
+                   <input formControlName="email" class="block w-full mt-1 border-gray-400 rounded-md shadow-sm focus:ring focus:border-blue-300">
+                  </div>
+              
+                  <div>
+                    <label class="block text-gray-700">Ciudad:</label>
+                   <input formControlName="ciudad" class="block w-full mt-1 border-gray-400 rounded-md shadow-sm focus:ring focus:border-blue-300">
+                  </div>
+              
+                  <div>
+                    <label class="block text-gray-700">DNI:</label>
+                    <input formControlName="dni" class="block w-full mt-1 border-gray-400 rounded-md shadow-sm focus:ring focus:border-blue-300">
+                  </div>
+                  
+                  <div>
+                    <label class="block text-gray-700">Fecha de nacimiento:</label>
+                    <input formControlName="fechaDeNacimiento" class="block w-full mt-1 border-gray-400 rounded-md shadow-sm focus:ring focus:border-blue-300">
+                  </div>
+
+                  <div>
+                    <label class="block text-gray-700">Tipo de vivienda:</label>
+                    <input formControlName="tipoDeVivienda" class="block w-full mt-1 border-gray-400 rounded-md shadow-sm focus:ring focus:border-blue-300">
+                  </div>
+                  
+                  <div>
+                    <label class="block text-gray-700">telefono:</label>
+                    <input formControlName="telefono" class="block w-full mt-1 border-gray-400 rounded-md shadow-sm focus:ring focus:border-blue-300">
+                  </div>
+
+                  <div>
+                    <label class="block text-gray-700">Foto de perfil:</label>
+                    <input formControlName="photoUrl" class="block w-full mt-1 border-gray-400 rounded-md shadow-sm focus:ring focus:border-blue-300">
+                  </div>
+                </div>
+              
+              </form>
+
+                
+
         
-      </tr>
-    </tbody>
-  </table>
+             
+               
+                
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex">
+        <button  (click)="updateUser()" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
+          Guardar
+        </button>
+        <button (click)="closeEditModal()" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+          Cancelar
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+  <!-- Modal para ELIMINAR-->
+  
+
+        <!-- Contenido del modal -->
+<div *ngIf="modalVisibleUser" class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+  <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true" (click)="closeDelete()"></div>
+
+    <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+    
+    <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+      <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+        <div class="sm:flex sm:items-start">
+          
+          <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+              Eliminar usuario
+            </h3>
+            <div class="mt-2">
+              <p class="text-sm text-gray-500">
+                ¿Está seguro que desea eliminar al usuario? Esta acción no se puede deshacer.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex">
+        <button (click)="deleteUser(usuario.uid)" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
+          Eliminar
+        </button>
+        <button (click)="closeDelete()" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+          Cancelar
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>

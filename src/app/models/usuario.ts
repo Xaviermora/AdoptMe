@@ -1,12 +1,12 @@
 export interface Usuario{
   uid: string;
-  email: string,
-  nombre: string,
-  apellido: string,
-  fechaDeNacimiento: Date,
-  ciudad: string,
-  tipoDeVivienda: string,
-  telefono: number,
-  dni: number,
-  photoURL: string
+  email: string | null;
+  nombre: string | null;
+  ciudad: string | null;
+  apellido: string | null;
+  fechaDeNacimiento: Date | null;
+  tipoDeVivienda: string | null;
+  telefono: number | null;
+  dni: number | null;
+  photoUrl: string | null
 }

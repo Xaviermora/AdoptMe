@@ -12,6 +12,7 @@ import { CiudadesService } from 'src/app/shared/services/ciudades.service';
   styleUrls: ['./second-register.component.css']
 })
 export class SecondRegisterComponent {
+  //FormGroup con datos personales y validacion de la entrada de datos
   datosPersonales = new FormGroup({
     nombre: new FormControl('', Validators.required),
     apellido: new FormControl('', Validators.required),
@@ -30,10 +31,13 @@ export class SecondRegisterComponent {
   onSubmit(){
     this.datosPersonalesIsSubmitted = true
 
+    //Valida que el formulario fue enviado y que el checkbox este marmcado
     if(this.datosPersonales.valid && this.terminosYCondicionesChecked.value){
+      
       this.authService.user.subscribe(async user => {
         this.loading = true
         if(user){
+          //Crea un objeto con los datos que tiene que guardar del usuario y sus datos personales
           if(!user.photoURL) user.updateProfile({photoURL: 'https://firebasestorage.googleapis.com/v0/b/adoptme-4080b.appspot.com/o/default-user-photo.svg?alt=media&token=37073846-dc65-4429-93c3-ac69ca63edab'})
 
           let credentialsUser = {
@@ -43,6 +47,7 @@ export class SecondRegisterComponent {
             photoURL: user.photoURL
           }
 
+          //Guarda en la base de datos y redirecciona al inicio
           await this.usuariosService.addUser(credentialsUser)
           this.router.navigate(['/'])
         }

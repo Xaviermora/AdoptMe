@@ -12,10 +12,12 @@ export class AuthService {
   constructor(private auth: AngularFireAuth, private router: Router, private usuariosService: UsuariosService, private animalesService: AnimalesService) { }
 
   register(email: string, password: string){
+    //metodo para crear un nuevo usuario con email y contraseña
     return this.auth.createUserWithEmailAndPassword(email, password)
   }
 
   login(email: string, password: string){
+    //metodo para iniciar sesion con un usuario ya existente
     return this.auth.signInWithEmailAndPassword(email, password)
   }
 
@@ -43,6 +45,7 @@ export class AuthService {
   }
 
   authWithGoogle(){
+    //inicia sesion con cuenta de google, haciendo aparecer un popup
     this.auth.signInWithPopup(new GoogleAuthProvider())
     .then(async res => {
       if(res.user){
@@ -57,10 +60,15 @@ export class AuthService {
   }
 
   resetPassword(email: string){
+
+    //envia un email de reinicio de contraseña
+
     return this.auth.sendPasswordResetEmail(email)
   }
 
   firebaseErrors(error: string): string{
+
+    //Los erorres los transforma a mensajes legibles para el usuario
     switch (error) {
       case 'auth/invalid-email':
         return 'Email invalido'
