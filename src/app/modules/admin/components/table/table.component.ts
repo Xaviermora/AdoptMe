@@ -91,7 +91,7 @@ export class TableComponent {
     this.servicioCrud.updateUserCollection(this.usuarioSelect.uid, updatedData)
     //Si fue exitoso cierra el modal y recarga los usuarios
     .then(() =>{
-      
+      alert("Usuario actualizado correctamente")
       this.closeEditModal()
       this.getUsers
     })
