@@ -64,16 +64,52 @@
               Editar usuario
             </h3>
             <div class="mt-2">
-              <p class="text-sm text-gray-500">
-                Usuario a editar
-              </p>
+              <!-- Formulario para los nuevos valores-->
+              <form [formGroup]="editForm">
+                <div class="mt-3">
+                  <label for=""> Ingrese un nuevo nombre</label>
+                  <input formControlName="nombre">
+                </div>
+                <div class="mt-3">
+                  <label for=""> Ingrese un nuevo email</label>
+                  <input formControlName="email">
+                </div>
+
+                <div class="mt-3">
+                  <label for=""> Ingrese un nueva ciudad</label>
+                  <input formControlName="ciudad">
+                </div>
+
+                <div class="mt-3">
+                  <label for=""> Ingrese un nuevo dni</label>
+                  <input formControlName="dni">
+                </div>
+
+                <div class="mt-3">
+                  <label for=""> Ingrese nueva FDN</label>
+                  <input formControlName="fechaDeNacimiento">
+                </div>
+
+                <div class="mt-3">
+                  <label for=""> Ingrese nuevo tipo de vivienda</label>
+                  <input formControlName="tipoDeVivienda">
+                </div>
+
+                <div class="mt-3">
+                  <label for=""> Ingrese un nuevo telefono</label>
+                  <input formControlName="telefono">
+                </div>
+              </form>
+               
+                
+
             </div>
           </div>
         </div>
       </div>
       <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex">
-        <button  class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
-          Editar
+        <button  (click)="updateUser()" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
+          Guardar
         </button>
         <button (click)="closeEditModal()" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
           Cancelar
