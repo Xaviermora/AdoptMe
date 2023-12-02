@@ -7,6 +7,6 @@ export interface Usuario{
   fechaDeNacimiento: Date | null;
   tipoDeVivienda: string | null;
   telefono: number | null;
-  dni: string | null;
+  dni: number | null;
   photoUrl: string | null
 }
