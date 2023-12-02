@@ -9,4 +9,5 @@ export interface Usuario{
   telefono: number;
   dni: number;
   photoURL: string;
+  role: string
 }

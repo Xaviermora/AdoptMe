@@ -5,6 +5,7 @@ import { UsuariosService } from 'src/app/shared/services/usuarios.service';
 import { Router } from '@angular/router';
 import { mayorDeEdad } from 'src/app/shared/validators/custom-validators';
 import { CiudadesService } from 'src/app/shared/services/ciudades.service';
+import { Usuario } from 'src/app/models/usuario';
 
 @Component({
   selector: 'app-second-register',
@@ -25,6 +26,7 @@ export class SecondRegisterComponent {
   datosPersonalesIsSubmitted: boolean = false
   terminosYCondicionesChecked = new FormControl(false, Validators.required)
   loading: boolean = false
+  credentialsUser!: any
 
   constructor(private authService: AuthService, private usuariosService: UsuariosService, private router: Router, public ciudadesService: CiudadesService){}
 
@@ -40,15 +42,16 @@ export class SecondRegisterComponent {
           //Crea un objeto con los datos que tiene que guardar del usuario y sus datos personales
           if(!user.photoURL) user.updateProfile({photoURL: 'https://firebasestorage.googleapis.com/v0/b/adoptme-4080b.appspot.com/o/default-user-photo.svg?alt=media&token=37073846-dc65-4429-93c3-ac69ca63edab'})
 
-          let credentialsUser = {
+          this.credentialsUser = {
             uid: user.uid,
             email: user.email,
             ...this.datosPersonales.value,
-            photoURL: user.photoURL
+            photoURL: user.photoURL,
+            role: 'usuario'
           }
 
           //Guarda en la base de datos y redirecciona al inicio
-          await this.usuariosService.addUser(credentialsUser)
+          await this.usuariosService.addUser(this.credentialsUser)
           this.router.navigate(['/'])
         }
       })
