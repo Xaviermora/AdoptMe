@@ -59,3 +59,15 @@ export const userExistsInCollection = () => {
     })
   })
 }
+
+export const isAdmin = () => {
+  const authService = inject(AuthService)
+  const router = inject(Router)
+  const usuariosService = inject(UsuariosService)
+
+  return new Promise((resolve) => {
+    authService.user.subscribe(user => {
+      if(user) usuariosService.getUser(user.uid).subscribe(user => user?.role === 'admin' ? resolve(true) : router.navigate(['/']))
+    })
+  })
+}
