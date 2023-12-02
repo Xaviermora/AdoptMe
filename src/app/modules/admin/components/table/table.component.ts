@@ -47,6 +47,7 @@ export class TableComponent {
       dni: 0,
       fechaDeNacimiento: Date,
       tipoDeVivienda: '',
+      photoUrl:'',
       telefono: 0,
     }) 
     
