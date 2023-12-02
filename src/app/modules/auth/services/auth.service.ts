@@ -4,12 +4,13 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { UsuariosService } from 'src/app/shared/services/usuarios.service';
 import { AnimalesService } from '../../animales/services/animales.service';
+import { NotificacionesService } from '../../notificaciones/services/notificaciones.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private auth: AngularFireAuth, private router: Router, private usuariosService: UsuariosService, private animalesService: AnimalesService) { }
+  constructor(private auth: AngularFireAuth, private router: Router, private usuariosService: UsuariosService, private animalesService: AnimalesService, private notificacionesService: NotificacionesService) { }
 
   register(email: string, password: string){
     //metodo para crear un nuevo usuario con email y contraseña
@@ -40,6 +41,7 @@ export class AuthService {
       user?.delete().then(async () => {
         await this.usuariosService.deleteUser(user.uid)
         this.animalesService.deleteAnimalByUserId(user.uid)
+        this.notificacionesService.deleteNotificacionesByUserId(user.uid)
       }).catch(console.log)
     })
   }

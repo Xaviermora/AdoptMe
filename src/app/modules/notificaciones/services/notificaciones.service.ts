@@ -34,4 +34,16 @@ export class NotificacionesService {
   async deleteNotificacion(id: string){
     await this.notificacionesCollection.doc(id).delete()
   }
+
+  deleteNotificacionesByUserId(userId: string){
+    // Eliminar las notificaciones que le pertenecen al usuario
+    this.notificacionesCollection.ref.where('idUsuario', '==', userId).get().then(snapshot => {
+      snapshot.docs.forEach(async doc => await doc.ref.delete());
+    })
+
+    // Eliminar las notificaciones que el usuario mando
+    this.notificacionesCollection.ref.where('idUsuarioAdoptante', '==', userId).get().then(snapshot => {
+      snapshot.docs.forEach(async doc => await doc.ref.delete());
+    })
+  }
 }
