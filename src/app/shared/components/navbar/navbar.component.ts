@@ -17,6 +17,7 @@ export class NavbarComponent {
   dropdownUser!: Dropdown
   menu!: Collapse
   cantidadNotificaciones: number = 0
+  roleUser!: string
 
   constructor(public authService: AuthService, public usuariosService: UsuariosService, private router: Router, public notificacionesService: NotificacionesService){}
 
@@ -27,7 +28,8 @@ export class NavbarComponent {
 
     this.authService.user.subscribe(user => {
       this.user = user // Se obtiene al usuario que esta en la sesión
-
+      this.usuariosService.getUser(user!.uid).subscribe(user => this.roleUser = user!.role)
+      
       this.notificacionesService.getNotificaciones(user!.uid).subscribe(notificaciones => this.cantidadNotificaciones = notificaciones.length) // Se obtienen las notificaciones y se obtiene la cantidad
       
       // Funcionalidad para el dropdown

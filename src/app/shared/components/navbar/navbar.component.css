@@ -49,3 +49,10 @@
         display: inline-block;
     }
 }
+
+/* Mostrar el nombre del logo mientras la pantalla sea mayor a 385px y menor a 875px para la vista de admin */
+@media (min-width: 385px) and (max-width: 875px){
+    #logoNameAdmin{
+        display: inline-block;
+    }
+}
