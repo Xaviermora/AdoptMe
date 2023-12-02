@@ -39,7 +39,7 @@ export const userNotExistsInCollection = () => {
   return authService.user.subscribe(user => {
     return usuariosService.userExists(user!.uid).subscribe(userExists => {
       if(!userExists){ return true }
-      else{ return router.navigate(['/datos-personales']) } 
+      else{ return router.navigate(['/']) } 
     })
   })
 }

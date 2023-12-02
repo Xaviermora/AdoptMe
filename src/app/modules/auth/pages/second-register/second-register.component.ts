@@ -5,7 +5,6 @@ import { UsuariosService } from 'src/app/shared/services/usuarios.service';
 import { Router } from '@angular/router';
 import { mayorDeEdad } from 'src/app/shared/validators/custom-validators';
 import { CiudadesService } from 'src/app/shared/services/ciudades.service';
-import { Usuario } from 'src/app/models/usuario';
 
 @Component({
   selector: 'app-second-register',

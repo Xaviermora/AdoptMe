@@ -1,9 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { Modal } from 'flowbite';
 import { Animal } from 'src/app/models/animal';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
 import { NotificacionesService } from 'src/app/modules/notificaciones/services/notificaciones.service';
+import { userExistsInCollection } from 'src/app/shared/guards/auth.guard';
+import { UsuariosService } from 'src/app/shared/services/usuarios.service';
 
 @Component({
   selector: 'app-modal',
@@ -19,22 +21,30 @@ export class ModalComponent {
   severity: string = 'success'
   loading: boolean = false
 
-  constructor(private notificacionesService: NotificacionesService, private authService: AuthService, private router: Router){}
+  constructor(private notificacionesService: NotificacionesService, private authService: AuthService, private router: Router, private usuariosService: UsuariosService){}
 
   solicitarAdopcion(){
-    this.authService.user.subscribe(async user => {
+    this.authService.user.subscribe(user => {
+      this.loading = true
+
+      // Se comprueba que haya un usuario en sesión
       if(user){
-        this.loading = true
-
-        await this.notificacionesService.createNotificacion({
-          idAnimal: this.animal.id,
-          idUsuarioAdoptante: user.uid,
-          idUsuario: this.animal.userId
+        // Se comprueba que el usuario exista en la colección de firebase
+        this.usuariosService.userExists(user.uid).subscribe(async userExists => {
+          if(userExists){
+            await this.notificacionesService.createNotificacion({
+              idAnimal: this.animal.id,
+              idUsuarioAdoptante: user.uid,
+              idUsuario: this.animal.userId
+            })
+    
+            this.msgToast = 'Se mandó la solicitud'
+            this.showToast = true
+            this.loading = false
+          }else{
+            this.router.navigate(['/datos-personales'])
+          }
         })
-
-        this.msgToast = 'Se mandó la solicitud'
-        this.showToast = true
-        this.loading = false
       }else{this.router.navigate(['/login'])}
     })
   }

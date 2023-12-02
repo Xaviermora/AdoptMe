@@ -42,7 +42,7 @@
     <span *ngIf="datosPersonales.controls.dni.errors?.['required'] && datosPersonalesIsSubmitted" class="error-msg-input">El DNI es requerido</span>
   </div>
 
-  <div>
+  <div class="w-full">
     <div class="flex gap-1">
       <app-input-checkbox [control]="terminosYCondicionesChecked" class="flex mt-0.5" idInput="terminos-y-condiciones"></app-input-checkbox>
       <span class="text-neutral-secundario-100">
