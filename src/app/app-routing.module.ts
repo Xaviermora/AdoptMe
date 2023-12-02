@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { userExistsInCollection, userInSession, userNotInSession } from './shared/guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'animales',
-    loadChildren:()=>import('./modules/animales/animales.module').then( m => m.AnimalesModule)
+    path: '', loadChildren: () => import('./modules/inicio/inicio.module').then(m => m.InicioModule)
+  },
+  {
+    path: '',
+    loadChildren:()=>import('./modules/animales/animales.module').then(m => m.AnimalesModule)
   },
   {
     path: '',
@@ -16,7 +20,16 @@ const routes: Routes = [
   },
   {
     path:'',
-    loadChildren: () => import('./modules/admin/admin.module').then (m=> m.AdminModule)
+    loadChildren:()=>import('./modules/usuario/usuario.module').then(m =>m.UsuarioModule),
+    canActivate: [userInSession, userExistsInCollection]
+  },
+  {
+    path: '',
+    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)
+  },
+  {
+    path: '',
+    loadChildren: () => import('./modules/notificaciones/notificaciones.module').then(m => m.NotificacionesModule)
   }
 ];
 

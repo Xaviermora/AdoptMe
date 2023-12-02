@@ -10,7 +10,6 @@ import { FormBuilder, FormGroup} from '@angular/forms';
 })
 export class TableComponent {
 
-
   /*propiedades y metodos de la tabla admin*/
 
   //Arreglo para almacenar la coleccion de usuarios
@@ -133,5 +132,4 @@ export class TableComponent {
     this.modalVisibleUser = false
     
   }
-  
 }

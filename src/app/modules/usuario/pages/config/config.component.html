@@ -1,0 +1,26 @@
+<div class="lg:w-6/12 md:w-8/12 w-11/12 mx-auto pt-6 flex flex-col gap-4">
+    <div id="configOptionsTrigger" data-dropdown-toggle="configOptions" data-dropdown-offset-distance="15" data-dropdown-placement="bottom" data-dropdown-offset-skidding="90" class="text-xl font-semibold text-neutral-primario flex items-center cursor-pointer w-fit">
+        <h1 class="titulos-2">{{configOption}}</h1>
+
+        <!-- Icono para abrir las opciones de configuración -->
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+    </div>
+
+    <app-divider class="mb-3"></app-divider>
+
+    <ng-container *ngIf="usuario">
+      <ng-container [ngSwitch]="configOption">
+          <app-config-perfil-publico [usuario]="usuario" *ngSwitchCase="'Perfil público'"></app-config-perfil-publico>
+          <app-config-datos-personales [usuario]="usuario" *ngSwitchCase="'Datos personales'"></app-config-datos-personales>
+          <app-config-seguridad *ngSwitchCase="'Seguridad'"></app-config-seguridad>
+      </ng-container>
+    </ng-container>
+</div>
+
+<app-dropdown-menu idDropdown="configOptions">
+    <app-item-dropdown-menu (click)="configOption = 'Perfil público'">Perfil público</app-item-dropdown-menu>
+    <app-item-dropdown-menu (click)="configOption = 'Datos personales'">Datos personales</app-item-dropdown-menu>
+    <app-item-dropdown-menu (click)="configOption = 'Seguridad'">Seguridad</app-item-dropdown-menu>
+</app-dropdown-menu>

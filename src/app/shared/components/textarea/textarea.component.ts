@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-textarea',
@@ -6,8 +7,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./textarea.component.css']
 })
 export class TextareaComponent {
-
   @Input() rows!: number;
-
-  @Input() placeholder!: string;
+  @Input() label!: string
+  @Input() control: FormControl = new FormControl()
 }

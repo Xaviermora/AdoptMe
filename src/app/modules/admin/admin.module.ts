@@ -8,7 +8,6 @@ import { ReportesComponent } from './pages/reportes/reportes.component';
 import { SharedModule } from "../../shared/shared.module";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
 @NgModule({
     declarations: [
         AdminComponent,

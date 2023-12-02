@@ -1,0 +1,21 @@
+/*Cuarta parte*/
+.image-1{
+    width: 366px;
+    height: 450px;
+    border-radius: 25px;
+}
+
+.image-2{
+    width: 166.765px;
+    height: 150px; 
+    position: absolute;
+    bottom: -2rem;
+    
+}
+
+.img-abajo{
+    position: relative;
+}
+
+
+/*Fin de la cuarta parte*/

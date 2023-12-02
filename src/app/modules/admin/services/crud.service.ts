@@ -8,12 +8,12 @@ import { Usuario } from 'src/app/models/usuario';
 export class CrudService {
   //Pripiedad para acceder a la coleccion de usuarios
   private usuariosCollection: AngularFirestoreCollection<Usuario>
+  private reportesCollection: AngularFirestoreCollection<any>
   
   //Inyecta nuestra base de datos de Firestore para acceder a las colecciones
   constructor(private database: AngularFirestore) {
-    
-    //Obtiene la referencia a la coleccion de usuarios dentro de FireStore Database
     this.usuariosCollection = database.collection('usuarios')
+    this.reportesCollection = database.collection('reportes')
   }
 
  //Metodo para obtener los usuarios
@@ -54,4 +54,33 @@ export class CrudService {
   }
 }
 
+  
 
+  createTable(usuario: Usuario){
+    return new Promise(async(resolve, reject) => {
+      try{
+        const id = this.database.createId();
+        usuario.uid = id;
+
+        const resultado = await this.usuariosCollection.doc(id).set(usuario);
+        resolve(resultado);
+      }catch(error){
+        reject(error);
+      }
+    })
+  }
+
+  getUserCollection(){
+    return this.database.collection('usuarios').valueChanges();
+    /*  return this.usuariosCollection.snapshotChanges().pipe(map(action => action.map(a => a.payload.doc.data()))) */
+  }
+
+  async createReporte(datosReporte: any){
+    const reporte = {
+      id: this.database.createId(),
+      datosReporte,
+    }
+
+    return await this.reportesCollection.doc(reporte.id).set(reporte)
+  }
+}

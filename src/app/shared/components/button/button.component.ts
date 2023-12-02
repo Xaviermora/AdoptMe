@@ -10,4 +10,5 @@ export class ButtonComponent {
   @Input() size: string = 'normal'
   @Input() class!: string
   @Input() type: string = 'button'
+  @Input() disabled: boolean = false
 }
