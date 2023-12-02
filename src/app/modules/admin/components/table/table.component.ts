@@ -39,7 +39,7 @@ export class TableComponent {
   }
 
   ngOnInit(): void{
-    //Construccion del formulario con todos sus campos
+    //Construccion del formulario reactivo con todos los camos del usuario
     this.editForm = this.fb.group({
       nombre: '',
       email: '',
@@ -50,11 +50,11 @@ export class TableComponent {
       telefono: 0,
     }) 
     
-    //obtencion de usuarios
+    //Obtencion de la coleccion de usuarios desde el servicio
     this.getUsers()
   }
 
-  //obtiene la coleccion directamente desde el servicio
+  //obtiene la coleccion a traves del servicio subscribiendose a los cambios
   getUsers(){
     this.servicioCrud.getUserCollection()
     .subscribe(data => {this.usuario = data;})
@@ -64,11 +64,11 @@ export class TableComponent {
 
 
   openEditModal(usuarioSelect: Usuario) {
-    //Hace visible el modal
+    //Hace visible el modal para editar usuario
     this.showEditModal = true;
-    //Referencia la usuario seleccionado  
+    //Referencia al usuario seleccionado  
     this.usuarioSelect = usuarioSelect
-    //Establece o Setea el formulario con los datos del usuario seleccionado
+    //Establece o Setea  valores del formulario con los datos del usuario seleccionado
     this.editForm.patchValue(usuarioSelect);
     
   }
@@ -78,23 +78,23 @@ export class TableComponent {
     this.showEditModal = false;
   }
 
-  // Al aceptar los cambios en el modal
+  // Al GUARDAR los cambios en el modal
 
   //Metodo para guardar los cambios hechos en el usuario
   updateUser(){
     
-    //Obtencion de los nuevos datos desde el formulario
+    //Obtencion de los nuevos datos (updates) desde el formulario
     const  updatedData = this.editForm.value;
     
     //Llamado al servicio para el update, pasandole el UID y los nuevos datos del usuario 
     this.servicioCrud.updateUserCollection(this.usuarioSelect.uid, updatedData)
-    //Entonces si fue exitoso cerramos el modal y volvemos a obtener los usuarios (con informacion actualizada)
+    //Si fue exitoso cierra el modal y recarga los usuarios
     .then(() =>{
       
       this.closeEditModal()
       this.getUsers
     })
-    //Capturamos errores en caso de que ocurra alguno
+    //Si no fue exitoso, capturamos errores en caso de que ocurra alguno
     .catch(error => {
       console.log(error);
     })
