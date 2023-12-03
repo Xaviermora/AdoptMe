@@ -5,6 +5,7 @@ import { UsuariosService } from 'src/app/shared/services/usuarios.service';
 import { Router } from '@angular/router';
 import { mayorDeEdad } from 'src/app/shared/validators/custom-validators';
 import { CiudadesService } from 'src/app/shared/services/ciudades.service';
+import { Modal } from 'flowbite';
 
 @Component({
   selector: 'app-second-register',
@@ -26,8 +27,15 @@ export class SecondRegisterComponent {
   terminosYCondicionesChecked = new FormControl(false, Validators.required)
   loading: boolean = false
   credentialsUser!: any
+  modalTerminosCondiciones!: Modal
 
   constructor(private authService: AuthService, private usuariosService: UsuariosService, private router: Router, public ciudadesService: CiudadesService){}
+
+  ngAfterViewInit(){
+    const $targetEl = document.getElementById('modal-terminos-y-condiciones')
+    
+    this.modalTerminosCondiciones = new Modal($targetEl)
+  }
 
   onSubmit(){
     this.datosPersonalesIsSubmitted = true

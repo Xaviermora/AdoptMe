@@ -46,7 +46,7 @@
     <div class="flex gap-1">
       <app-input-checkbox [control]="terminosYCondicionesChecked" class="flex mt-0.5" idInput="terminos-y-condiciones"></app-input-checkbox>
       <span class="text-neutral-secundario-100">
-        Acepto los <a href="">términos y condiciones</a>.
+        Acepto los <a class="cursor-pointer" (click)="modalTerminosCondiciones.show()" [attr.data-modal-target]="'modal-terminos-y-condiciones'" [attr.data-modal-toggle]="'modal-terminos-y-condiciones'" >términos y condiciones</a>.
       </span>
     </div>
     <span *ngIf="!terminosYCondicionesChecked.value && datosPersonalesIsSubmitted" class="error-msg-input">Debe aceptar los términos y condiciones para continuar</span>
@@ -56,3 +56,127 @@
     <app-spinner-loading *ngIf="loading"></app-spinner-loading>
   </app-button>
 </form>
+
+<div id="modal-terminos-y-condiciones" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+  <div class="relative w-full max-w-2xl max-h-full">
+    <!-- Modal content -->
+    <div class="relative bg-white rounded-lg shadow">
+        <!-- Modal header -->
+        <div class="flex items-center justify-between py-4 pr-4 pl-8 border-b">
+            <h3 class="text-xl font-semibold text-neutral-primario">
+              Términos y condiciones
+            </h3>
+            <!-- BOTON PARA CERRAR EL MODAL -->
+            <button type="button" class="text-neutral-secundario-50 bg-transparent hover:bg-gray-200 hover:text-neutral-secundario-100 rounded-full text-sm w-8 h-8 ml-auto inline-flex justify-center items-center" [attr.data-modal-hide]="'modal-terminos-y-condiciones'" (click)="modalTerminosCondiciones.hide()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+              </svg>
+                <span class="sr-only">Close modal</span>
+            </button>
+        </div>
+        <!-- INFORMACION Téminos y condiciones -->
+        <div class="p-8">
+          <span>Al ingresar al sitio, registrándose usted (usuario) está aceptando este contrato, comprometiéndose a seguir las normas que están impuestas para una navegación más segura en la página, una mejor experiencia y satisfacción de los consumidores. Si no se sigue/cumple este contrato se llevarán acciones teniendo en cuenta el nivel de infracción, donde las consecuencias pueden ser desde ser eliminar al usuario hasta llevarse acciones legales si es ese el caso.</span>
+        </div>
+        <div class="p-8">
+          <p class="font-semibold text-neutral-primario">Información del usuario.</p>
+          <span>
+            El registro y uso de los servicios por parte de un usuario indica la aceptación absoluta de los presentes Términos y Condiciones.<br>
+
+            Al acceder a nuestros servicios será libre y gratuito. El usuario garantiza y declara ser mayor de 18 años, y/o en su caso, que tiene la expresa autorización de sus padres o de sus tutores para poder acceder al sitio web y que es competente para entender y aceptar sin reservas las obligaciones, afirmaciones, representaciones y garantías establecidas en estos Términos y Condiciones.<br>
+
+            Al aceptar este contrato usted confirma que es responsable de sus acciones, así como en la información que mostrará en su perfil, la cual va a ser mostrada al público en el caso de que vaya a dar en  adopción o desee adoptar un animal.<br>
+
+          La información del usuario estará protegida por la Ley N°25.326 PROTECCIÓN DE LOS DATOS. Se le recomienda leerla en el caso de alguna duda o inconveniencia.<br>
+
+          Al aceptar los términos y condiciones se accede y se da el consentimiento de difusión de su información, como los datos que se obtengan de fuentes de acceso público irrestricto como dice el articulo 5 de la Ley N°25.326, así como otra información que se le pedirá en el caso de dar o adoptar algún animal. En ese caso esa información solo se le mostrará a la otra persona que esté involucrada en la adopción.<br>
+
+          Al suministrar información, el Usuario asiste al Administrador en el constante proceso de mejora de los servicios disponibles y en el desarrollo de nuevos productos, siempre tendiendo a que el uso de los mismos se torne más sencillo y ágil para los Usuarios.<br>
+
+          Proporcionar datos personales supone la aceptación sin reservas de los términos y condiciones aquí establecidos.<br>
+          </span>
+        </div>
+
+        <div class="p-8">
+          <p class="font-semibold text-neutral-primario">
+            Dudas del usuario.
+          </p>
+          <span>
+            El usuario tiene el derecho de consultar cualquiera de sus preguntas, inquietudes o problemas con el administrador del sitio desde la página contacto, donde nos podrá escribir a nuestro email. Estas pueden estar relacionadas con los Términos y Condiciones así como también del sitio web en sí.<br>
+
+            La Dirección Nacional de PROTECCIÓN DE LOS DATOS Personales, órgano de control de la Ley 25.326, tiene la atribución de atender las denuncias y reclamos que se formulen con relación al incumplimiento de las normas sobre protección de datos personales.<br>
+            
+          </span>
+        </div>
+
+        <div class="p-8">
+          <p class="font-semibold text-neutral-primario">
+            Sanciones.
+          </p>
+          <span>
+            El Usuario deberá respetar estos Términos y Condiciones de Uso del sitio web. Las infracciones por acción u omisión de los presentes Términos y Condiciones de Uso generarán el derecho a favor del Administrador de suspender al Usuario que las haya realizado.<br>
+
+            El Usuario se obliga a usar los Servicios Digitales de conformidad con estos Términos y Condiciones, en forma correcta y lícita. En caso contrario, el Administrador podrá suspender la cuenta del Usuario, por considerarlo: violatorio de estos Términos y Condiciones y/o de la Política de Privacidad de estos Servicios Digitales, ofensivo, ilegal, violatorio de derechos de terceros, contrario a la moral y buenas costumbres y amenaza la seguridad de otros Usuarios.<br>
+          
+          </span>
+        </div>
+        <div class="p-8">
+          <p class="font-semibold text-neutral-primario">
+            Ley aplicable y jurisdicción.
+          </p>
+          <span>
+            Los términos y condiciones se rigen por las leyes del país o jurisdicción correspondiente. En caso de disputas legales, se someterán a los tribunales competentes.
+
+          </span>
+        </div>
+        <div class="p-8">
+          <p class="font-semibold text-neutral-primario">
+            Obligaciones del usuario.
+          </p>
+          <span>
+            El Usuario se compromete a:
+            No acceder a datos restringidos o a intentar violar las barreras de seguridad para llegar a ellos.<br>
+            No realizar búsquedas de vulnerabilidades o explotación de las mismas para cualquier fin.
+            No divulgar información acerca de la detección de vulnerabilidades encontradas en los Servicios Digitales.<br>
+            Comunicar al Administrador toda información a la que tenga acceso que pudiera implicar un compromiso a la seguridad de la información o los servicios digitales.<br>
+            La adecuada utilización de todos los recursos de Internet es, sin excepción, de entera responsabilidad del Usuario de los servicios.	<br>
+            Las siguientes actividades se encuentran expresamente vedadas, sin perjuicio de las prohibiciones generales expuestas anteriormente:<br>
+            Hostigar, acosar, amenazar, acechar, realizar actos de vandalismo hacia otros Usuarios.<br>
+            Infringir los derechos a la intimidad de otros Usuarios.<br>
+            Solicitar información personal identificable de otros Usuarios con el propósito de hostigar, atacar, explotar, violar la intimidad de los mismos.<br>
+            Publicar de manera intencionada o con conocimiento injurias o calumnias.<br>
+            Publicar, con el intento de engañar, contenido que es falso o inexacto.<br>
+            Intentar usurpar la identidad de otro Usuario, representando de manera falsa su afiliación con cualquier individuo o entidad, o utilizar el nombre de otro Usuario con el propósito de engañar.<br>
+            Promover, defender o mostrar pornografía, obscenidad, vulgaridad, blasfemia, odio, fanatismo, racismo y/o violencia.<br>
+            Vulnerar los derechos establecidos en la Ley 25.326 de Protección de Datos Personales.<br>
+            En caso de sufrir alguna de estas situaciones, deberá comunicarse con el Administrador a través del sitio, la página contacto y escribiendo a nuestro correo.<br>
+            Está prohibido para el usuario difundir la información privada de otro perfil ajeno al suyo. En el caso de ello, se le dará de baja la cuenta al mismo y se podrán tomar acciones legales por parte del usuario afectado.            
+          </span>
+        </div>
+        <div class="p-8">
+          <p class="font-semibold text-neutral-primario">
+            Uso del sitio
+          </p>
+          <span>
+            La página solo facilita la adopción de los animales para que el adoptante pueda encontrar a un animal que pueda cumplir con sus “gustos” así como para el que usuario que va a dar en adopción tenga una idea y/o seguridad de a quién le va a entregar el animal.<br>
+            El usuario tiene permitido utilizar el sitio web para fines legales y de acuerdo con los términos y condiciones. Se prohíbe el uso del sitio web para actividades ilegales, difamatorias, ofensivas o que violen los derechos de terceros. En el caso de no cumplir con este punto se le dará de baja la cuenta y se tendrá  en cuenta la gravedad del asunto, lo que podría llevar a acciones legales.<br>
+            El uso del sitio es solo dedicado a los a los animales y a los interesados  en adoptar. Esto quiere decir que las imágenes que se van a compartir serán sólo y únicamente de animales (gatos y perros), en el caso de compartir contenido que no corresponda las fotos serán borradas.<br>
+            Las fotos deberán mostrar al animal que va a ser dado en adopción. Esto quiere decir que no se aceptarán imágenes de animales parecidos o de la misma raza. En caso de no cumplir con ello los usuarios lo podrán reportar y se tomarán acciones en el caso, donde se le podrá eliminar las fotos y/o la cuenta al usuario.<br>
+            Cualquier inconveniente o problema que surja después de dar en adopción al animal los únicos responsables en ello pasan a ser los involucrados en el intercambio del animal (ex dueño a dueño actual/adoptante).<br>
+            La página solo podrá tomar papel en el asunto en el caso que el usuario que dio en adopción al animal haya mentido y/o publicado información falsa tanto del animal como para su información privada, en el caso de que esa afecte directamente al animal o al adoptante.<br>
+            No se permite contenido de animales lastimados que sean delicados al público (heridas abiertas, lesiones recientes que muestran sangre, entre otros).<br>
+            En el caso de que el animal posea alguna lesión, enfermedad y/o discapacidad esta deberá ser informada en los datos del animal. Esto será de valiosa información para preparar al adoptante  y así darle la mejor atención al animal.<br>
+          </span>
+        </div>
+        <div class="p-8">
+          <p class="font-semibold text-neutral-primario">
+              Propiedad Intelectual
+          </p>
+          <span>
+            Todos los derechos de propiedad intelectual relacionados con el contenido del sitio web pertenecen al propietario del sitio web. Se prohíbe el uso no autorizado de cualquier contenido protegido por derechos de autor.<br>
+            La expresión de ideas, procedimientos, métodos de operación y conceptos matemáticos de conformidad con lo establecido en el artículo 1º de la Ley 11.723 y sus modificatorias, así como las marcas, avisos, nombres comerciales, publicidad, dibujos, diseños, logotipos, textos, entre otros, que aparecen en los Servicios Digitales son propiedad del Administrador, excepto cuando se declare lo contrario.<br>
+          </span>
+        </div>
+    </div>
+  </div>
+</div>
