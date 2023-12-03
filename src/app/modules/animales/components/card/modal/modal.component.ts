@@ -24,7 +24,10 @@ export class ModalComponent {
   constructor(private notificacionesService: NotificacionesService, private authService: AuthService, private router: Router, private usuariosService: UsuariosService){}
 
   solicitarAdopcion(){
-    this.authService.user.subscribe(user => {
+    const userSubscription = this.authService.user.subscribe(user => {
+      // Se desuscribe después del primer valor recibido
+      if (userSubscription) userSubscription.unsubscribe();
+
       this.loading = true
 
       // Se comprueba que haya un usuario en sesión

@@ -39,7 +39,7 @@ export class SecondRegisterComponent {
         this.loading = true
         if(user){
           //Crea un objeto con los datos que tiene que guardar del usuario y sus datos personales
-          if(!user.photoURL) user.updateProfile({photoURL: 'https://firebasestorage.googleapis.com/v0/b/adoptme-4080b.appspot.com/o/default-user-photo.svg?alt=media&token=37073846-dc65-4429-93c3-ac69ca63edab'})
+          if(!user.photoURL) await user.updateProfile({photoURL: 'https://firebasestorage.googleapis.com/v0/b/adoptme-4080b.appspot.com/o/default-user-photo.svg?alt=media&token=37073846-dc65-4429-93c3-ac69ca63edab'})
 
           this.credentialsUser = {
             uid: user.uid,

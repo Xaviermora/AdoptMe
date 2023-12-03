@@ -18,7 +18,7 @@ export class NavbarComponent {
   menu!: Collapse
   cantidadNotificaciones: number = 0
   roleUser!: string
-
+a:any
   constructor(public authService: AuthService, public usuariosService: UsuariosService, private router: Router, public notificacionesService: NotificacionesService){}
 
   ngAfterViewInit(){
@@ -30,7 +30,7 @@ export class NavbarComponent {
       this.user = user // Se obtiene al usuario que esta en la sesión
       this.usuariosService.getUser(user!.uid).subscribe(user => this.roleUser = user!.role)
       
-      this.notificacionesService.getNotificaciones(user!.uid).subscribe(notificaciones => this.cantidadNotificaciones = notificaciones.length) // Se obtienen las notificaciones y se obtiene la cantidad
+      this.a = this.notificacionesService.getNotificaciones(user!.uid).subscribe(notificaciones => this.cantidadNotificaciones = notificaciones.length) // Se obtienen las notificaciones y se obtiene la cantidad
       
       // Funcionalidad para el dropdown
       const $targetDropdownEl = document.getElementById('dropdownUserMenu')
