@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
-import { UsuariosService } from '../services/usuarios.service';
+import { UsuariosService } from '../../modules/usuario/services/usuarios.service';
 
 export const userInSession = () => {
   const authService = inject(AuthService)

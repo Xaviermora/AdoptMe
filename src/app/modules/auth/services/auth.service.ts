@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { GoogleAuthProvider } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { UsuariosService } from 'src/app/shared/services/usuarios.service';
+import { UsuariosService } from 'src/app/modules/usuario/services/usuarios.service';
 import { AnimalesService } from '../../animales/services/animales.service';
 import { NotificacionesService } from '../../notificaciones/services/notificaciones.service';
 

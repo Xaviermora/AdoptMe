@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from 'src/app/models/usuario';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
-import { UsuariosService } from 'src/app/shared/services/usuarios.service';
+import { UsuariosService } from 'src/app/modules/usuario/services/usuarios.service';
 import { mayorDeEdad } from 'src/app/shared/validators/custom-validators';
 
 @Component({

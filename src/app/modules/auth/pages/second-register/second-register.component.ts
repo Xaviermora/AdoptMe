@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { UsuariosService } from 'src/app/shared/services/usuarios.service';
+import { UsuariosService } from 'src/app/modules/usuario/services/usuarios.service';
 import { Router } from '@angular/router';
 import { mayorDeEdad } from 'src/app/shared/validators/custom-validators';
 import { CiudadesService } from 'src/app/shared/services/ciudades.service';

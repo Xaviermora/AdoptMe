@@ -1,4 +1,4 @@
-import { UsuariosService } from 'src/app/shared/services/usuarios.service';
+import { UsuariosService } from 'src/app/modules/usuario/services/usuarios.service';
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from 'src/app/models/usuario';

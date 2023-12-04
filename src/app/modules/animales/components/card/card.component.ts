@@ -2,7 +2,7 @@ import { Dropdown, Modal } from 'flowbite';
 import { Component, Input, AfterViewInit, OnDestroy } from '@angular/core';
 import { Animal } from 'src/app/models/animal';
 import { Usuario } from 'src/app/models/usuario';
-import { UsuariosService } from 'src/app/shared/services/usuarios.service';
+import { UsuariosService } from 'src/app/modules/usuario/services/usuarios.service';
 
 @Component({
   selector: 'app-card',

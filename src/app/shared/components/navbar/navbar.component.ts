@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Collapse, Dropdown } from 'flowbite';
-import { UsuariosService } from '../../services/usuarios.service';
+import { UsuariosService } from '../../../modules/usuario/services/usuarios.service';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { NotificacionesService } from 'src/app/modules/notificaciones/services/notificaciones.service';

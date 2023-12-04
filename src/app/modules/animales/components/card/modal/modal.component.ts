@@ -5,7 +5,7 @@ import { Animal } from 'src/app/models/animal';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
 import { NotificacionesService } from 'src/app/modules/notificaciones/services/notificaciones.service';
 import { userExistsInCollection } from 'src/app/shared/guards/auth.guard';
-import { UsuariosService } from 'src/app/shared/services/usuarios.service';
+import { UsuariosService } from 'src/app/modules/usuario/services/usuarios.service';
 
 @Component({
   selector: 'app-modal',

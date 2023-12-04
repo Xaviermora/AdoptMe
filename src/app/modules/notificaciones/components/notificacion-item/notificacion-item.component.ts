@@ -3,7 +3,7 @@ import { Animal } from 'src/app/models/animal';
 import { Notificacion } from 'src/app/models/notificacion';
 import { Usuario } from 'src/app/models/usuario';
 import { AnimalesService } from 'src/app/modules/animales/services/animales.service';
-import { UsuariosService } from 'src/app/shared/services/usuarios.service';
+import { UsuariosService } from 'src/app/modules/usuario/services/usuarios.service';
 import { NotificacionesService } from '../../services/notificaciones.service';
 
 @Component({

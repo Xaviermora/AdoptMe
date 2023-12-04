@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Dropdown } from 'flowbite';
 import { Usuario } from 'src/app/models/usuario';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
-import { UsuariosService } from 'src/app/shared/services/usuarios.service';
+import { UsuariosService } from 'src/app/modules/usuario/services/usuarios.service';
 
 @Component({
   selector: 'app-config',
